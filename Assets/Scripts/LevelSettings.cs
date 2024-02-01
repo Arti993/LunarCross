@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelProperties
+public class LevelSettings
 {
-    public LevelProperties(Chunk chunkWithObstacles, Chunk tornadoCHunk, int collectableEntitiesCount, int enemiesCount)
+    public LevelSettings(ChunkWithObstacles chunkWithObstacles, TornadoChunk tornadoCHunk, int collectableEntitiesCount, int enemiesCount)
     {
         ChunkWithObstacles = chunkWithObstacles;
         TornadoChunk = tornadoCHunk;

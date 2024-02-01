@@ -3,7 +3,7 @@ using Zenject;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] private float _angle = 25;
+    [SerializeField] private float _angle = 30;
     [SerializeField] private float _yPosition = 6;
     [SerializeField] private float _zOffset = -9;
 

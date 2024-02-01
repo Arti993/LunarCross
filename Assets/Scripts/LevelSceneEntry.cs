@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using IJunior.TypedScenes;
 
-public class LevelSceneEntry : MonoBehaviour, ISceneLoadHandler<LevelProperties>
+public class LevelSceneEntry : MonoBehaviour, ISceneLoadHandler<LevelSettings>
 {
-    public void OnSceneLoaded(LevelProperties levelProperties)
+    public void OnSceneLoaded(LevelSettings levelSettings)
     {
         
     }

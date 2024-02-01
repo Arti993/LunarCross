@@ -1,14 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using IJunior.TypedScenes;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private LevelsPropertiesNomenclature _levelsPropertiesNomenclature;
+    private LevelsSettingsNomenclature _levelsSettingsNomenclature = new LevelsSettingsNomenclature();
 
     public void OnPlayButtonClick()
     {
-        SampleScene_1.Load(_levelsPropertiesNomenclature.GetLevelProperties(1));
+        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        
+        SampleScene_1.Load(_levelsSettingsNomenclature.GetLevelProperties(levelReached));
+    }
+
+    public void OnLevelsChooseButtonCLick()
+    {
+        LevelsChoose.Load();
     }
 }

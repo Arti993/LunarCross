@@ -5,7 +5,7 @@ using UnityEngine;
 using IJunior.TypedScenes;
 using Zenject;
 
-public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelProperties>
+public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
 {
     [SerializeField] private Chunk _emptyChunk;
     [SerializeField] private Chunk _firstChunk;
@@ -40,12 +40,12 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelProperties>
         }
     }
 
-    public void OnSceneLoaded(LevelProperties levelProperties)
+    public void OnSceneLoaded(LevelSettings levelSettings)
     {
-        _landscapeChunk = levelProperties.ChunkWithObstacles;
-        _tornadoChunk = levelProperties.TornadoChunk;
-        _collectableEntitiesCount = levelProperties.CollectableEntitiesCount;
-        _enemyEntitiesCount = levelProperties.EnemiesCount;
+        _landscapeChunk = levelSettings.ChunkWithObstacles;
+        _tornadoChunk = levelSettings.TornadoChunk;
+        _collectableEntitiesCount = levelSettings.CollectableEntitiesCount;
+        _enemyEntitiesCount = levelSettings.EnemiesCount;
     }
 
     [Inject]
