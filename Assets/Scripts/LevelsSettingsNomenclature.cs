@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Zenject;
 
-public class LevelsSettingsNomenclature
+public class LevelsSettingsNomenclature : MonoBehaviour
 {
     private IReadOnlyList<ChunkWithObstacles> _chunksWithObstacles;
     private IReadOnlyList<TornadoChunk> _tornadoChunks;
@@ -22,7 +23,7 @@ public class LevelsSettingsNomenclature
         FillSettings();
     }
 
-    public LevelSettings GetLevelProperties(int levelNumber)
+    public LevelSettings GetLevelSettings(int levelNumber)
     {
         if(_levelsSettings == null || _levelsSettings.Count < levelNumber)
             throw new InvalidOperationException();
