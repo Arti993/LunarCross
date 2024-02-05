@@ -1,22 +1,26 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 
 public class CarController : MonoBehaviour
 {
     public List<WheelAxle> wheelAxleList;
-    public VehicleSettings carSettings;
+    public VehicleSettings vehicleSettings;
     private Rigidbody _rigidbody;
+    private float _startSpeed = 2;
+    private float _maxSpeed = 3.5f;
 
     [SerializeField] private float _ackermanFactor;
 
     private void Start()
     {
         _rigidbody = this.GetComponent<Rigidbody>();
-        _rigidbody.mass = carSettings.mass;
-        _rigidbody.drag = carSettings.drag;
-        _rigidbody.centerOfMass = carSettings.centerOfMass;
-        _rigidbody.velocity = new Vector3(0, 0, 2);
+        _rigidbody.mass = vehicleSettings.mass;
+        _rigidbody.drag = vehicleSettings.drag;
+        _rigidbody.centerOfMass = vehicleSettings.centerOfMass;
+        _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
     }
 
     public void ApplyWheelVisuals(WheelCollider wheelCollider, GameObject wheelMesh)
@@ -35,13 +39,11 @@ public class CarController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (_rigidbody.velocity.z > 3.5f)
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, 3.5f);
+        if (_rigidbody.velocity.z > _maxSpeed)
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, _maxSpeed);
 
-        //var acceleration = Input.GetAxis("Vertical") ;
-
-        float motorTorque = carSettings.motorTorque;
-        float steering = carSettings.steeringAngle * Input.GetAxis("Horizontal");
+        float motorTorque = vehicleSettings.motorTorque;
+        float steering = vehicleSettings.steeringAngle * Input.GetAxis("Horizontal");
 
         foreach (WheelAxle wheelAxle in wheelAxleList)
         {

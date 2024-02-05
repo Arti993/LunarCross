@@ -315,6 +315,37 @@ MonoBehaviour:
   _begin: {fileID: 9165456107330036650}
   _end: {fileID: 2951610649691043613}
   _planeRenderer: {fileID: 1556499112244936277}
+--- !u!1 &8210844420387873948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3868148440757144439}
+  m_Layer: 0
+  m_Name: EvacuationPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3868148440757144439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210844420387873948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.93, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8483502776406577208}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8483502776406882254
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,8 +5134,10 @@ GameObject:
   - component: {fileID: 8483502776406577208}
   - component: {fileID: 8483502776425966542}
   - component: {fileID: 8483502776425926598}
+  - component: {fileID: 6569279245762048168}
+  - component: {fileID: 6305353661414651934}
   m_Layer: 0
-  m_Name: MagicZoneBlue
+  m_Name: GravityRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5125,6 +5158,7 @@ Transform:
   - {fileID: 8483502776406548456}
   - {fileID: 8483502776406560982}
   - {fileID: 5478060658852213157}
+  - {fileID: 3868148440757144439}
   m_Father: {fileID: 5752053399560508147}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9872,6 +9906,40 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!135 &6569279245762048168
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483502776406911716}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.3036205
+  m_Center: {x: 0.0024886131, y: 0, z: -0.00419124}
+--- !u!114 &6305353661414651934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483502776406911716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0c656627d91d542a6d1cdd42159570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _evacuationPoint: {fileID: 3868148440757144439}
 --- !u!1 &8483502776406926286
 GameObject:
   m_ObjectHideFlags: 0

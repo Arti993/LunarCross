@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class CatchZoneChecker
 {
-    private EntityBehaviour _entity;
-    float _searchRadius;
+    private readonly EntityBehaviour _entity;
+    private readonly float _searchRadius;
 
     public CatchZoneChecker(EntityBehaviour entity, float searchRadius)
     {
@@ -13,7 +14,7 @@ public class CatchZoneChecker
         _searchRadius = searchRadius;
     }
 
-    public bool CheckEnteringCatchZone(out VehicleCatchZone catchZone)
+    public bool CheckEnteringCatchZone([CanBeNull] out VehicleCatchZone catchZone)
     {
         catchZone = null;
 
