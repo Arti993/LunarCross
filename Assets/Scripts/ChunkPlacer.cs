@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IJunior.TypedScenes;
@@ -11,8 +10,7 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
     [SerializeField] private Chunk _firstChunk;
     [SerializeField] private Chunk _finishChunk;
     [SerializeField] private EntitySpawner _entitySpawner;
-    [SerializeField] private NavMeshRebaker _navMeshRebaker;
-
+   
     private Chunk _landscapeChunk;
     private Chunk _tornadoChunk;
     private int _collectableEntitiesCount;
@@ -106,8 +104,6 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
         _newChunk = SpawnChunk(_emptyChunk);
 
         _entitySpawner.SpawnEntitiesForСollectableChunk(_collectableEntitiesCount, _newChunk);
-
-        _navMeshRebaker.Rebake();
     }
 
     private void SpawnChunkWithEnemies()
@@ -115,8 +111,6 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
         _newChunk = SpawnChunk(_emptyChunk);
 
         _entitySpawner.SpawnEntitiesForEnemyChunk(_enemyEntitiesCount, _newChunk);
-
-        _navMeshRebaker.Rebake();
     }
 
     private void SpawnLandscapeChunk()
@@ -149,8 +143,6 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
             Destroy(_spawnedChunks[0].gameObject);
             _spawnedChunks.RemoveAt(0);
         }
-
-        _navMeshRebaker.Rebake();
 
         return newChunk;
     }

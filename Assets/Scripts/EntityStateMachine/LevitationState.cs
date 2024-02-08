@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class LevitationState : EntityBaseState
 {
     private Rigidbody _rigidbody;
-    private NavMeshAgent _navMeshAgent; 
     private IEntityStateSwitcher _stateSwitcher;
     private Vector3 _startPosition;
     private Tween _levitationAnimation;
@@ -13,10 +12,9 @@ public class LevitationState : EntityBaseState
     private float _levitationHeight = 0.12f;
     private float _levitationSpeed = 2;
 
-    public LevitationState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, NavMeshAgent navMeshAgent) : base(stateSwitcher)
+    public LevitationState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
     {
         _rigidbody = rigidbody;
-        _navMeshAgent = navMeshAgent;
         _stateSwitcher = stateSwitcher;
     }
 
@@ -46,7 +44,5 @@ public class LevitationState : EntityBaseState
     public override void Stop()
     {
         _levitationAnimation.Kill();
-
-        _navMeshAgent.enabled = false;
     }
 }

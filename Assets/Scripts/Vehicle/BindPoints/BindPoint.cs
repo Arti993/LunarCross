@@ -3,9 +3,9 @@ using UnityEngine;
 
 public abstract class BindPoint : MonoBehaviour
 {
-    protected EntityBehaviour BindedEntity;
     protected Transform Transform;
-
+    
+    public EntityBehaviour BindedEntity { get; protected set; }
     public bool IsFree { get; protected set; }
 
     private void Awake()

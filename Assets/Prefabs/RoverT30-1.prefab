@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6524387346185437095}
   - component: {fileID: 595192227997353855}
   - component: {fileID: 801682794234997506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: towersignal001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7405588166757784148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6073091442725084271}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 3515825805794675752}
   - component: {fileID: 5352130625117688439}
   - component: {fileID: 7742609492891619575}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: boxbasearm.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 2387443903028034730}
   - component: {fileID: 4833664702741882027}
   - component: {fileID: 2717831062108797290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 1847976809960122967}
   - component: {fileID: 7502421394700773107}
   - component: {fileID: 7603615966507094702}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UpRightCatchZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 1655680607037599403}
   - component: {fileID: 8419757470988916257}
   - component: {fileID: 2352103788867994327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftControlArmBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6285151280037920438}
   - component: {fileID: 945650247004307452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFrontWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 1164957382013143450}
   - component: {fileID: 8307452727641252742}
   - component: {fileID: 1954249891297047062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 3016478575590164550}
   - component: {fileID: 3876194639951651323}
   - component: {fileID: 9069737263632526029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 6618719236386116548}
   - component: {fileID: 4457082150547026458}
   - component: {fileID: 6767593240104123504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightSideBindPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 8652589905439999132}
   - component: {fileID: 5801468376912366933}
   - component: {fileID: 2243839925708774925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftSideBindPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 2110755707898854816}
   - component: {fileID: 6542104403806566908}
   - component: {fileID: 3457961521860509435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftSideBindPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 2115545758249546045}
   - component: {fileID: 7286620217175406434}
   - component: {fileID: 6548597674024722821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: supportplattaformfromArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4406357302446921485}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52865637838398736}
   - component: {fileID: 3812782724446641648}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftBackWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 6848254283803678084}
   - component: {fileID: 2793898925835513156}
   - component: {fileID: 6469022996402494331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1251,7 @@ GameObject:
   - component: {fileID: 2924002549508608715}
   - component: {fileID: 3745769494677737065}
   - component: {fileID: 8123365209582755678}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftSideBindPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 8484857884222149062}
   - component: {fileID: 4419590497974898191}
   - component: {fileID: 1932440744071459931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,7 +1381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8687121326561807400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftCentral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 1991416114258549814}
   - component: {fileID: 2592442348159067612}
   - component: {fileID: 5852978368105623716}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightCatchZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7941267436712540930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Railing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1515,7 +1515,7 @@ GameObject:
   - component: {fileID: 1164479991017259078}
   - component: {fileID: 330532762500673045}
   - component: {fileID: 8142854707698320974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 6200715019127854339}
   - component: {fileID: 8007097860099353083}
   - component: {fileID: 1244296659735895812}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightMechanicalArmFrontArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 6963782144840952253}
   - component: {fileID: 469089901494327904}
   - component: {fileID: 7684711112752560747}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightSideBindPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,7 +1750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448134750235550420}
   - component: {fileID: 3309089361387776694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFrontWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1822,7 +1822,7 @@ GameObject:
   - component: {fileID: 2367421209340622913}
   - component: {fileID: 6753358406166575918}
   - component: {fileID: 1369448589186804046}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftBackWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1904,7 +1904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3567003099862169008}
   - component: {fileID: 3012835668910273630}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightCenterWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1974,7 +1974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4111510759502994879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 7105787815529747102}
   - component: {fileID: 2748881058869866908}
   - component: {fileID: 7373728365797968657}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2074,7 +2074,7 @@ GameObject:
   - component: {fileID: 950592422432591853}
   - component: {fileID: 3365763076571872735}
   - component: {fileID: 7513740436950783114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftSideBindPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2139,7 +2139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3518123679681846310}
   - component: {fileID: 5959603911209206638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightBackWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2214,7 +2214,7 @@ GameObject:
   - component: {fileID: 389565723479128348}
   - component: {fileID: 2195320269586197679}
   - component: {fileID: 4637981537734757888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RoverT30-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2316,12 +2316,12 @@ MonoBehaviour:
     wheelMeshRight: {fileID: 5248211703093367155}
     motor: 1
     steering: 0
-  carSettings:
-    mass: 600
-    drag: 0.1
+  vehicleSettings:
+    mass: 1500
+    drag: 0.05
     centerOfMass: {x: 0, y: -1, z: 0}
-    motorTorque: 500
-    steeringAngle: 35
+    motorTorque: 1200
+    steeringAngle: 50
   _ackermanFactor: 1.7
 --- !u!65 &389565723479128348
 BoxCollider:
@@ -2398,7 +2398,7 @@ GameObject:
   - component: {fileID: 4895603293019859329}
   - component: {fileID: 5730939139043500531}
   - component: {fileID: 5625346288309939817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightMechanicalArmFrontDirectional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2483,7 +2483,7 @@ GameObject:
   - component: {fileID: 8517677347764297203}
   - component: {fileID: 5849778656206949652}
   - component: {fileID: 4693194446065273427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BamperCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2549,7 +2549,7 @@ GameObject:
   - component: {fileID: 7205830459485012149}
   - component: {fileID: 865750526213964655}
   - component: {fileID: 4435716247215960239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftMechanicalArmFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2633,7 +2633,7 @@ GameObject:
   - component: {fileID: 1085679448971017078}
   - component: {fileID: 4284344331972564788}
   - component: {fileID: 7101539645425417182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2698,7 +2698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3932898278839249336}
   - component: {fileID: 8866834731867649519}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftCenterWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2770,7 +2770,7 @@ GameObject:
   - component: {fileID: 726898592162190552}
   - component: {fileID: 8127141447096439148}
   - component: {fileID: 1412606230027199134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2836,7 +2836,7 @@ GameObject:
   - component: {fileID: 6084975501883092853}
   - component: {fileID: 2559277830428897317}
   - component: {fileID: 1048209981054602303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2917,7 +2917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927741680254249688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2951,7 +2951,7 @@ GameObject:
   - component: {fileID: 8281867734430346108}
   - component: {fileID: 7230010590294122922}
   - component: {fileID: 8461164621227980121}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightControlArmBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3038,7 +3038,7 @@ GameObject:
   - component: {fileID: 4420205761061329446}
   - component: {fileID: 5035017531389566818}
   - component: {fileID: 6442939423280733305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3142,7 +3142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7784419071636689824}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WheelsColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3181,7 +3181,7 @@ GameObject:
   - component: {fileID: 8578845510433522629}
   - component: {fileID: 313751034351225822}
   - component: {fileID: 6368015403475428921}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3245,7 +3245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4432081630530072582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3296,7 +3296,7 @@ GameObject:
   - component: {fileID: 4874501683179435234}
   - component: {fileID: 3725451073002515059}
   - component: {fileID: 7781269242349278331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightMechanicalArmFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3380,7 +3380,7 @@ GameObject:
   - component: {fileID: 2735205953423062891}
   - component: {fileID: 7691514630112598361}
   - component: {fileID: 7142348863118527972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3463,7 +3463,7 @@ GameObject:
   - component: {fileID: 866111651196408275}
   - component: {fileID: 2107916239084326}
   - component: {fileID: 3343723423869754973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftMechanicalArmFrontDirectional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3548,7 +3548,7 @@ GameObject:
   - component: {fileID: 2475389719628974087}
   - component: {fileID: 6500165416923139150}
   - component: {fileID: 4893375444488911003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3633,7 +3633,7 @@ GameObject:
   - component: {fileID: 4047243753259723463}
   - component: {fileID: 1165176864682452545}
   - component: {fileID: 7016724592517016209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3739,7 +3739,7 @@ GameObject:
   - component: {fileID: 1176811646293611181}
   - component: {fileID: 1290614903490825137}
   - component: {fileID: 3159046942525339917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFrontWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3822,7 +3822,7 @@ GameObject:
   - component: {fileID: 3372552265877666921}
   - component: {fileID: 2286257545904944079}
   - component: {fileID: 549541818034928564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightCenterWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3905,7 +3905,7 @@ GameObject:
   - component: {fileID: 2255604875730552288}
   - component: {fileID: 1594953264200099762}
   - component: {fileID: 7311191571645533980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3986,7 +3986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4634365029971550472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightCentral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4020,7 +4020,7 @@ GameObject:
   - component: {fileID: 8709939081294001890}
   - component: {fileID: 7846518732348880126}
   - component: {fileID: 7809051489490853212}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4103,7 +4103,7 @@ GameObject:
   - component: {fileID: 5914716154382173396}
   - component: {fileID: 6659112630802920476}
   - component: {fileID: 4987544216579945346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: boxbasearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4190,7 +4190,7 @@ GameObject:
   - component: {fileID: 3340804815848218952}
   - component: {fileID: 3501075231649900931}
   - component: {fileID: 4423344857166082882}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftCenterWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4273,7 +4273,7 @@ GameObject:
   - component: {fileID: 7296158252520731251}
   - component: {fileID: 8524856529972081206}
   - component: {fileID: 1603705950147736605}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftMechanicalArmFrontArm.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4358,7 +4358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005443126274937052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Railing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4394,7 +4394,7 @@ GameObject:
   - component: {fileID: 5863600066977957090}
   - component: {fileID: 599640456287583814}
   - component: {fileID: 7670569863657468495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightControlArmCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4480,7 +4480,7 @@ GameObject:
   - component: {fileID: 8084640225276254922}
   - component: {fileID: 2621944187491164179}
   - component: {fileID: 439037139182529474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftCatchZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4546,7 +4546,7 @@ GameObject:
   - component: {fileID: 4394725109249033339}
   - component: {fileID: 7949814866370837659}
   - component: {fileID: 2658710663164172001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InsideBindPoint (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4612,7 +4612,7 @@ GameObject:
   - component: {fileID: 1667410179745758487}
   - component: {fileID: 6470094382821980952}
   - component: {fileID: 8728957270380034158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: boxbasearm.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4696,7 +4696,7 @@ GameObject:
   - component: {fileID: 6430044651760943253}
   - component: {fileID: 7948163081289737528}
   - component: {fileID: 2155539520879676993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftControlArmCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4782,7 +4782,7 @@ GameObject:
   - component: {fileID: 6963314510794248404}
   - component: {fileID: 7134765055494383817}
   - component: {fileID: 659052017982765251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightSideBindPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 1660291532819775259}
   - component: {fileID: 8545019323987831461}
   - component: {fileID: 3403680252579321285}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFrontWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4931,7 +4931,7 @@ GameObject:
   - component: {fileID: 7663610438817692312}
   - component: {fileID: 2502464721602279273}
   - component: {fileID: 5739678991161111055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightSideBindPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4997,7 +4997,7 @@ GameObject:
   - component: {fileID: 4950090080147107989}
   - component: {fileID: 3119989228823686156}
   - component: {fileID: 1320237186149955640}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5080,7 +5080,7 @@ GameObject:
   - component: {fileID: 8054019685525571858}
   - component: {fileID: 564484494109342838}
   - component: {fileID: 3722872081736616869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightBackWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

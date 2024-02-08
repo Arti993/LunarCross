@@ -7,17 +7,15 @@ using UnityEngine.AI;
 public class SimpleRotationState : EntityBaseState
 {
     private Rigidbody _rigidbody;
-    private NavMeshAgent _navMeshAgent;
     private IEntityStateSwitcher _stateSwitcher;
     private Tween _rotationAnimation;
 
     private float _rotationAngle = 120;
     private float _rotationSpeed = 1;
 
-    public SimpleRotationState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, NavMeshAgent navMeshAgent) : base(stateSwitcher)
+    public SimpleRotationState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
     {
         _rigidbody = rigidbody;
-        _navMeshAgent = navMeshAgent;
         _stateSwitcher = stateSwitcher;
     }
 
@@ -46,7 +44,5 @@ public class SimpleRotationState : EntityBaseState
     public override void Stop()
     {
         _rotationAnimation.Kill();
-
-        _navMeshAgent.enabled = false;
     }
 }

@@ -1,58 +1,83 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody))]
 public class NPCMovement : MonoBehaviour
 {
-    [SerializeField] private float _roamRadius = 10f;
-    [SerializeField] private float _changeDestinationInterval = 5f;
+    private float _changeDirectionInterval = 5f;
+    private float _speed = 0.8f;
+    private Coroutine _changeDirectionCoroutine;
+    private Vector3 _moveDirection;
+    private Rigidbody _rigidbody;
 
-    private NavMeshAgent _agent;
-    private Vector3 _randomDestination;
-    private float _timer;
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        SetRandomDestination();
-    }
+        GetRandomDirection();
+        
+        Move();
 
-    private void Update()
-    {
-        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
-        {
-            if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
-            {
-                _timer = 0f; 
-                SetRandomDestination();
-            }
-        }
-        else
-        {
-            _timer += Time.deltaTime; 
-            if (_timer >= _changeDestinationInterval)
-            {
-                _timer = 0f;
-                SetRandomDestination(); 
-            }
-        }
+        _changeDirectionCoroutine = StartCoroutine(ChangeDirectionWithInterval());
     }
-
-    private void SetRandomDestination()
-    {
-        Vector3 randomDirection = Random.insideUnitSphere * _roamRadius;
-        randomDirection += transform.position;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, _roamRadius, 1);
-        _randomDestination = hit.position;
-        _agent.SetDestination(_randomDestination);
-    }
-
+    
     public void Disable()
     {
-        _agent.enabled = false;
+        _rigidbody.velocity = Vector3.zero;
+        
+        StopCoroutine(_changeDirectionCoroutine);
+        
         enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ReflectDirection();
+    }
+
+    private void Move()
+    {
+        _rigidbody.velocity = Vector3.zero;
+        
+        transform.rotation = Quaternion.LookRotation(_moveDirection);
+        
+        _rigidbody.AddForce(_moveDirection.normalized * _speed, ForceMode.VelocityChange);
+    }
+
+    private void ReflectDirection()
+    {
+        StopCoroutine(_changeDirectionCoroutine);
+
+        Vector3 position = transform.position;
+        
+        Vector3 reflectionNormal = new Vector3(Mathf.Sign(position.x), 0, Mathf.Sign(position.z)).normalized;
+        
+        float reflectAngleRad = Vector3.SignedAngle(-reflectionNormal, Vector3.forward, Vector3.up) * Mathf.Deg2Rad;
+        
+        _moveDirection = new Vector3(Mathf.Cos(reflectAngleRad), 0f, Mathf.Sin(reflectAngleRad));
+        
+        Move();
+
+        _changeDirectionCoroutine = StartCoroutine(ChangeDirectionWithInterval());
+    }
+    
+    private Vector3 GetRandomDirection()
+    {
+        return new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
+    }
+
+    private IEnumerator ChangeDirectionWithInterval()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_changeDirectionInterval);
+            
+            _moveDirection = GetRandomDirection();
+
+            Move();
+        }
     }
 }

@@ -13,9 +13,10 @@ public class AstronautBehaviour : NpcBehaviour, IPlaceableToVehicle
         {
             new AstronautBaseMovementState(this, NpcMovement),
             new AstronautInsideAttachState(this, Animator, _placementPattern),
-            new AstronautOutsideAttachState(this, Rigidbody, Animator, Collider, _placementPattern),
+            new AstronautOutsideAttachState(this, Rigidbody, Animator, _placementPattern),
             new AstronautEjectedState(this, Rigidbody, Animator, Collider),
-            new HumanoidKnockedState(this, Rigidbody, RagdollFly)
+            new HumanoidKnockedState(this, Rigidbody, RagdollFly),
+            new RisingByRayState(this, Rigidbody, Animator, Collider),
         };
 
         CurrentState = AllStates.First();

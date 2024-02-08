@@ -7,7 +7,6 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
 
     private Rigidbody _rigidbody;
     private Animator _animator;
-    private Collider _collider;
     private IEntityStateSwitcher _stateSwitcher;
     private IPlaceableToVehicle _placementPattern;
 
@@ -15,12 +14,10 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
     private Coroutine _changeAttachStateCoroutine;
     private float _changeAttachStateTime = 7;
 
-    public AstronautOutsideAttachState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
-        Collider collider, IPlaceableToVehicle placementPattern) : base(stateSwitcher)
+    public AstronautOutsideAttachState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator, IPlaceableToVehicle placementPattern) : base(stateSwitcher)
     {
         _rigidbody = rigidbody;
         _animator = animator;
-        _collider = collider;
         _stateSwitcher = stateSwitcher;
         _placementPattern = placementPattern;
     }

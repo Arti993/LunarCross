@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VehicleCatchBehaviour : MonoBehaviour
@@ -36,6 +38,13 @@ public class VehicleCatchBehaviour : MonoBehaviour
         return TryFillBindPoint(entity, _rightSideBindPoints);
     }
 
+    public bool TrySendEntitiesToGravityRay()
+    {
+        StartCoroutine(EjectEntities());
+
+        return true; //потом сделать нормальное условие
+    }
+
     private bool TryFillBindPoint(EntityBehaviour entity, IReadOnlyList<BindPoint> bindPoints)
     {
         bool isFillingSuccess = false;
@@ -51,5 +60,33 @@ public class VehicleCatchBehaviour : MonoBehaviour
         }
 
         return isFillingSuccess;
+    }
+
+    private IEnumerator EjectEntities()
+    {
+        foreach (var bindpoint in _leftSideBindPoints)
+        {
+            if (bindpoint.IsFree == false)
+                yield return StartCoroutine(ExemptBindPoint(bindpoint));
+        }
+        
+        foreach (var bindpoint in _rightSideBindPoints)
+        {
+            if (bindpoint.IsFree == false)
+                yield return StartCoroutine(ExemptBindPoint(bindpoint));
+        }
+        
+        foreach (var bindpoint in _insideBindPoints)
+        {
+            if (bindpoint.IsFree == false)
+                yield return StartCoroutine(ExemptBindPoint(bindpoint));
+        }
+    }
+
+    private IEnumerator ExemptBindPoint(BindPoint bindpoint)
+    {
+        bindpoint.BindedEntity.SwitchState<RisingByRayState>();
+                
+        yield return new WaitForSeconds(0.5f);
     }
 }

@@ -21,7 +21,7 @@ public class EntitySpawner : MonoBehaviour
         }
     }
   
-    public void SpawnEntitiesFor—ollectableChunk(int entitiesCount, Chunk chunk)
+    public void SpawnEntitiesFor–°ollectableChunk(int entitiesCount, Chunk chunk)
     {
         Spawn(_collectableEntity, entitiesCount, chunk);
 

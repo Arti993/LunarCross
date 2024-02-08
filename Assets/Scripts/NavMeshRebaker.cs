@@ -15,6 +15,6 @@ public class NavMeshRebaker : MonoBehaviour
 
     public void Rebake()
     {
-        _navMeshSurface.BuildNavMesh();
+        _navMeshSurface.UpdateNavMesh(_navMeshSurface.navMeshData);
     }
 }
