@@ -9,21 +9,28 @@ public class NPCMovement : MonoBehaviour
     private Coroutine _changeDirectionCoroutine;
     private Vector3 _moveDirection;
     private Rigidbody _rigidbody;
+    private bool _canTrigger = false;
+    private float _triggerEnableDelay = 0.3f;
+    private float _maxDeflectAngle = 60;
+    
+    //убрать могические числа
 
-    private void Awake()
+    private void OnEnable()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
-        GetRandomDirection();
+        _moveDirection = GetRandomDirection();
         
         Move();
 
         _changeDirectionCoroutine = StartCoroutine(ChangeDirectionWithInterval());
+        
+        StartCoroutine(EnableTriggerAfterDelay());
     }
-    
+
     public void Disable()
     {
         _rigidbody.velocity = Vector3.zero;
@@ -35,29 +42,35 @@ public class NPCMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ReflectDirection();
+        if (other.TryGetComponent<Bumper>(out Bumper bumper) || other.TryGetComponent<VehicleCatchZone>(out VehicleCatchZone zone))
+            _canTrigger = false;
+        
+        if(_canTrigger)
+             ReflectDirection(other);
     }
 
     private void Move()
     {
         _rigidbody.velocity = Vector3.zero;
+
+        transform.rotation = Quaternion.LookRotation(_moveDirection,Vector3.up);
         
-        transform.rotation = Quaternion.LookRotation(_moveDirection);
-        
-        _rigidbody.AddForce(_moveDirection.normalized * _speed, ForceMode.VelocityChange);
+        _rigidbody.AddForce(_moveDirection.normalized * _speed, ForceMode.Impulse);
     }
 
-    private void ReflectDirection()
+    private void ReflectDirection(Collider otherCollider)
     {
         StopCoroutine(_changeDirectionCoroutine);
 
         Vector3 position = transform.position;
         
-        Vector3 reflectionNormal = new Vector3(Mathf.Sign(position.x), 0, Mathf.Sign(position.z)).normalized;
+        Vector3 normal = otherCollider.ClosestPointOnBounds(position) - position;
         
-        float reflectAngleRad = Vector3.SignedAngle(-reflectionNormal, Vector3.forward, Vector3.up) * Mathf.Deg2Rad;
-        
-        _moveDirection = new Vector3(Mathf.Cos(reflectAngleRad), 0f, Mathf.Sin(reflectAngleRad));
+        Vector3 newDirection = new Vector3(-normal.x, 0 , -normal.z).normalized;
+
+        Quaternion deflection = Quaternion.Euler(0,Random.Range(0, _maxDeflectAngle), 0);
+
+        _moveDirection =  deflection * newDirection;
         
         Move();
 
@@ -66,7 +79,7 @@ public class NPCMovement : MonoBehaviour
     
     private Vector3 GetRandomDirection()
     {
-        return new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
+        return new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized;
     }
 
     private IEnumerator ChangeDirectionWithInterval()
@@ -79,5 +92,12 @@ public class NPCMovement : MonoBehaviour
 
             Move();
         }
+    }
+
+    private IEnumerator EnableTriggerAfterDelay()
+    {
+        yield return new WaitForSeconds(_triggerEnableDelay);
+        
+        _canTrigger = true; 
     }
 }

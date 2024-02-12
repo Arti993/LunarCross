@@ -1,43 +1,41 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Serialization;
 
-
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Player))]
 public class CarController : MonoBehaviour
 {
-    public List<WheelAxle> wheelAxleList;
+    public List<WheelAxle> wheelAxleList; //сделать серфилдами
     public VehicleSettings vehicleSettings;
+    [SerializeField] private float _ackermanFactor;
     private Rigidbody _rigidbody;
+    private Player _player;
     private float _startSpeed = 2;
     private float _maxSpeed = 3.5f;
+    private Vector3 _startPoint;
 
-    [SerializeField] private float _ackermanFactor;
 
     private void Start()
     {
-        _rigidbody = this.GetComponent<Rigidbody>();
+        _player = GetComponent<Player>();
+        _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.mass = vehicleSettings.mass;
         _rigidbody.drag = vehicleSettings.drag;
         _rigidbody.centerOfMass = vehicleSettings.centerOfMass;
         _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
+        _startPoint = transform.position;
+
+        _player.LevelFailed += OnLevelFailed;
     }
 
-    public void ApplyWheelVisuals(WheelCollider wheelCollider, GameObject wheelMesh)
+    private void OnDisable()
     {
-        Vector3 position;
-        Quaternion rotation;
-
-        wheelCollider.GetWorldPose(out position, out rotation);
-
-        Quaternion realRotation = rotation * Quaternion.Inverse(wheelCollider.transform.parent.rotation) *
-            this.transform.rotation;
-
-        wheelMesh.transform.position = position;
-        wheelMesh.transform.rotation = realRotation;
+        _player.LevelFailed -= OnLevelFailed;
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         if (_rigidbody.velocity.z > _maxSpeed)
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, _maxSpeed);
@@ -75,6 +73,32 @@ public class CarController : MonoBehaviour
             ApplyWheelVisuals(wheelAxle.wheelColliderLeft, wheelAxle.wheelMeshLeft);
             ApplyWheelVisuals(wheelAxle.wheelColliderRight, wheelAxle.wheelMeshRight);
         }
+    }
+
+    private void ApplyWheelVisuals(WheelCollider wheelCollider, GameObject wheelMesh)
+    {
+        wheelCollider.GetWorldPose(out Vector3 position, out Quaternion rotation);
+
+        Quaternion realRotation = rotation * Quaternion.Inverse(wheelCollider.transform.parent.rotation) *
+                                  transform.rotation;
+
+        wheelMesh.transform.position = position;
+        wheelMesh.transform.rotation = realRotation;
+    }
+
+    private void OnLevelFailed()
+    {
+        StartCoroutine(MoveCarToStartPoint());
+    }
+
+    private IEnumerator MoveCarToStartPoint()
+    {
+        yield return new WaitForSeconds(1); //убрать магическое число
+        
+        Transform VehicleTransform = transform;
+        VehicleTransform.position = _startPoint;
+        VehicleTransform.rotation = Quaternion.identity;
+        _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
     }
 
     //private void OnDrawGizmos()

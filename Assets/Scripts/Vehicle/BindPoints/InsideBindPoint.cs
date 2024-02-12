@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InsideBindPoint : BindPoint
@@ -8,8 +6,10 @@ public class InsideBindPoint : BindPoint
     {
         base.Fill(entity);
 
-        BindedEntity.transform.position = Transform.position;
-        BindedEntity.transform.rotation = Transform.rotation;
+        Transform bindedEntityTransform = BindedEntity.transform;
+        bindedEntityTransform.position = Transform.position;
+        bindedEntityTransform.rotation = Transform.rotation;
+        
         BindedEntity.transform.SetParent(Transform);
     }
 }

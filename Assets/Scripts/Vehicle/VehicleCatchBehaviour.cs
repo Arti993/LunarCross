@@ -1,14 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 public class VehicleCatchBehaviour : MonoBehaviour
 {
     [SerializeField] private List<LeftSideBindPoint> _leftSideBindPoints;
     [SerializeField] private List<RightSideBindPoint> _rightSideBindPoints;
     [SerializeField] private List<InsideBindPoint> _insideBindPoints;
+
+    private Player _player;
+    private List<BindPoint> _allBindPoints = new List<BindPoint>();
+
+    private void Start()
+    {
+        PutAllPointsInOneList();
+        
+        _player = GetComponent<Player>();
+        _player.LevelFailed += OnLevelFailed;
+    }
+
+    private void OnDisable()
+    {
+        _player.LevelFailed -= OnLevelFailed;
+    }
 
     public bool TryFillInsideBindPoint(EntityBehaviour entity)
     {
@@ -16,7 +32,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
 
         BindPoint previousBindPoint = entity.GetComponentInParent<BindPoint>();
 
-        if (previousBindPoint == null)
+        if (previousBindPoint is null)
             throw new InvalidOperationException();
 
         if(TryFillBindPoint(entity, _insideBindPoints))
@@ -40,7 +56,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
 
     public bool TrySendEntitiesToGravityRay()
     {
-        StartCoroutine(EjectEntities());
+        StartCoroutine(EjectEntitiesByGravityRay());
 
         return true; //потом сделать нормальное условие
     }
@@ -62,30 +78,45 @@ public class VehicleCatchBehaviour : MonoBehaviour
         return isFillingSuccess;
     }
 
-    private IEnumerator EjectEntities()
+    private void PutAllPointsInOneList()
     {
-        foreach (var bindpoint in _leftSideBindPoints)
+        foreach (var bindPoint in _leftSideBindPoints)
         {
-            if (bindpoint.IsFree == false)
-                yield return StartCoroutine(ExemptBindPoint(bindpoint));
+           _allBindPoints.Add(bindPoint);
         }
         
-        foreach (var bindpoint in _rightSideBindPoints)
+        foreach (var bindPoint in _rightSideBindPoints)
         {
-            if (bindpoint.IsFree == false)
-                yield return StartCoroutine(ExemptBindPoint(bindpoint));
+            _allBindPoints.Add(bindPoint);
         }
         
-        foreach (var bindpoint in _insideBindPoints)
+        foreach (var bindPoint in _insideBindPoints)
         {
-            if (bindpoint.IsFree == false)
-                yield return StartCoroutine(ExemptBindPoint(bindpoint));
+            _allBindPoints.Add(bindPoint);
         }
     }
 
-    private IEnumerator ExemptBindPoint(BindPoint bindpoint)
+    private void OnLevelFailed()
     {
-        bindpoint.BindedEntity.SwitchState<RisingByRayState>();
+        foreach (var bindPoint in _allBindPoints)
+        {
+            bindPoint.Exempt();
+        }
+    }
+
+    private IEnumerator EjectEntitiesByGravityRay()
+    {
+        foreach (var bindPoint in _allBindPoints)
+        {
+            if (bindPoint.IsFree == false)
+                yield return StartCoroutine(MoveEntityToGravityRay(bindPoint));
+        }
+    }
+
+    private IEnumerator MoveEntityToGravityRay(BindPoint bindPoint)
+    {
+        bindPoint.BindedEntity.SwitchState<RisingByGravityRayState>();
+        bindPoint.Exempt();
                 
         yield return new WaitForSeconds(0.5f);
     }

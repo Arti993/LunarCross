@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using IJunior.TypedScenes;
 using Zenject;
@@ -15,25 +16,24 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
     private Chunk _tornadoChunk;
     private int _collectableEntitiesCount;
     private int _enemyEntitiesCount;
-    private int _totalSpawnedChunksCount;
     private bool _isAllChunksSpawned = false;
-    private Transform _player;
-
+    private Player _player;
 
     private List<Chunk> _spawnedChunks = new List<Chunk>();
+    private List<Chunk> _currentVisibleChunks = new List<Chunk>();
     private Chunk _newChunk;
 
     private void Awake()
     {
         _spawnedChunks.Add(_firstChunk);
-        _totalSpawnedChunksCount = 1;
+        _currentVisibleChunks.Add(_firstChunk);
     }
 
     private void Update()
     {
         if (_isAllChunksSpawned == false)
         {
-            if (_player.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
+            if (_player.transform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
                 SpawnNextChunkInSequence();
         }
     }
@@ -49,12 +49,31 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
     [Inject]
     public void Construct(Player player)
     {
-        _player = player.transform;
+        _player = player;
+        _player.LevelFailed += OnLevelFailed;
+    }
+
+    private void OnDisable()
+    {
+        _player.LevelFailed -= OnLevelFailed;
+    }
+
+    private void OnLevelFailed()
+    {
+        foreach (var chunk in _spawnedChunks.Skip(1))
+        {
+            _spawnedChunks.Remove(chunk);
+            Destroy(chunk);
+        }
+
+        _spawnedChunks.First().gameObject.SetActive(true);
+        _currentVisibleChunks.Clear();
+        _currentVisibleChunks.Add(_firstChunk);
     }
 
     private void SpawnNextChunkInSequence()
     {
-        switch (_totalSpawnedChunksCount)
+        switch (_spawnedChunks.Count)
         {
             case 1:
                 SpawnChunkWithCollectables();
@@ -95,8 +114,6 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
             default:
                 throw new InvalidOperationException();
         }
-
-        _totalSpawnedChunksCount++;
     }
 
     private void SpawnChunkWithCollectables()
@@ -137,13 +154,19 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
         newChunk.transform.position = _spawnedChunks[_spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
 
         _spawnedChunks.Add(newChunk);
+        _currentVisibleChunks.Add(newChunk);
 
-        if(_spawnedChunks.Count > 3)
-        {
-            Destroy(_spawnedChunks[0].gameObject);
-            _spawnedChunks.RemoveAt(0);
-        }
+        HideCompletedChunks();
 
         return newChunk;
+    }
+
+    private void HideCompletedChunks()
+    {
+        if(_currentVisibleChunks.Count > 3)
+        {
+            _currentVisibleChunks[0].gameObject.SetActive(false);
+            _currentVisibleChunks.RemoveAt(0);
+        }
     }
 }

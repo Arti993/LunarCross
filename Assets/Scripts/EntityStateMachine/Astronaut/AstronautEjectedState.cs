@@ -10,7 +10,6 @@ public class AstronautEjectedState : EjectedFromVehicleState
         Rigidbody = rigidbody;
         Animator = animator;
         Collider = collider;
-        StateSwitcher = stateSwitcher;
     }
 
     public override void Move()

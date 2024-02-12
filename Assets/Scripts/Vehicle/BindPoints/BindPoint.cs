@@ -5,8 +5,8 @@ public abstract class BindPoint : MonoBehaviour
 {
     protected Transform Transform;
     
-    public EntityBehaviour BindedEntity { get; protected set; }
-    public bool IsFree { get; protected set; }
+    public EntityBehaviour BindedEntity { get; private set; }
+    public bool IsFree { get; private set; }
 
     private void Awake()
     {
@@ -25,8 +25,8 @@ public abstract class BindPoint : MonoBehaviour
 
     public void Exempt()
     {
-        if (IsFree)
-            throw new InvalidOperationException();
+   //     if (IsFree)
+   //         throw new InvalidOperationException();
 
         IsFree = true;
     }

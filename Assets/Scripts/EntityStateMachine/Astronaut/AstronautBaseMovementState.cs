@@ -5,12 +5,10 @@ using UnityEngine;
 public class AstronautBaseMovementState : BaseMovementState
 {
     private NPCMovement _npcMovement;
-    private IEntityStateSwitcher _stateSwitcher;
 
     public AstronautBaseMovementState(IEntityStateSwitcher stateSwitcher, NPCMovement npcMovement) : base(stateSwitcher)
     {
         _npcMovement = npcMovement;
-        _stateSwitcher = stateSwitcher;
     }
 
     public override void Start()
@@ -30,11 +28,11 @@ public class AstronautBaseMovementState : BaseMovementState
 
     public override void ReactOnEntryVehicleCatchZone()
     {
-        _stateSwitcher.SwitchState<OutsideVehicleAttachState>();
+        StateSwitcher.SwitchState<OutsideVehicleAttachState>();
     }
 
     public override void ReactOnEntryVehicleTossZone()
     {
-        _stateSwitcher.SwitchState<KnockedByVehicleState>();
+        StateSwitcher.SwitchState<KnockedByVehicleState>();
     }
 }

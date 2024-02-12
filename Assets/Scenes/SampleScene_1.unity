@@ -329,7 +329,6 @@ MonoBehaviour:
   _firstChunk: {fileID: 1779946458}
   _finishChunk: {fileID: 2490967095242562504, guid: d7de4f8b66a0d6449bde326376d764d8, type: 3}
   _entitySpawner: {fileID: 963194231}
-  _navMeshRebaker: {fileID: 0}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0

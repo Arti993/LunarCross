@@ -27,11 +27,6 @@ public class HumanoidKnockedState : KnockedByVehicleState
         Object.Destroy(_mainRigidbody.gameObject, TimeToDestroy);
     }
 
-    public override void Start()
-    {
-        base.Start();
-    }
-
     public override void ReactOnEntryVehicleCatchZone()
     {
         NoReact();
@@ -40,10 +35,5 @@ public class HumanoidKnockedState : KnockedByVehicleState
     public override void ReactOnEntryVehicleTossZone()
     {
         NoReact();
-    }
-
-    public override void Stop()
-    {
-        base.Stop();
     }
 }

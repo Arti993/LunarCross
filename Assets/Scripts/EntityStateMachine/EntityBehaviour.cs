@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class EntityBehaviour : MonoBehaviour, IEntityStateSwitcher
+public class EntityBehaviour : MonoBehaviour, IEntityStateSwitcher
 {
     protected IReadOnlyList<EntityBaseState> AllStates;
     public EntityBaseState CurrentState { get; protected set; }

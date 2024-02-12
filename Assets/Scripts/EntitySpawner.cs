@@ -1,6 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using Random = UnityEngine.Random;
 
 public class EntitySpawner : MonoBehaviour
 {
@@ -8,19 +10,34 @@ public class EntitySpawner : MonoBehaviour
     [SerializeField] private EntityBehaviour _enemyEntity;
     [SerializeField] private List<EntityBehaviour> _expeditionSimpleEntities;
     [SerializeField] private List<EntityBehaviour> _enemySimpleEntities;
+    
+    private EntityCollection _spawnedEntities = new EntityCollection();
+    private Player _player;
+
+    [Inject]
+    public void Construct(Player player)
+    {
+        _player = player;
+        _player.LevelFailed += OnLevelFailed;
+    }
+
+    private void OnDisable()
+    {
+        _player.LevelFailed -= OnLevelFailed;
+    }
 
     public void SpawnEntitiesForEnemyChunk(int entitiesCount, Chunk chunk)
     {
         Spawn(_enemyEntity, entitiesCount, chunk);
 
-        for(int i = 0; i < _enemySimpleEntities.Count; i++)
+        for (int i = 0; i < _enemySimpleEntities.Count; i++)
         {
             int simpleEntitiesCount = Random.Range(5, 7);
 
             Spawn(_enemySimpleEntities[i], simpleEntitiesCount, chunk);
         }
     }
-  
+
     public void SpawnEntitiesForСollectableChunk(int entitiesCount, Chunk chunk)
     {
         Spawn(_collectableEntity, entitiesCount, chunk);
@@ -38,13 +55,21 @@ public class EntitySpawner : MonoBehaviour
         Renderer surfaceRenderer = chunk.SurfaceRenderer;
         Vector3 surfaceSize = surfaceRenderer.bounds.size;
 
-        for(int i = 0; i < entitiesCount; i++)
+        for (int i = 0; i < entitiesCount; i++)
         {
-            float spawnPositionX = Random.Range(-surfaceSize.x / 2, surfaceSize.x / 2) + surfaceRenderer.transform.position.x;
-            float spawnPositionZ = Random.Range(-surfaceSize.z / 2, surfaceSize.z / 2) + surfaceRenderer.transform.position.z;
-            Vector3 spawnPosition = new Vector3(spawnPositionX, surfaceRenderer.transform.position.y, spawnPositionZ);
+            Vector3 position = surfaceRenderer.transform.position;
+            float spawnPositionX = Random.Range(-surfaceSize.x / 2, surfaceSize.x / 2) + position.x;
+            float spawnPositionZ = Random.Range(-surfaceSize.z / 2, surfaceSize.z / 2) + position.z;
+            Vector3 spawnPosition = new Vector3(spawnPositionX, position.y, spawnPositionZ);
 
-            Instantiate(entity, spawnPosition, Quaternion.identity);
+            EntityBehaviour newEntity = Instantiate(entity, spawnPosition, Quaternion.identity);
+            
+            _spawnedEntities.Add(newEntity);
         }
+    }
+
+    private void OnLevelFailed()
+    {
+        _spawnedEntities.Clear();
     }
 }

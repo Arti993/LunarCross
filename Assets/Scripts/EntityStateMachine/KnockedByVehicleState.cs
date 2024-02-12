@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class KnockedByVehicleState : EntityBaseState
 {
-    private Rigidbody _rigidbody;
+    private readonly Rigidbody _rigidbody;
 
     protected Vector3 MovementDirection;
     protected float MovementSpeed;

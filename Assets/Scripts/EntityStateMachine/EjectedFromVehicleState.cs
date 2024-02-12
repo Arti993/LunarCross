@@ -9,8 +9,7 @@ public class EjectedFromVehicleState : EntityBaseState
     
     protected Rigidbody Rigidbody;
     protected Animator Animator;
-    protected Collider Collider;  
-    protected IEntityStateSwitcher StateSwitcher;
+    protected Collider Collider;
     private EntityBehaviour _entity;
     private float _timeToEnableCollider = 1;
     
