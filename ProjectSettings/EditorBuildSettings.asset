@@ -8,22 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: cfc18822618c52647981491cb9cd1401
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/SampleScene_1.unity
+    path: Assets/Scenes/Gameplay.unity
     guid: 680aca598cf8c334a95a0f155942598c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/Decorators/Scene1.unity
     guid: 9561978599724fa4695e4683cf4af028
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Epic Toon FX/Demo/Scenes/etfx_powerups2.unity
     guid: 3fa05937c0d498e4688b6eb2ba76e5da
   - enabled: 1
     path: Assets/Scenes/LevelsChoose.unity
     guid: 1cdb4b08fcb185844b3b0eb328182cca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Saurabh_Studio/Ex Scene/Ex.unity
     guid: 2d1db3ae54a760049aa6bf9e2ee03fcf
   m_configObjects: {}

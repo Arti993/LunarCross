@@ -54,6 +54,7 @@ public class ChunkPlacer : MonoBehaviour
     private void ApplyLevelSettings()
     {
         int levelNumber = PlayerPrefs.GetInt("SelectedLevelNumber", 0);
+        //сделать чтобы после конца уровня selected стал равен нулю, а reached увеличился на 1
 
         if (levelNumber == 0)
             levelNumber = PlayerPrefs.GetInt("ReachedLevelNumber", 1);
