@@ -9,8 +9,7 @@ public class NPCMovement : MonoBehaviour
     private Coroutine _changeDirectionCoroutine;
     private Vector3 _moveDirection;
     private Rigidbody _rigidbody;
-    private bool _canTrigger = false;
-    private float _triggerEnableDelay = 0.3f;
+    private bool _canTrigger = true;
     private float _maxDeflectAngle = 60;
     
     //убрать могические числа
@@ -27,8 +26,6 @@ public class NPCMovement : MonoBehaviour
         Move();
 
         _changeDirectionCoroutine = StartCoroutine(ChangeDirectionWithInterval());
-        
-        StartCoroutine(EnableTriggerAfterDelay());
     }
 
     public void Disable()
@@ -52,6 +49,9 @@ public class NPCMovement : MonoBehaviour
     private void Move()
     {
         _rigidbody.velocity = Vector3.zero;
+
+        if(_moveDirection == Vector3.zero)
+            _moveDirection = GetRandomDirection();
 
         transform.rotation = Quaternion.LookRotation(_moveDirection,Vector3.up);
         
@@ -92,12 +92,5 @@ public class NPCMovement : MonoBehaviour
 
             Move();
         }
-    }
-
-    private IEnumerator EnableTriggerAfterDelay()
-    {
-        yield return new WaitForSeconds(_triggerEnableDelay);
-        
-        _canTrigger = true; 
     }
 }

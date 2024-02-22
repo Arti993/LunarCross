@@ -1,19 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using IJunior.TypedScenes;
 using Zenject;
 
-public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
+[RequireComponent(typeof(EntitySpawner))]
+[RequireComponent(typeof(LevelsSettingsNomenclature))]
+public class ChunkPlacer : MonoBehaviour
 {
-    [SerializeField] private Chunk _emptyChunk;
     [SerializeField] private Chunk _firstChunk;
-    [SerializeField] private Chunk _finishChunk;
-    [SerializeField] private EntitySpawner _entitySpawner;
-   
+
+    private EntitySpawner _entitySpawner;
+    private LevelsSettingsNomenclature _levelsSettingsNomenclature;
+    private Chunk _emptyChunk;
     private Chunk _landscapeChunk;
     private Chunk _tornadoChunk;
+    private Chunk _finishChunk;
     private int _collectableEntitiesCount;
     private int _enemyEntitiesCount;
     private bool _isAllChunksSpawned = false;
@@ -25,7 +26,13 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
 
     private void Awake()
     {
+        _entitySpawner = GetComponent<EntitySpawner>();
+        _levelsSettingsNomenclature = GetComponent<LevelsSettingsNomenclature>();
+       
+        ApplyLevelSettings();
+        
         _spawnedChunks.Add(_firstChunk);
+        
         _currentVisibleChunks.Add(_firstChunk);
     }
 
@@ -38,37 +45,27 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
         }
     }
 
-    public void OnSceneLoaded(LevelSettings levelSettings)
-    {
-        _landscapeChunk = levelSettings.ChunkWithObstacles;
-        _tornadoChunk = levelSettings.TornadoChunk;
-        _collectableEntitiesCount = levelSettings.CollectableEntitiesCount;
-        _enemyEntitiesCount = levelSettings.EnemiesCount;
-    }
-
     [Inject]
     public void Construct(Player player)
     {
         _player = player;
-        _player.LevelFailed += OnLevelFailed;
     }
 
-    private void OnDisable()
+    private void ApplyLevelSettings()
     {
-        _player.LevelFailed -= OnLevelFailed;
-    }
+        int levelNumber = PlayerPrefs.GetInt("SelectedLevelNumber", 0);
 
-    private void OnLevelFailed()
-    {
-        foreach (var chunk in _spawnedChunks.Skip(1))
-        {
-            _spawnedChunks.Remove(chunk);
-            Destroy(chunk);
-        }
+        if (levelNumber == 0)
+            levelNumber = PlayerPrefs.GetInt("ReachedLevelNumber", 1);
 
-        _spawnedChunks.First().gameObject.SetActive(true);
-        _currentVisibleChunks.Clear();
-        _currentVisibleChunks.Add(_firstChunk);
+        Level currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
+
+        _landscapeChunk = currentLevel.ChunkWithObstacles;
+        _tornadoChunk = currentLevel.TornadoChunk;
+        _emptyChunk = currentLevel.EmptyChunk;
+        _finishChunk = currentLevel.FinishChunk;
+        _collectableEntitiesCount = currentLevel.CollectableEntitiesCount;
+        _enemyEntitiesCount = currentLevel.EnemiesCount;
     }
 
     private void SpawnNextChunkInSequence()
@@ -81,7 +78,7 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
                 break;
             case 2:
                 SpawnChunkWithEnemies();
-                
+
                 break;
             case 3:
                 SpawnLandscapeChunk();
@@ -151,7 +148,8 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
     {
         Chunk newChunk = Instantiate(chunkPrefab);
 
-        newChunk.transform.position = _spawnedChunks[_spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
+        newChunk.transform.position =
+            _spawnedChunks[_spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
 
         _spawnedChunks.Add(newChunk);
         _currentVisibleChunks.Add(newChunk);
@@ -163,7 +161,7 @@ public class ChunkPlacer : MonoBehaviour, ISceneLoadHandler<LevelSettings>
 
     private void HideCompletedChunks()
     {
-        if(_currentVisibleChunks.Count > 3)
+        if (_currentVisibleChunks.Count > 3)
         {
             _currentVisibleChunks[0].gameObject.SetActive(false);
             _currentVisibleChunks.RemoveAt(0);

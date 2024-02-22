@@ -18,12 +18,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
         PutAllPointsInOneList();
         
         _player = GetComponent<Player>();
-        _player.LevelFailed += OnLevelFailed;
-    }
 
-    private void OnDisable()
-    {
-        _player.LevelFailed -= OnLevelFailed;
     }
 
     public bool TryFillInsideBindPoint(EntityBehaviour entity)

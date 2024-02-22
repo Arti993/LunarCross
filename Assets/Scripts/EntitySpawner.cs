@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
-using Random = UnityEngine.Random;
 
 public class EntitySpawner : MonoBehaviour
 {
@@ -12,19 +9,6 @@ public class EntitySpawner : MonoBehaviour
     [SerializeField] private List<EntityBehaviour> _enemySimpleEntities;
     
     private EntityCollection _spawnedEntities = new EntityCollection();
-    private Player _player;
-
-    [Inject]
-    public void Construct(Player player)
-    {
-        _player = player;
-        _player.LevelFailed += OnLevelFailed;
-    }
-
-    private void OnDisable()
-    {
-        _player.LevelFailed -= OnLevelFailed;
-    }
 
     public void SpawnEntitiesForEnemyChunk(int entitiesCount, Chunk chunk)
     {

@@ -4,14 +4,12 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Player))]
 public class CarController : MonoBehaviour
 {
     public List<WheelAxle> wheelAxleList; //сделать серфилдами
     public VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
     private Rigidbody _rigidbody;
-    private Player _player;
     private float _startSpeed = 2;
     private float _maxSpeed = 3.5f;
     private Vector3 _startPoint;
@@ -19,20 +17,12 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
-        _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.mass = vehicleSettings.mass;
         _rigidbody.drag = vehicleSettings.drag;
         _rigidbody.centerOfMass = vehicleSettings.centerOfMass;
         _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
         _startPoint = transform.position;
-
-        _player.LevelFailed += OnLevelFailed;
-    }
-
-    private void OnDisable()
-    {
-        _player.LevelFailed -= OnLevelFailed;
     }
 
     private void FixedUpdate()
@@ -84,21 +74,6 @@ public class CarController : MonoBehaviour
 
         wheelMesh.transform.position = position;
         wheelMesh.transform.rotation = realRotation;
-    }
-
-    private void OnLevelFailed()
-    {
-        StartCoroutine(MoveCarToStartPoint());
-    }
-
-    private IEnumerator MoveCarToStartPoint()
-    {
-        yield return new WaitForSeconds(1); //убрать магическое число
-        
-        Transform VehicleTransform = transform;
-        VehicleTransform.position = _startPoint;
-        VehicleTransform.rotation = Quaternion.identity;
-        _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
     }
 
     //private void OnDrawGizmos()
