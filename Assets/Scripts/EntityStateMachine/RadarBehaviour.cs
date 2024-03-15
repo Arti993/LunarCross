@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class RadarBehaviour : EntityBehaviour
 {
+    private float _rotationAngle = 120;
+    private float _rotationHalfCycleTime = 2;
+    
+    
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -17,7 +20,7 @@ public class RadarBehaviour : EntityBehaviour
     {
         AllStates = new List<EntityBaseState>()
         {
-            new SimpleRotationState(this, _rigidbody),
+            new SimpleRotationState(this, this, _rigidbody, _rotationAngle, _rotationHalfCycleTime),
             new BaseObstacleKnockedState(this, _rigidbody)
         };
 

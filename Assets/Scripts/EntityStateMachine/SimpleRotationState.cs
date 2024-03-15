@@ -1,22 +1,24 @@
-using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class SimpleRotationState : EntityBaseState
 {
     private Rigidbody _rigidbody;
     private IEntityStateSwitcher _stateSwitcher;
-    private Tween _rotationAnimation;
+    private EntityBehaviour _entity;
+    private Coroutine _mainCoroutine;
+    private Coroutine _movingCoroutine;
+    private float _rotationAngle;
+    private float _rotationHalfCycleTime;
 
-    private float _rotationAngle = 120;
-    private float _rotationSpeed = 1;
-
-    public SimpleRotationState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
+    public SimpleRotationState(IEntityStateSwitcher stateSwitcher, EntityBehaviour entity, Rigidbody rigidbody,
+    float rotationAngle, float rotationHalfCycleTime) : base(stateSwitcher)
     {
         _rigidbody = rigidbody;
+        _entity = entity;
         _stateSwitcher = stateSwitcher;
+        _rotationAngle = rotationAngle;
+        _rotationHalfCycleTime = rotationHalfCycleTime;
     }
 
     public override void Start()
@@ -27,8 +29,8 @@ public class SimpleRotationState : EntityBaseState
     }
 
     public override void Move()
-    {
-        _rotationAnimation = _rigidbody.transform.DORotate(new Vector3(0f, _rotationAngle, 0f), _rotationSpeed).SetLoops(-1, LoopType.Yoyo);
+    {    
+        _mainCoroutine = _entity.StartCoroutine(Rotate());
     }
 
     public override void ReactOnEntryVehicleCatchZone()
@@ -43,6 +45,50 @@ public class SimpleRotationState : EntityBaseState
 
     public override void Stop()
     {
-        _rotationAnimation.Kill();
+        _entity.StopCoroutine(_movingCoroutine);
+        _entity.StopCoroutine(_mainCoroutine);
+    }
+    
+    private IEnumerator Rotate()
+    {
+        Quaternion rotation = _entity.transform.rotation;
+        Quaternion endRotation;
+        bool isFullRotate = false;
+
+        float delayBeforeRotate = Random.Range(0, _rotationHalfCycleTime);
+        
+        yield return new WaitForSeconds(delayBeforeRotate);
+        
+        while(true)
+        {
+            if (isFullRotate)
+            {
+                endRotation = Quaternion.identity;
+                isFullRotate = false;
+            }
+            else
+            {
+                endRotation = Quaternion.Euler(rotation.x, rotation.y + _rotationAngle, rotation.z);
+                isFullRotate = true;
+            }
+            
+            _movingCoroutine = _entity.StartCoroutine(Moving(endRotation));
+
+            yield return _movingCoroutine;
+        }
+    }
+
+    private IEnumerator Moving(Quaternion endRotation)
+    {
+        float startTime = Time.time;
+        float time;
+        Quaternion startRotation = _entity.transform.rotation;
+        
+        while (Time.time - startTime < _rotationHalfCycleTime)
+        {
+            time = (Time.time - startTime) / _rotationHalfCycleTime;
+            _entity.transform.rotation = Quaternion.Lerp(startRotation, endRotation, time);
+            yield return null;
+        }
     }
 }

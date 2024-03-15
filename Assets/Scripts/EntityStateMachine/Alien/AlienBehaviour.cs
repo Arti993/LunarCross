@@ -30,12 +30,12 @@ public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
                 _entityToEject = bindpoint.GetComponentInChildren<IPlaceableToVehicle>();
                 Collider.enabled = false;
 
-                Eject();
+                EjectEntity();
             }
         }
     }
 
-    public void Eject()
+    public void EjectEntity()
     {
         if (_entityToEject != null)
             _entityToEject.UnplaceFromVehicle();

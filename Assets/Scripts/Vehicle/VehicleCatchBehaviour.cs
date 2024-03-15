@@ -10,15 +10,11 @@ public class VehicleCatchBehaviour : MonoBehaviour
     [SerializeField] private List<RightSideBindPoint> _rightSideBindPoints;
     [SerializeField] private List<InsideBindPoint> _insideBindPoints;
 
-    private Player _player;
     private List<BindPoint> _allBindPoints = new List<BindPoint>();
 
     private void Start()
     {
         PutAllPointsInOneList();
-        
-        _player = GetComponent<Player>();
-
     }
 
     public bool TryFillInsideBindPoint(EntityBehaviour entity)
@@ -49,11 +45,9 @@ public class VehicleCatchBehaviour : MonoBehaviour
         return TryFillBindPoint(entity, _rightSideBindPoints);
     }
 
-    public bool TrySendEntitiesToGravityRay()
+    public IReadOnlyList<BindPoint> GetEntitiesBindPoints()
     {
-        StartCoroutine(EjectEntitiesByGravityRay());
-
-        return true; //потом сделать нормальное условие
+        return _allBindPoints;
     }
 
     private bool TryFillBindPoint(EntityBehaviour entity, IReadOnlyList<BindPoint> bindPoints)
@@ -91,28 +85,5 @@ public class VehicleCatchBehaviour : MonoBehaviour
         }
     }
 
-    private void OnLevelFailed()
-    {
-        foreach (var bindPoint in _allBindPoints)
-        {
-            bindPoint.Exempt();
-        }
-    }
 
-    private IEnumerator EjectEntitiesByGravityRay()
-    {
-        foreach (var bindPoint in _allBindPoints)
-        {
-            if (bindPoint.IsFree == false)
-                yield return StartCoroutine(MoveEntityToGravityRay(bindPoint));
-        }
-    }
-
-    private IEnumerator MoveEntityToGravityRay(BindPoint bindPoint)
-    {
-        bindPoint.BindedEntity.SwitchState<RisingByGravityRayState>();
-        bindPoint.Exempt();
-                
-        yield return new WaitForSeconds(0.5f);
-    }
 }

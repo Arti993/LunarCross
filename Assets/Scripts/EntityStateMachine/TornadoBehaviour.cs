@@ -17,11 +17,11 @@ public class TornadoBehaviour : EntityBehaviour, IEjectorFromVehicle, IEntitySta
             {
                 _entityToEject = bindPoint.GetComponentInChildren<IPlaceableToVehicle>();
 
-                Eject();
+                EjectEntity();
             }
         }
     }
-    public void Eject()
+    public void EjectEntity()
     {
         if (_entityToEject != null)
             _entityToEject.UnplaceFromVehicle();

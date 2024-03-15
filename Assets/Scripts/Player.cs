@@ -10,7 +10,17 @@ public class Player : MonoBehaviour
     {
         if (other.TryGetComponent<LevelBorder>(out LevelBorder levelBorder))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (other.attachedRigidbody != null)
+            {
+
+            }
+
+            RestartLevel();
         }
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

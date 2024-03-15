@@ -1,4 +1,4 @@
 public interface IEjectorFromVehicle 
 {
-    public void Eject();
+    public void EjectEntity();
 }
