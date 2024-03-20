@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,15 +11,17 @@ public class Player : MonoBehaviour
         {
             if (other.attachedRigidbody != null)
             {
-
+                //создание эффекта взрыва
             }
-
+            
             RestartLevel();
         }
     }
 
     private void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        UiWindowFactory uiFactory = AllServicesContainer.Instance.GetService<UiWindowFactory>();
+
+        uiFactory.GetLevelFailedWindow();
     }
 }
