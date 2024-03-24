@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 [RequireComponent(typeof(EntitySpawner))]
 [RequireComponent(typeof(LevelsSettingsNomenclature))]
 public class ChunkPlacer : MonoBehaviour
 {
+    //переделать в сервис
     [SerializeField] private Chunk _firstChunk;
+    [SerializeField] private GameplaySceneBootstrap _bootstrap;
 
     private EntitySpawner _entitySpawner;
     private LevelsSettingsNomenclature _levelsSettingsNomenclature;
@@ -18,7 +19,6 @@ public class ChunkPlacer : MonoBehaviour
     private int _collectableEntitiesCount;
     private int _enemyEntitiesCount;
     private bool _isAllChunksSpawned = false;
-    private Player _player;
 
     private List<Chunk> _spawnedChunks = new List<Chunk>();
     private List<Chunk> _currentVisibleChunks = new List<Chunk>();
@@ -40,15 +40,9 @@ public class ChunkPlacer : MonoBehaviour
     {
         if (_isAllChunksSpawned == false)
         {
-            if (_player.transform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
+            if (_bootstrap.Player.transform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
                 SpawnNextChunkInSequence();
         }
-    }
-
-    [Inject]
-    public void Construct(Player player)
-    {
-        _player = player;
     }
 
     private void ApplyLevelSettings()

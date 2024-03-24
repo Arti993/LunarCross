@@ -51,9 +51,4 @@ public class EntitySpawner : MonoBehaviour
             _spawnedEntities.Add(newEntity);
         }
     }
-
-    private void OnLevelFailed()
-    {
-        _spawnedEntities.Clear();
-    }
 }

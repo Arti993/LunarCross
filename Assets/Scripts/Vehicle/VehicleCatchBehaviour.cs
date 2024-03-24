@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
 public class VehicleCatchBehaviour : MonoBehaviour
 {
     [SerializeField] private List<LeftSideBindPoint> _leftSideBindPoints;
