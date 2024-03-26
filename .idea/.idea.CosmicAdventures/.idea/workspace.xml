@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="04aabbf9-7ec0-4adb-896a-57aef3559404" name="Default Changelist" comment="Add Dependency injection container, levelcomplete and levelfail functions. Add UI and Particle factories">
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Materials/Misc/Explosions/explosion_spritesheet_3x3_AB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Materials/Misc/Explosions/explosion_spritesheet_3x3_AB.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyPunchHeavy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyPunchHeavy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Combat/Magic/Enchant/MagicEnchantYellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Combat/Magic/Enchant/MagicEnchantYellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Bubbles/SoapBubbleEmitter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Bubbles/SoapBubbleEmitter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastBlue.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastGreenYellow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastGreenYellow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastOrangeGreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastOrangeGreen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastOrangePurple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastOrangePurple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastRainbow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastRainbow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastRed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Epic Toon FX/Prefabs/Environment/Confetti/Blast/ConfettiBlastRed.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IParticleSystemFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/cc/3b609da9/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameProgress.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GravityRay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LevelFailedWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EntityCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/RisingByGravityRayState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PauseButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameplaySceneBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/5c/8497fd82/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IUiWindowFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/BindPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NPCMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Level.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scenes/Typed/SampleScene_1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelsConfigs/Level.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelsSettingsNomenclature.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/SimpleRotationState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/LevitationState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/RadarBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/TornadoBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UiWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindowCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIWindowSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IAssets.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/AssetProvider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IService.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/AllServices.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/AllServicesContainer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/adsfadsf.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ParticleSystemFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameplayFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameplayFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/GameplayFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleCatchBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelBorderChecker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IUiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelFailedWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IParticleSystemFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/ParticleSystemFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GravityRay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameplaySceneBootstrap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameProgress.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2bi3ETmWW0j52iz4EDyEwrypkxh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3002736" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04aabbf9-7ec0-4adb-896a-57aef3559404" name="Default Changelist" comment="" />
+      <created>1706683965465</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706683965465</updated>
+      <workItem from="1706684003625" duration="6562000" />
+      <workItem from="1706777969707" duration="17121000" />
+      <workItem from="1706812096279" duration="1576000" />
+      <workItem from="1706856973385" duration="13560000" />
+      <workItem from="1707198846899" duration="15682000" />
+      <workItem from="1707251287395" duration="630000" />
+      <workItem from="1707307111532" duration="16100000" />
+      <workItem from="1707484258984" duration="6377000" />
+      <workItem from="1707504804108" duration="46643000" />
+      <workItem from="1707806209077" duration="4343000" />
+      <workItem from="1708360122223" duration="29225000" />
+      <workItem from="1708926527080" duration="17628000" />
+      <workItem from="1709023865689" duration="5448000" />
+      <workItem from="1709185832269" duration="3146000" />
+      <workItem from="1709631502435" duration="4441000" />
+      <workItem from="1710061647632" duration="12293000" />
+      <workItem from="1710243052660" duration="13541000" />
+      <workItem from="1710403253469" duration="13119000" />
+      <workItem from="1710913711018" duration="19363000" />
+      <workItem from="1711005023501" duration="18699000" />
+      <workItem from="1711105594975" duration="17085000" />
+      <workItem from="1711435494196" duration="19994000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adding LevelChoose functional, changing Chunks prefabs">
+      <created>1706812177803</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706812177803</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changing level selecting">
+      <created>1706946603690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706946603690</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding new scripts, fixing code">
+      <created>1707156830425</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707156830425</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Change NPC move action">
+      <created>1707422917603</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707422917603</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adding level restarting, fixing code">
+      <created>1707763587478</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707763587479</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adding Scriptable Objects with Levels Settings. Changing level restart.">
+      <created>1708604887878</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708604887878</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adding Pause Menu">
+      <created>1708639255258</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708639255258</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding LevelComplete UI window, changing scripts">
+      <created>1710514609111</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710514609111</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add Dependency injection container, levelcomplete and levelfail functions. Add UI and Particle factories">
+      <created>1710958157259</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710958157259</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Delete zenject, fix scripts">
+      <created>1711310438380</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711310438380</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Adding LevelChoose functional, changing Chunks prefabs" />
+    <MESSAGE value="Changing level selecting" />
+    <MESSAGE value="Adding new scripts, fixing code" />
+    <MESSAGE value="Change NPC move action" />
+    <MESSAGE value="Adding level restarting, fixing code" />
+    <MESSAGE value="Adding Scriptable Objects with Levels Settings. Changing level restart." />
+    <MESSAGE value="Adding Pause Menu" />
+    <MESSAGE value="Adding LevelComplete UI window, changing scripts" />
+    <MESSAGE value="Add Dependency injection container, levelcomplete and levelfail functions. Add UI and Particle factories" />
+    <MESSAGE value="Delete zenject, fix scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete zenject, fix scripts" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2334" y="97" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1706871874359">
+      <screen x="1920" y="-78" width="1920" height="1040" />
+    </state>
+    <state x="2334" y="97" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706871874359" />
+    <state width="1493" height="159" key="GridCell.Tab.0.bottom" timestamp="1709025706520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706520" />
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881331132" />
+    <state width="1493" height="159" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.0.center" timestamp="1709025706519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.0.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706519" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881331132" />
+    <state width="1493" height="159" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.0.left" timestamp="1709025706519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.0.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706519" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881331132" />
+    <state width="1493" height="159" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.0.right" timestamp="1709025706520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.0.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706519" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881331132" />
+    <state width="1493" height="159" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.1.bottom" timestamp="1709025711430">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025711430" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881335683" />
+    <state width="1493" height="159" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.1.center" timestamp="1709025711430">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.1.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025711430" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881335683" />
+    <state width="1493" height="159" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.1.left" timestamp="1709025711429">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.1.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025711429" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881335683" />
+    <state width="1493" height="159" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.1.right" timestamp="1709025711430">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.1.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025711430" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881335683" />
+    <state width="1493" height="159" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.2.bottom" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.2.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.2.center" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.2.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.2.left" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.2.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.2.right" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.2.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.3.bottom" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.3.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.3.center" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.3.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.3.left" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.3.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state width="1493" height="159" key="GridCell.Tab.3.right" timestamp="1709025706300">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="159" key="GridCell.Tab.3.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1709025706300" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706881330874" />
+    <state width="1493" height="159" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
+    <state x="570" y="129" key="RiderGenerateDialog" timestamp="1710491511469">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="570" y="129" key="RiderGenerateDialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1710491511469" />
+    <state x="269" y="38" key="SettingsEditor" timestamp="1711040555912">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="269" y="38" key="SettingsEditor/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1711040555912" />
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1707570986577">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1707570986577" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1711310464414">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1711310464414" />
+    <state x="2472" y="175" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1710514616996" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1708639262504" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1706873303222">
+      <screen x="1920" y="-78" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1706873303222" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1711469297843">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1711469297843" />
+    <state x="2459" y="105" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1708617320543" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/LevitationState.cs</url>
+          <line>54</line>
+          <properties documentPath="C:\Users\Artem\Cosmic Adventures Test\CosmicAdventures\Assets\Scripts\EntityStateMachine\LevitationState.cs" initialLine="55">
+            <startOffsets>
+              <option value="1445" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1491" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
