@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LevelsSettingsNomenclature))]
 public class ChunkPlacer : MonoBehaviour
 {
-    //переделать в сервис
+    //переделать в сервис если не впадлу
     [SerializeField] private Chunk _firstChunk;
     [SerializeField] private GameplaySceneBootstrap _bootstrap;
 
@@ -47,12 +47,7 @@ public class ChunkPlacer : MonoBehaviour
 
     private void ApplyLevelSettings()
     {
-        int levelNumber = PlayerPrefs.GetInt("SelectedLevelNumber", 0);
-        //сделать чтобы после конца уровня selected стал равен нулю, а reached увеличился на 1
-        
-
-        if (levelNumber == 0)
-            levelNumber = PlayerPrefs.GetInt("ReachedLevelNumber", 1);
+        int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
 
         Level currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
 
