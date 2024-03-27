@@ -651,6 +651,7 @@
             <e p="Chunks" t="Include">
               <e p="TornadoChunks" t="Include" />
             </e>
+            <e p="LevelsConfigs" t="Include" />
             <e p="Particles" t="Include" />
             <e p="UI" t="Include" />
           </e>
@@ -767,21 +768,20 @@
                 <e p="IAssets.cs" t="Include" />
                 <e p="IGameplayFactory.cs" t="Include" />
                 <e p="IGameProgress.cs" t="Include" />
+                <e p="ILevelsSettingsNomenclature.cs" t="Include" />
                 <e p="IParticleSystemFactory.cs" t="Include" />
                 <e p="IService.cs" t="Include" />
                 <e p="IUiWindowFactory.cs" t="Include" />
               </e>
+              <e p="LevelsSettingsNomenclature.cs" t="Include" />
             </e>
           </e>
           <e p="IPlaceableToVehicle.cs" t="Include" />
+          <e p="Level.cs" t="Include" />
           <e p="LevelBorder.cs" t="Include" />
           <e p="LevelBorderChecker.cs" t="Include" />
           <e p="LevelButton.cs" t="Include" />
           <e p="LevelGenerator.cs" t="Include" />
-          <e p="LevelsConfigs" t="Include">
-            <e p="Level.cs" t="Include" />
-          </e>
-          <e p="LevelsSettingsNomenclature.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="NPCMovement.cs" t="Include" />
           <e p="PlacementToVehiclePattern.cs" t="Include" />
@@ -791,8 +791,11 @@
           <e p="UI" t="Include">
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />
+            <e p="LevelPanel.cs" t="Include" />
+            <e p="MainMenuButton.cs" t="Include" />
             <e p="PauseButton.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
+            <e p="RestartGameQuestionWindow.cs" t="Include" />
             <e p="UIRoot.cs" t="Include" />
             <e p="UIWindow.cs" t="Include" />
           </e>

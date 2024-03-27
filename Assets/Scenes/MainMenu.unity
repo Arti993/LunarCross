@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 300047016}
   - component: {fileID: 300047015}
   m_Layer: 5
-  m_Name: AuthorsButton
+  m_Name: RestartGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,10 +410,10 @@ RectTransform:
   m_Father: {fileID: 659787115}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 729, y: -86.380226}
-  m_SizeDelta: {x: 548.9749, y: 91.6198}
+  m_AnchorMin: {x: 0.6764846, y: 0.40769446}
+  m_AnchorMax: {x: 0.8924845, y: 0.47300002}
+  m_AnchoredPosition: {x: 0.5, y: -0.3802185}
+  m_SizeDelta: {x: -4.0250854, y: -2.3802032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &300047015
 Animator:
@@ -482,7 +482,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 93244313}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnRestartGameButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 659787117}
   - component: {fileID: 659787116}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ActionButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,10 +876,10 @@ RectTransform:
   m_Father: {fileID: 659787115}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 729, y: 44.8099}
-  m_SizeDelta: {x: 548.9749, y: 91.6198}
+  m_AnchorMin: {x: 0.671, y: 0.5}
+  m_AnchorMax: {x: 0.897172, y: 0.568}
+  m_AnchoredPosition: {x: 1.5, y: -4.1901016}
+  m_SizeDelta: {x: -30.025085, y: -6.3802032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1085693024
 Animator:
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Authors
+  m_text: Restart Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1506,10 +1506,10 @@ RectTransform:
   m_Father: {fileID: 659787115}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 729, y: 173.8099}
-  m_SizeDelta: {x: 548.9749, y: 91.6198}
+  m_AnchorMin: {x: 0.6764846, y: 0.586}
+  m_AnchorMax: {x: 0.897172, y: 0.652}
+  m_AnchoredPosition: {x: -5, y: 2.809906}
+  m_SizeDelta: {x: -15.025085, y: -2.3802032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2071070892
 Animator:
@@ -1662,10 +1662,10 @@ RectTransform:
   m_Father: {fileID: 659787115}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 729, y: -215.1901}
-  m_SizeDelta: {x: 548.9749, y: 91.6198}
+  m_AnchorMin: {x: 0.6764846, y: 0.3174167}
+  m_AnchorMax: {x: 0.8924845, y: 0.384}
+  m_AnchoredPosition: {x: 0.5, y: -0.190094}
+  m_SizeDelta: {x: -4.0250854, y: -4.3802032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2120682968
 Animator:
@@ -1933,10 +1933,10 @@ RectTransform:
   m_Father: {fileID: 659787115}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 729, y: 305}
-  m_SizeDelta: {x: 548.9749, y: 91.6198}
+  m_AnchorMin: {x: 0.6764846, y: 0.675}
+  m_AnchorMax: {x: 0.897172, y: 0.7558334}
+  m_AnchoredPosition: {x: -5.5, y: -5}
+  m_SizeDelta: {x: -16.025085, y: -24.380188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1489008652950385737
 GameObject:

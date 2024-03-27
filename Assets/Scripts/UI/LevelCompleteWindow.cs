@@ -12,11 +12,12 @@ public class LevelCompleteWindow : UIWindow
     [SerializeField] private float _resultsPanelTopPosY = 0;
     [SerializeField] private float _resultsPanelBottomPosY = -500f;//возможно сделать красивое скрытие перед следующим экраном
     [SerializeField] private float _panelAnimationDuration = 0.5f;
-    [SerializeField] private int _pointsForFirstStar = 4;
-    [SerializeField] private int _pointsForSecondStar = 8;
-    [SerializeField] private int _pointsForThirdStar = 13;
     [SerializeField] private float _pointsTextSizeMultiplier = 2;
     [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
+    
+    private int _pointsForFirstStar;
+    private int _pointsForSecondStar;
+    private int _pointsForThirdStar;
    
     private RectTransform _resultsPanelRect;
     private int _points;
@@ -25,6 +26,15 @@ public class LevelCompleteWindow : UIWindow
     private void Awake()
     {
         _resultsPanelRect = GetComponent<RectTransform>();
+        
+        int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+
+        Level currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+            .GetLevelSettings(levelNumber);
+
+        _pointsForFirstStar = currentLevel.PointsForFirstStar;
+        _pointsForSecondStar = currentLevel.PointsForSecondStar;
+        _pointsForThirdStar = currentLevel.PointsForThirdStar;
         
         foreach (var ratingStar in _ratingStars)
         {
@@ -59,6 +69,8 @@ public class LevelCompleteWindow : UIWindow
 
     public void GoToLevelChooseScene()
     {
+        PlayerPrefs.DeleteKey("SelectedLevelNumber");
+        
         LevelsChoose.Load();
     }
 
@@ -66,7 +78,7 @@ public class LevelCompleteWindow : UIWindow
     {
         if (_points >= _pointsForFirstStar)
         {
-            AllServicesContainer.Instance.GetService<IGameProgress>().ChangeLevelProgress(_points);
+            AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
         }
         else
         {

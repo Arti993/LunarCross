@@ -15,4 +15,9 @@ public class GameplayFactory : IGameplayFactory
     {
         return _provider.Instantiate("Prefabs/RoverT30-1", position);
     }
+
+    public GameObject GetLevelsSettingsNomenclature()
+    {
+        return _provider.Instantiate("Prefabs/LevelsSettingsNomenclature");
+    }
 }

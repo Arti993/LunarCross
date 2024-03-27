@@ -7,4 +7,6 @@ public interface IUiWindowFactory : IService
     public GameObject GetLevelCompleteWindow();
     public GameObject GetPauseMenuWindow();
     public GameObject GetLevelFailedWindow();
+
+    public GameObject GetRestartGameQuestionWindow(GameObject parent);
 }

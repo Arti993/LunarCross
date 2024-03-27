@@ -33,7 +33,7 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
 
     public override void Move()
     {
-        _placementPattern.PlaceToVehicle();
+        _placementPattern.TryPlaceToVehicle();
 
         _animator.SetBool(LevitatingTrigger, true);
 
@@ -69,10 +69,14 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
 
         if (_entityBehaviour.GetComponentInParent<BindPoint>().IsFree == false)
         {
-            if (_changeAttachStateCoroutine != null)
+            if (_placementPattern.TryPlaceToVehicle())
             {
                 _stateSwitcher.SwitchState<InsideVehicleAttachState>();
                 _changeAttachStateCoroutine = null;
+            }
+            else
+            {
+                _changeAttachStateCoroutine = _entityBehaviour.StartCoroutine(WaitToInsideAttach());
             }
         }
     }

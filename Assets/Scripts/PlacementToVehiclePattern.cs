@@ -14,17 +14,29 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
         _catchZoneChecker = new CatchZoneChecker(entity, _searchRadius);
     }
 
-    public void PlaceToVehicle()
+    public bool TryPlaceToVehicle()
     {
         CheckEntityPlacement(out BindPoint bindPoint);
 
         if(bindPoint == null)
         {
-            if (TryPlaceOutsideVehicle() == false)
+            if (TryPlaceOutsideVehicle())
+                return true;
+            else
+            {
                 _entity.SwitchState<KnockedByVehicleState>();
+                return false;
+            }
         }
-        else if(bindPoint is OutsideBindPoint)
-            TryPlaceInsideVehicle();
+        else if (bindPoint is OutsideBindPoint)
+        {
+            if (TryPlaceInsideVehicle())
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
     }
 
     public void UnplaceFromVehicle()

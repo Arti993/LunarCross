@@ -14,6 +14,12 @@ public class Level : ScriptableObject
     [SerializeField] private int _collectableEntitiesCount;
 
     [SerializeField] private int _enemiesCount;
+    
+    [SerializeField] private int _pointsForFirstStar;
+    
+    [SerializeField] private int _pointsForSecondStar;
+    
+    [SerializeField] private int _pointsForThirdStar;
 
     public Chunk ChunkWithObstacles => _chunkWithObstacles;
 
@@ -26,5 +32,11 @@ public class Level : ScriptableObject
     public int CollectableEntitiesCount => _collectableEntitiesCount;
     
     public int EnemiesCount => _enemiesCount;
+
+    public int PointsForFirstStar => _pointsForFirstStar;
+    
+    public int PointsForSecondStar => _pointsForSecondStar;
+    
+    public int PointsForThirdStar => _pointsForThirdStar;
 }
     

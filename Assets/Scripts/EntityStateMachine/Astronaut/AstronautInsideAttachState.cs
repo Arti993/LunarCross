@@ -26,8 +26,6 @@ public class AstronautInsideAttachState : InsideVehicleAttachState
 
     public override void Move()
     {
-        _placementPattern.PlaceToVehicle();
-
         _animator.SetBool(IdleTrigger, true);
     }
 

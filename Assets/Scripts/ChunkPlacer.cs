@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(EntitySpawner))]
-[RequireComponent(typeof(LevelsSettingsNomenclature))]
 public class ChunkPlacer : MonoBehaviour
 {
     //переделать в сервис если не впадлу
@@ -11,7 +11,6 @@ public class ChunkPlacer : MonoBehaviour
     [SerializeField] private GameplaySceneBootstrap _bootstrap;
 
     private EntitySpawner _entitySpawner;
-    private LevelsSettingsNomenclature _levelsSettingsNomenclature;
     private Chunk _emptyChunk;
     private Chunk _landscapeChunk;
     private Chunk _tornadoChunk;
@@ -27,13 +26,15 @@ public class ChunkPlacer : MonoBehaviour
     private void Awake()
     {
         _entitySpawner = GetComponent<EntitySpawner>();
-        _levelsSettingsNomenclature = GetComponent<LevelsSettingsNomenclature>();
-       
-        ApplyLevelSettings();
         
         _spawnedChunks.Add(_firstChunk);
         
         _currentVisibleChunks.Add(_firstChunk);
+    }
+
+    private void Start()
+    {
+        ApplyLevelSettings();
     }
 
     private void Update()
@@ -49,7 +50,8 @@ public class ChunkPlacer : MonoBehaviour
     {
         int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
 
-        Level currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
+        Level currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+            .GetLevelSettings(levelNumber);
 
         _landscapeChunk = currentLevel.ChunkWithObstacles;
         _tornadoChunk = currentLevel.TornadoChunk;

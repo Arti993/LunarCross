@@ -36,6 +36,8 @@ public class GameplaySceneBootstrap : MonoBehaviour
         
         _allServices.RegisterService<IGameProgress>(new GameProgress());
         
+        _allServices.RegisterService<ILevelsSettingsNomenclature>(new LevelsSettingsNomenclature());
+        
         _allServices.RegisterService<IUiWindowFactory>(new UiWindowFactory(
             _allServices.GetService<IAssets>(), _camera));
         

@@ -26,7 +26,7 @@ public class PauseMenu : UIWindow
 
         PausePanelOutro();
 
-        StartCoroutine(Destroy());
+        StartCoroutine(Destroy(_pausePanelAnimationDuration));
 
         Time.timeScale = 1f;
 
@@ -69,12 +69,5 @@ public class PauseMenu : UIWindow
         PausePanelIntro();
 
         Time.timeScale = 0f;
-    }
-
-    private IEnumerator Destroy()
-    {
-        yield return new WaitForSeconds(_pausePanelAnimationDuration);
-
-        Destroy(gameObject);
     }
 }

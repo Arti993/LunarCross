@@ -378,7 +378,6 @@ GameObject:
   - component: {fileID: 1323671703}
   - component: {fileID: 1323671702}
   - component: {fileID: 1323671701}
-  - component: {fileID: 1323671700}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -386,30 +385,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1323671700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323671699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0306681886b98d345a11906cc45ba9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levels:
-  - {fileID: 11400000, guid: 1710f1eedb2639447b16f41668b81697, type: 2}
-  - {fileID: 11400000, guid: c2dbcf4eb7099d7438e48d09992c24ed, type: 2}
-  - {fileID: 11400000, guid: 42b0fd65a2ccb5d4e8e4112f092c07ad, type: 2}
-  - {fileID: 11400000, guid: 453a22ef46ea21348a8576c1c4b05f2e, type: 2}
-  - {fileID: 11400000, guid: ca20cfd36e50a5348a08db9fffae0bf1, type: 2}
-  - {fileID: 11400000, guid: 8fc56d6c0b1f7fe448bfd778247f52f6, type: 2}
-  - {fileID: 11400000, guid: d56a4087295f3d641b3e0b47ca3c8ce5, type: 2}
-  - {fileID: 11400000, guid: d64d4f82068087644a7970931f774d21, type: 2}
-  - {fileID: 11400000, guid: 85a5ddba722f7824eb24f1879a2516e8, type: 2}
-  - {fileID: 11400000, guid: 8ba39fa0e679c7749aadfb8fb01de837, type: 2}
-  - {fileID: 11400000, guid: 29a184fbe95d92d4da9636e267ac33da, type: 2}
 --- !u!114 &1323671701
 MonoBehaviour:
   m_ObjectHideFlags: 0

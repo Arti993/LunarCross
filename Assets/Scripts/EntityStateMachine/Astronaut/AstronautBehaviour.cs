@@ -23,9 +23,9 @@ public class AstronautBehaviour : NpcBehaviour, IPlaceableToVehicle
         CurrentState.Start();
     }
 
-    public void PlaceToVehicle()
+    public bool TryPlaceToVehicle()
     {
-        _placementPattern.PlaceToVehicle();
+        return _placementPattern.TryPlaceToVehicle();
     }
 
     public void UnplaceFromVehicle()

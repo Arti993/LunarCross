@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f8ad3c547cab54f9af5ffaff5be506, type: 3}
-  m_Name: Level4
+  m_Name: Level8
   m_EditorClassIdentifier: 
-  _chunkWithObstacles: {fileID: 3184099772230465382, guid: bd72bcf73ffa421408302c7f8c9870ab, type: 3}
-  _tornadoChunk: {fileID: 3027547784663528058, guid: 98938cff2ff2e444abe07df19cd58ac2, type: 3}
+  _chunkWithObstacles: {fileID: 3135470646232088356, guid: 315deabb4a85cab4c853ce7e700b8262, type: 3}
+  _tornadoChunk: {fileID: -7333549674938833052, guid: 669ea5c0be3fd1342b7ce0e4caa8d703, type: 3}
   _finishChunk: {fileID: 2490967095242562504, guid: d7de4f8b66a0d6449bde326376d764d8, type: 3}
   _emptyChunk: {fileID: 2490967095242562504, guid: 677e2d35006f91a4a9ca7055ca6c0250, type: 3}
-  _collectableEntitiesCount: 17
-  _enemiesCount: 6
+  _collectableEntitiesCount: 13
+  _enemiesCount: 10
+  _pointsForFirstStar: 5
+  _pointsForSecondStar: 9
+  _pointsForThirdStar: 14

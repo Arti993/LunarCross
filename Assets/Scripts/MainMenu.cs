@@ -13,9 +13,9 @@ public class MainMenu : MonoBehaviour
         LevelsChoose.Load();
     }
 
-    public void OnAuthorsButtonClick()
+    public void OnRestartGameButtonClick()
     {
-        
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetRestartGameQuestionWindow(this.gameObject);
     }
     
     public void OnSettingsButtonClick()

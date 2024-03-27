@@ -1,6 +1,6 @@
 public interface IPlaceableToVehicle
 {
-    public void PlaceToVehicle();
+    public bool TryPlaceToVehicle();
 
     public void UnplaceFromVehicle();
 }

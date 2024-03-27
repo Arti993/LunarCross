@@ -83,6 +83,4 @@ public class VehicleCatchBehaviour : MonoBehaviour
             _allBindPoints.Add(bindPoint);
         }
     }
-
-
 }

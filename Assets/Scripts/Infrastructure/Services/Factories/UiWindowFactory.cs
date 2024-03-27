@@ -64,6 +64,11 @@ public class UiWindowFactory : IUiWindowFactory
         return _provider.Instantiate("Prefabs/UI/LevelFailedWindow", _uiRootObject.transform);
     }
 
+    public GameObject GetRestartGameQuestionWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/RestartGameQuestionPanel", parent.transform);
+    }
+
     private bool CheckUIRootNotNull()
     {
         if(_uiRootObject == null)
