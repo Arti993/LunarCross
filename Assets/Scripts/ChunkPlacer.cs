@@ -6,9 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(EntitySpawner))]
 public class ChunkPlacer : MonoBehaviour
 {
-    //переделать в сервис если не впадлу
     [SerializeField] private Chunk _firstChunk;
-    [SerializeField] private GameplaySceneBootstrap _bootstrap;
 
     private EntitySpawner _entitySpawner;
     private Chunk _emptyChunk;
@@ -18,6 +16,7 @@ public class ChunkPlacer : MonoBehaviour
     private int _collectableEntitiesCount;
     private int _enemyEntitiesCount;
     private bool _isAllChunksSpawned = false;
+    private Transform _playerTransform;
 
     private List<Chunk> _spawnedChunks = new List<Chunk>();
     private List<Chunk> _currentVisibleChunks = new List<Chunk>();
@@ -41,9 +40,14 @@ public class ChunkPlacer : MonoBehaviour
     {
         if (_isAllChunksSpawned == false)
         {
-            if (_bootstrap.Player.transform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
+            if (_playerTransform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
                 SpawnNextChunkInSequence();
         }
+    }
+    
+    public void SetPlayerTransform(Transform playerTransform)
+    {
+        _playerTransform = playerTransform;
     }
 
     private void ApplyLevelSettings()

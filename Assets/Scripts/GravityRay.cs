@@ -46,7 +46,9 @@ public class GravityRay : MonoBehaviour
 
     private void ShowLevelCompleteWindow()
     {
-        GameObject window = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow();
+        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        
+        GameObject window = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow(uiRoot);
 
         if (window.TryGetComponent(out LevelCompleteWindow levelCompleteWindow))
             _levelCompleteWindow = levelCompleteWindow;

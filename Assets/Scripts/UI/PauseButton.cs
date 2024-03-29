@@ -4,6 +4,8 @@ public class PauseButton : MonoBehaviour
 {
     public void OnClick()
     {
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseMenuWindow();
+        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseMenuWindow(uiRoot);
     }
 }

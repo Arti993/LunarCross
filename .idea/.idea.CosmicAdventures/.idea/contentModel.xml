@@ -755,7 +755,8 @@
           <e p="IEjectorFromVehicle.cs" t="Include" />
           <e p="Infrastructure" t="Include">
             <e p="AllServicesContainer.cs" t="Include" />
-            <e p="GameplaySceneBootstrap.cs" t="Include" />
+            <e p="GamePlayBootstrap.cs" t="Include" />
+            <e p="MainBootstrap.cs" t="Include" />
             <e p="Services" t="Include">
               <e p="AssetProvider.cs" t="Include" />
               <e p="Factories" t="Include">
@@ -785,7 +786,7 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="NPCMovement.cs" t="Include" />
           <e p="PlacementToVehiclePattern.cs" t="Include" />
-          <e p="PlayerCamera.cs" t="Include" />
+          <e p="PlayerFollowCamera.cs" t="Include" />
           <e p="Ragdoll.cs" t="Include" />
           <e p="TornadoChunk.cs" t="Include" />
           <e p="UI" t="Include">

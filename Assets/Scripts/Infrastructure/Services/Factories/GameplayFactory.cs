@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameplayFactory : IGameplayFactory
@@ -15,9 +13,14 @@ public class GameplayFactory : IGameplayFactory
     {
         return _provider.Instantiate("Prefabs/RoverT30-1", position);
     }
-
-    public GameObject GetLevelsSettingsNomenclature()
+    
+    public GameObject CreateGameCamera()
     {
-        return _provider.Instantiate("Prefabs/LevelsSettingsNomenclature");
+        return _provider.Instantiate("Prefabs/GameCamera");
+    }
+
+    public GameObject CreateSpawner()
+    {
+        return _provider.Instantiate("Prefabs/Spawner");
     }
 }

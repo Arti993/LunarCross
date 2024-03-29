@@ -5,15 +5,10 @@ public class UiWindowFactory : IUiWindowFactory
 {
     private readonly IAssets _provider;
     private GameObject _uiRootObject;
-    private Canvas _canvas;
 
-    public UiWindowFactory(IAssets provider, Camera camera)
+    public UiWindowFactory(IAssets provider)
     {
         _provider = provider;
-        _uiRootObject = GetUIRoot();
-        _canvas = _uiRootObject.GetComponent<Canvas>();
-        _canvas.worldCamera = camera;
-        _canvas.planeDistance = 4;
     }
 
     public GameObject GetUIRoot()
@@ -21,15 +16,13 @@ public class UiWindowFactory : IUiWindowFactory
         return _uiRootObject ? _uiRootObject : (_uiRootObject = _provider.Instantiate("Prefabs/UI/UIRoot"));
     }
 
-    public GameObject GetPauseButton()
+    public GameObject GetPauseButton(GameObject parent)
     {
-        CheckUIRootNotNull();
-
         _uiRootObject.TryGetComponent(out UIRoot uiRoot);
 
         if (uiRoot.PauseButton == null)
         {
-            GameObject pauseButtonObject = _provider.Instantiate("Prefabs/UI/PauseButton", _uiRootObject.transform);
+            GameObject pauseButtonObject = _provider.Instantiate("Prefabs/UI/PauseButton", parent.transform);
 
             pauseButtonObject.TryGetComponent(out PauseButton pauseButton);
             
@@ -43,37 +36,23 @@ public class UiWindowFactory : IUiWindowFactory
         }
     }
 
-    public GameObject GetLevelCompleteWindow()
+    public GameObject GetLevelCompleteWindow(GameObject parent)
     {
-        CheckUIRootNotNull();
-        
-        return _provider.Instantiate("Prefabs/UI/LevelCompleteWindow", _uiRootObject.transform);
+        return _provider.Instantiate("Prefabs/UI/LevelCompleteWindow", parent.transform);
     }
     
-    public GameObject GetPauseMenuWindow()
+    public GameObject GetPauseMenuWindow(GameObject parent)
     {
-        CheckUIRootNotNull();
-        
-        return _provider.Instantiate("Prefabs/UI/PauseMenu", _uiRootObject.transform);
+        return _provider.Instantiate("Prefabs/UI/PauseMenu", parent.transform);
     }
     
-    public GameObject GetLevelFailedWindow()
+    public GameObject GetLevelFailedWindow(GameObject parent)
     {
-        CheckUIRootNotNull();
-        
-        return _provider.Instantiate("Prefabs/UI/LevelFailedWindow", _uiRootObject.transform);
+        return _provider.Instantiate("Prefabs/UI/LevelFailedWindow", parent.transform);
     }
 
     public GameObject GetRestartGameQuestionWindow(GameObject parent)
     {
         return _provider.Instantiate("Prefabs/UI/RestartGameQuestionPanel", parent.transform);
-    }
-
-    private bool CheckUIRootNotNull()
-    {
-        if(_uiRootObject == null)
-            throw new InvalidOperationException();
-
-        return true;
     }
 }

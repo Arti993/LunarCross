@@ -50,7 +50,6 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
 
             _changeAttachStateCoroutine = null;
         }
-
     }
 
     public override void ReactOnEntryVehicleCatchZone()

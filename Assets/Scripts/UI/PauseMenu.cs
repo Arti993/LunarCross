@@ -29,8 +29,10 @@ public class PauseMenu : UIWindow
         StartCoroutine(Destroy(_pausePanelAnimationDuration));
 
         Time.timeScale = 1f;
+        
+        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton();
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
     }
 
     public void RestartLevel()
