@@ -20,7 +20,7 @@ public class SatelliteBehaviour : EntityBehaviour
         AllStates = new List<EntityBaseState>()
         {
             new LevitationState(this, this, _rigidbody, _levitationHeight, _levitationHalfCycleTime),
-            new BaseObstacleKnockedState(this, _rigidbody)
+            new ObstacleKnockedState(this, _rigidbody)
         };
 
         CurrentState = AllStates.First();

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,7 +12,7 @@ public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
         {
             new AlienBaseMovementState(this, NpcMovement),
             new AlienAfterEjectingState(this, Rigidbody),
-            new HumanoidKnockedState(this, Rigidbody, RagdollFly)
+            new AlienKnockedState(this, Rigidbody, RagdollFly, Collider)
         };
 
         CurrentState = AllStates.First();

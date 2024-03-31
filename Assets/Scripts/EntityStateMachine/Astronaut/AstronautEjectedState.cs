@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class AstronautEjectedState : EjectedFromVehicleState
 {
-    public AstronautEjectedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
-        Collider collider) : base(stateSwitcher)
+    public AstronautEjectedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator, Collider collider, 
+        IPlaceableToVehicle placementPattern) : base(stateSwitcher, rigidbody, animator, collider, placementPattern)
     {
-        Rigidbody = rigidbody;
-        Animator = animator;
-        Collider = collider;
     }
 
     public override void Move()
@@ -24,4 +21,5 @@ public class AstronautEjectedState : EjectedFromVehicleState
 
         Rigidbody.AddForce(movementDirection * 10f, ForceMode.Impulse);
     }
+
 }

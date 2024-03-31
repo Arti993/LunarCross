@@ -21,7 +21,7 @@ public class RadarBehaviour : EntityBehaviour
         AllStates = new List<EntityBaseState>()
         {
             new SimpleRotationState(this, this, _rigidbody, _rotationAngle, _rotationHalfCycleTime),
-            new BaseObstacleKnockedState(this, _rigidbody)
+            new ObstacleKnockedState(this, _rigidbody)
         };
 
         CurrentState = AllStates.First();

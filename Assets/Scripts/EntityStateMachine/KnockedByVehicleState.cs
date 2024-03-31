@@ -2,35 +2,32 @@ using UnityEngine;
 
 public class KnockedByVehicleState : EntityBaseState
 {
-    private readonly Rigidbody _rigidbody;
-
+    protected Rigidbody Rigidbody;
     protected Vector3 MovementDirection;
     protected float MovementSpeed;
 
-    public float TimeToDestroy { get; protected set; }
-
     public KnockedByVehicleState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
     {
-        _rigidbody = rigidbody;
+        Rigidbody = rigidbody;
+        MovementDirection = new Vector3(Random.Range(-0.25f, 0.25f), 1, 0f);
+        MovementSpeed = 55;
     }
 
     public override void Start()
     {
-        if (_rigidbody.gameObject.isStatic)
-            _rigidbody.gameObject.isStatic = false;
+        if (Rigidbody.gameObject.isStatic)
+            Rigidbody.gameObject.isStatic = false;
 
-        _rigidbody.isKinematic = false;
-        _rigidbody.velocity = Vector3.zero;
+        Rigidbody.isKinematic = false;
+        Rigidbody.velocity = Vector3.zero;
 
         Move();
     }
 
     public override void Move()
     {
-        _rigidbody.velocity = MovementDirection * MovementSpeed;
-        _rigidbody.angularVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
-
-        Object.Destroy(_rigidbody.gameObject, TimeToDestroy);
+        Rigidbody.velocity = MovementDirection * MovementSpeed;
+        Rigidbody.angularVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     public override void ReactOnEntryVehicleCatchZone()

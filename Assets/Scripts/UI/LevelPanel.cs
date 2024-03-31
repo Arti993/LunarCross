@@ -1,7 +1,9 @@
 using TMPro;
 using UnityEngine;
 using IJunior.TypedScenes;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class LevelPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _unblockedView;
@@ -11,16 +13,22 @@ public class LevelPanel : MonoBehaviour
     [SerializeField] private TMP_Text _bestRecordTitle;
     [SerializeField] private int _levelNumber;
 
+    private Button _button;
+
     private void Awake()
     {
+        _button = GetComponent<Button>();
+        
         if (PlayerPrefs.GetInt("ReachedLevelNumber", 1) < _levelNumber)
         {
             _unblockedView.SetActive(false);
             _blockedView.SetActive(true);
+            _button.interactable = false;
         }
         else
         {
             _unblockedView.SetActive(true);
+            _button.interactable = true;
             _blockedView.SetActive(false);
             
             _levelNumberTitle.text = _levelNumber.ToString();

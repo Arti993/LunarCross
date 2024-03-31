@@ -2,16 +2,10 @@ using UnityEngine;
 
 public class RisingByGravityRayState : EjectedFromVehicleState
 {
-    //сделать отдельный интерфейс под захват и бамбер
-    
-    
-    public RisingByGravityRayState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
-        Collider collider) : base(stateSwitcher)
-     {
-         Rigidbody = rigidbody;
-         Animator = animator;
-         Collider = collider;
-     }
+    public RisingByGravityRayState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator, Collider collider,
+        IPlaceableToVehicle placementPattern) : base(stateSwitcher, rigidbody, animator, collider, placementPattern)
+    {
+    }
 
     public override void Move()
     {

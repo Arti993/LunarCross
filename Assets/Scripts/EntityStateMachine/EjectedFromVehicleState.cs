@@ -12,9 +12,15 @@ public class EjectedFromVehicleState : EntityBaseState
     protected Collider Collider;
     private EntityBehaviour _entity;
     private float _timeToEnableCollider = 1;
+    private readonly IPlaceableToVehicle _placementPattern;
     
-    protected EjectedFromVehicleState(IEntityStateSwitcher stateSwitcher) : base(stateSwitcher)
+    protected EjectedFromVehicleState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
+        Collider collider, IPlaceableToVehicle placementPattern) : base(stateSwitcher)
     {
+        Rigidbody = rigidbody;
+        Animator = animator;
+        Collider = collider;
+        _placementPattern = placementPattern;
     }
 
     public override void Start()
@@ -43,24 +49,21 @@ public class EjectedFromVehicleState : EntityBaseState
 
     public override void Stop()
     {
-        
     }
 
     public override void Move()
     {
-        
     }
 
     public override void ReactOnEntryVehicleCatchZone()
     {
-        
+        _placementPattern.TryPlaceToVehicle();
     }
 
     public override void ReactOnEntryVehicleTossZone()
     {
-        
     }
-    
+
     private IEnumerator WaitToEnableCollider()
     {
         yield return new WaitForSeconds(_timeToEnableCollider);  

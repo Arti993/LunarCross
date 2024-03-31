@@ -722,6 +722,7 @@
               <e p="AlienAfterEjectingState.cs" t="Include" />
               <e p="AlienBaseMovementState.cs" t="Include" />
               <e p="AlienBehaviour.cs" t="Include" />
+              <e p="AlienKnockedState.cs" t="Include" />
             </e>
             <e p="Astronaut" t="Include">
               <e p="AstronautBaseMovementState.cs" t="Include" />
@@ -731,8 +732,8 @@
               <e p="AstronautOutsideAttachState.cs" t="Include" />
               <e p="RisingByGravityRayState.cs" t="Include" />
             </e>
+            <e p="AstronautKnockedState.cs" t="Include" />
             <e p="BaseMovementState.cs" t="Include" />
-            <e p="BaseObstacleKnockedState.cs" t="Include" />
             <e p="EjectedFromVehicleState.cs" t="Include" />
             <e p="EntityBaseState.cs" t="Include" />
             <e p="EntityBehaviour.cs" t="Include" />
@@ -743,6 +744,7 @@
             <e p="LevitationState.cs" t="Include" />
             <e p="NoActionState.cs" t="Include" />
             <e p="NpcBehaviour.cs" t="Include" />
+            <e p="ObstacleKnockedState.cs" t="Include" />
             <e p="OutsideVehicleAttachState.cs" t="Include" />
             <e p="RadarBehaviour.cs" t="Include" />
             <e p="Satellite" t="Include">
