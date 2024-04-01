@@ -27,10 +27,17 @@ public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
             if(bindpoint != null && bindpoint.IsFree == false)
             {
                 _entityToEject = bindpoint.GetComponentInChildren<IPlaceableToVehicle>();
-                Collider.enabled = false;
+                //Collider.enabled = false;
 
                 EjectEntity();
+                
+                this.SwitchState<AlienAfterEjectingState>();
             }
+        }
+
+        if (other.gameObject.TryGetComponent(out VehicleCatchBehaviour vehicle))
+        {
+            this.SwitchState<AlienAfterEjectingState>();
         }
     }
 
@@ -38,7 +45,5 @@ public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
     {
         if (_entityToEject != null)
             _entityToEject.UnplaceFromVehicle();
-
-        this.SwitchState<AlienAfterEjectingState>();
     }
 }

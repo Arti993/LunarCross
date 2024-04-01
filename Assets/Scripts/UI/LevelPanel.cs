@@ -12,7 +12,8 @@ public class LevelPanel : MonoBehaviour
     [SerializeField] private TMP_Text _levelNumberTitle;
     [SerializeField] private TMP_Text _bestRecordTitle;
     [SerializeField] private int _levelNumber;
-
+    
+    private const int GameplaySceneIndex = 1;
     private Button _button;
 
     private void Awake()
@@ -41,7 +42,7 @@ public class LevelPanel : MonoBehaviour
     {
         AllServicesContainer.Instance.GetService<IGameProgress>().SelectLevel(_levelNumber);
         
-        Gameplay.Load();
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(GameplaySceneIndex);
     }
 
     private void DisplayProgress()

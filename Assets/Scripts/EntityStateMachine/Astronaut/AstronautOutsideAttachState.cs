@@ -4,17 +4,18 @@ using UnityEngine;
 public class AstronautOutsideAttachState : OutsideVehicleAttachState
 {
     private const string LevitatingTrigger = "isLevitating";
-
-    private Rigidbody _rigidbody;
-    private Animator _animator;
-    private IEntityStateSwitcher _stateSwitcher;
-    private IPlaceableToVehicle _placementPattern;
-
+    private const float ChangeAttachStateTime = 12;
+    
+    private readonly Rigidbody _rigidbody;
+    private readonly Animator _animator;
+    private readonly IEntityStateSwitcher _stateSwitcher;
+    private readonly IPlaceableToVehicle _placementPattern;
     private EntityBehaviour _entityBehaviour;
     private Coroutine _changeAttachStateCoroutine;
-    private float _changeAttachStateTime = 7;
+    
 
-    public AstronautOutsideAttachState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator, IPlaceableToVehicle placementPattern) : base(stateSwitcher)
+    public AstronautOutsideAttachState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator, 
+        IPlaceableToVehicle placementPattern) : base(stateSwitcher)
     {
         _rigidbody = rigidbody;
         _animator = animator;
@@ -33,8 +34,6 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
 
     public override void Move()
     {
-        _placementPattern.TryPlaceToVehicle();
-
         _animator.SetBool(LevitatingTrigger, true);
 
         if (_entityBehaviour != null)
@@ -64,13 +63,12 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
 
     private IEnumerator WaitToInsideAttach()
     {
-        yield return new WaitForSeconds(_changeAttachStateTime);
+        yield return new WaitForSeconds(ChangeAttachStateTime);
 
         if (_entityBehaviour.GetComponentInParent<BindPoint>().IsFree == false)
         {
             if (_placementPattern.TryPlaceToVehicle())
             {
-                _stateSwitcher.SwitchState<InsideVehicleAttachState>();
                 _changeAttachStateCoroutine = null;
             }
             else

@@ -21,7 +21,10 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
         if(bindPoint == null)
         {
             if (TryPlaceOutsideVehicle())
+            {
+                _entity.SwitchState<OutsideVehicleAttachState>();
                 return true;
+            }
             else
             {
                 _entity.SwitchState<KnockedByVehicleState>();
@@ -31,7 +34,10 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
         else if (bindPoint is OutsideBindPoint)
         {
             if (TryPlaceInsideVehicle())
+            {
+                _entity.SwitchState<InsideVehicleAttachState>();
                 return true;
+            }
             else
                 return false;
         }

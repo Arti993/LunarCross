@@ -773,10 +773,12 @@
                 <e p="IGameProgress.cs" t="Include" />
                 <e p="ILevelsSettingsNomenclature.cs" t="Include" />
                 <e p="IParticleSystemFactory.cs" t="Include" />
+                <e p="IScreenFader.cs" t="Include" />
                 <e p="IService.cs" t="Include" />
                 <e p="IUiWindowFactory.cs" t="Include" />
               </e>
               <e p="LevelsSettingsNomenclature.cs" t="Include" />
+              <e p="ScreenFader.cs" t="Include" />
             </e>
           </e>
           <e p="IPlaceableToVehicle.cs" t="Include" />
@@ -785,6 +787,7 @@
           <e p="LevelBorderChecker.cs" t="Include" />
           <e p="LevelButton.cs" t="Include" />
           <e p="LevelGenerator.cs" t="Include" />
+          <e p="LoadScreen.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="NPCMovement.cs" t="Include" />
           <e p="PlacementToVehiclePattern.cs" t="Include" />

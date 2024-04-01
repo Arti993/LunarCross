@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class UIWindow : MonoBehaviour
 {
+    private const int MainMenuSceneIndex = 0;
+    
     public void GoToMainMenu()
     {
-        Time.timeScale = 1f;
-
         PlayerPrefs.DeleteKey("SelectedLevelNumber");
         
-        SceneManager.LoadScene(0);
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(MainMenuSceneIndex);
     }
-    
-    public IEnumerator Destroy(float duration)
+
+    protected IEnumerator Destroy(float duration)
     {
         yield return new WaitForSeconds(duration);
 

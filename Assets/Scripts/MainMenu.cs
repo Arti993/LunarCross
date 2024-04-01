@@ -1,16 +1,18 @@
 using UnityEngine;
-using IJunior.TypedScenes;
 
 public class MainMenu : MonoBehaviour
 {
+    private const int GameplaySceneIndex = 1;
+    private const int LevelChooseSceneIndex = 2;
+    
     public void OnPlayButtonClick()
     {
-        Gameplay.Load();
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(GameplaySceneIndex);
     }
 
     public void OnLevelsChooseButtonCLick()
     {
-        LevelsChoose.Load();
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(LevelChooseSceneIndex);
     }
 
     public void OnRestartGameButtonClick()

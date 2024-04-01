@@ -22,4 +22,11 @@ public class AstronautEjectedState : EjectedFromVehicleState
         Rigidbody.AddForce(movementDirection * 10f, ForceMode.Impulse);
     }
 
+    public override void ReactOnEntryVehicleCatchZone()
+    {
+        Rigidbody.velocity = Vector3.zero;
+        Rigidbody.isKinematic = true;
+        Rigidbody.useGravity = false;
+        PlacementPattern.TryPlaceToVehicle();
+    }
 }

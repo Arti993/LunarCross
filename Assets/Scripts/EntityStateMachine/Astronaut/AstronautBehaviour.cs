@@ -11,7 +11,7 @@ public class AstronautBehaviour : NpcBehaviour, IPlaceableToVehicle
 
         AllStates = new List<EntityBaseState>()
         {
-            new AstronautBaseMovementState(this, NpcMovement),
+            new AstronautBaseMovementState(this, NpcMovement, _placementPattern),
             new AstronautInsideAttachState(this, Animator, _placementPattern),
             new AstronautOutsideAttachState(this, Rigidbody, Animator, _placementPattern),
             new AstronautEjectedState(this, Rigidbody, Animator, Collider, _placementPattern),

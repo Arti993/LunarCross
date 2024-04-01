@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuButton : MonoBehaviour
 {
+    private const int MainMenuSceneIndex = 0;
+    
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(MainMenuSceneIndex);
     }
 }

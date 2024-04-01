@@ -38,9 +38,10 @@ public class PauseMenu : UIWindow
     public void RestartLevel()
     {
         _isGamePaused = false;
-        Time.timeScale = 1f;
         
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
     }
 
     public void ChangeGameSettings()

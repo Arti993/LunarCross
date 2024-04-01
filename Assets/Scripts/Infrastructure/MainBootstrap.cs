@@ -1,17 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainBootstrap : MonoBehaviour
 {
     private AllServicesContainer _allServices;
+    private static bool _isFirstAwakened;
 
     private void Awake()
     {
-        _allServices = new AllServicesContainer();
+        if (_isFirstAwakened) 
+            return;
         
+        _allServices = new AllServicesContainer();
+            
         RegisterServices();
+
+        _isFirstAwakened = true;
     }
 
     private void RegisterServices()
@@ -21,6 +24,9 @@ public class MainBootstrap : MonoBehaviour
         _allServices.RegisterService<IGameProgress>(new GameProgress());
         
         _allServices.RegisterService<ILevelsSettingsNomenclature>(new LevelsSettingsNomenclature());
+        
+        _allServices.RegisterService<IScreenFader>(new ScreenFader(
+            _allServices.GetService<IAssets>()));
         
         _allServices.RegisterService<IUiWindowFactory>(new UiWindowFactory(
             _allServices.GetService<IAssets>()));

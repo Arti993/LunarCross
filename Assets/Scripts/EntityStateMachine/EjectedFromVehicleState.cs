@@ -10,9 +10,9 @@ public class EjectedFromVehicleState : EntityBaseState
     protected Rigidbody Rigidbody;
     protected Animator Animator;
     protected Collider Collider;
+    protected IPlaceableToVehicle PlacementPattern;
     private EntityBehaviour _entity;
     private float _timeToEnableCollider = 1;
-    private readonly IPlaceableToVehicle _placementPattern;
     
     protected EjectedFromVehicleState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
         Collider collider, IPlaceableToVehicle placementPattern) : base(stateSwitcher)
@@ -20,7 +20,7 @@ public class EjectedFromVehicleState : EntityBaseState
         Rigidbody = rigidbody;
         Animator = animator;
         Collider = collider;
-        _placementPattern = placementPattern;
+        PlacementPattern = placementPattern;
     }
 
     public override void Start()
@@ -57,7 +57,7 @@ public class EjectedFromVehicleState : EntityBaseState
 
     public override void ReactOnEntryVehicleCatchZone()
     {
-        _placementPattern.TryPlaceToVehicle();
+        PlacementPattern.TryPlaceToVehicle();
     }
 
     public override void ReactOnEntryVehicleTossZone()
