@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace EpicToonFX
 {
@@ -15,10 +14,10 @@ public class ETFXMouseOrbit : MonoBehaviour
     public float distanceMin = .5f;
     public float distanceMax = 15f;
     public float smoothTime = 2f;
-    float rotationYAxis = 0.0f;
-    float rotationXAxis = 0.0f;
-    float velocityX = 0.0f;
-    float velocityY = 0.0f;
+    float rotationYAxis;
+    float rotationXAxis;
+    float velocityX;
+    float velocityY;
     // Use this for initialization
     void Start()
     {

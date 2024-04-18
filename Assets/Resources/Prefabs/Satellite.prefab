@@ -603,7 +603,9 @@ GameObject:
   - component: {fileID: 4534689706382532760}
   - component: {fileID: 444740596264345404}
   - component: {fileID: 9180835977084673844}
+  - component: {fileID: 7937989495493608415}
   - component: {fileID: 3143317643530448216}
+  - component: {fileID: 2186902461502923743}
   m_Layer: 0
   m_Name: Satellite
   m_TagString: Untagged
@@ -677,6 +679,18 @@ CapsuleCollider:
   m_Height: 0.8173504
   m_Direction: 1
   m_Center: {x: 0, y: 0.37758112, z: -0.079133034}
+--- !u!114 &7937989495493608415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857122779490776964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013d39460b7a38347b38f0977c4a7d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3143317643530448216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,6 +703,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544905d2429a0db49865d1bbc96057be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levitationHeight: 1
+  _levitationHalfCycleTime: 2
+  _minDelayBeforeMove: 0
+  _maxDelayBeforeMove: 0.7
+--- !u!114 &2186902461502923743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857122779490776964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bdcac668a020f4a869596b6c321acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "_hitDeviation\u0421oefficient": 0.25
+  _afterHitMovementSpeed: 10
 --- !u!1 &6267920788550526379
 GameObject:
   m_ObjectHideFlags: 0

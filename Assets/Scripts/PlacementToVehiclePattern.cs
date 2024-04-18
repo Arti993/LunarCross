@@ -66,7 +66,7 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
     {
         bindPoint = _entity.GetComponentInParent<BindPoint>();
         
-        return bindPoint != null;
+        return bindPoint is not null;
     }
 
     private bool TryPlaceOutsideVehicle()

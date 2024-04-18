@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class ETFXSceneManager : MonoBehaviour
 {
-	public bool GUIHide = false;
-	public bool GUIHide2 = false;
-	public bool GUIHide3 = false;	
-	public bool GUIHide4 = false;
+	public bool GUIHide;
+	public bool GUIHide2;
+	public bool GUIHide3;	
+	public bool GUIHide4;
 	
     public void LoadScene2DDemo()  {
 		SceneManager.LoadScene ("etfx_2ddemo");

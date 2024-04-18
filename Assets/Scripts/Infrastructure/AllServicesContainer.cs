@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class AllServicesContainer
+﻿public class AllServicesContainer
 {
     private static AllServicesContainer _instance;
 

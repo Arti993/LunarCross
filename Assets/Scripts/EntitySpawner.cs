@@ -5,8 +5,8 @@ public class EntitySpawner : MonoBehaviour
 {
     [SerializeField] private EntityBehaviour _collectableEntity;
     [SerializeField] private EntityBehaviour _enemyEntity;
-    [SerializeField] private List<EntityBehaviour> _expeditionSimpleEntities;
-    [SerializeField] private List<EntityBehaviour> _enemySimpleEntities;
+    [SerializeField] private List<Entity> _expeditionSimpleEntities;
+    [SerializeField] private List<Entity> _enemySimpleEntities;
     
     private EntityCollection _spawnedEntities = new EntityCollection();
 
@@ -34,7 +34,7 @@ public class EntitySpawner : MonoBehaviour
         }
     }
 
-    private void Spawn(EntityBehaviour entity, int entitiesCount, Chunk chunk)
+    private void Spawn(Entity entity, int entitiesCount, Chunk chunk)
     {
         Renderer surfaceRenderer = chunk.SurfaceRenderer;
         Vector3 surfaceSize = surfaceRenderer.bounds.size;
@@ -46,7 +46,7 @@ public class EntitySpawner : MonoBehaviour
             float spawnPositionZ = Random.Range(-surfaceSize.z / 2, surfaceSize.z / 2) + position.z;
             Vector3 spawnPosition = new Vector3(spawnPositionX, position.y, spawnPositionZ);
 
-            EntityBehaviour newEntity = Instantiate(entity, spawnPosition, Quaternion.identity);
+            Entity newEntity = Instantiate(entity, spawnPosition, Quaternion.identity);
             
             _spawnedEntities.Add(newEntity);
         }

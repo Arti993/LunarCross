@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
-    public List<WheelAxle> wheelAxleList; //сделать серфилдами
+    public List<WheelAxle> wheelAxleList; 
     public VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
     private Rigidbody _rigidbody;
     private float _startSpeed = 2;
     private float _maxSpeed = 3.5f;
-    private Vector3 _startPoint;
 
 
     private void Start()
@@ -22,7 +19,6 @@ public class CarController : MonoBehaviour
         _rigidbody.drag = vehicleSettings.drag;
         _rigidbody.centerOfMass = vehicleSettings.centerOfMass;
         _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
-        _startPoint = transform.position;
     }
 
     private void FixedUpdate()
@@ -75,48 +71,4 @@ public class CarController : MonoBehaviour
         wheelMesh.transform.position = position;
         wheelMesh.transform.rotation = realRotation;
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-
-    //    for (int i = 0; i < wheelAxleList.Count; i++)
-    //    {
-    //        Quaternion rotation;
-
-    //        if (i == 0)
-    //        {
-    //            rotation = Quaternion.AngleAxis(wheelAxleList[i].wheelColliderLeft.steerAngle, Vector3.up);
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderLeft.transform.position,
-    //                rotation * (wheelAxleList[i].wheelColliderLeft.transform.forward * 10f));
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderLeft.transform.position,
-    //                rotation * (wheelAxleList[i].wheelColliderLeft.transform.forward * -10f));
-
-    //            rotation = Quaternion.AngleAxis(wheelAxleList[i].wheelColliderRight.steerAngle, Vector3.up);
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderRight.transform.position,
-    //                rotation * (wheelAxleList[i].wheelColliderRight.transform.forward * 10f));
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderRight.transform.position,
-    //                rotation * (wheelAxleList[i].wheelColliderRight.transform.forward * -10f));
-    //        }
-
-    //        if (i == 2)
-    //        {
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderLeft.transform.position,
-    //               (wheelAxleList[i].wheelColliderLeft.transform.forward * 10f));
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderLeft.transform.position,
-    //                (wheelAxleList[i].wheelColliderLeft.transform.forward * -10f));
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderRight.transform.position,
-    //               (wheelAxleList[i].wheelColliderRight.transform.forward * 10f));
-
-    //            Gizmos.DrawRay(wheelAxleList[i].wheelColliderRight.transform.position,
-    //                (wheelAxleList[i].wheelColliderRight.transform.forward * -10f));
-    //        }
-    //    }
-    //}
 }

@@ -7,13 +7,12 @@ using DG.Tweening;
 [RequireComponent(typeof(RectTransform))]
 public class LevelFailedWindow : UIWindow
 {
-    [SerializeField] private float _restartPanelTopPosY = 0;
-    [SerializeField] private float _restartPanelBottomPosY = -500f;
+    [SerializeField] private float _restartPanelTopPosY;
     [SerializeField] private float _panelAnimationDuration = 0.5f;
     [SerializeField] private float _stopTimeDelay = 0.15f;
     
     private RectTransform _restartPanelRect;
-    private bool _isGamePaused = false;
+    private bool _isGamePaused;
     
     private void Awake()
     {
@@ -33,12 +32,6 @@ public class LevelFailedWindow : UIWindow
     private void PanelIntro()
     {
         _restartPanelRect.DOAnchorPosY(_restartPanelTopPosY, _panelAnimationDuration).SetUpdate(true);
-    }
-
-    //пока оставил, мб красивый перезапуск уровня сделаю
-    private void PanelOutro()
-    {
-        _restartPanelRect.DOAnchorPosY(_restartPanelBottomPosY, _panelAnimationDuration).SetUpdate(true);
     }
 
     private void PauseGame()

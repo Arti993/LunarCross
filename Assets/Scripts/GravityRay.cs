@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class GravityRay : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class GravityRay : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<VehicleCatchBehaviour>(out VehicleCatchBehaviour vehicle))   //можно переделать под интерфейс
+        if (other.TryGetComponent(out VehicleCatchBehaviour vehicle))   
         {
             _vehicle = vehicle;
             _vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;

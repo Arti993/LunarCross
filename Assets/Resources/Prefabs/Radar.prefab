@@ -177,7 +177,9 @@ GameObject:
   - component: {fileID: 1114731388379540640}
   - component: {fileID: 812169620633377260}
   - component: {fileID: 874797426780857347}
+  - component: {fileID: 5801173739738990709}
   - component: {fileID: 54365890183887090}
+  - component: {fileID: 9093286620195108226}
   m_Layer: 0
   m_Name: Radar
   m_TagString: Untagged
@@ -251,6 +253,18 @@ CapsuleCollider:
   m_Height: 7.330237
   m_Direction: 1
   m_Center: {x: -0.11302106, y: 3.7397597, z: -0.13013902}
+--- !u!114 &5801173739738990709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203063602080183127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013d39460b7a38347b38f0977c4a7d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &54365890183887090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +277,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf39eeb3fa4e0074b898e975e8fe8f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotationAngle: 120
+  _rotationHalfCycleTime: 2
+  _minDelayBeforeMove: 0
+  _maxDelayBeforeMove: 0.7
+--- !u!114 &9093286620195108226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203063602080183127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bdcac668a020f4a869596b6c321acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "_hitDeviation\u0421oefficient": 0.25
+  _afterHitMovementSpeed: 10
 --- !u!1 &3273962058632715840
 GameObject:
   m_ObjectHideFlags: 0

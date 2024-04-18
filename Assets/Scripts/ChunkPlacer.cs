@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(EntitySpawner))]
@@ -15,7 +14,7 @@ public class ChunkPlacer : MonoBehaviour
     private Chunk _finishChunk;
     private int _collectableEntitiesCount;
     private int _enemyEntitiesCount;
-    private bool _isAllChunksSpawned = false;
+    private bool _isAllChunksSpawned;
     private Transform _playerTransform;
 
     private List<Chunk> _spawnedChunks = new List<Chunk>();

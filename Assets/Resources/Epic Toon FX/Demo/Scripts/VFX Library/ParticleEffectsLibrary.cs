@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class ParticleEffectsLibrary : MonoBehaviour {
@@ -26,9 +25,9 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 	}
 
 	// Stores total number of effects in arrays - NOTE: All Arrays must match length.
-	public int TotalEffects = 0;
-	public int CurrentParticleEffectIndex = 0;
-	public int CurrentParticleEffectNum = 0;
+	public int TotalEffects;
+	public int CurrentParticleEffectIndex;
+	public int CurrentParticleEffectNum;
 //	public string[] ParticleEffectDisplayNames;
 	public Vector3[] ParticleEffectSpawnOffsets;
 	// How long until Particle Effect is Destroyed - 0 = never

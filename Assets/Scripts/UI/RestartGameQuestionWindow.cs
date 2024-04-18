@@ -4,7 +4,7 @@ using DG.Tweening;
 public class RestartGameQuestionWindow : UIWindow
 {
     [SerializeField] private RectTransform _panelRect;
-    [SerializeField] private float _panelTopPosY = 0;
+    [SerializeField] private float _panelTopPosY;
     [SerializeField] private float _panelBottomPosY = -1000f;
     [SerializeField] private float _panelAnimationDuration = 0.5f;
 

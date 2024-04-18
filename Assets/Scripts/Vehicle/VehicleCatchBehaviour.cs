@@ -56,6 +56,8 @@ public class VehicleCatchBehaviour : MonoBehaviour
         {
             if (bindPoints[i].IsFree)
             {
+                AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetCollectEffect(entity.transform.position);
+                
                 bindPoints[i].Fill(entity);
                 isFillingSuccess = true;
                 break;

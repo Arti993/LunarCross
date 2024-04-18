@@ -7,8 +7,6 @@ public class LoadScreen : MonoBehaviour
     
     private void Awake()
     {
-        Debug.Log(_isFirstAwakened);
-        
         if (_isFirstAwakened) 
             return;
         

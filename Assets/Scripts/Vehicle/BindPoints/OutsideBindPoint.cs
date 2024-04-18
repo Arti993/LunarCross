@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OutsideBindPoint : BindPoint
@@ -11,15 +8,16 @@ public class OutsideBindPoint : BindPoint
     {
         base.Fill(entity);
 
-        BindedEntity.transform.position = Transform.position;
-        BindedEntity.transform.rotation = Transform.rotation;
+        var EntityTransform = BindedEntity.transform;
+        EntityTransform.position = Transform.position;
+        EntityTransform.rotation = Transform.rotation;
 
         Quaternion quaternion = Quaternion.AngleAxis(90, Transform.right) * Transform.rotation;
 
         quaternion = Quaternion.AngleAxis(AngleShift, Transform.up) * quaternion;
 
-        BindedEntity.transform.rotation = quaternion * BindedEntity.transform.rotation;
+        EntityTransform.rotation = quaternion * EntityTransform.rotation;
 
-        BindedEntity.transform.SetParent(Transform);
+        EntityTransform.SetParent(Transform);
     }
 }

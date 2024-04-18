@@ -263,7 +263,9 @@ GameObject:
   - component: {fileID: 8009566241460726940}
   - component: {fileID: 5452127832378577955}
   - component: {fileID: 4357112346259636920}
+  - component: {fileID: 601625883144273666}
   - component: {fileID: 8356271893693431593}
+  - component: {fileID: -8080305298299337460}
   m_Layer: 0
   m_Name: AlienRadar
   m_TagString: Untagged
@@ -337,6 +339,18 @@ CapsuleCollider:
   m_Height: 1.089261
   m_Direction: 1
   m_Center: {x: -0.01740408, y: 0.53981066, z: 0}
+--- !u!114 &601625883144273666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421597623027387544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013d39460b7a38347b38f0977c4a7d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8356271893693431593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +363,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf39eeb3fa4e0074b898e975e8fe8f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotationAngle: 120
+  _rotationHalfCycleTime: 2
+  _minDelayBeforeMove: 0
+  _maxDelayBeforeMove: 0.7
+--- !u!114 &-8080305298299337460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421597623027387544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bdcac668a020f4a869596b6c321acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "_hitDeviation\u0421oefficient": 0.25
+  _afterHitMovementSpeed: 10
 --- !u!1 &6067836444566553261
 GameObject:
   m_ObjectHideFlags: 0

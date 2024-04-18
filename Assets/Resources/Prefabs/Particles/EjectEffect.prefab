@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 19925856}
   - component: {fileID: 8211574}
   m_Layer: 0
-  m_Name: MagicSoftExplosionGreen
+  m_Name: EjectEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

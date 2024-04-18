@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
 
 namespace EpicToonFX
 {
@@ -11,7 +10,7 @@ namespace EpicToonFX
         [Header("Missile spawns at attached game object")]
         public Transform spawnPosition;
         [HideInInspector]
-        public int currentProjectile = 0;
+        public int currentProjectile;
         public float speed = 500;
 
         //    MyGUI _GUI;

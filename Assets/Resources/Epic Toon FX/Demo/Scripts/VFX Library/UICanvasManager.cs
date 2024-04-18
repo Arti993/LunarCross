@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class UICanvasManager : MonoBehaviour {
@@ -8,7 +7,7 @@ public class UICanvasManager : MonoBehaviour {
 		GlobalAccess = this;
 	}
 
-	public bool MouseOverButton = false;
+	public bool MouseOverButton;
 	public Text PENameText;
 	public Text ToolTipText;
 

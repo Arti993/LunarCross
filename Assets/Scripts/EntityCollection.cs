@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class EntityCollection
 {
-    private List<EntityBehaviour> _entityList = new List<EntityBehaviour>();
+    private List<Entity> _entityList = new List<Entity>();
 
-    public void Add(EntityBehaviour entity)
+    public void Add(Entity entity)
     {
         _entityList.Add(entity);
     }

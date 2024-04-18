@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
+public class AlienBehaviour : NpcBehaviour
 {
-    private IPlaceableToVehicle _entityToEject;
-
     private void Start()
     {
         AllStates = new List<EntityBaseState>()
@@ -19,18 +17,12 @@ public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
         CurrentState.Start();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out BindPoint bindpoint))
         {
-            if(bindpoint != null && bindpoint.IsFree == false)
+            if(bindpoint.IsFree == false)
             {
-                _entityToEject = bindpoint.GetComponentInChildren<IPlaceableToVehicle>();
-                //Collider.enabled = false;
-
-                EjectEntity();
-                
                 this.SwitchState<AlienAfterEjectingState>();
             }
         }
@@ -39,11 +31,5 @@ public class AlienBehaviour : NpcBehaviour, IEjectorFromVehicle
         {
             this.SwitchState<AlienAfterEjectingState>();
         }
-    }
-
-    public void EjectEntity()
-    {
-        if (_entityToEject != null)
-            _entityToEject.UnplaceFromVehicle();
     }
 }

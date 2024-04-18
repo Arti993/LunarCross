@@ -9,8 +9,7 @@ public class LevelCompleteWindow : UIWindow
 {
     [SerializeField] private GameObject[] _ratingStars;
     [SerializeField] private TMP_Text _pointsLabel;
-    [SerializeField] private float _resultsPanelTopPosY = 0;
-    [SerializeField] private float _resultsPanelBottomPosY = -500f;//возможно сделать красивое скрытие перед следующим экраном
+    [SerializeField] private float _resultsPanelTopPosY;
     [SerializeField] private float _panelAnimationDuration = 0.5f;
     [SerializeField] private float _pointsTextSizeMultiplier = 2;
     [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
@@ -79,10 +78,6 @@ public class LevelCompleteWindow : UIWindow
         if (_points >= _pointsForFirstStar)
         {
             AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
-        }
-        else
-        {
-            //сделать анимацию complite и failed и какнибудь предложить рестарт уровня.
         }
     }
 

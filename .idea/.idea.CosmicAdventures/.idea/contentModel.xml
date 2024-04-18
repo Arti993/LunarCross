@@ -714,6 +714,7 @@
           <e p="ChunkGround.cs" t="Include" />
           <e p="ChunkPlacer.cs" t="Include" />
           <e p="ChunkWithObstacles.cs" t="Include" />
+          <e p="Entity.cs" t="Include" />
           <e p="EntityCollection.cs" t="Include" />
           <e p="EntitySpawner.cs" t="Include" />
           <e p="EntityStateMachine" t="Include">
@@ -737,21 +738,23 @@
             <e p="EjectedFromVehicleState.cs" t="Include" />
             <e p="EntityBaseState.cs" t="Include" />
             <e p="EntityBehaviour.cs" t="Include" />
+            <e p="EntityToEjectDetector.cs" t="Include" />
             <e p="HumanoidKnockedState.cs" t="Include" />
             <e p="IEntityStateSwitcher.cs" t="Include" />
             <e p="InsideVehicleAttachState.cs" t="Include" />
             <e p="KnockedByVehicleState.cs" t="Include" />
             <e p="LevitationState.cs" t="Include" />
-            <e p="NoActionState.cs" t="Include" />
+            <e p="Movement.cs" t="Include" />
             <e p="NpcBehaviour.cs" t="Include" />
+            <e p="Obstacle.cs" t="Include" />
             <e p="ObstacleKnockedState.cs" t="Include" />
             <e p="OutsideVehicleAttachState.cs" t="Include" />
-            <e p="RadarBehaviour.cs" t="Include" />
+            <e p="RadarMovement.cs" t="Include" />
             <e p="Satellite" t="Include">
-              <e p="SatelliteBehaviour.cs" t="Include" />
+              <e p="SatelliteMovement.cs" t="Include" />
             </e>
             <e p="SimpleRotationState.cs" t="Include" />
-            <e p="TornadoBehaviour.cs" t="Include" />
+            <e p="TornadoMovement.cs" t="Include" />
           </e>
           <e p="GravityRay.cs" t="Include" />
           <e p="IEjectorFromVehicle.cs" t="Include" />
@@ -812,7 +815,6 @@
               <e p="LeftSideBindPoint.cs" t="Include" />
               <e p="OutsideBindPoint.cs" t="Include" />
               <e p="RightSideBindPoint.cs" t="Include" />
-              <e p="VehiclePointBinder.cs" t="Include" />
             </e>
             <e p="CarController.cs" t="Include" />
             <e p="CatchZoneChecker.cs" t="Include" />

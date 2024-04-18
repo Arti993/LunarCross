@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AstronautInsideAttachState : InsideVehicleAttachState
@@ -7,7 +5,7 @@ public class AstronautInsideAttachState : InsideVehicleAttachState
     private const string LevitatingTrigger = "isLevitating";
     private const string IdleTrigger = "isIdle";
 
-    private Animator _animator;
+    private readonly Animator _animator;
     private IPlaceableToVehicle _placementPattern;
 
     public AstronautInsideAttachState(IEntityStateSwitcher stateSwitcher, Animator animator, 

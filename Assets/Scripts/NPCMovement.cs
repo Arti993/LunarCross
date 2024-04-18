@@ -11,8 +11,6 @@ public class NPCMovement : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _canTrigger = true;
     private float _maxDeflectAngle = 60;
-    
-    //убрать могические числа
 
     private void OnEnable()
     {
@@ -39,7 +37,7 @@ public class NPCMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Bumper>(out Bumper bumper) || other.TryGetComponent<VehicleCatchZone>(out VehicleCatchZone zone))
+        if (other.TryGetComponent(out Bumper bumper) || other.TryGetComponent(out VehicleCatchZone zone))
             _canTrigger = false;
         
         if(_canTrigger)

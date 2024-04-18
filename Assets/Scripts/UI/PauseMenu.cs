@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
@@ -9,10 +8,10 @@ public class PauseMenu : UIWindow
     [SerializeField] private RectTransform _pausePanelRect;
     [SerializeField] private CanvasGroup _backgroundPanel;
     [SerializeField] private float _pausePanelTopPosY = 850;
-    [SerializeField] private float _pausePanelBottomPosY = 0f;
+    [SerializeField] private float _pausePanelBottomPosY;
     [SerializeField] private float _pausePanelAnimationDuration = 0.5f;
 
-    private bool _isGamePaused = false;
+    private bool _isGamePaused;
 
     private void Awake()
     {

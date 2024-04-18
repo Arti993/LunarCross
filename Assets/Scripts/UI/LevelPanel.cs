@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using IJunior.TypedScenes;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]

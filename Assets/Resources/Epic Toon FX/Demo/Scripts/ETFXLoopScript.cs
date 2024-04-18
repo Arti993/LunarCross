@@ -27,14 +27,14 @@ namespace EpicToonFX
 		{
 			GameObject effectPlayer = (GameObject) Instantiate(chosenEffect, transform.position, transform.rotation);
 		
-			if(spawnWithoutLight = true && effectPlayer.GetComponent<Light>())
+			if(spawnWithoutLight && effectPlayer.GetComponent<Light>())
 			{
 				effectPlayer.GetComponent<Light>().enabled = false;
 				//Destroy(gameObject.GetComponent<Light>());
 
 			}
 		
-			if(spawnWithoutSound = true && effectPlayer.GetComponent<AudioSource>())
+			if(spawnWithoutSound && effectPlayer.GetComponent<AudioSource>())
 			{
 				effectPlayer.GetComponent<AudioSource>().enabled = false;
 				//Destroy(gameObject.GetComponent<AudioSource>());

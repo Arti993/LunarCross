@@ -19,9 +19,14 @@ public class ParticleSystemFactory : IParticleSystemFactory
         return _provider.Instantiate("Prefabs/Particles/RayPulling", position);
     }
 
-    public GameObject GetConfettiBlastEffect(Vector3 position)
+    public GameObject GetCollectEffect(Vector3 position)
     {
-        return _provider.Instantiate("Prefabs/Particles/ConfettiBlast", position);
+        return _provider.Instantiate("Prefabs/Particles/CollectEffect", position);
+    }
+
+    public GameObject GetEjectEffect(Vector3 position)
+    {
+        return _provider.Instantiate("Prefabs/Particles/EjectEffect", position);
     }
 
     public GameObject GetYellowBurstEffect(Vector3 position)
