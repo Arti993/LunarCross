@@ -8,6 +8,8 @@ public class SatelliteMovement : Movement
     [SerializeField] private float _minDelayBeforeMove = 0f;
     [SerializeField] private float _maxDelayBeforeMove = 0.7f;
     
+    
+    
     private Vector3 _startPoint;
     private Vector3 _endPoint;
     private float _startTime;
@@ -15,8 +17,6 @@ public class SatelliteMovement : Movement
     private float _distanceCovered;
     private float _journeyLength;
     private float _journeyPathCovered;
-    private bool _isMoving;
-    private Coroutine _movingCoroutine;
 
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class SatelliteMovement : Movement
         _endPoint = new Vector3(_startPoint.x, _startPoint.y + _levitationHeight, _startPoint.z);
         _journeyLength = Vector3.Distance(_startPoint, _endPoint);
         _delayBeforeMove = Random.Range(_minDelayBeforeMove, _maxDelayBeforeMove);
-        
+
         Move();
     }
 
@@ -37,15 +37,15 @@ public class SatelliteMovement : Movement
     {
         yield return new WaitForSeconds(_delayBeforeMove);
         
-        _movingCoroutine = StartCoroutine(LoopMovement());
+        MovingCoroutine = StartCoroutine(LoopMovement());
     }
 
     private IEnumerator LoopMovement()
     {
         _startTime = Time.time;
-        _isMoving = true;
+        IsMoving = true;
         
-        while (_isMoving)
+        while (IsMoving)
         {
             _distanceCovered = (Time.time - _startTime) * _journeyLength / _levitationHalfCycleTime;
             _journeyPathCovered = _distanceCovered / _journeyLength;
@@ -66,8 +66,8 @@ public class SatelliteMovement : Movement
 
     private void OnDisable()
     {
-        StopCoroutine(_movingCoroutine);
+        StopCoroutine(MovingCoroutine);
         
-        _isMoving = false;
+        IsMoving = false;
     }
 }

@@ -68,6 +68,18 @@ public class GameProgress : IGameProgress
         return PlayerPrefs.GetInt(levelResultTag, 0);
     }
 
+    public int GetTotalScore()
+    {
+        int totalScore = 0;
+        
+        for (int i = 0; i < _levelResultsTagsDictionary.Count; i++)
+        {
+            totalScore += GetLevelResult(i + 1);
+        }
+
+        return totalScore;
+    }
+
     public void ClearSaves()
     {
         foreach (var level in _levelResultsTagsDictionary)

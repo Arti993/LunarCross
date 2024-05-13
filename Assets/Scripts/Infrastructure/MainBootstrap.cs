@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using UnityEngine;
 
 public class MainBootstrap : MonoBehaviour
@@ -7,9 +8,11 @@ public class MainBootstrap : MonoBehaviour
 
     private void Awake()
     {
+        //YandexGamesSdk.GameReady();
+        
         if (_isFirstAwakened) 
             return;
-        
+
         _allServices = new AllServicesContainer();
             
         RegisterServices();

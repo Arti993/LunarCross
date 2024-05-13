@@ -12,7 +12,7 @@ public class LevelPanel : MonoBehaviour
     [SerializeField] private TMP_Text _bestRecordTitle;
     [SerializeField] private int _levelNumber;
     
-    private const int GameplaySceneIndex = 1;
+    private const int GameplaySceneIndex = 2;
     private Button _button;
 
     private void Awake()

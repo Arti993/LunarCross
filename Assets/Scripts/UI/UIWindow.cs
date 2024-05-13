@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIWindow : MonoBehaviour
 {
-    private const int MainMenuSceneIndex = 0;
+    private const int MainMenuSceneIndex = 1;
     
     public void GoToMainMenu()
     {

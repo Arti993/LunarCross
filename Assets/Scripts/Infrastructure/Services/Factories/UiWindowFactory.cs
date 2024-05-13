@@ -50,8 +50,18 @@ public class UiWindowFactory : IUiWindowFactory
         return _provider.Instantiate("Prefabs/UI/LevelFailedWindow", parent.transform);
     }
 
+    public GameObject GetLevelNumberTitle(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/LevelNumberTitle", parent.transform);
+    }
+
     public GameObject GetRestartGameQuestionWindow(GameObject parent)
     {
         return _provider.Instantiate("Prefabs/UI/RestartGameQuestionPanel", parent.transform);
+    }
+
+    public GameObject GetLeaderBoardElement(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/LeaderboardElement", parent.transform);
     }
 }

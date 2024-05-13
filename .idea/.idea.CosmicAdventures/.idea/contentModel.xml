@@ -4,34 +4,32 @@
     <e p="C:\Users\Artem\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Artem\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_CosmicAdventures.902827437.00" t="ExcludeRecursive" />
     <e p="C:\Users\Artem\Cosmic Adventures Test\CosmicAdventures" t="IncludeRecursive">
+      <e p="Agava.WebUtility.Samples.Playtesting.csproj" t="IncludeRecursive" />
+      <e p="Agava.YandexGames.Samples.Playtesting.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="BuildReports" t="Include" />
         <e p="Models" t="Include">
           <e p="Alien" t="Include" />
-          <e p="Drone" t="Include">
-            <e p="Source" t="Include" />
-            <e p="Textures" t="Include" />
-          </e>
-          <e p="Lunar Rover" t="Include" />
           <e p="satellite (2)" t="Include">
-            <e p="Source" t="Include">
+            <e p="source" t="Include">
               <e p="Satellite" t="Include" />
             </e>
           </e>
           <e p="satellite-dish" t="Include">
             <e p="Materials" t="Include" />
-            <e p="Source" t="Include" />
+            <e p="source" t="Include" />
             <e p="Textures" t="Include" />
           </e>
           <e p="satellite-dish (1)" t="Include">
-            <e p="Source" t="Include">
+            <e p="source" t="Include">
               <e p="тарелка" t="Include" />
             </e>
             <e p="Textures" t="Include" />
           </e>
         </e>
-        <e p="Resources" t="Include">
+        <e p="OtherAssets" t="Include">
           <e p="Alien" t="Include" />
           <e p="Epic Toon FX" t="Include">
             <e p="Demo" t="Include">
@@ -412,6 +410,78 @@
               <e p="FullscreenWindow" t="Include" />
             </e>
           </e>
+          <e p="Graphy - Ultimate Stats Monitor" t="Include">
+            <e p="Changelog.txt" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="GraphyDebuggerEditor.cs" t="Include" />
+              <e p="GraphyEditorStyle.cs" t="Include" />
+              <e p="GraphyManagerEditor.cs" t="Include" />
+              <e p="GraphyMenuItem.cs" t="Include" />
+              <e p="Tayx.Graphy.Editor.asmdef" t="Include" />
+            </e>
+            <e p="Font" t="Include">
+              <e p="Northwest-Bold" t="Include">
+                <e p="ERIC-TIRADO-NORTHWEST-LICENSE.txt" t="Include" />
+              </e>
+              <e p="Roboto" t="Include">
+                <e p="LICENSE.txt" t="Include" />
+              </e>
+            </e>
+            <e p="GUI" t="Include" />
+            <e p="Materials" t="Include" />
+            <e p="package.json" t="Include" />
+            <e p="Prefab" t="Include">
+              <e p="Internal" t="Include" />
+            </e>
+            <e p="Runtime" t="Include">
+              <e p="Advanced" t="Include">
+                <e p="G_AdvancedData.cs" t="Include" />
+              </e>
+              <e p="Audio" t="Include">
+                <e p="G_AudioGraph.cs" t="Include" />
+                <e p="G_AudioManager.cs" t="Include" />
+                <e p="G_AudioMonitor.cs" t="Include" />
+                <e p="G_AudioText.cs" t="Include" />
+              </e>
+              <e p="Fps" t="Include">
+                <e p="G_FpsGraph.cs" t="Include" />
+                <e p="G_FpsManager.cs" t="Include" />
+                <e p="G_FpsMonitor.cs" t="Include" />
+                <e p="G_FpsText.cs" t="Include" />
+              </e>
+              <e p="Graph" t="Include">
+                <e p="G_Graph.cs" t="Include" />
+              </e>
+              <e p="GraphyDebugger.cs" t="Include" />
+              <e p="GraphyManager.cs" t="Include" />
+              <e p="Ram" t="Include">
+                <e p="G_RamGraph.cs" t="Include" />
+                <e p="G_RamManager.cs" t="Include" />
+                <e p="G_RamMonitor.cs" t="Include" />
+                <e p="G_RamText.cs" t="Include" />
+              </e>
+              <e p="Shader" t="Include">
+                <e p="G_GraphShader.cs" t="Include" />
+              </e>
+              <e p="Tayx.Graphy.asmdef" t="Include" />
+              <e p="UI" t="Include">
+                <e p="G_SafeArea.cs" t="Include" />
+                <e p="IModifiableState.cs" t="Include" />
+                <e p="IMovable.cs" t="Include" />
+              </e>
+              <e p="Util" t="Include">
+                <e p="G_ExtensionMethods.cs" t="Include" />
+                <e p="G_FloatString.cs" t="Include" />
+                <e p="G_Intstring.cs" t="Include" />
+                <e p="G_Singleton.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="GraphMobile.shader" t="Include" />
+              <e p="GraphStandard.shader" t="Include" />
+            </e>
+            <e p="Textures" t="Include" />
+          </e>
           <e p="GUI Kit Casual Game" t="Include">
             <e p="+Document README+" t="Include" />
             <e p="Extensions" t="Include">
@@ -585,12 +655,12 @@
             </e>
           </e>
           <e p="marsian-t30-concept-rover" t="Include">
-            <e p="Source" t="Include">
+            <e p="source" t="Include">
               <e p="ExplorerT30 AllFiles" t="Include">
                 <e p="Model" t="Include">
                   <e p="wheel" t="Include">
                     <e p="Materials" t="Include" />
-                    <e p="Source" t="Include" />
+                    <e p="source" t="Include" />
                     <e p="Textures" t="Include" />
                   </e>
                 </e>
@@ -616,11 +686,9 @@
                   <e p="DOTweenModuleUnityVersion.cs" t="Include" />
                   <e p="DOTweenModuleUtils.cs" t="Include" />
                 </e>
-                <e p="ReadMe.txt" t="Include" />
+                <e p="readme.txt" t="Include" />
               </e>
             </e>
-          </e>
-          <e p="Plugins 1" t="Include">
             <e p="TypedScenes" t="Include">
               <e p="Core" t="Include">
                 <e p="AnalyzableScene.cs" t="Include" />
@@ -651,8 +719,6 @@
             <e p="Chunks" t="Include">
               <e p="TornadoChunks" t="Include" />
             </e>
-            <e p="LevelsConfigs" t="Include" />
-            <e p="Particles" t="Include" />
             <e p="UI" t="Include" />
           </e>
           <e p="Real Stars Skybox" t="Include">
@@ -670,7 +736,7 @@
             <e p="Materials" t="Include" />
             <e p="Models" t="Include" />
             <e p="Prefabs" t="Include" />
-            <e p="ReadMe.txt" t="Include" />
+            <e p="readme.txt" t="Include" />
             <e p="Scenes" t="Include">
               <e p="DemoDay" t="Include" />
               <e p="DemoNight" t="Include" />
@@ -701,12 +767,44 @@
             <e p="Textures" t="Include" />
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Prefabs" t="Include">
+            <e p="LevelsConfigs" t="Include" />
+            <e p="Particles" t="Include" />
+            <e p="UI" t="Include" />
+          </e>
+        </e>
+        <e p="Samples" t="Include">
+          <e p="Web Utility" t="Include">
+            <e p="3.1.0" t="Include">
+              <e p="Playtesting Sample" t="Include">
+                <e p="Agava.WebUtility.Samples.Playtesting.asmdef" t="Include" />
+                <e p="PlaytestingCanvas.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Yandex Games" t="Include">
+            <e p="16.0.0" t="Include">
+              <e p="Playtesting Sample" t="Include">
+                <e p="Agava.YandexGames.Samples.Playtesting.asmdef" t="Include" />
+                <e p="PlaytestingCanvas.cs" t="Include" />
+                <e p="ProductCatalogPanel.cs" t="Include" />
+                <e p="ProductPanel.cs" t="Include" />
+                <e p="PurchasedProductListPanel.cs" t="Include" />
+                <e p="PurchasedProductPanel.cs" t="Include" />
+                <e p="WebEventSystem.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scenes" t="Include">
           <e p="Typed" t="Include">
+            <e p="Free_Stylized_Rocks.cs" t="Include" />
             <e p="Gameplay.cs" t="Include" />
             <e p="LevelsChoose.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
             <e p="SampleScene.cs" t="Include" />
+            <e p="YandexSDKInitialize.cs" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -761,6 +859,12 @@
           <e p="Infrastructure" t="Include">
             <e p="AllServicesContainer.cs" t="Include" />
             <e p="GamePlayBootstrap.cs" t="Include" />
+            <e p="LeaderBoard" t="Include">
+              <e p="LeaderboardElement.cs" t="Include" />
+              <e p="LeaderboardPlayer.cs" t="Include" />
+              <e p="LeaderboardView.cs" t="Include" />
+              <e p="YandexLeaderboard.cs" t="Include" />
+            </e>
             <e p="MainBootstrap.cs" t="Include" />
             <e p="Services" t="Include">
               <e p="AssetProvider.cs" t="Include" />
@@ -800,11 +904,13 @@
           <e p="UI" t="Include">
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />
+            <e p="LevelNumberTitle.cs" t="Include" />
             <e p="LevelPanel.cs" t="Include" />
             <e p="MainMenuButton.cs" t="Include" />
             <e p="PauseButton.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
+            <e p="TotalScoreViewer.cs" t="Include" />
             <e p="UIRoot.cs" t="Include" />
             <e p="UIWindow.cs" t="Include" />
           </e>
@@ -829,6 +935,7 @@
             <e p="VehicleSettings.cs" t="Include" />
             <e p="WheelAxle.cs" t="Include" />
           </e>
+          <e p="YandexSDKInitializer.cs" t="Include" />
         </e>
         <e p="UI" t="Include">
           <e p="Animations" t="Include" />
@@ -837,6 +944,8 @@
       <e p="CosmicAdventures.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="Tayx.Graphy.csproj" t="IncludeRecursive" />
+      <e p="Tayx.Graphy.Editor.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
   </component>

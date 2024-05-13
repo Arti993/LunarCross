@@ -15,8 +15,6 @@ public class RadarMovement : Movement
     private float _angleCovered;
     private float _fullRotationAngle;
     private float _rotationPathCovered;
-    private bool _isMoving;
-    private Coroutine _movingCoroutine;
 
     private void OnEnable()
     {
@@ -37,15 +35,15 @@ public class RadarMovement : Movement
     {
         yield return new WaitForSeconds(_delayBeforeMove);
         
-        _movingCoroutine = StartCoroutine(LoopMovement());
+        MovingCoroutine = StartCoroutine(LoopMovement());
     }
 
     private IEnumerator LoopMovement()
     {
         _startTime = Time.time;
-        _isMoving = true;
+        IsMoving = true;
         
-        while (_isMoving)
+        while (IsMoving)
         {
             _angleCovered = (Time.time - _startTime) * _fullRotationAngle / _rotationHalfCycleTime;
             _rotationPathCovered = _angleCovered / _fullRotationAngle;
@@ -62,12 +60,5 @@ public class RadarMovement : Movement
 
             yield return null;
         }
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(_movingCoroutine);
-        
-        _isMoving = false;
     }
 }

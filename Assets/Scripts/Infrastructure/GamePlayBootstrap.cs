@@ -22,6 +22,8 @@ public class GamePlayBootstrap : MonoBehaviour
         SetPlayerTransformForSpawner(spawnerObject, playerObject);
 
         AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRootObject);
+
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelNumberTitle(uiRootObject);
     }
 
     private void SetCameraForCanvas(GameObject uiRootObject, GameObject cameraObject)

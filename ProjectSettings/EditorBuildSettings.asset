@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/YandexSDKInitialize.unity
+    guid: 4e08db5985a6cc5428165782fba5c65a
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: cfc18822618c52647981491cb9cd1401
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 680aca598cf8c334a95a0f155942598c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelsChoose.unity
     guid: 1cdb4b08fcb185844b3b0eb328182cca
+  - enabled: 1
+    path: Assets/OtherAssets/Plugins/TypedScenes/Samples/SampleScene.unity
+    guid: 7e929660c0728204faf1d159b3a4aa82
   m_configObjects: {}

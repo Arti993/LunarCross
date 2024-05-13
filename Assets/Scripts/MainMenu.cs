@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    private const int GameplaySceneIndex = 1;
-    private const int LevelChooseSceneIndex = 2;
+    private const int GameplaySceneIndex = 2;
+    private const int LevelChooseSceneIndex = 3;
     
     public void OnPlayButtonClick()
     {

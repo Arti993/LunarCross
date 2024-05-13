@@ -7,6 +7,8 @@ public interface IGameProgress : IService
 
     public int GetLevelResult(int levelNumber);
 
+    public int GetTotalScore();
+
     public void ClearSaves();
 
     public void SelectLevel(int levelNumber);

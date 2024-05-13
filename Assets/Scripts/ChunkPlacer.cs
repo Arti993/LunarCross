@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(EntitySpawner))]
 public class ChunkPlacer : MonoBehaviour
 {
+    private const int MaxVisibleChunksCount = 4;
+    private const int DistanceToSpawnNextChunk = 40;
+    
     [SerializeField] private Chunk _firstChunk;
 
     private EntitySpawner _entitySpawner;
@@ -39,7 +42,7 @@ public class ChunkPlacer : MonoBehaviour
     {
         if (_isAllChunksSpawned == false)
         {
-            if (_playerTransform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - 40)
+            if (_playerTransform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - DistanceToSpawnNextChunk)
                 SpawnNextChunkInSequence();
         }
     }
@@ -157,10 +160,10 @@ public class ChunkPlacer : MonoBehaviour
 
     private void HideCompletedChunks()
     {
-        if (_currentVisibleChunks.Count > 3)
-        {
-            _currentVisibleChunks[0].gameObject.SetActive(false);
-            _currentVisibleChunks.RemoveAt(0);
-        }
+        if (_currentVisibleChunks.Count <= MaxVisibleChunksCount) 
+            return;
+        
+        _currentVisibleChunks[0].gameObject.SetActive(false);
+        _currentVisibleChunks.RemoveAt(0);
     }
 }
