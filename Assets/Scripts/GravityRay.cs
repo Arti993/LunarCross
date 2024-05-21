@@ -1,39 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GravityRay : MonoBehaviour
 {
+    private const float AttractionTime = 2;
+    
     [SerializeField] private Transform _evacuationPoint;
 
-    private LevelCompleteWindow _levelCompleteWindow;
-    private float _attractionTime = 2;
-    private VehicleCatchBehaviour _vehicle;
+    private Transform _vehicleTransform;
     private IReadOnlyList<BindPoint> _vehicleBindPoints;
-    
+    private LevelCompleteWindow _levelCompleteWindow;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out VehicleCatchBehaviour vehicle))   
+        if (other.TryGetComponent(out VehicleCatchBehaviour vehicle))
         {
-            _vehicle = vehicle;
-            _vehicle.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            _vehicle.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            _vehicle.GetComponent<Rigidbody>().useGravity = false;
+            if (vehicle.TryGetComponent(out Rigidbody vehicleRigidbody) == false)
+                throw new InvalidOperationException();
 
-            _vehicleBindPoints = _vehicle.GetComponent<VehicleCatchBehaviour>().GetEntitiesBindPoints();
+            vehicleRigidbody.velocity = Vector3.zero;
+            vehicleRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            vehicleRigidbody.useGravity = false;
+
+            _vehicleBindPoints = vehicle.GetEntitiesBindPoints();
+            _vehicleTransform = vehicle.transform;
             
-            StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, _attractionTime));
+            if (vehicle.TryGetComponent(out VehicleSpeedLimit vehicleSpeedLimit) == false)
+                throw new InvalidOperationException();
+
+            vehicleSpeedLimit.enabled = false;
+
+            StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
         }
     }
 
     private IEnumerator MoveVehicleToCenter(Vector3 target, float duration)
     {
         float time = 0;
-        Vector3 startPosition = _vehicle.transform.position;
+        Vector3 startPosition = _vehicleTransform.position;
 
         while (time < duration)
         {
-            _vehicle.transform.position = Vector3.Lerp(startPosition, target, time / duration);
+            _vehicleTransform.position = Vector3.Lerp(startPosition, target, time / duration);
             time += Time.deltaTime;
             yield return null;
         }
@@ -46,13 +56,13 @@ public class GravityRay : MonoBehaviour
     private void ShowLevelCompleteWindow()
     {
         GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-        
+
         GameObject window = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow(uiRoot);
 
         if (window.TryGetComponent(out LevelCompleteWindow levelCompleteWindow))
             _levelCompleteWindow = levelCompleteWindow;
     }
-    
+
     private IEnumerator EjectEntitiesByGravityRay()
     {
         foreach (var bindPoint in _vehicleBindPoints)
@@ -60,22 +70,22 @@ public class GravityRay : MonoBehaviour
             if (bindPoint.IsFree == false)
                 yield return StartCoroutine(MoveEntityToGravityRay(bindPoint));
         }
-        
+
         _levelCompleteWindow.EvaluatePassage();
     }
-    
+
     private IEnumerator MoveEntityToGravityRay(BindPoint bindPoint)
     {
         Vector3 entityPosition = bindPoint.BindedEntity.transform.position;
-        
+
         AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetRayPullingEffect(entityPosition);
-        
+
         _levelCompleteWindow.CollectPoint();
 
         bindPoint.BindedEntity.SwitchState<RisingByGravityRayState>();
         bindPoint.Exempt();
-        
+
         yield return new WaitForSeconds(0.5f);
     }
 }

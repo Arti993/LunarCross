@@ -648,9 +648,6 @@
               <e p="Materials" t="Include" />
               <e p="Mesh" t="Include" />
               <e p="Prefab" t="Include" />
-              <e p="Scene" t="Include">
-                <e p="Scene_Organization" t="Include" />
-              </e>
               <e p="Textures" t="Include" />
             </e>
           </e>
@@ -799,11 +796,9 @@
         </e>
         <e p="Scenes" t="Include">
           <e p="Typed" t="Include">
-            <e p="Free_Stylized_Rocks.cs" t="Include" />
             <e p="Gameplay.cs" t="Include" />
             <e p="LevelsChoose.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
-            <e p="SampleScene.cs" t="Include" />
             <e p="YandexSDKInitialize.cs" t="Include" />
           </e>
         </e>
@@ -827,11 +822,12 @@
               <e p="AstronautBaseMovementState.cs" t="Include" />
               <e p="AstronautBehaviour.cs" t="Include" />
               <e p="AstronautEjectedState.cs" t="Include" />
+              <e p="AstronautGroundHitState.cs" t="Include" />
               <e p="AstronautInsideAttachState.cs" t="Include" />
               <e p="AstronautOutsideAttachState.cs" t="Include" />
               <e p="RisingByGravityRayState.cs" t="Include" />
             </e>
-            <e p="AstronautKnockedState.cs" t="Include" />
+            <e p="AstronautKnockedbyVehicleState.cs" t="Include" />
             <e p="BaseMovementState.cs" t="Include" />
             <e p="EjectedFromVehicleState.cs" t="Include" />
             <e p="EntityBaseState.cs" t="Include" />
@@ -840,7 +836,7 @@
             <e p="HumanoidKnockedState.cs" t="Include" />
             <e p="IEntityStateSwitcher.cs" t="Include" />
             <e p="InsideVehicleAttachState.cs" t="Include" />
-            <e p="KnockedByVehicleState.cs" t="Include" />
+            <e p="KnockedState.cs" t="Include" />
             <e p="LevitationState.cs" t="Include" />
             <e p="Movement.cs" t="Include" />
             <e p="NpcBehaviour.cs" t="Include" />
@@ -932,7 +928,9 @@
               <e p="VehicleRightCatchZone.cs" t="Include" />
             </e>
             <e p="VehicleCatchBehaviour.cs" t="Include" />
+            <e p="VehicleRotationLimit.cs" t="Include" />
             <e p="VehicleSettings.cs" t="Include" />
+            <e p="VehicleSpeedLimit.cs" t="Include" />
             <e p="WheelAxle.cs" t="Include" />
           </e>
           <e p="YandexSDKInitializer.cs" t="Include" />

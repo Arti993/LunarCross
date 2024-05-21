@@ -7,48 +7,83 @@ public class EntitySpawner : MonoBehaviour
     [SerializeField] private EntityBehaviour _enemyEntity;
     [SerializeField] private List<Entity> _expeditionSimpleEntities;
     [SerializeField] private List<Entity> _enemySimpleEntities;
-    
+
     private EntityCollection _spawnedEntities = new EntityCollection();
+    private List<Vector3> _occupiedPositions = new List<Vector3>();
+    private float _minSpawnDistanceTreshold = 1f;
+    private bool _isOverlap;
+    private bool _isPositionFound;
 
     public void SpawnEntitiesForEnemyChunk(int entitiesCount, Chunk chunk)
     {
-        Spawn(_enemyEntity, entitiesCount, chunk);
-
-        for (int i = 0; i < _enemySimpleEntities.Count; i++)
-        {
-            int simpleEntitiesCount = Random.Range(5, 7);
-
-            Spawn(_enemySimpleEntities[i], simpleEntitiesCount, chunk);
-        }
+        SpawnEntities(entitiesCount, chunk, _enemyEntity, _enemySimpleEntities);
     }
 
     public void SpawnEntitiesForСollectableChunk(int entitiesCount, Chunk chunk)
     {
-        Spawn(_collectableEntity, entitiesCount, chunk);
+        SpawnEntities(entitiesCount, chunk, _collectableEntity, _expeditionSimpleEntities);
+    }
 
-        for (int i = 0; i < _expeditionSimpleEntities.Count; i++)
+    private void SpawnEntities(int entitiesCount, Chunk chunk, EntityBehaviour entity,
+        IReadOnlyList<Entity> spaceObjects)
+    {
+        _occupiedPositions.Clear();
+
+        Spawn(entity, entitiesCount, chunk);
+
+        foreach (var spaceObject in spaceObjects)
         {
             int simpleEntitiesCount = Random.Range(5, 7);
 
-            Spawn(_expeditionSimpleEntities[i], simpleEntitiesCount, chunk);
+            Spawn(spaceObject, simpleEntitiesCount, chunk);
         }
     }
 
     private void Spawn(Entity entity, int entitiesCount, Chunk chunk)
     {
         Renderer surfaceRenderer = chunk.SurfaceRenderer;
-        Vector3 surfaceSize = surfaceRenderer.bounds.size;
+        Vector3 chunkSurfaceSize = surfaceRenderer.bounds.size;
+        Vector3 chunkPosition = surfaceRenderer.transform.position;
 
         for (int i = 0; i < entitiesCount; i++)
         {
-            Vector3 position = surfaceRenderer.transform.position;
-            float spawnPositionX = Random.Range(-surfaceSize.x / 2, surfaceSize.x / 2) + position.x;
-            float spawnPositionZ = Random.Range(-surfaceSize.z / 2, surfaceSize.z / 2) + position.z;
-            Vector3 spawnPosition = new Vector3(spawnPositionX, position.y, spawnPositionZ);
+            while (_isPositionFound == false)
+            {
+                Vector3 spawnPosition = GetRandomPositionForSpawn(chunkSurfaceSize, chunkPosition);
 
-            Entity newEntity = Instantiate(entity, spawnPosition, Quaternion.identity);
-            
-            _spawnedEntities.Add(newEntity);
+                _isOverlap = false;
+
+                foreach (Vector3 occupiedPosition in _occupiedPositions)
+                {
+                    if (Vector3.Distance(occupiedPosition, spawnPosition) < _minSpawnDistanceTreshold)
+                    {
+                        _isOverlap = true;
+                        break;
+                    }
+                }
+
+                if (_isOverlap == false)
+                {
+                    _isPositionFound = true;
+                    
+                    _occupiedPositions.Add(spawnPosition);
+                    
+                    Entity newEntity = Instantiate(entity, spawnPosition, Quaternion.identity);
+
+                    _spawnedEntities.Add(newEntity);
+                }
+            }
+
+            _isPositionFound = false;
         }
+    }
+
+    private Vector3 GetRandomPositionForSpawn(Vector3 chunkSurfaceSize, Vector3 chunkPosition)
+    {
+        float spawnPositionX = Random.Range(-chunkSurfaceSize.x / 2, chunkSurfaceSize.x / 2) + chunkPosition.x;
+        float spawnPositionZ = Random.Range(-chunkSurfaceSize.z / 2, chunkSurfaceSize.z / 2) + chunkPosition.z;
+        Vector3 spawnPosition = new Vector3(spawnPositionX, chunkPosition.y, spawnPositionZ);
+
+        return spawnPosition;
     }
 }

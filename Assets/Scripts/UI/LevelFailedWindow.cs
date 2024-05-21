@@ -22,8 +22,6 @@ public class LevelFailedWindow : UIWindow
     
     public void RestartLevel()
     {
-        _isGamePaused = false;
-
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
@@ -37,7 +35,7 @@ public class LevelFailedWindow : UIWindow
     private void PauseGame()
     {
         if (_isGamePaused)
-            throw new InvalidOperationException();
+            return;
 
         _isGamePaused = true;
 

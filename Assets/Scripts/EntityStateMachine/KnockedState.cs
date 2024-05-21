@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class KnockedByVehicleState : EntityBaseState
+public class KnockedState : EntityBaseState
 {
     protected Rigidbody Rigidbody;
     protected Vector3 MovementDirection;
     protected float MovementSpeed;
 
-    public KnockedByVehicleState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
+    public KnockedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
     {
         Rigidbody = rigidbody;
         MovementDirection = new Vector3(Random.Range(-0.25f, 0.25f), 1, 0f);
@@ -42,6 +42,6 @@ public class KnockedByVehicleState : EntityBaseState
 
     public override void Stop()
     {
-
+        NoReact();
     }
 }

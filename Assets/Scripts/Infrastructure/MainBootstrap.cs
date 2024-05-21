@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MainBootstrap : MonoBehaviour
 {
+    //ВКЛЮЧИТЬ В AWAKE ЯНДЕКС!!!
+    
     private AllServicesContainer _allServices;
     private static bool _isFirstAwakened;
 

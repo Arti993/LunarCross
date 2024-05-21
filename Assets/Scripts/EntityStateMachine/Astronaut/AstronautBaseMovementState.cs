@@ -31,6 +31,6 @@ public class AstronautBaseMovementState : BaseMovementState
 
     public override void ReactOnEntryVehicleTossZone()
     {
-        StateSwitcher.SwitchState<KnockedByVehicleState>();
+        StateSwitcher.SwitchState<KnockedState>();
     }
 }

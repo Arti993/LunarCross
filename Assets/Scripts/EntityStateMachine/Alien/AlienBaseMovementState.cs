@@ -31,6 +31,6 @@ public class AlienBaseMovementState : BaseMovementState
 
     public override void ReactOnEntryVehicleTossZone()
     {
-        _stateSwitcher.SwitchState<KnockedByVehicleState>();
+        _stateSwitcher.SwitchState<KnockedState>();
     }
 }

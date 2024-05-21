@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HumanoidKnockedState : KnockedByVehicleState
+public class HumanoidKnockedState : KnockedState
 {
     private readonly Ragdoll RagdollBody;
     private Rigidbody SpineRigidbody;

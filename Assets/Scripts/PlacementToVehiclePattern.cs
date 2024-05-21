@@ -27,7 +27,7 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
             }
             else
             {
-                _entity.SwitchState<KnockedByVehicleState>();
+                _entity.SwitchState<KnockedState>();
                 return false;
             }
         }

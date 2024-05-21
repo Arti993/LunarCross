@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ObstacleKnockedState : KnockedByVehicleState
+public class ObstacleKnockedState : KnockedState
 {
     private const float MovementSpeedValue = 11;
     

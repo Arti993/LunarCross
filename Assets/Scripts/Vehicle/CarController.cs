@@ -7,53 +7,54 @@ public class CarController : MonoBehaviour
     public List<WheelAxle> wheelAxleList; 
     public VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
+    
     private Rigidbody _rigidbody;
-    private float _startSpeed = 2;
-    private float _maxSpeed = 3.5f;
-
-
+    private float _steering;
+    private float _steeringSign;
+    private float _steeringFactor;
+    
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.mass = vehicleSettings.mass;
         _rigidbody.drag = vehicleSettings.drag;
         _rigidbody.centerOfMass = vehicleSettings.centerOfMass;
-        _rigidbody.velocity = new Vector3(0, 0, _startSpeed);
     }
 
     private void FixedUpdate()
     {
-        if (_rigidbody.velocity.z > _maxSpeed)
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, _maxSpeed);
+        ControlWheels();
+    }
 
-        float motorTorque = vehicleSettings.motorTorque;
-        float steering = vehicleSettings.steeringAngle * Input.GetAxis("Horizontal");
+    private void ControlWheels()
+    {
+        _steering = vehicleSettings.steeringAngle * Input.GetAxis("Horizontal");
 
         foreach (WheelAxle wheelAxle in wheelAxleList)
         {
             if (wheelAxle.steering)
             {
-                float sign = -1f;
-                float factor = 1f;
+                _steeringSign = -1f;
+                _steeringFactor = 1f;
 
-                if (Mathf.Approximately(sign, Mathf.Sign(wheelAxle.wheelColliderLeft.steerAngle)))
-                    factor = _ackermanFactor;
+                if (Mathf.Approximately(_steeringSign, Mathf.Sign(wheelAxle.wheelColliderLeft.steerAngle)))
+                    _steeringFactor = _ackermanFactor;
 
-                wheelAxle.wheelColliderLeft.steerAngle = steering * factor;
+                wheelAxle.wheelColliderLeft.steerAngle = _steering * _steeringFactor;
 
-                sign = 1f;
-                factor = 1f;
+                _steeringSign = 1f;
+                _steeringFactor = 1f;
 
-                if (Mathf.Approximately(sign, Mathf.Sign(wheelAxle.wheelColliderRight.steerAngle)))
-                    factor = _ackermanFactor;
+                if (Mathf.Approximately(_steeringSign, Mathf.Sign(wheelAxle.wheelColliderRight.steerAngle)))
+                    _steeringFactor = _ackermanFactor;
 
-                wheelAxle.wheelColliderRight.steerAngle = steering * factor;
+                wheelAxle.wheelColliderRight.steerAngle = _steering * _steeringFactor;
             }
 
             if (wheelAxle.motor)
             {
-                wheelAxle.wheelColliderLeft.motorTorque = motorTorque;
-                wheelAxle.wheelColliderRight.motorTorque = motorTorque;
+                wheelAxle.wheelColliderLeft.motorTorque = vehicleSettings.motorTorque;
+                wheelAxle.wheelColliderRight.motorTorque = vehicleSettings.motorTorque;
             }
 
             ApplyWheelVisuals(wheelAxle.wheelColliderLeft, wheelAxle.wheelMeshLeft);

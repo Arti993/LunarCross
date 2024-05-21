@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System.Linq;
 using IJunior.TypedScenes;
@@ -71,6 +72,13 @@ public class LevelCompleteWindow : UIWindow
         PlayerPrefs.DeleteKey("SelectedLevelNumber");
         
         LevelsChoose.Load();
+    }
+    
+    public void RestartLevel()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
     }
 
     public void EvaluatePassage()

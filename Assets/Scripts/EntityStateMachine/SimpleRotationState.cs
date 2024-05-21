@@ -35,12 +35,12 @@ public class SimpleRotationState : EntityBaseState
 
     public override void ReactOnEntryVehicleCatchZone()
     {
-        _stateSwitcher.SwitchState<KnockedByVehicleState>();
+        _stateSwitcher.SwitchState<KnockedState>();
     }
 
     public override void ReactOnEntryVehicleTossZone()
     {
-        _stateSwitcher.SwitchState<KnockedByVehicleState>();
+        _stateSwitcher.SwitchState<KnockedState>();
     }
 
     public override void Stop()
