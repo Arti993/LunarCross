@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -7,14 +8,27 @@ public class CarController : MonoBehaviour
     public List<WheelAxle> wheelAxleList; 
     public VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
-    
+
+    private PlayerInput _playerInput;
     private Rigidbody _rigidbody;
+    private Vector2 _moveInput;
     private float _steering;
     private float _steeringSign;
     private float _steeringFactor;
-    
+
+    private void Awake()
+    {
+        _playerInput = new PlayerInput();
+    }
+
+    private void OnEnable()
+    {
+        _playerInput.Enable();
+    }
+
     private void Start()
     {
+       
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.mass = vehicleSettings.mass;
         _rigidbody.drag = vehicleSettings.drag;
@@ -26,9 +40,16 @@ public class CarController : MonoBehaviour
         ControlWheels();
     }
 
+    private void OnDisable()
+    {
+        _playerInput.Disable();
+    }
+
     private void ControlWheels()
     {
-        _steering = vehicleSettings.steeringAngle * Input.GetAxis("Horizontal");
+        _moveInput = _playerInput.Player.Turn.ReadValue<Vector2>();
+
+        _steering = vehicleSettings.steeringAngle * _moveInput.x;
 
         foreach (WheelAxle wheelAxle in wheelAxleList)
         {

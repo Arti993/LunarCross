@@ -310,6 +310,7 @@ MonoBehaviour:
   - {fileID: 6080485179355275844}
   - {fileID: 7191552373815210600}
   _pointsLabel: {fileID: 2372704829336790110}
+  _continueButton: {fileID: 6682062307189829195}
   _resultsPanelTopPosY: 0
   _panelAnimationDuration: 0.5
   _pointsTextSizeMultiplier: 2

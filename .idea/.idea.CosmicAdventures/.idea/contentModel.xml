@@ -744,7 +744,9 @@
               <e p="SimpleWater.shader" t="Include" />
             </e>
           </e>
-          <e p="Sprites" t="Include" />
+          <e p="Sprites" t="Include">
+            <e p="Materials" t="Include" />
+          </e>
           <e p="Stylized_Astronaut" t="Include">
             <e p="Character" t="Include">
               <e p="Materials" t="Include" />
@@ -892,10 +894,15 @@
           <e p="LevelGenerator.cs" t="Include" />
           <e p="LoadScreen.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
+          <e p="Mountain.cs" t="Include" />
+          <e p="New Input System" t="Include">
+            <e p="Player Input.cs" t="Include" />
+          </e>
           <e p="NPCMovement.cs" t="Include" />
           <e p="PlacementToVehiclePattern.cs" t="Include" />
           <e p="PlayerFollowCamera.cs" t="Include" />
           <e p="Ragdoll.cs" t="Include" />
+          <e p="RockElement.cs" t="Include" />
           <e p="TornadoChunk.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="LevelCompleteWindow.cs" t="Include" />

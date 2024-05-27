@@ -42,7 +42,6 @@ public class VehicleSpeedLimit : MonoBehaviour
     {
         _timer += Time.deltaTime;
         _distanceTraveled = _transform.position.z - _periodStartPositionZ;
-        Debug.Log(_distanceTraveled);
 
         if (_timer > TrackingPeriod)
         {

@@ -21,3 +21,6 @@ MonoBehaviour:
   _pointsForFirstStar: 5
   _pointsForSecondStar: 9
   _pointsForThirdStar: 14
+  _surfaceMaterial: {fileID: 2100000, guid: 4aaa71bb63bb5e54abc7c933f3162861, type: 2}
+  _stonesMaterial: {fileID: 2100000, guid: 300575bccecc64f4a8068a62dfb55110, type: 2}
+  _mountainsMaterial: {fileID: 2100000, guid: 300575bccecc64f4a8068a62dfb55110, type: 2}

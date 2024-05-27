@@ -20,6 +20,12 @@ public class Level : ScriptableObject
     [SerializeField] private int _pointsForSecondStar;
     
     [SerializeField] private int _pointsForThirdStar;
+    
+    [SerializeField] private Material _surfaceMaterial;
+    
+    [SerializeField] private Material _stonesMaterial;
+    
+    [SerializeField] private Material _mountainsMaterial;
 
     public Chunk ChunkWithObstacles => _chunkWithObstacles;
 
@@ -38,5 +44,11 @@ public class Level : ScriptableObject
     public int PointsForSecondStar => _pointsForSecondStar;
     
     public int PointsForThirdStar => _pointsForThirdStar;
+
+    public Material SurfaceMaterial => _surfaceMaterial;
+    
+    public Material StonesMaterial => _stonesMaterial;
+    
+    public Material MountainsMaterial => _mountainsMaterial;
 }
     

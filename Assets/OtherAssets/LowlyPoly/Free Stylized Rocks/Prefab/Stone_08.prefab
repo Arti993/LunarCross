@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4921165211197505187}
   - component: {fileID: 7183112652409735785}
   - component: {fileID: 3632148360390795378}
+  - component: {fileID: -349074506587364452}
   m_Layer: 0
   m_Name: Stone_08
   m_TagString: Untagged
@@ -107,3 +108,15 @@ CapsuleCollider:
   m_Height: 1.0687845
   m_Direction: 1
   m_Center: {x: -0.028989494, y: 0.53439224, z: -0.029747248}
+--- !u!114 &-349074506587364452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696299794153384892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aaf528c1c33d6c46954701ca9a0a45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,13 +4,15 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System.Linq;
 using IJunior.TypedScenes;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
 public class LevelCompleteWindow : UIWindow
 {
     [SerializeField] private GameObject[] _ratingStars;
     [SerializeField] private TMP_Text _pointsLabel;
-    [SerializeField] private float _resultsPanelTopPosY;
+    [SerializeField] private Button _continueButton;
+    [SerializeField] private float _resultsPanelTopPosY = 0f;
     [SerializeField] private float _panelAnimationDuration = 0.5f;
     [SerializeField] private float _pointsTextSizeMultiplier = 2;
     [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
@@ -46,6 +48,8 @@ public class LevelCompleteWindow : UIWindow
         _starsCount = 0;
         _points = 0;
         _pointsLabel.text = _points.ToString();
+
+        _continueButton.interactable = false;
         
         PanelIntro();
     }
@@ -83,10 +87,9 @@ public class LevelCompleteWindow : UIWindow
 
     public void EvaluatePassage()
     {
-        if (_points >= _pointsForFirstStar)
-        {
-            AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
-        }
+        AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
+        
+        _continueButton.interactable = true;
     }
 
     private void GetStar()

@@ -65,6 +65,12 @@ public class ChunkPlacer : MonoBehaviour
         _finishChunk = currentLevel.FinishChunk;
         _collectableEntitiesCount = currentLevel.CollectableEntitiesCount;
         _enemyEntitiesCount = currentLevel.EnemiesCount;
+        
+        _firstChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _landscapeChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _tornadoChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _emptyChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _finishChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
     }
 
     private void SpawnNextChunkInSequence()

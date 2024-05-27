@@ -31,7 +31,12 @@ public class GravityRay : MonoBehaviour
                 throw new InvalidOperationException();
 
             vehicleSpeedLimit.enabled = false;
+            
+            if (vehicle.TryGetComponent(out VehicleRotationLimit vehicleRotationLimit) == false)
+                throw new InvalidOperationException();
 
+            vehicleRotationLimit.enabled = false;
+            
             StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
         }
     }
@@ -45,7 +50,7 @@ public class GravityRay : MonoBehaviour
         {
             _vehicleTransform.position = Vector3.Lerp(startPosition, target, time / duration);
             time += Time.deltaTime;
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         ShowLevelCompleteWindow();

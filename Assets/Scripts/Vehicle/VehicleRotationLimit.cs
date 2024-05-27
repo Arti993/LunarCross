@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class VehicleRotationLimit : MonoBehaviour
 {
-    [SerializeField] private float _maxRotationAbsYAngle = 30f;
+    [SerializeField] private float _maxRotationAbsYAngle = 70f;
     
     private Transform _transform;
     private Vector3 _currentRotation;
