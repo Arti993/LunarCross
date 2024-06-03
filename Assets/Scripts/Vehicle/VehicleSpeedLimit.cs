@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class VehicleSpeedLimit : MonoBehaviour
@@ -7,6 +8,7 @@ public class VehicleSpeedLimit : MonoBehaviour
     private const float MaxSpeed = 3.5f;
     private const float TrackingPeriod = 0.08f;
     private const float MinRequiredDistancePerTrackingPeriod = 0.01f;
+    private const int TutorialSceneIndex = 4;
     
     [SerializeField] private Transform _blowUpPoint;
     
@@ -61,9 +63,22 @@ public class VehicleSpeedLimit : MonoBehaviour
         {
             AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(_blowUpPoint.position);
 
-            GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+            if (sceneIndex == TutorialSceneIndex)
+            {
+                TimePauser timePauser = new TimePauser();
+            
+                AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+
+                StartCoroutine(timePauser.Pause());
+            }
+            else
+            {
+                GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
                 
-            AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+                AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+            }
 
             _isMinSpeedViolation = true;
         }

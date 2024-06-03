@@ -1,7 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayFactory : IGameplayFactory
 {
+    private const int TutorialSceneIndex = 4;
+
+    private GameObject _playerInstance;
+    
     private readonly IAssets _provider;
 
     public GameplayFactory(IAssets provider)
@@ -11,7 +17,17 @@ public class GameplayFactory : IGameplayFactory
 
     public GameObject CreatePlayer(Vector3 position)
     {
-        return _provider.Instantiate("Prefabs/RoverT30-1", position);
+        _playerInstance = _provider.Instantiate("Prefabs/RoverT30-1", position);
+
+        return _playerInstance;
+    }
+
+    public GameObject GetPlayerInstance()
+    {
+        if(_playerInstance == null)
+            throw new InvalidOperationException();
+
+        return _playerInstance;
     }
     
     public GameObject CreateGameCamera()
@@ -21,6 +37,11 @@ public class GameplayFactory : IGameplayFactory
 
     public GameObject CreateSpawner()
     {
-        return _provider.Instantiate("Prefabs/Spawner");
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        if(sceneIndex == TutorialSceneIndex)
+            return _provider.Instantiate("Prefabs/TutorialSpawner");
+        else
+            return _provider.Instantiate("Prefabs/Spawner");
     }
 }

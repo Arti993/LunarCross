@@ -770,7 +770,9 @@
           <e p="Prefabs" t="Include">
             <e p="LevelsConfigs" t="Include" />
             <e p="Particles" t="Include" />
-            <e p="UI" t="Include" />
+            <e p="UI" t="Include">
+              <e p="Tutorial" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Samples" t="Include">
@@ -801,6 +803,7 @@
             <e p="Gameplay.cs" t="Include" />
             <e p="LevelsChoose.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
+            <e p="Tutorial.cs" t="Include" />
             <e p="YandexSDKInitialize.cs" t="Include" />
           </e>
         </e>
@@ -852,6 +855,7 @@
             <e p="SimpleRotationState.cs" t="Include" />
             <e p="TornadoMovement.cs" t="Include" />
           </e>
+          <e p="FinishTutorialWindowViewer.cs" t="Include" />
           <e p="GravityRay.cs" t="Include" />
           <e p="IEjectorFromVehicle.cs" t="Include" />
           <e p="Infrastructure" t="Include">
@@ -903,7 +907,11 @@
           <e p="PlayerFollowCamera.cs" t="Include" />
           <e p="Ragdoll.cs" t="Include" />
           <e p="RockElement.cs" t="Include" />
+          <e p="ScaleAnimation.cs" t="Include" />
+          <e p="TimePauser.cs" t="Include" />
           <e p="TornadoChunk.cs" t="Include" />
+          <e p="TutorialChunkPlacer.cs" t="Include" />
+          <e p="TutorialUIViewer.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />
@@ -914,6 +922,8 @@
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
             <e p="TotalScoreViewer.cs" t="Include" />
+            <e p="TutorialCollectingWindow.cs" t="Include" />
+            <e p="TutorialWindow.cs" t="Include" />
             <e p="UIRoot.cs" t="Include" />
             <e p="UIWindow.cs" t="Include" />
           </e>
@@ -927,6 +937,7 @@
             </e>
             <e p="CarController.cs" t="Include" />
             <e p="CatchZoneChecker.cs" t="Include" />
+            <e p="CatchZoneViewer.cs" t="Include" />
             <e p="ReactZones" t="Include">
               <e p="Bumper.cs" t="Include" />
               <e p="EntitiesDisabler.cs" t="Include" />

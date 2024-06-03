@@ -9,6 +9,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform))]
 public class LevelCompleteWindow : UIWindow
 {
+    private const int TutorialSceneIndex = 4;
+    
     [SerializeField] private GameObject[] _ratingStars;
     [SerializeField] private TMP_Text _pointsLabel;
     [SerializeField] private Button _continueButton;
@@ -28,11 +30,8 @@ public class LevelCompleteWindow : UIWindow
     private void Awake()
     {
         _resultsPanelRect = GetComponent<RectTransform>();
-        
-        int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
 
-        Level currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-            .GetLevelSettings(levelNumber);
+        Level currentLevel = GetLevelSettings();
 
         _pointsForFirstStar = currentLevel.PointsForFirstStar;
         _pointsForSecondStar = currentLevel.PointsForSecondStar;
@@ -87,9 +86,34 @@ public class LevelCompleteWindow : UIWindow
 
     public void EvaluatePassage()
     {
-        AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        if(sceneIndex != TutorialSceneIndex)
+            AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
         
         _continueButton.interactable = true;
+    }
+
+    private Level GetLevelSettings()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        Level currentLevel;
+        
+        if (sceneIndex != TutorialSceneIndex)
+        {
+            int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+
+            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetLevelSettings(levelNumber);
+        }
+        else
+        {
+            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetTutorialLevelSettings();
+        }
+
+        return currentLevel;
     }
 
     private void GetStar()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIRoot : MonoBehaviour
 {
     private Canvas _canvas;
+    private TutorialUIViewer _tutorialUIViewer;
 
     public PauseButton PauseButton { get; private set; }
 
@@ -26,5 +27,13 @@ public class UIRoot : MonoBehaviour
             throw new InvalidOperationException();
 
         PauseButton = pauseButton;
+    }
+
+    public TutorialUIViewer GetTutorialUIViewer()
+    {
+        if(_tutorialUIViewer == null)
+            _tutorialUIViewer = gameObject.AddComponent<TutorialUIViewer>();
+
+        return _tutorialUIViewer;
     }
 }

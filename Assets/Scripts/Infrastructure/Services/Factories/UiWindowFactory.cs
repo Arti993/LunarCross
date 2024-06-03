@@ -64,4 +64,39 @@ public class UiWindowFactory : IUiWindowFactory
     {
         return _provider.Instantiate("Prefabs/UI/LeaderboardElement", parent.transform);
     }
+
+    public GameObject GetTutorialKeyboardControlWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialKeyboardControlWindow", parent.transform);
+    }
+
+    public GameObject GetTutorialTouchscreenControlWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialTouchscreenControlWindow", parent.transform);
+    }
+
+    public GameObject GetTutorialCollectingWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialCollectingWindow", parent.transform);
+    }
+
+    public GameObject GetTutorialAliensWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialAliensWindow", parent.transform);
+    }
+
+    public GameObject GetTutorialObstaclesWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialObstaclesWindow", parent.transform);
+    }
+
+    public GameObject GetTutorialTornadoWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialTornadoWindow", parent.transform);
+    }
+
+    public GameObject GetTutorialFinishWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialFinishWindow", parent.transform);
+    }
 }

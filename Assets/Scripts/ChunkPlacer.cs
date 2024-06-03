@@ -7,7 +7,7 @@ public class ChunkPlacer : MonoBehaviour
 {
     private const int MaxVisibleChunksCount = 4;
     private const int DistanceToSpawnNextChunk = 40;
-    
+
     [SerializeField] private Chunk _firstChunk;
 
     private EntitySpawner _entitySpawner;
@@ -19,16 +19,17 @@ public class ChunkPlacer : MonoBehaviour
     private int _enemyEntitiesCount;
     private bool _isAllChunksSpawned;
     private Transform _playerTransform;
-
-    private List<Chunk> _spawnedChunks = new List<Chunk>();
+    
     private List<Chunk> _currentVisibleChunks = new List<Chunk>();
     private Chunk _newChunk;
+    
+    protected readonly List<Chunk> SpawnedChunks = new List<Chunk>();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _entitySpawner = GetComponent<EntitySpawner>();
         
-        _spawnedChunks.Add(_firstChunk);
+        SpawnedChunks.Add(_firstChunk);
         
         _currentVisibleChunks.Add(_firstChunk);
     }
@@ -42,7 +43,7 @@ public class ChunkPlacer : MonoBehaviour
     {
         if (_isAllChunksSpawned == false)
         {
-            if (_playerTransform.position.z > _spawnedChunks[_spawnedChunks.Count - 1].End.position.z - DistanceToSpawnNextChunk)
+            if (_playerTransform.position.z > SpawnedChunks[SpawnedChunks.Count - 1].End.position.z - DistanceToSpawnNextChunk)
                 SpawnNextChunkInSequence();
         }
     }
@@ -52,30 +53,10 @@ public class ChunkPlacer : MonoBehaviour
         _playerTransform = playerTransform;
     }
 
-    private void ApplyLevelSettings()
+
+    protected virtual void SpawnNextChunkInSequence()
     {
-        int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
-
-        Level currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-            .GetLevelSettings(levelNumber);
-
-        _landscapeChunk = currentLevel.ChunkWithObstacles;
-        _tornadoChunk = currentLevel.TornadoChunk;
-        _emptyChunk = currentLevel.EmptyChunk;
-        _finishChunk = currentLevel.FinishChunk;
-        _collectableEntitiesCount = currentLevel.CollectableEntitiesCount;
-        _enemyEntitiesCount = currentLevel.EnemiesCount;
-        
-        _firstChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
-        _landscapeChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
-        _tornadoChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
-        _emptyChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
-        _finishChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
-    }
-
-    private void SpawnNextChunkInSequence()
-    {
-        switch (_spawnedChunks.Count)
+        switch (SpawnedChunks.Count)
         {
             case 1:
                 SpawnChunkWithCollectables();
@@ -118,45 +99,81 @@ public class ChunkPlacer : MonoBehaviour
         }
     }
 
-    private void SpawnChunkWithCollectables()
+    protected void SpawnChunkWithCollectables()
     {
         _newChunk = SpawnChunk(_emptyChunk);
 
         _entitySpawner.SpawnEntitiesForСollectableChunk(_collectableEntitiesCount, _newChunk);
     }
 
-    private void SpawnChunkWithEnemies()
+    protected void SpawnChunkWithEnemies()
     {
         _newChunk = SpawnChunk(_emptyChunk);
 
         _entitySpawner.SpawnEntitiesForEnemyChunk(_enemyEntitiesCount, _newChunk);
     }
 
-    private void SpawnLandscapeChunk()
+    protected void SpawnLandscapeChunk()
     {
         SpawnChunk(_landscapeChunk);
     }
 
-    private void SpawnTornadoChunk()
+    protected void SpawnTornadoChunk()
     {
         SpawnChunk(_tornadoChunk);
     }
 
-    private void SpawnFinishChunk()
+    protected void SpawnFinishChunk()
     {
         SpawnChunk(_finishChunk);
 
         _isAllChunksSpawned = true;
     }
 
+    protected void SpawnEmptyChunk()
+    {
+        _newChunk = SpawnChunk(_emptyChunk);
+    }
+    
+    private void ApplyLevelSettings()
+    {
+        Level currentLevel;
+        
+        if (this is TutorialChunkPlacer)
+        {
+            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetTutorialLevelSettings();
+        }
+        else
+        {
+            int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+
+            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetLevelSettings(levelNumber);
+        }
+
+        _landscapeChunk = currentLevel.ChunkWithObstacles;
+        _tornadoChunk = currentLevel.TornadoChunk;
+        _emptyChunk = currentLevel.EmptyChunk;
+        _finishChunk = currentLevel.FinishChunk;
+        _collectableEntitiesCount = currentLevel.CollectableEntitiesCount;
+        _enemyEntitiesCount = currentLevel.EnemiesCount;
+        
+        _firstChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _landscapeChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _tornadoChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _emptyChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+        _finishChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial, currentLevel.MountainsMaterial);
+    }
+    
     private Chunk SpawnChunk(Chunk chunkPrefab)
     {
         Chunk newChunk = Instantiate(chunkPrefab);
 
         newChunk.transform.position =
-            _spawnedChunks[_spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
+            SpawnedChunks[SpawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
 
-        _spawnedChunks.Add(newChunk);
+        SpawnedChunks.Add(newChunk);
         _currentVisibleChunks.Add(newChunk);
 
         HideCompletedChunks();

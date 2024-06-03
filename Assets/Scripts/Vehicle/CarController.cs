@@ -1,12 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
-    public List<WheelAxle> wheelAxleList; 
-    public VehicleSettings vehicleSettings;
+    private const float InputChangeStepTime = 0.1f;
+    
+    [SerializeField] private List<WheelAxle> wheelAxleList; 
+    [SerializeField] private VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
 
     private PlayerInput _playerInput;
@@ -15,6 +16,7 @@ public class CarController : MonoBehaviour
     private float _steering;
     private float _steeringSign;
     private float _steeringFactor;
+    private float _sensitiveInput;
 
     private void Awake()
     {
@@ -49,8 +51,10 @@ public class CarController : MonoBehaviour
     {
         _moveInput = _playerInput.Player.Turn.ReadValue<Vector2>();
 
-        _steering = vehicleSettings.steeringAngle * _moveInput.x;
-
+        _sensitiveInput = Mathf.Lerp(_sensitiveInput, _moveInput.x, InputChangeStepTime);
+        
+        _steering = vehicleSettings.steeringAngle * _sensitiveInput;
+ 
         foreach (WheelAxle wheelAxle in wheelAxleList)
         {
             if (wheelAxle.steering)

@@ -24,75 +24,33 @@
   <component name="ChangeListManager">
     <list default="true" id="04aabbf9-7ec0-4adb-896a-57aef3559404" name="Default Changelist" comment="Add Dependency injection container, levelcomplete and levelfail functions. Add UI and Particle factories">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_03.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_03.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_04.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_04.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_05.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_05.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_06.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_06.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_07.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_07.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_08.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/LowlyPoly/Free Stylized Rocks/Prefab/Stone_08.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Materials/LunarRockMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Materials/LunarRockMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Materials/MoonMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Materials/MoonMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_10.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_5.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/Chunk_6.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/EmptyChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/EmptyChunk.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/FinishChunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/FinishChunk.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk10.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk5.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Chunks/TornadoChunks/TornadoChunk6.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock10.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock11.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock12.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock4.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock5.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock6.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock7.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock8.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/SimpleLowPolyNature/Prefabs/Rock9.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level10.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level10.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level11.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level11.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level8.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelsConfigs/Level9.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/RoverT30-1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/RoverT30-1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/LevelCompleteWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/LevelCompleteWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/RestartGameQuestionPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/RestartGameQuestionPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelsChoose.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelsChoose.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityRay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityRay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/GameplayFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/GameplayFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameplayFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameplayFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/ILevelsSettingsNomenclature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/ILevelsSettingsNomenclature.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IUiWindowFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IUiWindowFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LevelsSettingsNomenclature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LevelsSettingsNomenclature.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelBorderChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelBorderChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New Input System/Player Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New Input System/Player Input.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New Input System/Player Input.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New Input System/Player Input.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LevelFailedWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LevelFailedWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LevelNumberTitle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LevelNumberTitle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleRotationLimit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleRotationLimit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleSpeedLimit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleSpeedLimit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,51 +63,36 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/dd/afe39096/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/cc/3b609da9/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/68/5f386c08/ResourcesAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@faf20595c0/Runtime/YandexGamesSdk.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mountain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TutorialChunkPlacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/TutorialCollectingWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/CatchZoneViewer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/97/d12859f1/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D04E01F6-1B56-4167-8DD1-B35B66008BE9/7f/f9435ad9/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_SubMeshUI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E6BFE62D-2E26-4180-9206-44C8A601369B/ac/877d134d/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/605BF8B3-1FCB-444B-8517-6DA963870AA7/06/ec85be0f/AttributeUsageAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleRotationLimit.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/29/508dd580/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@faf20595c0/Runtime/Leaderboard/Leaderboard.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Artem/Cosmic Adventures Test/CosmicAdventures/Assets/Scripts/EntityStateMachine/Alien/AlienAfterEjectingState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/41/6c76fb18/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/605BF8B3-1FCB-444B-8517-6DA963870AA7/97/8390c38e/IntPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/08/14b929db/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleSpeedLimit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RockElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/5c/8497fd82/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/cc/3b609da9/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScaleAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/68/5f386c08/ResourcesAPI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@faf20595c0/Runtime/YandexGamesSdk.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mountain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TimePauser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E6BFE62D-2E26-4180-9206-44C8A601369B/ac/877d134d/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleRotationLimit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/29/508dd580/Debug.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/605BF8B3-1FCB-444B-8517-6DA963870AA7/97/8390c38e/IntPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D04E01F6-1B56-4167-8DD1-B35B66008BE9/d4/f03caa14/InputUnsafeUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FinishTutorialWindowViewer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/08/14b929db/Resources.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/ReactZones/EntitiesDisabler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleCatchBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IParticleSystemFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/ParticleSystemFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityToEjectDetector.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Movement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/RadarMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameProgress.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/TotalScoreViewer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GamePlayBootstrap.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelNumberTitle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/YandexSDKInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IUiWindowFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/YandexLeaderboard.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenuButton.cs" />
         <option value="$PROJECT_DIR$/Library/PackageCache/com.agava.yandexgames@faf20595c0/Runtime/YandexGamesSdk.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/MainBootstrap.cs" />
@@ -166,19 +109,41 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/ReactZones/ObstacleDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleSpeedController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleRotationControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelFailedWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMaterialsAssigner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RockElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleRotationLimit.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityRay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mountain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/ILevelsSettingsNomenclature.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LevelsSettingsNomenclature.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ScreenFader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelFailedWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePauser.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelBorderChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleSpeedLimit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ButtonScaleAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IUiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TutorialUIViewer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ScaleAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelNumberTitle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TutorialChunkPlacer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FinishTutorialWindowViewer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/GameplayFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Interfaces/IGameplayFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/TutorialWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/TutorialCollectingWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/CatchZoneViewer.cs" />
       </list>
     </option>
   </component>
@@ -270,7 +235,10 @@
       <workItem from="1715600806079" duration="47000" />
       <workItem from="1715601278310" duration="7009000" />
       <workItem from="1715704802015" duration="9000000" />
-      <workItem from="1716187477759" duration="44024000" />
+      <workItem from="1716187477759" duration="61715000" />
+      <workItem from="1717058349967" duration="1794000" />
+      <workItem from="1717143358460" duration="13263000" />
+      <workItem from="1717402818813" duration="17638000" />
     </task>
     <task id="LOCAL-00001" summary="Adding LevelChoose functional, changing Chunks prefabs">
       <created>1706812177803</created>
@@ -391,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716320166147</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add New Input System and Level design variants">
+      <created>1716801200468</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716801200468</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -427,111 +402,91 @@
     <MESSAGE value="Add Screen Fading, fixing bugs" />
     <MESSAGE value="Code fixing, refactoring" />
     <MESSAGE value="Fixing bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing bugs" />
+    <MESSAGE value="add New Input System and Level design variants" />
+    <option name="LAST_COMMIT_MESSAGE" value="add New Input System and Level design variants" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1493" height="159" key="GridCell.Tab.0.bottom" timestamp="1715708261888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261888" />
-    <state width="1493" height="159" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.0.center" timestamp="1715708261888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.0.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261888" />
-    <state width="1493" height="159" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.0.left" timestamp="1715708261888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.0.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261888" />
-    <state width="1493" height="159" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.0.right" timestamp="1715708261888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.0.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261888" />
-    <state width="1493" height="159" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.1.bottom" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.1.center" timestamp="1715708261888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.1.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261888" />
-    <state width="1493" height="159" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.1.left" timestamp="1715708261888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.1.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261888" />
-    <state width="1493" height="159" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.1.right" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.1.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.2.bottom" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.2.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.2.center" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.2.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.2.left" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.2.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.2.right" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.2.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.3.bottom" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.3.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.3.center" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.3.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.3.left" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.3.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
     <state width="1493" height="159" key="GridCell.Tab.3.right" timestamp="1715708261889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="159" key="GridCell.Tab.3.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1715708261889" />
-    <state width="1493" height="159" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1707763821883" />
-    <state x="570" y="129" key="RiderGenerateDialog" timestamp="1711970020045">
+    <state x="570" y="129" key="RiderGenerateDialog" timestamp="1717161270912">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="570" y="129" key="RiderGenerateDialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1711970020045" />
+    <state x="570" y="129" key="RiderGenerateDialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1717161270912" />
     <state x="269" y="38" key="SettingsEditor" timestamp="1711040555912">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="269" y="38" key="SettingsEditor/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1711040555912" />
-    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1707570986577">
+    <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2" timestamp="1716801211042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1707570986577" />
-    <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2" timestamp="1716320185660">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1716320185660" />
+    <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1716801211042" />
     <state x="2472" y="175" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1710514616996" />
     <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1711910600505" />
-    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1716628949483">
+    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1717420979129">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1716628949483" />
-    <state x="2459" y="105" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1708617320543" />
+    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1717420979129" />
   </component>
 </project>

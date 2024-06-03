@@ -10,4 +10,9 @@ public class LevelsSettingsNomenclature: ILevelsSettingsNomenclature
 
         return Resources.Load<Level>(levelPath);
     }
+
+    public Level GetTutorialLevelSettings()
+    {
+        return Resources.Load<Level>("Prefabs/LevelsConfigs/Tutorial");
+    }
 }

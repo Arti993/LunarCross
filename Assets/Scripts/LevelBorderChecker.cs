@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelBorderChecker : MonoBehaviour
 {
+    private const int TutorialSceneIndex = 4;
+    
     private bool _isFirstContactSucceed;
     
     private void OnTriggerEnter(Collider other)
@@ -18,8 +21,21 @@ public class LevelBorderChecker : MonoBehaviour
             
         AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(intersectionPoint);
 
-        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (sceneIndex == TutorialSceneIndex)
+        {
+            TimePauser timePauser = new TimePauser();
+            
+            AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+
+            StartCoroutine(timePauser.Pause());
+        }
+        else
+        {
+            GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
                 
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+            AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+        }
     }
 }

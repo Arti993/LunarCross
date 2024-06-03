@@ -1,12 +1,14 @@
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(TMP_Text))]
 public class LevelNumberTitle : MonoBehaviour
 {
-    private const int AnimateTime = 2;
-    private const int MaxScale = 2;
+    private const float AnimateTime = 1.3f;
+    private const float MaxScale = 2;
+    private const int TutorialSceneIndex = 4;
 
     private TMP_Text _title;
 
@@ -14,9 +16,19 @@ public class LevelNumberTitle : MonoBehaviour
     {
         _title = GetComponent<TMP_Text>();
 
-        int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        _title.text = $"Level {levelNumber}";
+        if (sceneIndex == TutorialSceneIndex)
+        {
+            _title.text = "Tutorial";
+        }
+        else
+        {
+            int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+
+            _title.text = $"Level {levelNumber}";
+        }
+            
         
         Sequence sequence = DOTween.Sequence();
 

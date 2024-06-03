@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +17,8 @@ public class LevelFailedWindow : UIWindow
     {
         _restartPanelRect = GetComponent<RectTransform>();
         PauseGame();
+        
+        DestroyPauseButton();
     }
     
     public void RestartLevel()
@@ -38,8 +39,6 @@ public class LevelFailedWindow : UIWindow
             return;
 
         _isGamePaused = true;
-
-        DestroyPauseButton();
         
         StartCoroutine(StopTime());
     }
