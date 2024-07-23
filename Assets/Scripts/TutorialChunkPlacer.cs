@@ -18,7 +18,7 @@ public class TutorialChunkPlacer : ChunkPlacer
         {
             case 1:
                 SpawnEmptyChunk();
-                _tutorialUIViewer.ShowTutorialKeyboardControlWindow();
+                _tutorialUIViewer.ShowTutorialControlWindow();
                 
                 break;
             case 2:

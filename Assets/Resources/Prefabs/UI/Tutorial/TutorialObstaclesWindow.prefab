@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 551085027498042987}
   - component: {fileID: 8519992813654857290}
   - component: {fileID: 2495928561616272317}
+  - component: {fileID: 377327519047876151}
+  - component: {fileID: 7227416147173072430}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -33,10 +35,10 @@ RectTransform:
   m_Father: {fileID: 2517733976571336462}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 6}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.04118764, y: 0.25500003}
+  m_AnchorMax: {x: 0.966, y: 0.88910264}
+  m_AnchoredPosition: {x: -31, y: -1}
+  m_SizeDelta: {x: -52, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8519992813654857290
 CanvasRenderer:
@@ -68,8 +70,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Obstacles
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -135,6 +137,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &377327519047876151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497706767529571530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Obstacles
+  FallbackText: Obstacles
+--- !u!114 &7227416147173072430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497706767529571530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Obstacles
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &4993691195938888572
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8526df96f6c236b4f86aa724acd794c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelRect: {fileID: 8203349590139438450}
+  PanelTopPosY: 0
+  PanelBottomPosY: -1000
+  PanelAnimationDuration: 0.5
 --- !u!1 &6026189667897888664
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +364,8 @@ GameObject:
   - component: {fileID: 6042643865913228495}
   - component: {fileID: 4359292931005849610}
   - component: {fileID: 5911483345076151101}
+  - component: {fileID: 6881865800307213981}
+  - component: {fileID: 681374705644748096}
   m_Layer: 5
   m_Name: Explanation
   m_TagString: Untagged
@@ -354,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.033, y: 0.26586032}
   m_AnchorMax: {x: 0.9843757, y: 0.76227945}
-  m_AnchoredPosition: {x: -178, y: 0}
+  m_AnchoredPosition: {x: -178, y: -6}
   m_SizeDelta: {x: -572, y: -282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4359292931005849610
@@ -388,8 +424,8 @@ MonoBehaviour:
   m_text: the area with rocks will be an obstacle in your way, if you hit a rock
     that is too big, the rover will be destroyed
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -455,6 +491,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6881865800307213981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673508296175454355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: The area with rocks will be an obstacle in your way, if you hit
+    a rock that is too big, the rover will be destroyed
+  FallbackText: the area with rocks will be an obstacle in your way, if you hit a
+    rock that is too big, the rover will be destroyed
+--- !u!114 &681374705644748096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673508296175454355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: The area with rocks will be an obstacle in your way, if you hit
+    a rock that is too big, the rover will be destroyed
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &2408020479822612183
 PrefabInstance:
   m_ObjectHideFlags: 0

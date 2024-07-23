@@ -1,38 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CatchZoneViewer : MonoBehaviour
 {
-    [SerializeField] private Collider[] _catchZones;
-
-    private Color _startColor;
+    private const float DelayToDisable = 9;
+    
+    [SerializeField] private GameObject[] _catchZonesViews;
+    [SerializeField] private GameObject[] _dangerZonesViews;
+    
     private bool _isShowing;
 
-    public void Show()
+    public void ShowCatchZones()
+    {
+        Show(_catchZonesViews);
+    }
+
+    public void ShowDangerZones()
+    {
+        Show(_dangerZonesViews);
+    }
+
+    public void StopShowCatchZones()
+    {
+        StartCoroutine(StopShowAfterDelay(_catchZonesViews));
+    }
+    
+    public void StopShowDangerZones()
+    {
+        StartCoroutine(StopShowAfterDelay(_dangerZonesViews));
+    }
+    
+    private void Show(IEnumerable<GameObject> zones)
     {
         _isShowing = true;
 
-        foreach (var Collider in _catchZones)
+        foreach (var zone in zones)
         {
-            Material colliderMaterial = Collider.GetComponent<Renderer>().material;
-
-            _startColor = colliderMaterial.color;
-            
-            colliderMaterial.color = Color.green;
+            zone.SetActive(true);
         }
     }
 
-    public void StopShow()
+    private IEnumerator StopShowAfterDelay(IEnumerable<GameObject> zones)
     {
         if(_isShowing == false)
-            return;
+            throw new InvalidOperationException();
         
-        foreach (var Collider in _catchZones)
+        yield return new WaitForSeconds(DelayToDisable);
+        
+        foreach (var zone in zones)
         {
-            Material colliderMaterial = Collider.GetComponent<Renderer>().material;
-
-            colliderMaterial.color = _startColor;
+            zone.SetActive(false);
         }
-
+        
         _isShowing = false;
     }
 }

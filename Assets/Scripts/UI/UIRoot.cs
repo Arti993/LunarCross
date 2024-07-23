@@ -14,6 +14,11 @@ public class UIRoot : MonoBehaviour
         _canvas = GetComponent<Canvas>();
     }
 
+    private void OnDisable()
+    {
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().DeleteUIRoot();
+    }
+
     public void SetCamera(Camera camera)
     {
         _canvas.worldCamera = camera;
@@ -36,4 +41,6 @@ public class UIRoot : MonoBehaviour
 
         return _tutorialUIViewer;
     }
+    
+    
 }

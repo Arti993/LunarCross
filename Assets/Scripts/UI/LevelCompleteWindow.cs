@@ -3,19 +3,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System.Linq;
-using IJunior.TypedScenes;
+using Agava.YandexGames;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
+[RequireComponent(typeof(VideoAd))]
 public class LevelCompleteWindow : UIWindow
 {
+    private const int LevelChooseSceneIndex = 3;
     private const int TutorialSceneIndex = 4;
-    
+
     [SerializeField] private GameObject[] _ratingStars;
     [SerializeField] private TMP_Text _pointsLabel;
     [SerializeField] private Button _continueButton;
-    [SerializeField] private float _resultsPanelTopPosY = 0f;
-    [SerializeField] private float _panelAnimationDuration = 0.5f;
     [SerializeField] private float _pointsTextSizeMultiplier = 2;
     [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
     
@@ -23,14 +23,12 @@ public class LevelCompleteWindow : UIWindow
     private int _pointsForSecondStar;
     private int _pointsForThirdStar;
    
-    private RectTransform _resultsPanelRect;
+
     private int _points;
     private int _starsCount;
     
     private void Awake()
     {
-        _resultsPanelRect = GetComponent<RectTransform>();
-
         Level currentLevel = GetLevelSettings();
 
         _pointsForFirstStar = currentLevel.PointsForFirstStar;
@@ -72,9 +70,11 @@ public class LevelCompleteWindow : UIWindow
 
     public void GoToLevelChooseScene()
     {
+        InterstitialAd.Show();
+        
         PlayerPrefs.DeleteKey("SelectedLevelNumber");
         
-        LevelsChoose.Load();
+        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(LevelChooseSceneIndex);
     }
     
     public void RestartLevel()
@@ -133,10 +133,5 @@ public class LevelCompleteWindow : UIWindow
         
         AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetYellowBurstEffect(currentStar.transform.position);
-    }
-
-    private void PanelIntro()
-    {
-        _resultsPanelRect.DOAnchorPosY(_resultsPanelTopPosY, _panelAnimationDuration).SetUpdate(true);
     }
 }

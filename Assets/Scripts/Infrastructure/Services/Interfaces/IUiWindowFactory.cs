@@ -3,6 +3,7 @@ using UnityEngine;
 public interface IUiWindowFactory : IService
 {
     public GameObject GetUIRoot();
+    public void DeleteUIRoot();
     public GameObject GetPauseButton(GameObject parent);
     public GameObject GetLevelCompleteWindow(GameObject parent);
     public GameObject GetPauseMenuWindow(GameObject parent);
@@ -17,5 +18,8 @@ public interface IUiWindowFactory : IService
     public GameObject GetTutorialObstaclesWindow(GameObject parent);
     public GameObject GetTutorialTornadoWindow(GameObject parent);
     public GameObject GetTutorialFinishWindow(GameObject parent);
+    public GameObject GetMainMenuButtonsWindow(GameObject parent);
+    public GameObject GetLeaderboardWindow(GameObject parent);
+    public GameObject GetLanguageChangerWindow(GameObject parent);
 
 }

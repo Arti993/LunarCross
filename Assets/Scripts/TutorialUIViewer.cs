@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class TutorialUIViewer : MonoBehaviour
 {
-    public void ShowTutorialKeyboardControlWindow()
+    public void ShowTutorialControlWindow()
     {
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetTutorialKeyboardControlWindow(gameObject);
-    }
-
-    public void ShowTutorialTouchscreenControlWindow()
-    {
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetTutorialTouchscreenControlWindow(gameObject);
+        if(Application.isMobilePlatform)
+            AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetTutorialTouchscreenControlWindow(gameObject);
+        else
+            AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetTutorialKeyboardControlWindow(gameObject);
     }
 
     public void ShowTutorialCollectingWindow()

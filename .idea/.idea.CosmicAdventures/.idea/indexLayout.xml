@@ -5,7 +5,6 @@
     <explicitIncludes>
       <Path>Library/PackageCache/com.agava.webutility@32d39130ea</Path>
       <Path>Library/PackageCache/com.agava.yandexgames@faf20595c0</Path>
-      <Path>Library/PackageCache/com.unity.ai.navigation@1.1.4</Path>
       <Path>Library/PackageCache/com.unity.build-report-inspector@0.3.0-preview</Path>
       <Path>Library/PackageCache/com.unity.cinemachine@2.9.5</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@2.0.5</Path>
@@ -16,7 +15,6 @@
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.5</Path>
       <Path>Library/PackageCache/com.unity.inputsystem@1.6.3</Path>
       <Path>Library/PackageCache/com.unity.performance.profile-analyzer@1.2.2</Path>
-      <Path>Library/PackageCache/com.unity.postprocessing@3.2.2</Path>
       <Path>Library/PackageCache/com.unity.settings-manager@2.0.1</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.33</Path>
       <Path>Library/PackageCache/com.unity.testtools.codecoverage@1.2.4</Path>

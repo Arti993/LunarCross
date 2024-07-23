@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1130442146360089072}
   - component: {fileID: 5670222865034916887}
   - component: {fileID: 6682245469638845478}
+  - component: {fileID: 8768970380127085572}
+  - component: {fileID: 6337123335174844083}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -35,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07032842, y: 0.26941028}
   m_AnchorMax: {x: 0.9403438, y: 0.84587187}
-  m_AnchoredPosition: {x: -31.5, y: 3}
+  m_AnchoredPosition: {x: -31.5, y: -1}
   m_SizeDelta: {x: -37, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5670222865034916887
@@ -68,8 +70,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: F i n i s h
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -129,12 +131,40 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10.459373, y: 0, z: -49.671318, w: 0}
+  m_margin: {x: 10.459373, y: 0, z: -52.536522, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8768970380127085572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389025634636600618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: F i n i s h
+  FallbackText: F i n i s h
+--- !u!114 &6337123335174844083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389025634636600618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: 
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &3813477306676018971
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +257,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8526df96f6c236b4f86aa724acd794c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelRect: {fileID: 8052297833350294941}
+  PanelTopPosY: 0
+  PanelBottomPosY: -1000
+  PanelAnimationDuration: 0.5
 --- !u!1 &5865062761935633309
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,10 +295,10 @@ RectTransform:
   m_Father: {fileID: 8052297833350294941}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.27932656, y: 0.81441027}
-  m_AnchorMax: {x: 0.71653473, y: 0.9627495}
-  m_AnchoredPosition: {x: 1.5010071, y: -2.5}
-  m_SizeDelta: {x: -4.302002, y: 1}
+  m_AnchorMin: {x: 0.2651029, y: 0.81441027}
+  m_AnchorMax: {x: 0.7387413, y: 0.95849353}
+  m_AnchoredPosition: {x: -3.1405945, y: -1.5}
+  m_SizeDelta: {x: -5.8640003, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5861123380552447966
 CanvasRenderer:
@@ -315,6 +349,8 @@ GameObject:
   - component: {fileID: 466650335620127875}
   - component: {fileID: 4834621843681741158}
   - component: {fileID: 17674483457968340}
+  - component: {fileID: 7910638561605331745}
+  - component: {fileID: 5760089314124087101}
   m_Layer: 5
   m_Name: Explanation
   m_TagString: Untagged
@@ -374,8 +410,8 @@ MonoBehaviour:
     collect. Your result will be recorded in the progress. Collect as many as possible
     on each level and become the best in the galaxy!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -441,6 +477,40 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7910638561605331745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569288444036551554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: At the end of the level, you will save all the astronauts you
+    managed to collect. Your result will be recorded in the progress. Collect as
+    many as possible on each level and become the best in the galaxy!
+  FallbackText: At the end of the level, you will save all the astronauts you managed
+    to collect. Your result will be recorded in the progress. Collect as many as
+    possible on each level and become the best in the galaxy!
+--- !u!114 &5760089314124087101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569288444036551554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: At the end of the level, you will save all the astronauts you
+    managed to collect. Your result will be recorded in the progress. Collect as
+    many as possible on each level and become the best in the galaxy!
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &6387348009300662267
 PrefabInstance:
   m_ObjectHideFlags: 0

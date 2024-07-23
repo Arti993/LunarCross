@@ -10,21 +10,26 @@ public class MainBootstrap : MonoBehaviour
 
     private void Awake()
     {
-        //YandexGamesSdk.GameReady();
-        
-        if (_isFirstAwakened) 
-            return;
+        YandexGamesSdk.GameReady();
 
-        _allServices = new AllServicesContainer();
+        if (_isFirstAwakened == false)
+        {
+            _allServices = new AllServicesContainer();
             
-        RegisterServices();
+            RegisterServices();
 
-        _isFirstAwakened = true;
+            _isFirstAwakened = true;
+        }
+        
+        OpenMainMenu();
     }
 
     private void RegisterServices()
     {
         _allServices.RegisterService<IAssets>(new AssetProvider());
+        
+        _allServices.RegisterService<ILocalization>(new Localization(
+            _allServices.GetService<IAssets>()));
         
         _allServices.RegisterService<IGameProgress>(new GameProgress());
         
@@ -41,5 +46,12 @@ public class MainBootstrap : MonoBehaviour
         
         _allServices.RegisterService<IGameplayFactory>(new GameplayFactory(
             _allServices.GetService<IAssets>()));
+    }
+
+    private void OpenMainMenu()
+    {
+        GameObject uiRootObject = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetMainMenuButtonsWindow(uiRootObject);
     }
 }

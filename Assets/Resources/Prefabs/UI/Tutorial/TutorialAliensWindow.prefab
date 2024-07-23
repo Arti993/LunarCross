@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2021417612551541735}
   - component: {fileID: 4063154443351767450}
   - component: {fileID: 8465510503194495575}
+  - component: {fileID: 9208009531406831982}
+  - component: {fileID: 3796153264485814425}
   m_Layer: 5
   m_Name: Explanation
   m_TagString: Untagged
@@ -35,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.033, y: 0.23900001}
   m_AnchorMax: {x: 0.9868411, y: 0.76227945}
-  m_AnchoredPosition: {x: -179, y: 14}
+  m_AnchoredPosition: {x: -179, y: -2}
   m_SizeDelta: {x: -574, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4063154443351767450
@@ -69,8 +71,8 @@ MonoBehaviour:
   m_text: Aliens will interfere with you rescuing astronauts, if an alien is near
     a hanging astronaut, he will throw him off
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -136,6 +138,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9208009531406831982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643053231531802793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Aliens will interfere with you rescuing astronauts, if an alien
+    is near a hanging astronaut, he will throw him off
+  FallbackText: Aliens will interfere with you rescuing astronauts, if an alien is
+    near a hanging astronaut, he will throw him off
+--- !u!114 &3796153264485814425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643053231531802793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Aliens will interfere with you rescuing astronauts, if an alien
+    is near a hanging astronaut, he will throw him off
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &1360166947354094075
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +180,7 @@ GameObject:
   - component: {fileID: 5216647316456700205}
   - component: {fileID: 9128153651273420330}
   - component: {fileID: 270807298420790681}
-  - component: {fileID: 4988728195490576735}
+  - component: {fileID: 1911726234291249432}
   m_Layer: 5
   m_Name: TutorialAliensWindow
   m_TagString: Untagged
@@ -216,7 +249,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4988728195490576735
+--- !u!114 &1911726234291249432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,9 +258,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360166947354094075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8526df96f6c236b4f86aa724acd794c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 363f66ff8b909894aafb8274025b0a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelRect: {fileID: 5216647316456700205}
+  PanelTopPosY: 0
+  PanelBottomPosY: -1000
+  PanelAnimationDuration: 0.5
 --- !u!1 &1481652653017631325
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,8 +301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27932656, y: 0.81441027}
   m_AnchorMax: {x: 0.71653473, y: 0.9627495}
-  m_AnchoredPosition: {x: 1.5010071, y: -2.5}
-  m_SizeDelta: {x: -4.302002, y: 1}
+  m_AnchoredPosition: {x: 0.7731018, y: -2.5}
+  m_SizeDelta: {x: 26.2097, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6808069648196769010
 CanvasRenderer:
@@ -316,6 +353,8 @@ GameObject:
   - component: {fileID: 5304496862864693438}
   - component: {fileID: 8738019117972112100}
   - component: {fileID: 4704022106264947401}
+  - component: {fileID: 8216947016246330921}
+  - component: {fileID: 8035842930022195097}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -338,10 +377,10 @@ RectTransform:
   m_Father: {fileID: 3713541516275224682}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078, y: 0.31258976}
-  m_AnchorMax: {x: 0.94000006, y: 0.81700003}
-  m_AnchoredPosition: {x: -32.5, y: 1.5}
-  m_SizeDelta: {x: -35, y: 15}
+  m_AnchorMin: {x: 0.045, y: 0.31258976}
+  m_AnchorMax: {x: 0.961302, y: 0.81700003}
+  m_AnchoredPosition: {x: -29.1024, y: -2}
+  m_SizeDelta: {x: -46.2047, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8738019117972112100
 CanvasRenderer:
@@ -371,10 +410,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A l i e n s
+  m_text: Aliens
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -434,12 +473,40 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 16.926674, y: 0, z: -47.94494, w: 0}
+  m_margin: {x: 9.566841, y: 0, z: -52.816093, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8216947016246330921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136456276087139787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: A l i e n s
+  FallbackText: Aliens
+--- !u!114 &8035842930022195097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136456276087139787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: A l i e n s
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &3083148202970949525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -455,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4988728195490576735}
+      objectReference: {fileID: 1911726234291249432}
     - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Continue

@@ -92,6 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8526df96f6c236b4f86aa724acd794c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelRect: {fileID: 3161325231901223747}
+  PanelTopPosY: 0
+  PanelBottomPosY: -1000
+  PanelAnimationDuration: 0.5
 --- !u!1 &4405997173472227873
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +107,8 @@ GameObject:
   - component: {fileID: 4674056498201899132}
   - component: {fileID: 3472358275960257877}
   - component: {fileID: 498149810918179039}
+  - component: {fileID: 252997372610744774}
+  - component: {fileID: 6788736142076969886}
   m_Layer: 5
   m_Name: Explanation
   m_TagString: Untagged
@@ -161,8 +167,8 @@ MonoBehaviour:
   m_text: tornado also gets in your way, if the rover gets into a tornado, you will
     wipe out all the astronauts it hits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -228,6 +234,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &252997372610744774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405997173472227873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tornado also gets in your way, if the rover gets into a tornado,
+    you will wipe out all the astronauts it hits
+  FallbackText: tornado also gets in your way, if the rover gets into a tornado,
+    you will wipe out all the astronauts it hits
+--- !u!114 &6788736142076969886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405997173472227873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tornado also gets in your way, if the rover gets into a tornado,
+    you will wipe out all the astronauts it hits
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &6555378638244463095
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +353,8 @@ GameObject:
   - component: {fileID: 8122895953103563534}
   - component: {fileID: 5834256446867848964}
   - component: {fileID: 4314370151394661776}
+  - component: {fileID: 708775180975119745}
+  - component: {fileID: 2137691140841827819}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -338,10 +377,10 @@ RectTransform:
   m_Father: {fileID: 4336406662565670416}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 5.7}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.052328132, y: 0.26941028}
+  m_AnchorMax: {x: 0.96267194, y: 0.84587187}
+  m_AnchoredPosition: {x: -32, y: -1}
+  m_SizeDelta: {x: -48, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5834256446867848964
 CanvasRenderer:
@@ -373,8 +412,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tornado
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -440,6 +479,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &708775180975119745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295414834172834274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tornado
+  FallbackText: Tornado
+--- !u!114 &2137691140841827819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295414834172834274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Tornado
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &4922087999505732472
 PrefabInstance:
   m_ObjectHideFlags: 0

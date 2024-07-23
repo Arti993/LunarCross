@@ -36,6 +36,8 @@ public class ScreenFader : IScreenFader
         _blackScreen.DOFade(1f, FadeDuration).SetUpdate(true).OnComplete(() =>
         {
             Time.timeScale = 1f;
+
+            Resources.UnloadUnusedAssets();
             
             SceneManager.LoadScene(sceneIndex);
         });

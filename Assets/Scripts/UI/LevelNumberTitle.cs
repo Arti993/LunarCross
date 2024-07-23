@@ -3,37 +3,60 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(TMP_Text))]
 public class LevelNumberTitle : MonoBehaviour
 {
     private const float AnimateTime = 1.3f;
     private const float MaxScale = 2;
     private const int TutorialSceneIndex = 4;
-
-    private TMP_Text _title;
+    [SerializeField] private TMP_Text _levelNumber;
+    [SerializeField] private TMP_Text _level;
+    [SerializeField] private TMP_Text _tutorial;
 
     private void Start()
     {
-        _title = GetComponent<TMP_Text>();
-
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         if (sceneIndex == TutorialSceneIndex)
         {
-            _title.text = "Tutorial";
+            _level.gameObject.SetActive(false);
+            _tutorial.gameObject.SetActive(true);
+            _levelNumber.text = "";
+            
+            Animate(_tutorial);
         }
         else
         {
+            _level.gameObject.SetActive(true);
+            _tutorial.gameObject.SetActive(false);
+            
             int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
 
-            _title.text = $"Level {levelNumber}";
-        }
+            _levelNumber.text = $"{levelNumber}";
             
-        
+            Animate(_level,_levelNumber);
+        }
+    }
+
+    private void Animate(TMP_Text text)
+    {
         Sequence sequence = DOTween.Sequence();
 
-        sequence.Append(transform.DOScale(MaxScale, AnimateTime));
-        sequence.Append(_title.DOFade(0f, AnimateTime));
+        sequence.Append(text.transform.DOScale(MaxScale, AnimateTime));
+        sequence.Append(text.DOFade(0f, AnimateTime));
+        
+        sequence.OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
+    }
+    
+    private void Animate(TMP_Text text, TMP_Text number)
+    {
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(text.transform.DOScale(MaxScale, AnimateTime));
+        sequence.Append(text.DOFade(0f, AnimateTime));
+        sequence.Join(number.DOFade(0f, AnimateTime));
         
         sequence.OnComplete(() =>
         {

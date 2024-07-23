@@ -9,26 +9,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="BuildReports" t="Include" />
-        <e p="Models" t="Include">
-          <e p="Alien" t="Include" />
-          <e p="satellite (2)" t="Include">
-            <e p="source" t="Include">
-              <e p="Satellite" t="Include" />
-            </e>
-          </e>
-          <e p="satellite-dish" t="Include">
-            <e p="Materials" t="Include" />
-            <e p="source" t="Include" />
-            <e p="Textures" t="Include" />
-          </e>
-          <e p="satellite-dish (1)" t="Include">
-            <e p="source" t="Include">
-              <e p="тарелка" t="Include" />
-            </e>
-            <e p="Textures" t="Include" />
-          </e>
-        </e>
         <e p="OtherAssets" t="Include">
           <e p="Alien" t="Include" />
           <e p="Epic Toon FX" t="Include">
@@ -405,6 +385,11 @@
             </e>
             <e p="Upgrade" t="Include" />
           </e>
+          <e p="Fonts" t="Include">
+            <e p="TextMesh Pro" t="Include">
+              <e p="Fonts" t="Include" />
+            </e>
+          </e>
           <e p="FullscreenWindowTemplate-master" t="Include">
             <e p="WebGLTemplates" t="Include">
               <e p="FullscreenWindow" t="Include" />
@@ -487,9 +472,7 @@
             <e p="Extensions" t="Include">
               <e p="TextMesh Pro" t="Include">
                 <e p="Documentation" t="Include" />
-                <e p="Fonts" t="Include">
-                  <e p="LiberationSans - OFL.txt" t="Include" />
-                </e>
+                <e p="Fonts" t="Include" />
                 <e p="Resources" t="Include">
                   <e p="Fonts &amp; Materials" t="Include" />
                   <e p="LineBreaking Following Characters.txt" t="Include" />
@@ -531,7 +514,7 @@
               <e p="UI_Play" t="Include" />
               <e p="UI_Slider" t="Include" />
             </e>
-            <e p="ResourcesData" t="Include">
+            <e p="ResourcData" t="Include">
               <e p="Animatons" t="Include" />
               <e p="Particle" t="Include">
                 <e p="Materials" t="Include" />
@@ -667,7 +650,173 @@
             <e p="Textures" t="Include" />
           </e>
           <e p="Materials" t="Include" />
+          <e p="Models" t="Include">
+            <e p="Alien" t="Include" />
+            <e p="satellite (2)" t="Include">
+              <e p="source" t="Include">
+                <e p="Satellite" t="Include" />
+              </e>
+            </e>
+            <e p="satellite-dish" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="source" t="Include" />
+              <e p="Textures" t="Include" />
+            </e>
+            <e p="satellite-dish (1)" t="Include">
+              <e p="source" t="Include">
+                <e p="тарелка" t="Include" />
+              </e>
+              <e p="Textures" t="Include" />
+            </e>
+          </e>
           <e p="Plugins" t="Include">
+            <e p="CW" t="Include">
+              <e p="LeanCommon" t="Include">
+                <e p="Examples" t="Include">
+                  <e p="Materials" t="Include" />
+                  <e p="Meshes" t="Include" />
+                  <e p="Prefabs" t="Include" />
+                  <e p="Textures" t="Include" />
+                </e>
+                <e p="Extras" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="LeanDestroy.cs" t="Include" />
+                    <e p="LeanFormatString.cs" t="Include" />
+                    <e p="LeanPath.cs" t="Include" />
+                    <e p="LeanPlane.cs" t="Include" />
+                    <e p="LeanRoll.cs" t="Include" />
+                    <e p="LeanSelect.cs" t="Include" />
+                    <e p="LeanSelectable.cs" t="Include" />
+                    <e p="LeanSelectableBehaviour.cs" t="Include" />
+                    <e p="LeanSelectableGraphicColor.cs" t="Include" />
+                    <e p="LeanSelectableRendererColor.cs" t="Include" />
+                    <e p="LeanSelectableSpriteRendererColor.cs" t="Include" />
+                    <e p="LeanSpawn.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="LeanCommon.asmdef" t="Include" />
+                <e p="package.json" t="Include" />
+                <e p="Required" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="LeanCommon.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="LeanLocalization" t="Include">
+                <e p="Examples" t="Include">
+                  <e p="Materials" t="Include" />
+                  <e p="Texts" t="Include">
+                    <e p="English.txt" t="Include" />
+                    <e p="Japanese.txt" t="Include" />
+                    <e p="Spanish.txt" t="Include" />
+                    <e p="Turkish.csv.txt" t="Include" />
+                  </e>
+                  <e p="Textures" t="Include" />
+                </e>
+                <e p="Extras" t="Include">
+                  <e p="Languages" t="Include" />
+                  <e p="Phrases" t="Include" />
+                  <e p="Scripts" t="Include">
+                    <e p="LeanDebugLocalization.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="LeanLocalization.asmdef" t="Include" />
+                <e p="package.json" t="Include" />
+                <e p="Required" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="Behaviours" t="Include">
+                      <e p="LeanLocalizedAudioSource.cs" t="Include" />
+                      <e p="LeanLocalizedDropdown.cs" t="Include" />
+                      <e p="LeanLocalizedImage.cs" t="Include" />
+                      <e p="LeanLocalizedRenderer.cs" t="Include" />
+                      <e p="LeanLocalizedSpriteRenderer.cs" t="Include" />
+                      <e p="LeanLocalizedText.cs" t="Include" />
+                      <e p="LeanLocalizedTextFont.cs" t="Include" />
+                      <e p="LeanLocalizedTextMesh.cs" t="Include" />
+                      <e p="LeanLocalizedTextMeshFont.cs" t="Include" />
+                    </e>
+                    <e p="Editor" t="Include">
+                      <e p="csc.rsp" t="Include" />
+                      <e p="LeanLocalizationEditor.asmdef" t="Include" />
+                      <e p="LeanPhrase_Editor.cs" t="Include" />
+                    </e>
+                    <e p="ILocalizationHandler.cs" t="Include" />
+                    <e p="LeanLanguage.cs" t="Include" />
+                    <e p="LeanLanguageCSV.cs" t="Include" />
+                    <e p="LeanLanguageNameAttribute.cs" t="Include" />
+                    <e p="LeanLocalization.cs" t="Include" />
+                    <e p="LeanLocalizedBehaviour.cs" t="Include" />
+                    <e p="LeanLocalToken.cs" t="Include" />
+                    <e p="LeanPhrase.cs" t="Include" />
+                    <e p="LeanPrefab.cs" t="Include" />
+                    <e p="LeanSource.cs" t="Include" />
+                    <e p="LeanToken.cs" t="Include" />
+                    <e p="LeanTranslation.cs" t="Include" />
+                    <e p="LeanTranslationNameAttribute.cs" t="Include" />
+                    <e p="TMP" t="Include">
+                      <e p="LeanLocalization.TMP.asmdef" t="Include" />
+                      <e p="LeanLocalizedTextMeshPro.cs" t="Include" />
+                      <e p="LeanLocalizedTextMeshProFont.cs" t="Include" />
+                      <e p="LeanLocalizedTextMeshProUGUI.cs" t="Include" />
+                      <e p="LeanLocalizedTextMeshProUGUIFont.cs" t="Include" />
+                      <e p="LeanLocalizedTMP_Dropdown.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+              <e p="READ ME.txt" t="Include" />
+              <e p="Shared" t="Include">
+                <e p="Common" t="Include">
+                  <e p="CW.Common.asmdef" t="Include" />
+                  <e p="Examples" t="Include">
+                    <e p="Fonts" t="Include">
+                      <e p="VarelaRound-Regular.txt" t="Include" />
+                    </e>
+                    <e p="Materials" t="Include" />
+                    <e p="Scripts" t="Include">
+                      <e p="CwCameraLook.cs" t="Include" />
+                      <e p="CwCameraMove.cs" t="Include" />
+                      <e p="CwCameraPivot.cs" t="Include" />
+                      <e p="CwDemo.cs" t="Include" />
+                      <e p="CwDemoButton.cs" t="Include" />
+                      <e p="CwDemoButtonBuilder.cs" t="Include" />
+                      <e p="CwDepthTextureMode.cs" t="Include" />
+                      <e p="CwLightIntensity.cs" t="Include" />
+                      <e p="CwRotate.cs" t="Include" />
+                    </e>
+                    <e p="Shaders" t="Include">
+                      <e p="RimAlpha.shader" t="Include" />
+                      <e p="RimOpaque.shader" t="Include" />
+                      <e p="Skybox.shader" t="Include" />
+                    </e>
+                    <e p="Textures" t="Include" />
+                  </e>
+                  <e p="Extras" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="CwChild.cs" t="Include" />
+                      <e p="CwFollow.cs" t="Include" />
+                      <e p="CwInputManager.cs" t="Include" />
+                      <e p="CwRenderTextureManager.cs" t="Include" />
+                      <e p="CwSeedAttribute.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="package.json" t="Include" />
+                  <e p="Required" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="CwCommon.cs" t="Include" />
+                      <e p="CwEditor.cs" t="Include" />
+                      <e p="CwGuide.cs" t="Include" />
+                      <e p="CwHelper.cs" t="Include" />
+                      <e p="CwInput.cs" t="Include" />
+                    </e>
+                    <e p="Shaders" t="Include">
+                      <e p="ShapeOutline.shader" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+              <e p="Third-Party Notices.txt" t="Include" />
+            </e>
             <e p="Demigiant" t="Include">
               <e p="DOTween" t="Include">
                 <e p="Editor" t="Include">
@@ -753,6 +902,9 @@
             </e>
           </e>
           <e p="Tornado" t="Include" />
+          <e p="UI" t="Include">
+            <e p="Animations" t="Include" />
+          </e>
           <e p="VehicleTools" t="Include">
             <e p="Materials" t="Include" />
             <e p="Models" t="Include" />
@@ -812,6 +964,8 @@
           <e p="ChunkGround.cs" t="Include" />
           <e p="ChunkPlacer.cs" t="Include" />
           <e p="ChunkWithObstacles.cs" t="Include" />
+          <e p="DeleteComponentsFromBuild.cs" t="Include" />
+          <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="EntityCollection.cs" t="Include" />
           <e p="EntitySpawner.cs" t="Include" />
@@ -856,6 +1010,7 @@
             <e p="TornadoMovement.cs" t="Include" />
           </e>
           <e p="FinishTutorialWindowViewer.cs" t="Include" />
+          <e p="FocusTest.cs" t="Include" />
           <e p="GravityRay.cs" t="Include" />
           <e p="IEjectorFromVehicle.cs" t="Include" />
           <e p="Infrastructure" t="Include">
@@ -881,16 +1036,19 @@
                 <e p="IGameplayFactory.cs" t="Include" />
                 <e p="IGameProgress.cs" t="Include" />
                 <e p="ILevelsSettingsNomenclature.cs" t="Include" />
+                <e p="ILocalization.cs" t="Include" />
                 <e p="IParticleSystemFactory.cs" t="Include" />
                 <e p="IScreenFader.cs" t="Include" />
                 <e p="IService.cs" t="Include" />
                 <e p="IUiWindowFactory.cs" t="Include" />
               </e>
               <e p="LevelsSettingsNomenclature.cs" t="Include" />
+              <e p="Localization.cs" t="Include" />
               <e p="ScreenFader.cs" t="Include" />
             </e>
           </e>
           <e p="IPlaceableToVehicle.cs" t="Include" />
+          <e p="LanguageChanger.cs" t="Include" />
           <e p="Level.cs" t="Include" />
           <e p="LevelBorder.cs" t="Include" />
           <e p="LevelBorderChecker.cs" t="Include" />
@@ -913,6 +1071,8 @@
           <e p="TutorialChunkPlacer.cs" t="Include" />
           <e p="TutorialUIViewer.cs" t="Include" />
           <e p="UI" t="Include">
+            <e p="LanguageChangeWindow.cs" t="Include" />
+            <e p="LanguageSetButton.cs" t="Include" />
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />
             <e p="LevelNumberTitle.cs" t="Include" />
@@ -922,8 +1082,11 @@
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
             <e p="TotalScoreViewer.cs" t="Include" />
-            <e p="TutorialCollectingWindow.cs" t="Include" />
-            <e p="TutorialWindow.cs" t="Include" />
+            <e p="Tutorial" t="Include">
+              <e p="TutorialAliensWindow.cs" t="Include" />
+              <e p="TutorialCollectingWindow.cs" t="Include" />
+              <e p="TutorialWindow.cs" t="Include" />
+            </e>
             <e p="UIRoot.cs" t="Include" />
             <e p="UIWindow.cs" t="Include" />
           </e>
@@ -951,13 +1114,16 @@
             <e p="VehicleSpeedLimit.cs" t="Include" />
             <e p="WheelAxle.cs" t="Include" />
           </e>
+          <e p="VideoAd.cs" t="Include" />
           <e p="YandexSDKInitializer.cs" t="Include" />
-        </e>
-        <e p="UI" t="Include">
-          <e p="Animations" t="Include" />
         </e>
       </e>
       <e p="CosmicAdventures.sln" t="IncludeFlat" />
+      <e p="CW.Common.csproj" t="IncludeRecursive" />
+      <e p="LeanCommon.csproj" t="IncludeRecursive" />
+      <e p="LeanLocalization.csproj" t="IncludeRecursive" />
+      <e p="LeanLocalization.TMP.csproj" t="IncludeRecursive" />
+      <e p="LeanLocalizationEditor.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Tayx.Graphy.csproj" t="IncludeRecursive" />

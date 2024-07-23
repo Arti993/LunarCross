@@ -15,6 +15,11 @@ public class UiWindowFactory : IUiWindowFactory
         return _uiRootObject ? _uiRootObject : (_uiRootObject = _provider.Instantiate("Prefabs/UI/UIRoot"));
     }
 
+    public void DeleteUIRoot()
+    {
+        _uiRootObject = null;
+    }
+
     public GameObject GetPauseButton(GameObject parent)
     {
         _uiRootObject.TryGetComponent(out UIRoot uiRoot);
@@ -98,5 +103,20 @@ public class UiWindowFactory : IUiWindowFactory
     public GameObject GetTutorialFinishWindow(GameObject parent)
     {
         return _provider.Instantiate("Prefabs/UI/Tutorial/TutorialFinishWindow", parent.transform);
+    }
+
+    public GameObject GetMainMenuButtonsWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/MainMenuButtons", parent.transform);
+    }
+
+    public GameObject GetLeaderboardWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/LeaderBoardWindow", parent.transform);
+    }
+
+    public GameObject GetLanguageChangerWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/LanguageChangeWindow", parent.transform);
     }
 }

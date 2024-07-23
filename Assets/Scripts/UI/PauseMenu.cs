@@ -3,15 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-
 public class PauseMenu : UIWindow
 {
-    [SerializeField] private RectTransform _pausePanelRect;
     [SerializeField] private CanvasGroup _backgroundPanel;
-    [SerializeField] private float _pausePanelTopPosY = 850;
-    [SerializeField] private float _pausePanelBottomPosY;
-    [SerializeField] private float _pausePanelAnimationDuration = 0.5f;
-
+    
     private bool _isGamePaused;
 
     private void Awake()
@@ -25,8 +20,6 @@ public class PauseMenu : UIWindow
             throw new InvalidOperationException();
 
         PausePanelOutro();
-
-        StartCoroutine(Destroy(_pausePanelAnimationDuration));
 
         Time.timeScale = 1f;
         
@@ -46,18 +39,23 @@ public class PauseMenu : UIWindow
 
     public void ChangeGameSettings()
     {
+        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLanguageChangerWindow(uiRoot.gameObject);
     }
 
     private void PausePanelIntro()
     {
-        _backgroundPanel.DOFade(1, _pausePanelAnimationDuration).SetUpdate(true);
-        _pausePanelRect.DOAnchorPosY(_pausePanelBottomPosY, _pausePanelAnimationDuration).SetUpdate(true);
+        _backgroundPanel.DOFade(1, PanelAnimationDuration).SetUpdate(true);
+        
+        PanelIntro();
     }
 
     private void PausePanelOutro()
     {
-        _backgroundPanel.DOFade(0, _pausePanelAnimationDuration).SetUpdate(true);
-        _pausePanelRect.DOAnchorPosY(_pausePanelTopPosY, _pausePanelAnimationDuration).SetUpdate(true);
+        _backgroundPanel.DOFade(0, PanelAnimationDuration).SetUpdate(true);
+        
+        PanelOutro();
     }
 
     private void PauseGame()

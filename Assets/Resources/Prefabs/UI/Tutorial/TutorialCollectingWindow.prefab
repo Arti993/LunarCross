@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351fe29e19be2c143b3afe878f8f27cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _catchZonesViews: []
+  _dangerZonesViews: []
 --- !u!1 &3836661029384441699
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +134,8 @@ GameObject:
   - component: {fileID: 4837664839660944719}
   - component: {fileID: 7889318366700060319}
   - component: {fileID: 5020511535111987755}
+  - component: {fileID: 5164041504703482525}
+  - component: {fileID: 6858933593670944468}
   m_Layer: 5
   m_Name: Explanation
   m_TagString: Untagged
@@ -156,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.033, y: 0.23900001}
   m_AnchorMax: {x: 0.9868411, y: 0.76227945}
-  m_AnchoredPosition: {x: -179, y: -2}
+  m_AnchoredPosition: {x: -179, y: -7.9999924}
   m_SizeDelta: {x: -574, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7889318366700060319
@@ -190,8 +194,8 @@ MonoBehaviour:
   m_text: you need to save as many astronauts as possible, to do this, collect them
     with the right and left catch zones of the rover
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -251,12 +255,43 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -112.519615, y: 0, z: -471.68555, w: 0}
+  m_margin: {x: -112.519615, y: 0, z: -459.7071, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5164041504703482525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836661029384441699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: you need to save as many astronauts as possible, to do this, collect
+    them with the right and left catch zones of the rover
+  FallbackText: you need to save as many astronauts as possible, to do this, collect
+    them with the right and left catch zones of the rover
+--- !u!114 &6858933593670944468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836661029384441699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: you need to save as many astronauts as possible, to do this, collect
+    them with the right and left catch zones of the rover
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1 &5493531824740329632
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +303,7 @@ GameObject:
   - component: {fileID: 4584836973693022921}
   - component: {fileID: 3963782041916027262}
   - component: {fileID: 3054457460917769920}
-  - component: {fileID: 2540833177458577984}
+  - component: {fileID: 5596776977778021179}
   m_Layer: 5
   m_Name: TutorialCollectingWindow
   m_TagString: Untagged
@@ -338,7 +373,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2540833177458577984
+--- !u!114 &5596776977778021179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -347,9 +382,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5493531824740329632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8526df96f6c236b4f86aa724acd794c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a3358f8daa102f42b07a4c63e0d09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PanelRect: {fileID: 4584836973693022921}
+  PanelTopPosY: 0
+  PanelBottomPosY: -1000
+  PanelAnimationDuration: 0.5
 --- !u!1 &6426910368931649143
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +400,8 @@ GameObject:
   - component: {fileID: 8633272835386427071}
   - component: {fileID: 2464691613479264048}
   - component: {fileID: 2160605259126228553}
+  - component: {fileID: 745341252929830744}
+  - component: {fileID: 6429614246663968133}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -418,8 +459,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Collecting
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -451,7 +492,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 33
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -485,6 +526,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &745341252929830744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426910368931649143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Collecting
+  FallbackText: Collecting
+--- !u!114 &6429614246663968133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426910368931649143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Collecting
+  FallbackFont: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
 --- !u!1001 &1466634720857851820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,10 +569,14 @@ PrefabInstance:
     - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2540833177458577984}
+      objectReference: {fileID: 5596776977778021179}
     - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialCollectingWindow, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7829593687627334274, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_Pivot.x

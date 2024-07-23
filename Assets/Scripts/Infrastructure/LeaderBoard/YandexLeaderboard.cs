@@ -1,18 +1,39 @@
+using System;
 using System.Collections.Generic;
 using Agava.YandexGames;
 using UnityEngine;
 
+[RequireComponent(typeof(LeaderboardView))]
 public class YandexLeaderboard : MonoBehaviour
 {
     private const string LeaderboardName = "LeaderBoard";
     private const string AnonymousName = "Anonymous";
 
-    //переделать в сервис
-    [SerializeField] private LeaderboardView _leaderboardView;
+    private LeaderboardView _leaderboardView;
 
     private readonly List<LeaderboardPlayer> _leaderboardPlayers = new List<LeaderboardPlayer>();
 
-    public void SetPlayerScore(int score)
+    private void Awake()
+    {
+        _leaderboardView = GetComponent<LeaderboardView>();
+    }
+    
+    public void OpenWindow()
+    {
+        if (PlayerAccount.IsAuthorized == false)
+            PlayerAccount.Authorize();
+        
+        if (PlayerAccount.IsAuthorized == false)
+            return;
+        
+        PlayerAccount.RequestPersonalProfileDataPermission();
+        
+        //движуху с всплыванием окна
+        
+        Fill();
+    }
+
+    private void SetPlayerScore(int score)
     {
         if (PlayerAccount.IsAuthorized == false)
             return;
@@ -52,18 +73,4 @@ public class YandexLeaderboard : MonoBehaviour
         });
     }
 
-    public void Open()
-    {
-        if (PlayerAccount.IsAuthorized == false)
-            PlayerAccount.Authorize();
-        
-        if (PlayerAccount.IsAuthorized == false)
-            return;
-        
-        PlayerAccount.RequestPersonalProfileDataPermission();
-        
-        //движуху с всплыванием окна
-        
-        Fill();
-    }
 }
