@@ -10,7 +10,7 @@ public class MainBootstrap : MonoBehaviour
 
     private void Awake()
     {
-        YandexGamesSdk.GameReady();
+        //YandexGamesSdk.GameReady();
 
         if (_isFirstAwakened == false)
         {
