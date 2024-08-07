@@ -6,6 +6,8 @@ public class FocusTest : MonoBehaviour
 {
     //[SerializeField] private AudioSource _audioSource;
 
+    private bool _isGameAlreadyPaused;
+    
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -42,6 +44,16 @@ public class FocusTest : MonoBehaviour
 
     private void PauseGame(bool value)
     {
-        Time.timeScale = value ? 0 : 1;
+        if (Time.timeScale != 0)
+            _isGameAlreadyPaused = false;
+        
+        if (Time.timeScale == 0 && value)
+            _isGameAlreadyPaused = true;
+        
+        if (_isGameAlreadyPaused == false && value)
+            Time.timeScale = 0;
+
+        if (_isGameAlreadyPaused == false && value == false)
+            Time.timeScale = 1;
     }
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TutorialWindow : UIWindow
+public class TutorialWindow : GameplayUIWindow
 {
     private const float DelayBeforeShowWindow = 2.3f;
 

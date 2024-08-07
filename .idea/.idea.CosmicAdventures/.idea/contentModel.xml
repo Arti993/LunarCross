@@ -647,7 +647,6 @@
             </e>
             <e p="Textures" t="Include" />
           </e>
-          <e p="Materials" t="Include" />
           <e p="Models" t="Include">
             <e p="Alien" t="Include" />
             <e p="satellite-dish" t="Include">
@@ -886,7 +885,10 @@
               <e p="SimpleWater.shader" t="Include" />
             </e>
           </e>
-          <e p="Sprites" t="Include">
+          <e p="Sounds" t="Include">
+            <e p="MusicThemes" t="Include" />
+          </e>
+          <e p="Sprites and Materials" t="Include">
             <e p="Materials" t="Include" />
           </e>
           <e p="Stylized_Astronaut" t="Include">
@@ -1068,16 +1070,19 @@
           <e p="TutorialChunkPlacer.cs" t="Include" />
           <e p="TutorialUIViewer.cs" t="Include" />
           <e p="UI" t="Include">
-            <e p="LanguageChangeWindow.cs" t="Include" />
+            <e p="ContinueButton.cs" t="Include" />
+            <e p="GameplayUIWindow.cs" t="Include" />
             <e p="LanguageSetButton.cs" t="Include" />
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />
             <e p="LevelNumberTitle.cs" t="Include" />
             <e p="LevelPanel.cs" t="Include" />
             <e p="MainMenuButton.cs" t="Include" />
+            <e p="MenuWindow.cs" t="Include" />
             <e p="PauseButton.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
+            <e p="SimpleButton.cs" t="Include" />
             <e p="TotalScoreViewer.cs" t="Include" />
             <e p="Tutorial" t="Include">
               <e p="TutorialAliensWindow.cs" t="Include" />

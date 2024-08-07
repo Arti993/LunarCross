@@ -16,7 +16,7 @@ MonoBehaviour:
   _tornadoChunk: {fileID: -7333549674938833052, guid: 669ea5c0be3fd1342b7ce0e4caa8d703, type: 3}
   _finishChunk: {fileID: 2490967095242562504, guid: d7de4f8b66a0d6449bde326376d764d8, type: 3}
   _emptyChunk: {fileID: 2490967095242562504, guid: 677e2d35006f91a4a9ca7055ca6c0250, type: 3}
-  _collectableEntitiesCount: 13
+  _collectableEntitiesCount: 14
   _enemiesCount: 10
   _pointsForFirstStar: 5
   _pointsForSecondStar: 9

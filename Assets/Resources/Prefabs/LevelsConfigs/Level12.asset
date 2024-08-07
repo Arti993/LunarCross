@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f8ad3c547cab54f9af5ffaff5be506, type: 3}
+  m_Name: Level12
+  m_EditorClassIdentifier: 
+  _chunkWithObstacles: {fileID: 4202303974155088439, guid: ab367edbb2e57774d96beb84e96feb23, type: 3}
+  _tornadoChunk: {fileID: 4644921259506940340, guid: a7124999410af184291377a71c29de28, type: 3}
+  _finishChunk: {fileID: 2490967095242562504, guid: d7de4f8b66a0d6449bde326376d764d8, type: 3}
+  _emptyChunk: {fileID: 2490967095242562504, guid: 677e2d35006f91a4a9ca7055ca6c0250, type: 3}
+  _collectableEntitiesCount: 11
+  _enemiesCount: 14
+  _pointsForFirstStar: 6
+  _pointsForSecondStar: 10
+  _pointsForThirdStar: 15
+  _surfaceMaterial: {fileID: 2100000, guid: f463da839adfd2f49ae58013cf999078, type: 2}
+  _stonesMaterial: {fileID: 2100000, guid: 76f879987b5f8f14bace4054c7b326a8, type: 2}
+  _mountainsMaterial: {fileID: 2100000, guid: f463da839adfd2f49ae58013cf999078, type: 2}

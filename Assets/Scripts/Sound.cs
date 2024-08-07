@@ -40,11 +40,27 @@ public class Sound
       _audioSource.Play();
    }
 
-   public void Stop()
+   public void StopPlay()
    {
       if (_audioSource == null)
          throw new InvalidOperationException();
       
       _audioSource.Stop();
+   }
+
+   public void Mute()
+   {
+      if (_audioSource == null)
+         throw new InvalidOperationException();
+
+      _audioSource.volume = 0f;
+   }
+   
+   public void UnMute()
+   {
+      if (_audioSource == null)
+         throw new InvalidOperationException();
+
+      _audioSource.volume = _volume;
    }
 }

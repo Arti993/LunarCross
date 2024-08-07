@@ -4,17 +4,17 @@ public class LanguageSetButton : MonoBehaviour
 {
     [SerializeField] private string _language;
 
-    private LanguageChangeWindow _languageChangeWindow;
+    private MenuWindow _menuWindow;
 
     private void Awake()
     {
-        _languageChangeWindow = GetComponentInParent<LanguageChangeWindow>();
+        _menuWindow = GetComponentInParent<MenuWindow>();
     }
 
     public void ChooseLanguage()
     {
         AllServicesContainer.Instance.GetService<ILocalization>().SetLanguage(_language);
         
-        _languageChangeWindow.Exit();
+        _menuWindow.Exit();
     }
 }

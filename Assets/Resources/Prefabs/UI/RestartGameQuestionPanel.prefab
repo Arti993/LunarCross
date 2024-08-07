@@ -350,6 +350,8 @@ GameObject:
   - component: {fileID: 6740918976365506928}
   - component: {fileID: 8287571920948779101}
   - component: {fileID: 1238557730008776756}
+  - component: {fileID: 3669760292473758526}
+  - component: {fileID: 3829173133520507946}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -472,6 +474,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3669760292473758526}
+        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3669760292473758526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947952249390765517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3829173133520507946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947952249390765517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d6ed8e9ae5089408902c0a5fde923c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animateTime: 1
+  MaxScale: 1.1
 --- !u!1 &6505953523604118763
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +854,8 @@ GameObject:
   - component: {fileID: 5270724166040856100}
   - component: {fileID: 4847791215765950201}
   - component: {fileID: 2332072926767909814}
+  - component: {fileID: 3460550959050658994}
+  - component: {fileID: 4731924113957995055}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -936,3 +978,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3460550959050658994}
+        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3460550959050658994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178036006901501324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4731924113957995055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178036006901501324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d6ed8e9ae5089408902c0a5fde923c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animateTime: 1
+  MaxScale: 1.1

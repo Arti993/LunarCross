@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,8 +29,10 @@ public class LevelPanel : MonoBehaviour
         else
         {
             _unblockedView.SetActive(true);
-            _button.interactable = true;
             _blockedView.SetActive(false);
+
+            if (AllServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false)
+                _button.interactable = true;
             
             _levelNumberTitle.text = _levelNumber.ToString();
             

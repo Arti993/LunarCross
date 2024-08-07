@@ -1,21 +1,21 @@
-using System;
 using System.Collections.Generic;
 using Agava.YandexGames;
 using UnityEngine;
 
 [RequireComponent(typeof(LeaderboardView))]
-public class YandexLeaderboard : MonoBehaviour
+public class YandexLeaderboard : MenuWindow
 {
     private const string LeaderboardName = "LeaderBoard";
     private const string AnonymousName = "Anonymous";
 
     private LeaderboardView _leaderboardView;
-
     private readonly List<LeaderboardPlayer> _leaderboardPlayers = new List<LeaderboardPlayer>();
 
-    private void Awake()
+    protected override void Awake()
     {
         _leaderboardView = GetComponent<LeaderboardView>();
+        
+        base.Awake();
     }
     
     public void OpenWindow()
@@ -25,26 +25,12 @@ public class YandexLeaderboard : MonoBehaviour
         
         if (PlayerAccount.IsAuthorized == false)
             return;
-        
+
         PlayerAccount.RequestPersonalProfileDataPermission();
-        
-        //движуху с всплыванием окна
-        
+
         Fill();
     }
-
-    private void SetPlayerScore(int score)
-    {
-        if (PlayerAccount.IsAuthorized == false)
-            return;
-
-        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-        {
-            if (result == null || result.score < score)
-                Leaderboard.SetScore(LeaderboardName, score);
-        });
-    }
-
+    
     private void Fill()
     {
         if (PlayerAccount.IsAuthorized == false)
@@ -73,4 +59,15 @@ public class YandexLeaderboard : MonoBehaviour
         });
     }
 
+    private void SetPlayerScore(int score)
+    {
+        if (PlayerAccount.IsAuthorized == false)
+            return;
+
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+        {
+            if (result == null || result.score < score)
+                Leaderboard.SetScore(LeaderboardName, score);
+        });
+    }
 }

@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 3578273513023297706}
   - component: {fileID: 9191309819999709807}
   - component: {fileID: 7309614408235164278}
+  - component: {fileID: 1162584466588953637}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -238,6 +239,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1162584466588953637}
+        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &7309614408235164278
 Animator:
   serializedVersion: 5
@@ -259,6 +272,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1162584466588953637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527869305767179267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723587419643633035
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +462,7 @@ GameObject:
   - component: {fileID: 8744030498262352276}
   - component: {fileID: 7108951860269551738}
   - component: {fileID: 2889137306983454763}
+  - component: {fileID: 7609159279104551390}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -559,6 +585,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7609159279104551390}
+        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &2889137306983454763
 Animator:
   serializedVersion: 5
@@ -580,6 +618,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7609159279104551390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752249134018682152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2421019674288979468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1069,7 @@ GameObject:
   - component: {fileID: 2946981847305957043}
   - component: {fileID: 4224371375656776203}
   - component: {fileID: 8310045202208930185}
+  - component: {fileID: 3006431190103902330}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1141,6 +1192,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3006431190103902330}
+        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &8310045202208930185
 Animator:
   serializedVersion: 5
@@ -1162,6 +1225,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3006431190103902330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138740916216245388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7662714709077469557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1250,7 @@ GameObject:
   - component: {fileID: 6762999045790167317}
   - component: {fileID: 3592978209103607868}
   - component: {fileID: 1083349680087821781}
+  - component: {fileID: 6363010968697092634}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1297,6 +1373,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6363010968697092634}
+        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1083349680087821781
 Animator:
   serializedVersion: 5
@@ -1318,6 +1406,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6363010968697092634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662714709077469557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9210994468097028544
 GameObject:
   m_ObjectHideFlags: 0

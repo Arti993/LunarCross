@@ -27,6 +27,9 @@ public class VehicleCatchBehaviour : MonoBehaviour
         if(TryFillBindPoint(entity, _insideBindPoints))
         {
             isFillingSuccess = true;
+
+            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayAstronautGetInSound();
+
             previousBindPoint.Exempt();
         }
 
@@ -35,12 +38,24 @@ public class VehicleCatchBehaviour : MonoBehaviour
 
     public bool TryFillLeftSideBindPoint(EntityBehaviour entity)
     {
-        return TryFillBindPoint(entity, _leftSideBindPoints);
+        if(TryFillBindPoint(entity, _leftSideBindPoints))
+        {
+            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
+            return true;
+        }
+        else
+            return false;
     }
 
     public bool TryFillRightSideBindPoint(EntityBehaviour entity)
     {
-        return TryFillBindPoint(entity, _rightSideBindPoints);
+        if(TryFillBindPoint(entity, _rightSideBindPoints))
+        {
+            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
+            return true;
+        }
+        else
+            return false;
     }
 
     public IReadOnlyList<BindPoint> GetEntitiesBindPoints()

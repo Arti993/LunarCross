@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(RectTransform))]
-public class LevelFailedWindow : UIWindow
+public class LevelFailedWindow : GameplayUIWindow
 {
     [SerializeField] private float _stopTimeDelay = 0.15f;
     

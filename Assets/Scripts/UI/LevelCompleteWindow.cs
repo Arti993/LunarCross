@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(VideoAd))]
-public class LevelCompleteWindow : UIWindow
+public class LevelCompleteWindow : GameplayUIWindow
 {
     private const int LevelChooseSceneIndex = 3;
     private const int TutorialSceneIndex = 4;
@@ -70,7 +70,7 @@ public class LevelCompleteWindow : UIWindow
 
     public void GoToLevelChooseScene()
     {
-        InterstitialAd.Show();
+        //InterstitialAd.Show();
         
         PlayerPrefs.DeleteKey("SelectedLevelNumber");
         
@@ -133,5 +133,7 @@ public class LevelCompleteWindow : UIWindow
         
         AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetYellowBurstEffect(currentStar.transform.position);
+        
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayStarCollectingSound();
     }
 }

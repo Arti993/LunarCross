@@ -30,7 +30,6 @@ public class CarController : MonoBehaviour
 
     private void Start()
     {
-       
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.mass = vehicleSettings.mass;
         _rigidbody.drag = vehicleSettings.drag;

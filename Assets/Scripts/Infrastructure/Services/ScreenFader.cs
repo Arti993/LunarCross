@@ -1,44 +1,71 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class ScreenFader : IScreenFader
 {
     private const float FadeDuration = 1f;
-    private readonly GameObject _screenFader;
+    private const float Delay = 0.1f;
+    private readonly GameObject _screenFaderObject;
     private readonly Image _blackScreen;
-    
+    private readonly LoadScreen _loadScreen;
     
     public ScreenFader(IAssets provider)
     {
-        _screenFader = provider.Instantiate("Prefabs/UI/ScreenFader");
+        _screenFaderObject = provider.Instantiate("Prefabs/UI/ScreenFader");
 
-        _blackScreen = _screenFader.GetComponentInChildren<Image>();
+        _blackScreen = _screenFaderObject.GetComponentInChildren<Image>();
+
+        _screenFaderObject.TryGetComponent(out LoadScreen loadScreen);
+
+        if (loadScreen != null)
+            _loadScreen = loadScreen;
 
         FadeIn();
     }
 
+    public event Action FadingComplete;
+    public event Action FadingStart;
+
+    public bool IsActive()
+    {
+        return _screenFaderObject.activeSelf;
+    }
+
     public void FadeIn()
     {
-        _screenFader.SetActive(true);
+        FadingStart?.Invoke();
         
-        _blackScreen.DOFade(0f, FadeDuration).OnComplete(() =>
+        _screenFaderObject.SetActive(true);
+        
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.AppendInterval(Delay);
+        
+        sequence.Append(_blackScreen.DOFade(0f, FadeDuration));
+        
+        sequence.OnComplete(() =>
         {
-            _screenFader.SetActive(false);
+            _screenFaderObject.SetActive(false);
+            
+            FadingComplete?.Invoke();
         });
     }
 
     public void FadeOutAndLoadScene(int sceneIndex)
     {
-        _screenFader.SetActive(true);
+        FadingStart?.Invoke();
+        
+        _screenFaderObject.SetActive(true);
         
         _blackScreen.DOFade(1f, FadeDuration).SetUpdate(true).OnComplete(() =>
         {
             Time.timeScale = 1f;
 
             Resources.UnloadUnusedAssets();
-            
+
             SceneManager.LoadScene(sceneIndex);
         });
     }

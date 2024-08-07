@@ -8,7 +8,9 @@ public interface IParticleSystemFactory : IService
 
     public GameObject GetCollectEffect(Vector3 position);
     
-    public GameObject GetEjectEffect(Vector3 position);
+    public GameObject GetAlienEjectEffect(Vector3 position);
+
+    public GameObject GetTornadoEjectEffect(Vector3 position);
 
     public GameObject GetYellowBurstEffect(Vector3 position);
 

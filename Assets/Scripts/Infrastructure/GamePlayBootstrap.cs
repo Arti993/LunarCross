@@ -8,11 +8,11 @@ public class GamePlayBootstrap : MonoBehaviour
     private void Awake()
     {
         GameObject uiRootObject = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        
+        GameObject cameraObject = AllServicesContainer.Instance.GetService<IGameplayFactory>().CreateGameCamera();
 
         GameObject playerObject = AllServicesContainer.Instance.GetService<IGameplayFactory>().CreatePlayer(_startPoint.position);
 
-        GameObject cameraObject = AllServicesContainer.Instance.GetService<IGameplayFactory>().CreateGameCamera();
-        
         GameObject spawnerObject = AllServicesContainer.Instance.GetService<IGameplayFactory>().CreateSpawner();
 
         SetCameraForCanvas(uiRootObject, cameraObject);
@@ -21,9 +21,9 @@ public class GamePlayBootstrap : MonoBehaviour
 
         SetPlayerTransformForSpawner(spawnerObject, playerObject);
 
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRootObject);
-
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelNumberTitle(uiRootObject);
+        PrepareUI(uiRootObject);
+        
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayLevelTheme();
     }
 
     private void SetCameraForCanvas(GameObject uiRootObject, GameObject cameraObject)
@@ -49,5 +49,11 @@ public class GamePlayBootstrap : MonoBehaviour
         else
             throw new InvalidOperationException();
     }
+    
+    private void PrepareUI(GameObject uiRootObject)
+    {
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRootObject);
 
+        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelNumberTitle(uiRootObject);
+    }
 }

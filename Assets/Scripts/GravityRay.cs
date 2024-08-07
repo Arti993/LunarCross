@@ -37,6 +37,8 @@ public class GravityRay : MonoBehaviour
 
             vehicleRotationLimit.enabled = false;
             
+            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayGravityRaySound();
+            
             StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
         }
     }

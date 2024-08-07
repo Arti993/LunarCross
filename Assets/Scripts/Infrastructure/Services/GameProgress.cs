@@ -14,6 +14,7 @@ public class GameProgress : IGameProgress
     private const string Level9ResultTag = "Level9Result";
     private const string Level10ResultTag = "Level10Result";
     private const string Level11ResultTag = "Level11Result";
+    private const string Level12ResultTag = "Level12Result";
 
     private Dictionary<int, string> _levelResultsTagsDictionary = new Dictionary<int, string>();
     
@@ -23,7 +24,7 @@ public class GameProgress : IGameProgress
         {
             Level1ResultTag,Level2ResultTag,Level3ResultTag,Level4ResultTag,Level5ResultTag,
             Level6ResultTag,Level7ResultTag,Level8ResultTag,Level9ResultTag,Level10ResultTag,
-            Level11ResultTag
+            Level11ResultTag, Level12ResultTag
         };
 
         int levelNumber;
@@ -46,8 +47,6 @@ public class GameProgress : IGameProgress
             PlayerPrefs.SetInt(levelResultTag, points);
             UnlockNextLevelIfNeed();
         }
-        
-        PlayerPrefs.DeleteKey("SelectedLevelNumber");
     }
     
     

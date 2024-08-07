@@ -7,9 +7,8 @@ public class SatelliteMovement : Movement
     [SerializeField] private float _levitationHalfCycleTime = 2f;
     [SerializeField] private float _minDelayBeforeMove = 0f;
     [SerializeField] private float _maxDelayBeforeMove = 0.7f;
-    
-    
-    
+
+
     private Vector3 _startPoint;
     private Vector3 _endPoint;
     private float _startTime;
@@ -30,13 +29,13 @@ public class SatelliteMovement : Movement
 
     public override void Move()
     {
-       StartCoroutine(StartMovementAfterDelay());
+        StartCoroutine(StartMovementAfterDelay());
     }
 
     private IEnumerator StartMovementAfterDelay()
     {
         yield return new WaitForSeconds(_delayBeforeMove);
-        
+
         MovingCoroutine = StartCoroutine(LoopMovement());
     }
 
@@ -44,12 +43,12 @@ public class SatelliteMovement : Movement
     {
         _startTime = Time.time;
         IsMoving = true;
-        
+
         while (IsMoving)
         {
             _distanceCovered = (Time.time - _startTime) * _journeyLength / _levitationHalfCycleTime;
             _journeyPathCovered = _distanceCovered / _journeyLength;
-            
+
             transform.position = Vector3.Lerp(_startPoint, _endPoint, _journeyPathCovered);
 
             if (_journeyPathCovered >= 1)
@@ -66,8 +65,9 @@ public class SatelliteMovement : Movement
 
     private void OnDisable()
     {
-        StopCoroutine(MovingCoroutine);
-        
+        if (MovingCoroutine != null)
+            StopCoroutine(MovingCoroutine);
+
         IsMoving = false;
     }
 }

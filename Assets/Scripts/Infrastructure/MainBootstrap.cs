@@ -27,8 +27,11 @@ public class MainBootstrap : MonoBehaviour
     private void RegisterServices()
     {
         _allServices.RegisterService<IAssets>(new AssetProvider());
-        
+
         _allServices.RegisterService<ILocalization>(new Localization(
+            _allServices.GetService<IAssets>()));
+        
+        _allServices.RegisterService<IAudioPlayback>(new AudioPlayback(
             _allServices.GetService<IAssets>()));
         
         _allServices.RegisterService<IGameProgress>(new GameProgress());
@@ -53,5 +56,7 @@ public class MainBootstrap : MonoBehaviour
         GameObject uiRootObject = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
         
         AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetMainMenuButtonsWindow(uiRootObject);
+        
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayMenuTheme();
     }
 }

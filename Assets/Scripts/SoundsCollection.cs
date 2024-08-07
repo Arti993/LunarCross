@@ -14,7 +14,7 @@ public class SoundsCollection : MonoBehaviour
         PrepareAudioSources();
     }
 
-    public void PlaySingleSound(string soundName)
+    public void PlaySound(string soundName)
     {
         Sound soundToPlay = FindSoundToPlay(soundName);
         
@@ -25,11 +25,29 @@ public class SoundsCollection : MonoBehaviour
     {
         Sound musicToPlay = FindSoundToPlay(musicName);
 
-        _currentPlayingMusic?.Stop();
+        _currentPlayingMusic?.StopPlay();
 
         _currentPlayingMusic = musicToPlay;
         
         _currentPlayingMusic.Play();
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (Sound sound in _sounds)
+            sound.StopPlay();
+    }
+
+    public void MuteAllSounds()
+    {
+        foreach (Sound sound in _sounds)
+            sound.Mute();
+    }
+    
+    public void UnMuteAllSounds()
+    {
+        foreach (Sound sound in _sounds)
+            sound.UnMute();
     }
 
     private void PrepareAudioSources()

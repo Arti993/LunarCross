@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 5996854485833902850}
   - component: {fileID: 759776255368250392}
   - component: {fileID: 4456213831787357402}
-  - component: {fileID: 5187101754297356110}
+  - component: {fileID: 8189047734908396979}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2de54611144bad4387ce66755fe9ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5187101754297356110
+--- !u!114 &8189047734908396979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

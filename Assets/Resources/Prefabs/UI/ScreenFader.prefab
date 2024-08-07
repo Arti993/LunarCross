@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7763598365993109808}
   - component: {fileID: 2020995652067249607}
   - component: {fileID: 2151091227940639781}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1963864298368614043}
   - component: {fileID: 474420081300562051}
   - component: {fileID: 4502315470473721350}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ScreenFader
   m_TagString: Untagged
   m_Icon: {fileID: 0}

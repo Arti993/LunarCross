@@ -12,16 +12,22 @@ public class EntityToEjectDetector : MonoBehaviour, IEjectorFromVehicle
 
         IPlaceableToVehicle entityToEject = bindPoint.GetComponentInChildren<IPlaceableToVehicle>();
 
-        AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .GetEjectEffect(bindPoint.transform.position);
+        PlayEjectionEffect(bindPoint);
         
         EjectEntity(entityToEject);
     }
 
     public void EjectEntity(IPlaceableToVehicle entityToEject)
     {
-        
-        
         entityToEject?.UnplaceFromVehicle();
+    }
+
+    private void PlayEjectionEffect(BindPoint bindPoint)
+    {
+        if (TryGetComponent(out AlienBehaviour alienBehaviour))
+            AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetAlienEjectEffect(bindPoint.transform.position);
+        
+        if (TryGetComponent(out TornadoMovement tornadoMovement))
+            AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetTornadoEjectEffect(bindPoint.transform.position);
     }
 }

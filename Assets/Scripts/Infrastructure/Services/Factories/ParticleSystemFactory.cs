@@ -11,11 +11,15 @@ public class ParticleSystemFactory : IParticleSystemFactory
 
     public GameObject GetExplosionEffect(Vector3 position)
     {
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayExplosionSound();
+        
         return _provider.Instantiate("Prefabs/Particles/ExplosionFireballFire", position);
     }
 
     public GameObject GetRayPullingEffect(Vector3 position)
     {
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayAstronautInRaySound();
+        
         return _provider.Instantiate("Prefabs/Particles/RayPulling", position);
     }
 
@@ -24,8 +28,17 @@ public class ParticleSystemFactory : IParticleSystemFactory
         return _provider.Instantiate("Prefabs/Particles/CollectEffect", position);
     }
 
-    public GameObject GetEjectEffect(Vector3 position)
+    public GameObject GetAlienEjectEffect(Vector3 position)
     {
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayAlienGrabsAstronautSound();
+        
+        return _provider.Instantiate("Prefabs/Particles/EjectEffect", position);
+    }
+
+    public GameObject GetTornadoEjectEffect(Vector3 position)
+    {
+        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayTornadoSound();
+        
         return _provider.Instantiate("Prefabs/Particles/EjectEffect", position);
     }
 

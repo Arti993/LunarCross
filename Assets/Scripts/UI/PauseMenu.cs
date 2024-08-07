@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class PauseMenu : UIWindow
+public class PauseMenu : GameplayUIWindow
 {
     [SerializeField] private CanvasGroup _backgroundPanel;
     
