@@ -27,21 +27,25 @@ public class Chunk : MonoBehaviour
 
     private void AssignMaterials()
     {
-        _planeRenderer.material = _surfaceMaterial;
+        AssignPlaneMaterial(_surfaceMaterial);
         
-        RockElement[] rockElements = this.GetComponentsInChildren<RockElement>();
+        RockElement[] rockElements = GetComponentsInChildren<RockElement>();
 
         foreach (var rockElement in rockElements)
         {
             rockElement.GetComponent<Renderer>().material = _stonesMaterial;
         }
         
-        Mountain[] mountains = this.GetComponentsInChildren<Mountain>();
+        Mountain[] mountains = GetComponentsInChildren<Mountain>();
      
         foreach (var mountain in mountains)
         {
             mountain.GetComponent<Renderer>().material = _mountainsMaterial;
-        }    
-            
+        }
+    }
+
+    protected virtual void AssignPlaneMaterial(Material material)
+    {
+        _planeRenderer.material = material;
     }
 }

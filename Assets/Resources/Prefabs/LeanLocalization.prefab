@@ -55,6 +55,116 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0424"
     Object: {fileID: 0}
+--- !u!1 &325248555114481042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2848044072216643725}
+  - component: {fileID: 7324235958488912575}
+  m_Layer: 0
+  m_Name: 'Sounds volume:'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2848044072216643725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325248555114481042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8200164506107374998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7324235958488912575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325248555114481042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Sounds volume:'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: 'Ses seviyesi:'
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0437\u0432\u0443\u043A\u043E\u0432:"
+    Object: {fileID: 0}
+--- !u!1 &393412170838323958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2575924057724095661}
+  - component: {fileID: 8478288717033359210}
+  m_Layer: 0
+  m_Name: 'Music volume:'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2575924057724095661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393412170838323958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8200164506107374998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8478288717033359210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393412170838323958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Music volume:'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "M\xFCzik hacmi:"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438:"
+    Object: {fileID: 0}
 --- !u!1 &881742947032404145
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,26 +833,32 @@ MonoBehaviour:
   entries:
   - Language: English
     Text: At the end of the level, you will save all the astronauts you managed to
-      collect. Your result will be recorded in the progress. Collect as many as possible
-      on each level and become the best in the galaxy!
+      collect. You need to collect at least one star to open the next level. Your
+      result will be recorded in the progress. Collect as many as possible on each
+      level and become the best in the galaxy!
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Seviyenin sonunda toplamay\u0131 ba\u015Fard\u0131\u011F\u0131n\u0131z
-      t\xFCm astronotlar\u0131 kurtaracaks\u0131n\u0131z, sonu\xE7 genel ilerlemede
-      dikkate al\u0131nacak, her seviyede m\xFCmk\xFCn oldu\u011Funca \xE7ok astronotu
-      kurtaracak ve galaksideki en iyi kurtar\u0131c\u0131 olacaks\u0131n\u0131z!"
+    Text: "Seviyenin sonunda, toplamay\u0131 ba\u015Fard\u0131\u011F\u0131n\u0131z
+      t\xFCm astronotlar\u0131 kurtaracaks\u0131n\u0131z. Bir sonraki seviyeyi a\xE7mak
+      i\xE7in en az bir y\u0131ld\u0131z toplaman\u0131z gerekiyor. Sonucunuz ilerlemede
+      kaydedilecektir. Her seviyede m\xFCmk\xFCn oldu\u011Funca \xE7ok toplay\u0131n
+      ve galaksinin en iyisi olun!"
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0412 \u043A\u043E\u043D\u0446\u0435 \u0443\u0440\u043E\u0432\u043D\u044F
       \u0432\u044B \u0441\u043F\u0430\u0441\u0435\u0442\u0435 \u0432\u0441\u0435\u0445
       \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432, \u043A\u043E\u0442\u043E\u0440\u044B\u0445
-      \u0432\u0430\u043C \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043E\u0431\u0440\u0430\u0442\u044C,
-      \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u0431\u0443\u0434\u0435\u0442
-      \u0443\u0447\u0442\u0435\u043D \u0432 \u043E\u0431\u0449\u0435\u043C \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441\u0435,
-      \u0441\u043F\u0430\u0441\u0438\u0442\u0435 \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E
-      \u0431\u043E\u043B\u044C\u0448\u0435 \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432
-      \u043D\u0430 \u043A\u0430\u0436\u0434\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435
-      \u0438 \u0441\u0442\u0430\u043D\u044C\u0442\u0435 \u043B\u0443\u0447\u0448\u0438\u043C
+      \u0432\u0430\u043C \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043E\u0431\u0440\u0430\u0442\u044C.
+      \u041D\u0443\u0436\u043D\u043E \u043D\u0430\u0431\u0440\u0430\u0442\u044C \u0445\u043E\u0442\u044F
+      \u0431\u044B \u043E\u0434\u043D\u0443 \u0437\u0432\u0435\u0437\u0434\u0443,
+      \u0447\u0442\u043E\u0431\u044B \u043E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
+      \u0443\u0440\u043E\u0432\u0435\u043D\u044C. \u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442
+      \u0431\u0443\u0434\u0435\u0442 \u0443\u0447\u0442\u0435\u043D \u0432 \u043E\u0431\u0449\u0435\u043C
+      \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441\u0435, \u0441\u043F\u0430\u0441\u0438\u0442\u0435
+      \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E \u0431\u043E\u043B\u044C\u0448\u0435
+      \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432 \u043D\u0430
+      \u043A\u0430\u0436\u0434\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435 \u0438
+      \u0441\u0442\u0430\u043D\u044C\u0442\u0435 \u043B\u0443\u0447\u0448\u0438\u043C
       \u0441\u043F\u0430\u0441\u0438\u0442\u0435\u043B\u0435\u043C \u0432 \u0433\u0430\u043B\u0430\u043A\u0442\u0438\u043A\u0435!"
     Object: {fileID: 0}
 --- !u!1 &2617150426481929117
@@ -794,12 +910,14 @@ MonoBehaviour:
   entries:
   - Language: English
     Text: You need to save as many astronauts as possible, to do this, collect them
-      with the right and left catch zones of the rover
+      in the right and left capture zones of the rover. You can knock down obstacles,
+      but try not to knock down the astronauts.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Bunu yapmak i\xE7in m\xFCmk\xFCn oldu\u011Funca \xE7ok astronotu kurtarman\u0131z,
-      onlar\u0131 gezicinin sa\u011F ve sol yakalama b\xF6lgelerinde toplaman\u0131z
-      gerekiyor."
+    Text: "M\xFCmk\xFCn oldu\u011Funca \xE7ok astronotu kurtarman\u0131z gerekiyor,
+      bunu yapmak i\xE7in onlar\u0131 gezicinin sa\u011F ve sol yakalama b\xF6lgelerinde
+      toplay\u0131n. Engelleri devirebilirsiniz, ancak astronotlar\u0131 devirmemeye
+      \xE7al\u0131\u015F\u0131n."
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0412\u0430\u043C \u043D\u0443\u0436\u043D\u043E \u0441\u043F\u0430\u0441\u0442\u0438
@@ -808,7 +926,10 @@ MonoBehaviour:
       \u044D\u0442\u043E\u0433\u043E \u0441\u043E\u0431\u0435\u0440\u0438\u0442\u0435
       \u0438\u0445 \u043F\u0440\u0430\u0432\u043E\u0439 \u0438 \u043B\u0435\u0432\u043E\u0439
       \u0437\u043E\u043D\u0430\u043C\u0438 \u0437\u0430\u0445\u0432\u0430\u0442\u0430
-      \u0440\u043E\u0432\u0435\u0440\u0430."
+      \u0440\u043E\u0432\u0435\u0440\u0430. \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+      \u0441\u0431\u0438\u0432\u0430\u0442\u044C \u043F\u0440\u0435\u043F\u044F\u0442\u0441\u0442\u0432\u0438\u044F
+      \u043D\u0430 \u043F\u0443\u0442\u0438, \u043D\u043E \u0441\u0442\u0430\u0440\u0430\u0439\u0442\u0435\u0441\u044C
+      \u043D\u0435 \u0441\u0431\u0438\u0432\u0430\u0442\u044C \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432."
     Object: {fileID: 0}
 --- !u!1 &2762139634206130709
 GameObject:
@@ -1187,13 +1308,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Complete!
+    Text: Finish!
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Ge\xE7ti!"
+    Text: Sona ermek!
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0412\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043E!"
+    Text: "\u0424\u0438\u043D\u0438\u0448!"
     Object: {fileID: 0}
 --- !u!1 &3893165659072757419
 GameObject:
@@ -1299,12 +1420,12 @@ MonoBehaviour:
   entries:
   - Language: English
     Text: Aliens will interfere with you rescuing astronauts, if an alien is near
-      a hanging astronaut, he will throw him off
+      a hanging astronaut, he will throw him off. You can knock down aliens.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Uzayl\u0131lar astronotlar\u0131 kurtarman\u0131z\u0131 engelleyecek;
-      e\u011Fer bir uzayl\u0131, geziciyi tutan astronota yakla\u015F\u0131rsa onu
-      f\u0131rlatacak."
+    Text: "Uzayl\u0131lar astronotlar\u0131 kurtarman\u0131za engel olacak, e\u011Fer
+      bir uzayl\u0131 as\u0131l\u0131 bir astronotun yak\u0131n\u0131ndaysa onu a\u015Fa\u011F\u0131
+      atacakt\u0131r. Uzayl\u0131lar\u0131 devirebilirsiniz."
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0418\u043D\u043E\u043F\u043B\u0430\u043D\u0435\u0442\u044F\u043D\u0435
@@ -1314,7 +1435,9 @@ MonoBehaviour:
       \u043E\u043A\u0430\u0436\u0435\u0442\u0441\u044F \u0440\u044F\u0434\u043E\u043C
       \u0441 \u0434\u0435\u0440\u0436\u0430\u0449\u0438\u043C\u0441\u044F \u0437\u0430
       \u0440\u043E\u0432\u0435\u0440 \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u043C,
-      \u043E\u043D \u0435\u0433\u043E \u0441\u0431\u0440\u043E\u0441\u0438\u0442"
+      \u043E\u043D \u0435\u0433\u043E \u0441\u0431\u0440\u043E\u0441\u0438\u0442.
+      \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u0431\u0438\u0432\u0430\u0442\u044C
+      \u0438\u043D\u043E\u043F\u043B\u0430\u043D\u0435\u0442\u044F\u043D."
     Object: {fileID: 0}
 --- !u!1 &4489934697196900569
 GameObject:
@@ -1674,6 +1797,8 @@ Transform:
   - {fileID: 4557612568571417345}
   - {fileID: 3036285769376185748}
   - {fileID: 8662435689763565138}
+  - {fileID: 2575924057724095661}
+  - {fileID: 2848044072216643725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

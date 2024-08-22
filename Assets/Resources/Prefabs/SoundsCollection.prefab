@@ -111,37 +111,37 @@ MonoBehaviour:
     _pitch: 1
     _loop: 1
   - _name: AlienGrabsAstronaut
-    _audioClip: {fileID: 8300000, guid: d992cef63904a554ba699df8368a5192, type: 3}
+    _audioClip: {fileID: 8300000, guid: 10941ce03a3160a4a8e2f91dbb4b27d7, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0
   - _name: PickUpAstronaut
-    _audioClip: {fileID: 8300000, guid: c3ee10c0249ef9b4dba667c011005108, type: 3}
+    _audioClip: {fileID: 8300000, guid: dcf1c5324637d214ab011e7b862a2e4b, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0
   - _name: AstronautGetIn
-    _audioClip: {fileID: 8300000, guid: c3ee10c0249ef9b4dba667c011005108, type: 3}
+    _audioClip: {fileID: 8300000, guid: dcf1c5324637d214ab011e7b862a2e4b, type: 3}
     _volume: 0.15
     _pitch: 1
     _loop: 0
   - _name: ButtonPress
-    _audioClip: {fileID: 8300000, guid: 2b698a17c3b413943b329cab0c055aa0, type: 3}
+    _audioClip: {fileID: 8300000, guid: f087af9a0d3512748a3df516bee965e0, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0
   - _name: StarCollecting
-    _audioClip: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
+    _audioClip: {fileID: 8300000, guid: d7af0127a4cb97c4782ecb78116a878d, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0
   - _name: Explosion
-    _audioClip: {fileID: 8300000, guid: c853d3c9bef384e8d84dd8d5fef5a2ba, type: 3}
+    _audioClip: {fileID: 8300000, guid: 76737cb0f2d3ff54b8c8fe34777b2502, type: 3}
     _volume: 0.4
     _pitch: 1
     _loop: 0
   - _name: Knock
-    _audioClip: {fileID: 8300000, guid: 8f9d847df5284f144a233114af82492c, type: 3}
+    _audioClip: {fileID: 8300000, guid: fc4cd27ca0cb3ec419b30c303764fedb, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0
@@ -151,12 +151,12 @@ MonoBehaviour:
     _pitch: 1
     _loop: 0
   - _name: Tornado
-    _audioClip: {fileID: 8300000, guid: 8a23239be9de14838884a763327af51e, type: 3}
+    _audioClip: {fileID: 8300000, guid: 108c52a1fac72ff4e8532f17ac9299e1, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0
   - _name: AstronautInRay
-    _audioClip: {fileID: 8300000, guid: 41b5a985a69ce914ab10fdf7c59c5f39, type: 3}
+    _audioClip: {fileID: 8300000, guid: 87fe4df642deca746b523e1d3abddeb5, type: 3}
     _volume: 1
     _pitch: 1
     _loop: 0

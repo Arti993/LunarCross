@@ -7,12 +7,8 @@ using Agava.YandexGames;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
-[RequireComponent(typeof(VideoAd))]
 public class LevelCompleteWindow : GameplayUIWindow
 {
-    private const int LevelChooseSceneIndex = 3;
-    private const int TutorialSceneIndex = 4;
-
     [SerializeField] private GameObject[] _ratingStars;
     [SerializeField] private TMP_Text _pointsLabel;
     [SerializeField] private Button _continueButton;
@@ -22,13 +18,17 @@ public class LevelCompleteWindow : GameplayUIWindow
     private int _pointsForFirstStar;
     private int _pointsForSecondStar;
     private int _pointsForThirdStar;
-   
-
     private int _points;
     private int _starsCount;
+    private int _currentSceneIndex;
+    private int _tutorialSceneIndex;
     
     private void Awake()
     {
+        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        _tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
+        
         Level currentLevel = GetLevelSettings();
 
         _pointsForFirstStar = currentLevel.PointsForFirstStar;
@@ -61,7 +61,7 @@ public class LevelCompleteWindow : GameplayUIWindow
 
         _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration / 2).SetLoops(2, LoopType.Yoyo);
         
-        AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
+        DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetYellowBurstEffect(_pointsLabel.transform.position);
 
        if(new[] { _pointsForFirstStar, _pointsForSecondStar, _pointsForThirdStar }.Any(p => _points == p))
@@ -70,47 +70,57 @@ public class LevelCompleteWindow : GameplayUIWindow
 
     public void GoToLevelChooseScene()
     {
+        if (_currentSceneIndex == _tutorialSceneIndex)
+        {
+            DIServicesContainer.Instance.GetService<IScenesLoader>().LoadMainMenuScene();
+            
+            return;
+        }
+        
         //InterstitialAd.Show();
         
         PlayerPrefs.DeleteKey("SelectedLevelNumber");
         
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(LevelChooseSceneIndex);
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadLevelChooseScene();
     }
     
     public void RestartLevel()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadScene(_currentSceneIndex);
     }
 
     public void EvaluatePassage()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        
-        if(sceneIndex != TutorialSceneIndex)
-            AllServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
-        
-        _continueButton.interactable = true;
+        if (_currentSceneIndex == _tutorialSceneIndex)
+        {
+            _continueButton.interactable = true;
+            return;
+        }
+
+        if (_points >= _pointsForFirstStar)
+        {
+            DIServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
+            _continueButton.interactable = true;
+        }
     }
 
     private Level GetLevelSettings()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-
         Level currentLevel;
         
-        if (sceneIndex != TutorialSceneIndex)
+        if (_currentSceneIndex == _tutorialSceneIndex)
         {
-            int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
-
-            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                .GetLevelSettings(levelNumber);
+            currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetTutorialLevelSettings();
         }
         else
         {
-            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                .GetTutorialLevelSettings();
+            int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+            
+            Debug.Log(levelNumber);
+
+            currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetLevelSettings(levelNumber);
         }
 
         return currentLevel;
@@ -131,9 +141,9 @@ public class LevelCompleteWindow : GameplayUIWindow
 
         currentStar.transform.DOScale(baseScale, _sizeChangeAnimationDuration);
         
-        AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
+        DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetYellowBurstEffect(currentStar.transform.position);
         
-        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayStarCollectingSound();
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayStarCollectingSound();
     }
 }

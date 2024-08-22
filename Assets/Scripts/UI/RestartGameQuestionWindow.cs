@@ -7,9 +7,9 @@ public class RestartGameQuestionWindow : UIWindow
 
     public void OnYesButtonClick()
     {
-        AllServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
-        
-        PanelOutro();
+        DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
+
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadGameplayScene();
     }
     
     public void OnNoButtonClick()

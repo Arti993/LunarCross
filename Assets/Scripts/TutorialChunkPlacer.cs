@@ -64,7 +64,7 @@ public class TutorialChunkPlacer : ChunkPlacer
 
     private TutorialUIViewer GetTutorialUIViewer()
     {
-       UIRoot uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot().GetComponent<UIRoot>();
+       UIRoot uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot().GetComponent<UIRoot>();
 
        return uiRoot.GetTutorialUIViewer();
     }

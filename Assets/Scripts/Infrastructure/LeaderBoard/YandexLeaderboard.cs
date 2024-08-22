@@ -36,7 +36,7 @@ public class YandexLeaderboard : MenuWindow
         if (PlayerAccount.IsAuthorized == false)
             return;
         
-        SetPlayerScore(AllServicesContainer.Instance.GetService<IGameProgress>().GetTotalScore());
+        SetPlayerScore(DIServicesContainer.Instance.GetService<IGameProgress>().GetTotalScore());
         
         _leaderboardView.gameObject.SetActive(true);
 

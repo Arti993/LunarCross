@@ -23,9 +23,9 @@ public class PauseMenu : GameplayUIWindow
 
         Time.timeScale = 1f;
         
-        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
     }
 
     public void RestartLevel()
@@ -34,14 +34,14 @@ public class PauseMenu : GameplayUIWindow
         
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadScene(sceneIndex);
     }
 
     public void ChangeGameSettings()
     {
-        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
         
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLanguageChangerWindow(uiRoot.gameObject);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetSettingsWindow(uiRoot.gameObject);
     }
 
     private void PausePanelIntro()

@@ -19,6 +19,7 @@ public class Sound
    private AudioSource _audioSource;
 
    public string Name => _name;
+   public bool Loop => _loop;
 
    public void PrepareAudioSource(AudioSource audioSource)
    {
@@ -61,6 +62,12 @@ public class Sound
       if (_audioSource == null)
          throw new InvalidOperationException();
 
+      _audioSource.volume = _volume;
+   }
+
+   public void ChangeVolume(float volume)
+   {
+      _volume = volume;
       _audioSource.volume = _volume;
    }
 }

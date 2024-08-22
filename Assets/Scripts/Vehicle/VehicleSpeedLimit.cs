@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 public class VehicleSpeedLimit : MonoBehaviour
 {
     private const float StartSpeed = 2;
-    private const float MaxSpeed = 3.5f;
+    private const float MaxSpeed = 4f;
     private const float TrackingPeriod = 0.08f;
     private const float MinRequiredDistancePerTrackingPeriod = 0.01f;
-    private const int TutorialSceneIndex = 4;
-    
+
     [SerializeField] private Transform _blowUpPoint;
     
     private Rigidbody _rigidbody;
@@ -36,8 +35,8 @@ public class VehicleSpeedLimit : MonoBehaviour
 
     private void LimitSpeed()
     {
-        if (_rigidbody.velocity.z > MaxSpeed)
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, MaxSpeed);
+        if (_rigidbody.velocity.magnitude > MaxSpeed)
+            _rigidbody.velocity = _rigidbody.velocity.normalized * MaxSpeed;
     }
 
     private void TrackMinimalMovement()
@@ -61,23 +60,25 @@ public class VehicleSpeedLimit : MonoBehaviour
     {
         if (_isMinSpeedViolation == false)
         {
-            AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(_blowUpPoint.position);
+            DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(_blowUpPoint.position);
 
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        
-            if (sceneIndex == TutorialSceneIndex)
-            {
-                TimePauser timePauser = new TimePauser();
-            
-                AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
 
-                StartCoroutine(timePauser.Pause());
+            int tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
+        
+            if (sceneIndex == tutorialSceneIndex)
+            {
+                TimePauserWithDelay timePauserWithDelay = new TimePauserWithDelay();
+            
+                DIServicesContainer.Instance.GetService<IScenesLoader>().LoadTutorialScene();
+
+                StartCoroutine(timePauserWithDelay.Pause());
             }
             else
             {
-                GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+                GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
                 
-                AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+                DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
             }
 
             _isMinSpeedViolation = true;

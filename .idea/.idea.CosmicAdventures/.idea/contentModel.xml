@@ -10,7 +10,6 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="OtherAssets" t="Include">
-          <e p="Alien" t="Include" />
           <e p="Epic Toon FX" t="Include">
             <e p="Demo" t="Include">
               <e p="Animation" t="Include" />
@@ -600,11 +599,6 @@
               <e p="PanelControl.cs" t="Include" />
             </e>
           </e>
-          <e p="HONETi" t="Include">
-            <e p="mobile_cartoon_GUI" t="Include">
-              <e p="Fonts" t="Include" />
-            </e>
-          </e>
           <e p="JellyIcons" t="Include">
             <e p="512x512" t="Include">
               <e p="Icons" t="Include">
@@ -624,41 +618,51 @@
               </e>
             </e>
           </e>
-          <e p="LowlyPoly" t="Include">
-            <e p="Free Stylized Rocks" t="Include">
-              <e p="Materials" t="Include" />
-              <e p="Mesh" t="Include" />
-              <e p="Prefab" t="Include" />
-              <e p="Textures" t="Include" />
-            </e>
-          </e>
-          <e p="marsian-t30-concept-rover" t="Include">
-            <e p="source" t="Include">
-              <e p="ExplorerT30 AllFiles" t="Include">
-                <e p="Model" t="Include">
-                  <e p="wheel" t="Include">
-                    <e p="Materials" t="Include" />
-                    <e p="source" t="Include" />
-                    <e p="Textures" t="Include" />
-                  </e>
-                </e>
-                <e p="Render" t="Include" />
-              </e>
-            </e>
-            <e p="Textures" t="Include" />
-          </e>
           <e p="Models" t="Include">
             <e p="Alien" t="Include" />
-            <e p="satellite-dish" t="Include">
-              <e p="Materials" t="Include" />
-              <e p="source" t="Include" />
-              <e p="Textures" t="Include" />
+            <e p="Alien1" t="Include" />
+            <e p="LowlyPoly" t="Include">
+              <e p="Free Stylized Rocks" t="Include">
+                <e p="Materials" t="Include" />
+                <e p="Mesh" t="Include" />
+                <e p="Prefab" t="Include" />
+                <e p="Textures" t="Include" />
+              </e>
             </e>
-            <e p="satellite-dish (1)" t="Include">
+            <e p="marsian-t30-concept-rover" t="Include">
               <e p="source" t="Include">
-                <e p="тарелка" t="Include" />
+                <e p="ExplorerT30 AllFiles" t="Include">
+                  <e p="Model" t="Include">
+                    <e p="wheel" t="Include">
+                      <e p="Materials" t="Include" />
+                      <e p="source" t="Include" />
+                      <e p="Textures" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Render" t="Include" />
+                </e>
               </e>
               <e p="Textures" t="Include" />
+            </e>
+            <e p="SimpleLowPolyNature" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="Models" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="readme.txt" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="DemoDay" t="Include" />
+                <e p="DemoNight" t="Include" />
+                <e p="PrefabsScene" t="Include" />
+                <e p="SceneDemoAsset" t="Include" />
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="SimpleWater.shader" t="Include" />
+              </e>
+            </e>
+            <e p="Stylized_Astronaut" t="Include">
+              <e p="Character" t="Include">
+                <e p="Materials" t="Include" />
+              </e>
             </e>
           </e>
           <e p="Plugins" t="Include">
@@ -870,31 +874,11 @@
               <e p="white icon" t="Include" />
             </e>
           </e>
-          <e p="SimpleLowPolyNature" t="Include">
-            <e p="Materials" t="Include" />
-            <e p="Models" t="Include" />
-            <e p="Prefabs" t="Include" />
-            <e p="readme.txt" t="Include" />
-            <e p="Scenes" t="Include">
-              <e p="DemoDay" t="Include" />
-              <e p="DemoNight" t="Include" />
-              <e p="PrefabsScene" t="Include" />
-              <e p="SceneDemoAsset" t="Include" />
-            </e>
-            <e p="Shaders" t="Include">
-              <e p="SimpleWater.shader" t="Include" />
-            </e>
-          </e>
           <e p="Sounds" t="Include">
             <e p="MusicThemes" t="Include" />
           </e>
           <e p="Sprites and Materials" t="Include">
             <e p="Materials" t="Include" />
-          </e>
-          <e p="Stylized_Astronaut" t="Include">
-            <e p="Character" t="Include">
-              <e p="Materials" t="Include" />
-            </e>
           </e>
           <e p="Tornado" t="Include" />
           <e p="UI" t="Include">
@@ -955,12 +939,14 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AudioVolumeChanger.cs" t="Include" />
           <e p="Chunk.cs" t="Include" />
           <e p="ChunkGround.cs" t="Include" />
           <e p="ChunkPlacer.cs" t="Include" />
           <e p="ChunkWithObstacles.cs" t="Include" />
           <e p="DeleteComponentsFromBuild.cs" t="Include" />
           <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
+          <e p="EmptyChunk.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="EntityCollection.cs" t="Include" />
           <e p="EntitySpawner.cs" t="Include" />
@@ -1009,7 +995,7 @@
           <e p="GravityRay.cs" t="Include" />
           <e p="IEjectorFromVehicle.cs" t="Include" />
           <e p="Infrastructure" t="Include">
-            <e p="AllServicesContainer.cs" t="Include" />
+            <e p="DIServicesContainer.cs" t="Include" />
             <e p="GamePlayBootstrap.cs" t="Include" />
             <e p="LeaderBoard" t="Include">
               <e p="LeaderboardElement.cs" t="Include" />
@@ -1035,24 +1021,23 @@
                 <e p="ILevelsSettingsNomenclature.cs" t="Include" />
                 <e p="ILocalization.cs" t="Include" />
                 <e p="IParticleSystemFactory.cs" t="Include" />
+                <e p="IScenesLoader.cs" t="Include" />
                 <e p="IScreenFader.cs" t="Include" />
                 <e p="IService.cs" t="Include" />
                 <e p="IUiWindowFactory.cs" t="Include" />
               </e>
               <e p="LevelsSettingsNomenclature.cs" t="Include" />
               <e p="Localization.cs" t="Include" />
+              <e p="ScenesLoader.cs" t="Include" />
               <e p="ScreenFader.cs" t="Include" />
             </e>
           </e>
           <e p="IPlaceableToVehicle.cs" t="Include" />
           <e p="LanguageChanger.cs" t="Include" />
-          <e p="Level.cs" t="Include" />
           <e p="LevelBorder.cs" t="Include" />
           <e p="LevelBorderChecker.cs" t="Include" />
-          <e p="LevelButton.cs" t="Include" />
-          <e p="LevelGenerator.cs" t="Include" />
           <e p="LoadScreen.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
+          <e p="MainThemeMusicStarter.cs" t="Include" />
           <e p="Mountain.cs" t="Include" />
           <e p="New Input System" t="Include">
             <e p="Player Input.cs" t="Include" />
@@ -1063,9 +1048,12 @@
           <e p="Ragdoll.cs" t="Include" />
           <e p="RockElement.cs" t="Include" />
           <e p="ScaleAnimation.cs" t="Include" />
+          <e p="Scriptable Objects" t="Include">
+            <e p="Level.cs" t="Include" />
+          </e>
           <e p="Sound.cs" t="Include" />
           <e p="SoundsCollection.cs" t="Include" />
-          <e p="TimePauser.cs" t="Include" />
+          <e p="TimePauserWithDelay.cs" t="Include" />
           <e p="TornadoChunk.cs" t="Include" />
           <e p="TutorialChunkPlacer.cs" t="Include" />
           <e p="TutorialUIViewer.cs" t="Include" />
@@ -1077,8 +1065,10 @@
             <e p="LevelFailedWindow.cs" t="Include" />
             <e p="LevelNumberTitle.cs" t="Include" />
             <e p="LevelPanel.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
             <e p="MainMenuButton.cs" t="Include" />
             <e p="MenuWindow.cs" t="Include" />
+            <e p="NextLevelButton.cs" t="Include" />
             <e p="PauseButton.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
@@ -1116,7 +1106,6 @@
             <e p="VehicleSpeedLimit.cs" t="Include" />
             <e p="WheelAxle.cs" t="Include" />
           </e>
-          <e p="VideoAd.cs" t="Include" />
           <e p="YandexSDKInitializer.cs" t="Include" />
         </e>
       </e>

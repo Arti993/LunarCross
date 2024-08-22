@@ -5,20 +5,20 @@ public class MainBootstrap : MonoBehaviour
 {
     //ВКЛЮЧИТЬ В AWAKE ЯНДЕКС!!!
     
-    private AllServicesContainer _allServices;
-    private static bool _isFirstAwakened;
+    private DIServicesContainer _diContainer;
+    private static bool _isFirstAwake = true;
 
     private void Awake()
     {
         //YandexGamesSdk.GameReady();
 
-        if (_isFirstAwakened == false)
+        if (_isFirstAwake)
         {
-            _allServices = new AllServicesContainer();
+            _diContainer = new DIServicesContainer();
             
             RegisterServices();
 
-            _isFirstAwakened = true;
+            _isFirstAwake = false;
         }
         
         OpenMainMenu();
@@ -26,37 +26,39 @@ public class MainBootstrap : MonoBehaviour
 
     private void RegisterServices()
     {
-        _allServices.RegisterService<IAssets>(new AssetProvider());
+        _diContainer.RegisterService<IAssets>(new AssetProvider());
 
-        _allServices.RegisterService<ILocalization>(new Localization(
-            _allServices.GetService<IAssets>()));
+        _diContainer.RegisterService<ILocalization>(new Localization(
+            _diContainer.GetService<IAssets>()));
         
-        _allServices.RegisterService<IAudioPlayback>(new AudioPlayback(
-            _allServices.GetService<IAssets>()));
+        _diContainer.RegisterService<IAudioPlayback>(new AudioPlayback(
+            _diContainer.GetService<IAssets>()));
         
-        _allServices.RegisterService<IGameProgress>(new GameProgress());
+        _diContainer.RegisterService<IGameProgress>(new GameProgress());
         
-        _allServices.RegisterService<ILevelsSettingsNomenclature>(new LevelsSettingsNomenclature());
+        _diContainer.RegisterService<ILevelsSettingsNomenclature>(new LevelsSettingsNomenclature());
         
-        _allServices.RegisterService<IScreenFader>(new ScreenFader(
-            _allServices.GetService<IAssets>()));
+        _diContainer.RegisterService<IScreenFader>(new ScreenFader(
+            _diContainer.GetService<IAssets>()));
         
-        _allServices.RegisterService<IUiWindowFactory>(new UiWindowFactory(
-            _allServices.GetService<IAssets>()));
+        _diContainer.RegisterService<IScenesLoader>(new ScenesLoader());
         
-        _allServices.RegisterService<IParticleSystemFactory>(new ParticleSystemFactory(
-            _allServices.GetService<IAssets>()));
+        _diContainer.RegisterService<IUiWindowFactory>(new UiWindowFactory(
+            _diContainer.GetService<IAssets>()));
         
-        _allServices.RegisterService<IGameplayFactory>(new GameplayFactory(
-            _allServices.GetService<IAssets>()));
+        _diContainer.RegisterService<IParticleSystemFactory>(new ParticleSystemFactory(
+            _diContainer.GetService<IAssets>()));
+        
+        _diContainer.RegisterService<IGameplayFactory>(new GameplayFactory(
+            _diContainer.GetService<IAssets>()));
     }
 
     private void OpenMainMenu()
     {
-        GameObject uiRootObject = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
         
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetMainMenuButtonsWindow(uiRootObject);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetMainMenuButtonsWindow(uiRootObject);
         
-        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayMenuTheme();
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayMenuTheme();
     }
 }

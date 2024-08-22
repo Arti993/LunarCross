@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelNumberTitle : MonoBehaviour
 {
-    private const float AnimateTime = 1.3f;
+    private const float AnimateTime = 1.2f;
     private const float MaxScale = 2;
     private const int TutorialSceneIndex = 4;
     [SerializeField] private TMP_Text _levelNumber;
@@ -29,7 +29,7 @@ public class LevelNumberTitle : MonoBehaviour
             _level.gameObject.SetActive(true);
             _tutorial.gameObject.SetActive(false);
             
-            int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+            int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
 
             _levelNumber.text = $"{levelNumber}";
             

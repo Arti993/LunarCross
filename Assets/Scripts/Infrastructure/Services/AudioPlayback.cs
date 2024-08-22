@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class AudioPlayback : IAudioPlayback
 {
+  private const string MusicVolumeTag = "LastMusicVolume";
+  private const string SoundsVolumeTag = "LastSoundsVolume";
+  private const string MusicMutedTag = "MusicMuted";
+  private const string SoundsMutedTag = "SoundsMuted";
   private const string MenuTheme = "MenuTheme";
   private const string AlienGrabsAstronaut = "AlienGrabsAstronaut";
   private const string PickUpAstronaut = "PickUpAstronaut";
@@ -14,8 +18,8 @@ public class AudioPlayback : IAudioPlayback
   private const string GravityRay = "GravityRay";
   private const string Tornado = "Tornado";
   private const string AstronautInRay = "AstronautInRay";
-  
-  
+
+  private bool _isMenuThemePlaying;
   private readonly SoundsCollection _soundsCollection;
   
   public AudioPlayback(IAssets provider)
@@ -26,18 +30,79 @@ public class AudioPlayback : IAudioPlayback
       throw new InvalidOperationException();
 
     _soundsCollection = soundsCollection;
+
+    ApplySavedVolume();
+  }
+
+  public void MuteAudio()
+  {
+    _soundsCollection.MuteAudio();
+  }
+
+  public void UnMuteAudio()
+  {
+    _soundsCollection.UnMuteAudio();
+  }
+
+  public void MuteMusic()
+  {
+    _soundsCollection.MuteMusic();
+    
+    PlayerPrefs.SetInt(MusicMutedTag, 0);
+    PlayerPrefs.Save();
+  }
+
+  public void UnMuteMusic()
+  {
+    _soundsCollection.UnMuteMusic();
+    
+    PlayerPrefs.DeleteKey(MusicMutedTag);
+    PlayerPrefs.Save();
+  }
+
+  public void MuteSounds()
+  {
+    _soundsCollection.MuteSounds();
+    
+    PlayerPrefs.SetInt(SoundsMutedTag, 0);
+    PlayerPrefs.Save();
+  }
+
+  public void UnMuteSounds()
+  {
+    _soundsCollection.UnMuteSounds();
+    
+    PlayerPrefs.DeleteKey(SoundsMutedTag);
+    PlayerPrefs.Save();
+  }
+
+  public void ChangeMusicVolume(float volume)
+  {
+    _soundsCollection.ChangeMusicVolume(volume);
+  }
+
+  public void ChangeSoundsVolume(float volume)
+  {
+    _soundsCollection.ChangeSoundsVolume(volume);
   }
 
   public void PlayLevelTheme()
   {
-    int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+    _isMenuThemePlaying = false;
+    
+    int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
     
     _soundsCollection.PlayMusic($"Level{levelNumber}Theme");
   }
 
   public void PlayMenuTheme()
   {
+    if(_isMenuThemePlaying)
+      return;
+    
     _soundsCollection.PlayMusic(MenuTheme);
+
+    _isMenuThemePlaying = true;
   }
 
   public void PlayAlienGrabsAstronautSound()
@@ -67,7 +132,7 @@ public class AudioPlayback : IAudioPlayback
 
   public void PlayExplosionSound()
   {
-    _soundsCollection.StopAllSounds();
+    _soundsCollection.StopAudio();
     
     _soundsCollection.PlaySound(Explosion);
   }
@@ -90,5 +155,42 @@ public class AudioPlayback : IAudioPlayback
   public void PlayAstronautInRaySound()
   {
     _soundsCollection.PlaySound(AstronautInRay);
+  }
+
+  public void SaveVolume(float volume, string VolumeTag)
+  {
+    var convertedVolume = (int)Mathf.Round(volume * 100);
+        
+    PlayerPrefs.SetInt(VolumeTag, convertedVolume);
+    
+    PlayerPrefs.Save();
+  }
+
+  public float GetLastSavedVolume(string VolumeTag)
+  {
+    int convertedVolume = PlayerPrefs.GetInt(VolumeTag, 0);
+
+    float unConvertedVolume = (float) convertedVolume / 100;
+
+    return unConvertedVolume;
+  }
+
+  private void ApplySavedVolume()
+  {
+    if (PlayerPrefs.HasKey(MusicVolumeTag))
+    {
+      if(PlayerPrefs.HasKey(MusicMutedTag))
+        MuteMusic();
+      else
+        ChangeMusicVolume(GetLastSavedVolume(MusicVolumeTag));
+    }
+    
+    if (PlayerPrefs.HasKey(SoundsVolumeTag))
+    {
+      if(PlayerPrefs.HasKey(SoundsMutedTag))
+        MuteSounds();
+      else
+        ChangeSoundsVolume(GetLastSavedVolume(SoundsVolumeTag));
+    }
   }
 }

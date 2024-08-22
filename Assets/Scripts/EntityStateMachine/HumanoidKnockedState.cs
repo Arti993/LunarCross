@@ -19,6 +19,6 @@ public class HumanoidKnockedState : KnockedState
         SpineRigidbody.velocity = MovementDirection * MovementSpeed;
         SpineRigidbody.angularVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
         
-        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayKnockSound();
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayKnockSound();
     }
 }

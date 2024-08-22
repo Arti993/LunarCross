@@ -141,14 +141,14 @@ public class ChunkPlacer : MonoBehaviour
         
         if (this is TutorialChunkPlacer)
         {
-            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+            currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
                 .GetTutorialLevelSettings();
         }
         else
         {
-            int levelNumber = AllServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+            int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
 
-            currentLevel = AllServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+            currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
                 .GetLevelSettings(levelNumber);
         }
 

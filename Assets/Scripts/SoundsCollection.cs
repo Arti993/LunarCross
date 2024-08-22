@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class SoundsCollection : MonoBehaviour
@@ -32,22 +33,58 @@ public class SoundsCollection : MonoBehaviour
         _currentPlayingMusic.Play();
     }
 
-    public void StopAllSounds()
+    public void StopAudio()
     {
         foreach (Sound sound in _sounds)
             sound.StopPlay();
     }
+    
+    public void MuteSounds()
+    {
+        foreach (Sound sound in _sounds.Where( s => !s.Loop))
+            sound.Mute();
+    }
+    
+    public void UnMuteSounds()
+    {
+        foreach (Sound sound in _sounds.Where( s => !s.Loop))
+            sound.UnMute();
+    }
+    
+    public void MuteMusic()
+    {
+        foreach (Sound sound in _sounds.Where( s => s.Loop))
+            sound.Mute();
+    }
+    
+    public void UnMuteMusic()
+    {
+        foreach (Sound sound in _sounds.Where( s => s.Loop))
+            sound.UnMute();
+    }
 
-    public void MuteAllSounds()
+    public void MuteAudio()
     {
         foreach (Sound sound in _sounds)
             sound.Mute();
     }
     
-    public void UnMuteAllSounds()
+    public void UnMuteAudio()
     {
         foreach (Sound sound in _sounds)
             sound.UnMute();
+    }
+
+    public void ChangeMusicVolume(float volume)
+    {
+        foreach (Sound sound in _sounds.Where( s => s.Loop))
+            sound.ChangeVolume(volume);
+    }
+    
+    public void ChangeSoundsVolume(float volume)
+    {
+        foreach (Sound sound in _sounds.Where( s => !s.Loop))
+            sound.ChangeVolume(volume);
     }
 
     private void PrepareAudioSources()

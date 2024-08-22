@@ -8,7 +8,7 @@ public class TotalScoreViewer : MonoBehaviour
 
     private void Start()
     {
-        int totalScore = AllServicesContainer.Instance.GetService<IGameProgress>().GetTotalScore();
+        int totalScore = DIServicesContainer.Instance.GetService<IGameProgress>().GetTotalScore();
 
         _scoreText.text = totalScore.ToString();
     }

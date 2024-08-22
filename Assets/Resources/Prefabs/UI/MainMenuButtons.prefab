@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 491250169256130802}
   - component: {fileID: 5774394502799714488}
   - component: {fileID: 2750375242761229823}
-  - component: {fileID: 1221660513135369529}
+  - component: {fileID: 9188538347016510395}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -317,7 +317,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1221660513135369529}
+      - m_Target: {fileID: 9188538347016510395}
         m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -350,7 +350,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1221660513135369529
+--- !u!114 &9188538347016510395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2259692464527600122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9a7f709b80468439e39184b793861f, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a0585d8dd4ac9459bbbef53fc3b0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3367239228498033531
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 9156422035226709847}
   - component: {fileID: 814103192183564575}
   m_Layer: 5
-  m_Name: RestartGameButton
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,7 +1494,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 567863543979163362}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OnRestartGameButtonClick
+        m_MethodName: OnNewGameButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1928,11 +1928,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 450706033513109424}
+  - {fileID: 8070476928183211119}
   - {fileID: 2337795346109448105}
   - {fileID: 7262381575502376355}
   - {fileID: 8390243216696018777}
   - {fileID: 2504054905037134888}
-  - {fileID: 8070476928183211119}
   - {fileID: 395216272712950015}
   m_Father: {fileID: 0}
   m_RootOrder: -1

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
-    private const float InputChangeStepTime = 0.1f;
-    
+    private const float InputChangeStepTime = 0.5f;
+
     [SerializeField] private List<WheelAxle> wheelAxleList; 
     [SerializeField] private VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour
         _moveInput = _playerInput.Player.Turn.ReadValue<Vector2>();
 
         _sensitiveInput = Mathf.Lerp(_sensitiveInput, _moveInput.x, InputChangeStepTime);
-        
+
         _steering = vehicleSettings.steeringAngle * _sensitiveInput;
  
         foreach (WheelAxle wheelAxle in wheelAxleList)

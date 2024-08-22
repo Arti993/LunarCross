@@ -20,6 +20,6 @@ public interface IUiWindowFactory : IService
     public GameObject GetTutorialFinishWindow(GameObject parent);
     public GameObject GetMainMenuButtonsWindow(GameObject parent);
     public GameObject GetLeaderboardWindow(GameObject parent);
-    public GameObject GetLanguageChangerWindow(GameObject parent);
+    public GameObject GetSettingsWindow(GameObject parent);
 
 }

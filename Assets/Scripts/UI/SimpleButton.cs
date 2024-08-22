@@ -14,11 +14,11 @@ public class SimpleButton : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (AllServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false)
+        if (DIServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false)
             _button.interactable = true;
 
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadingComplete += OnScreenFaderDisable;
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete += OnScreenFaderDisable;
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
     }
 
     protected void OnScreenFaderEnable()
@@ -28,8 +28,8 @@ public class SimpleButton : MonoBehaviour
     
     private void OnDisable()
     {
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadingComplete -= OnScreenFaderDisable;
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadingStart -= OnScreenFaderEnable;
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete -= OnScreenFaderDisable;
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart -= OnScreenFaderEnable;
     }
 
     private void OnScreenFaderDisable()
@@ -39,6 +39,6 @@ public class SimpleButton : MonoBehaviour
 
     public void OnClick()
     {
-        AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayButtonPressSound();
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayButtonPressSound();
     }
 }

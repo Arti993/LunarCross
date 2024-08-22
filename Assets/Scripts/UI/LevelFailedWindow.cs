@@ -20,7 +20,7 @@ public class LevelFailedWindow : GameplayUIWindow
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadScene(sceneIndex);
     }
 
     private void PauseGame()

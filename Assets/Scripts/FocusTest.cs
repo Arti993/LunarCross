@@ -4,8 +4,6 @@ using Agava.WebUtility;
 
 public class FocusTest : MonoBehaviour
 {
-    //[SerializeField] private AudioSource _audioSource;
-
     private bool _isGameAlreadyPaused;
     
     private void Awake()
@@ -39,7 +37,10 @@ public class FocusTest : MonoBehaviour
 
     private void MuteAudio(bool value)
     {
-        //_audioSource.volume = value ? 0 : 1;
+        if(value)
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteAudio();
+        else
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteAudio();
     }
 
     private void PauseGame(bool value)

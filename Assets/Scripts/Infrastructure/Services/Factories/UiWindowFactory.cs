@@ -115,8 +115,8 @@ public class UiWindowFactory : IUiWindowFactory
         return _provider.Instantiate("Prefabs/UI/LeaderBoardWindow", parent.transform);
     }
 
-    public GameObject GetLanguageChangerWindow(GameObject parent)
+    public GameObject GetSettingsWindow(GameObject parent)
     {
-        return _provider.Instantiate("Prefabs/UI/LanguageChangeWindow", parent.transform);
+        return _provider.Instantiate("Prefabs/UI/SettingsWindow", parent.transform);
     }
 }

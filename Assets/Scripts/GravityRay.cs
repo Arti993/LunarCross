@@ -37,7 +37,7 @@ public class GravityRay : MonoBehaviour
 
             vehicleRotationLimit.enabled = false;
             
-            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayGravityRaySound();
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayGravityRaySound();
             
             StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
         }
@@ -62,9 +62,9 @@ public class GravityRay : MonoBehaviour
 
     private void ShowLevelCompleteWindow()
     {
-        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        GameObject window = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow(uiRoot);
+        GameObject window = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow(uiRoot);
 
         if (window.TryGetComponent(out LevelCompleteWindow levelCompleteWindow))
             _levelCompleteWindow = levelCompleteWindow;
@@ -85,7 +85,7 @@ public class GravityRay : MonoBehaviour
     {
         Vector3 entityPosition = bindPoint.BindedEntity.transform.position;
 
-        AllServicesContainer.Instance.GetService<IParticleSystemFactory>()
+        DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetRayPullingEffect(entityPosition);
 
         _levelCompleteWindow.CollectPoint();

@@ -13,7 +13,7 @@ public class LanguageSetButton : MonoBehaviour
 
     public void ChooseLanguage()
     {
-        AllServicesContainer.Instance.GetService<ILocalization>().SetLanguage(_language);
+        DIServicesContainer.Instance.GetService<ILocalization>().SetLanguage(_language);
         
         _menuWindow.Exit();
     }

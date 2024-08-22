@@ -15,7 +15,7 @@ MonoBehaviour:
   _chunkWithObstacles: {fileID: 3184099772230465382, guid: bd72bcf73ffa421408302c7f8c9870ab, type: 3}
   _tornadoChunk: {fileID: 3027547784663528058, guid: 98938cff2ff2e444abe07df19cd58ac2, type: 3}
   _finishChunk: {fileID: 2490967095242562504, guid: d7de4f8b66a0d6449bde326376d764d8, type: 3}
-  _emptyChunk: {fileID: 2490967095242562504, guid: 677e2d35006f91a4a9ca7055ca6c0250, type: 3}
+  _emptyChunk: {fileID: 3369120839989213012, guid: 677e2d35006f91a4a9ca7055ca6c0250, type: 3}
   _collectableEntitiesCount: 17
   _enemiesCount: 6
   _pointsForFirstStar: 4

@@ -16,7 +16,7 @@ public class UIRoot : MonoBehaviour
 
     private void OnDisable()
     {
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().DeleteUIRoot();
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().DeleteUIRoot();
     }
 
     public void SetCamera(Camera camera)

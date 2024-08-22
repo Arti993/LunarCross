@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelBorderChecker : MonoBehaviour
 {
-    private const int TutorialSceneIndex = 4;
-    
     private bool _isFirstContactSucceed;
     
     private void OnTriggerEnter(Collider other)
@@ -19,23 +17,25 @@ public class LevelBorderChecker : MonoBehaviour
                 
         Vector3 intersectionPoint = transform.GetComponent<Collider>().ClosestPointOnBounds(other.transform.position);
             
-        AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(intersectionPoint);
+        DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(intersectionPoint);
 
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (sceneIndex == TutorialSceneIndex)
-        {
-            TimePauser timePauser = new TimePauser();
-            
-            AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+        int tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
 
-            StartCoroutine(timePauser.Pause());
+        if (sceneIndex == tutorialSceneIndex)
+        {
+            TimePauserWithDelay timePauserWithDelay = new TimePauserWithDelay();
+            
+            DIServicesContainer.Instance.GetService<IScenesLoader>().LoadTutorialScene();
+
+            StartCoroutine(timePauserWithDelay.Pause());
         }
         else
         {
-            GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+            GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
                 
-            AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+            DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
         }
     }
 }

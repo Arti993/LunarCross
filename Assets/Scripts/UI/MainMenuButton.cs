@@ -1,11 +1,7 @@
-using UnityEngine;
-
-public class MainMenuButton : MonoBehaviour
+public class MainMenuButton : SimpleButton
 {
-    private const int MainMenuSceneIndex = 1;
-    
     public void GoToMainMenu()
     {
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(MainMenuSceneIndex);
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadMainMenuScene();
     }
 }

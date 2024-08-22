@@ -25,9 +25,9 @@ public class EntityToEjectDetector : MonoBehaviour, IEjectorFromVehicle
     private void PlayEjectionEffect(BindPoint bindPoint)
     {
         if (TryGetComponent(out AlienBehaviour alienBehaviour))
-            AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetAlienEjectEffect(bindPoint.transform.position);
+            DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetAlienEjectEffect(bindPoint.transform.position);
         
         if (TryGetComponent(out TornadoMovement tornadoMovement))
-            AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetTornadoEjectEffect(bindPoint.transform.position);
+            DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetTornadoEjectEffect(bindPoint.transform.position);
     }
 }

@@ -12,7 +12,7 @@ public class FinishTutorialWindowViewer : MonoBehaviour
 
     private void Show()
     {
-        UIRoot uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot().GetComponent<UIRoot>();
+        UIRoot uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot().GetComponent<UIRoot>();
 
         TutorialUIViewer tutorialUIViewer = uiRoot.GetTutorialUIViewer();
         

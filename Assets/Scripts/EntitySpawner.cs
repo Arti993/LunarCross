@@ -47,6 +47,8 @@ public class EntitySpawner : MonoBehaviour
 
         for (int i = 0; i < entitiesCount; i++)
         {
+            _isPositionFound = false;
+            
             while (_isPositionFound == false)
             {
                 Vector3 spawnPosition = GetRandomPositionForSpawn(chunkSurfaceSize, chunkPosition);
@@ -73,8 +75,6 @@ public class EntitySpawner : MonoBehaviour
                     _spawnedEntities.Add(newEntity);
                 }
             }
-
-            _isPositionFound = false;
         }
     }
 

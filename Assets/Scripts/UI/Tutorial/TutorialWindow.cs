@@ -28,9 +28,9 @@ public class TutorialWindow : GameplayUIWindow
         
         Time.timeScale = 1f;
         
-        GameObject uiRoot = AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        AllServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
     }
     
     protected virtual void PauseGame()
@@ -44,7 +44,7 @@ public class TutorialWindow : GameplayUIWindow
 
     protected CatchZoneViewer GetCatchZoneViewer()
     {
-        GameObject vehicle = AllServicesContainer.Instance.GetService<IGameplayFactory>().GetPlayerInstance();
+        GameObject vehicle = DIServicesContainer.Instance.GetService<IGameplayFactory>().GetPlayerInstance();
         
         if(vehicle.TryGetComponent(out CatchZoneViewer catchZoneViewer) == false)
             throw new InvalidOperationException();

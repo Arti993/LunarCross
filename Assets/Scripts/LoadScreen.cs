@@ -17,6 +17,6 @@ public class LoadScreen : MonoBehaviour
     
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadeIn();
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeIn();
     }
 }

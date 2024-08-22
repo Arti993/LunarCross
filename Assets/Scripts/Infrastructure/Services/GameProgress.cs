@@ -34,6 +34,9 @@ public class GameProgress : IGameProgress
             levelNumber = i + 1;
             _levelResultsTagsDictionary.Add(levelNumber, levelsResultsTags[i]);
         }
+        
+        PlayerPrefs.SetInt("SelectedLevelNumber", 0);
+        PlayerPrefs.Save();
     }
 
     public void SaveLevelProgress(int points)
@@ -47,6 +50,8 @@ public class GameProgress : IGameProgress
             PlayerPrefs.SetInt(levelResultTag, points);
             UnlockNextLevelIfNeed();
         }
+        
+        PlayerPrefs.Save();
     }
     
     
@@ -87,11 +92,15 @@ public class GameProgress : IGameProgress
         }
         
         PlayerPrefs.SetInt("ReachedLevelNumber", 1);
+        
+        PlayerPrefs.Save();
     }
 
     public void SelectLevel(int levelNumber)
     {
         PlayerPrefs.SetInt("SelectedLevelNumber", levelNumber);
+        
+        PlayerPrefs.Save();
     }
 
     private void UnlockNextLevelIfNeed()
@@ -105,6 +114,8 @@ public class GameProgress : IGameProgress
             reachedLevelNumber++;
             
             PlayerPrefs.SetInt("ReachedLevelNumber", reachedLevelNumber);
+            
+            PlayerPrefs.Save();
         }
     }
 }

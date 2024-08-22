@@ -28,7 +28,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
         {
             isFillingSuccess = true;
 
-            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayAstronautGetInSound();
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayAstronautGetInSound();
 
             previousBindPoint.Exempt();
         }
@@ -40,7 +40,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
     {
         if(TryFillBindPoint(entity, _leftSideBindPoints))
         {
-            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
             return true;
         }
         else
@@ -51,7 +51,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
     {
         if(TryFillBindPoint(entity, _rightSideBindPoints))
         {
-            AllServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
             return true;
         }
         else
@@ -71,7 +71,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
         {
             if (bindPoints[i].IsFree)
             {
-                AllServicesContainer.Instance.GetService<IParticleSystemFactory>().GetCollectEffect(entity.transform.position);
+                DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetCollectEffect(entity.transform.position);
                 
                 bindPoints[i].Fill(entity);
                 isFillingSuccess = true;

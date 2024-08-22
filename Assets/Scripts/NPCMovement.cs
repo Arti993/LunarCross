@@ -43,7 +43,7 @@ public class NPCMovement : MonoBehaviour
         if (other.TryGetComponent(out Bumper bumper) || other.TryGetComponent(out VehicleCatchZone zone))
             _canTrigger = false;
 
-        if (_canTrigger)
+        if (_canTrigger && (other.isTrigger || other.TryGetComponent(out Obstacle obstacle)))
             ReflectDirection(other);
     }
 

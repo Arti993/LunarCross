@@ -9,7 +9,7 @@ public class VehicleRotationLimit : MonoBehaviour
     private float _globalZRotation;
     private float _deltaRotationY;
     private float _targetRotationY;
-
+    
     private void Start()
     {
         _transform = transform;
@@ -17,18 +17,18 @@ public class VehicleRotationLimit : MonoBehaviour
         _globalZRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up).eulerAngles.y;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         _currentRotation = transform.rotation.eulerAngles;
         
         _globalZRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up).eulerAngles.y;
         
         _deltaRotationY = Mathf.DeltaAngle(_currentRotation.y, _globalZRotation);
-        
+
         if (Mathf.Abs(_deltaRotationY) > _maxRotationAbsYAngle)
         {
             _targetRotationY = _globalZRotation - Mathf.Sign(_deltaRotationY) * _maxRotationAbsYAngle;
-            
+
             _transform.rotation = Quaternion.Euler(_currentRotation.x, _targetRotationY, _currentRotation.z);
         }
     }

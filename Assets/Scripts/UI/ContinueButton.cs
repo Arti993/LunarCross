@@ -1,7 +1,14 @@
+using UnityEngine;
+
 public class ContinueButton : SimpleButton
 {
+    private const string FirstTimeLaunched = "FirstTimeLaunched";
+    
     protected override void Start()
     {
-        AllServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
+        if (PlayerPrefs.HasKey(FirstTimeLaunched) == false)
+            Destroy(gameObject);
+        
+        base.Start();
     }
 }
