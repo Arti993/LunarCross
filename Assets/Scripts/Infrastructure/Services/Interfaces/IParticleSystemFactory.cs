@@ -4,7 +4,7 @@ public interface IParticleSystemFactory : IService
 {
     public GameObject GetExplosionEffect(Vector3 position);
     
-    public GameObject GetRayPullingEffect(Vector3 position);
+    public GameObject GetGreenCollectEffect(Vector3 position);
 
     public GameObject GetCollectEffect(Vector3 position);
     

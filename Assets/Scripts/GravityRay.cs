@@ -86,7 +86,7 @@ public class GravityRay : MonoBehaviour
         Vector3 entityPosition = bindPoint.BindedEntity.transform.position;
 
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .GetRayPullingEffect(entityPosition);
+            .GetGreenCollectEffect(entityPosition);
 
         _levelCompleteWindow.CollectPoint();
 

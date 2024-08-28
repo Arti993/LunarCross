@@ -16,7 +16,7 @@ public class ParticleSystemFactory : IParticleSystemFactory
         return _provider.Instantiate("Prefabs/Particles/ExplosionFireballFire", position);
     }
 
-    public GameObject GetRayPullingEffect(Vector3 position)
+    public GameObject GetGreenCollectEffect(Vector3 position)
     {
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayAstronautInRaySound();
         

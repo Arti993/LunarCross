@@ -1800,7 +1800,7 @@ Transform:
   - {fileID: 2575924057724095661}
   - {fileID: 2848044072216643725}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9114477473979044515
 MonoBehaviour:
@@ -1826,7 +1826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 0
   defaultLanguage: English
   saveLoad: 1
@@ -2436,10 +2436,10 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Restart Game
+    Text: New Game
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Oyunu yeniden ba\u015Flat"
+    Text: Yeni Oyun
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"

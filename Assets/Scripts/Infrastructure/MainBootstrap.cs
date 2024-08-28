@@ -4,6 +4,8 @@ using UnityEngine;
 public class MainBootstrap : MonoBehaviour
 {
     //ВКЛЮЧИТЬ В AWAKE ЯНДЕКС!!!
+
+    private const string FocusTestPrefabPath = "Prefabs/FocusTest";
     
     private DIServicesContainer _diContainer;
     private static bool _isFirstAwake = true;
@@ -17,9 +19,13 @@ public class MainBootstrap : MonoBehaviour
             _diContainer = new DIServicesContainer();
             
             RegisterServices();
+            
+            _diContainer.GetService<IAssets>().Instantiate(FocusTestPrefabPath);
 
             _isFirstAwake = false;
         }
+        
+        DIServicesContainer.Instance.GetService<IAssets>().Instantiate("Prefabs/MainMenuDesign");
         
         OpenMainMenu();
     }

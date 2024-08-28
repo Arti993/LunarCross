@@ -62,19 +62,7 @@ public class SoundsCollection : MonoBehaviour
         foreach (Sound sound in _sounds.Where( s => s.Loop))
             sound.UnMute();
     }
-
-    public void MuteAudio()
-    {
-        foreach (Sound sound in _sounds)
-            sound.Mute();
-    }
     
-    public void UnMuteAudio()
-    {
-        foreach (Sound sound in _sounds)
-            sound.UnMute();
-    }
-
     public void ChangeMusicVolume(float volume)
     {
         foreach (Sound sound in _sounds.Where( s => s.Loop))

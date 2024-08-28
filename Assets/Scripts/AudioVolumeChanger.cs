@@ -7,6 +7,7 @@ public class AudioVolumeChanger : MonoBehaviour
     private const string SoundsVolumeTag = "LastSoundsVolume";
     private const string MusicMutedTag = "MusicMuted";
     private const string SoundsMutedTag = "SoundsMuted";
+    private const int MaxVolume = 1;
     
     [SerializeField] private Slider _musicVolumeSlider;
     [SerializeField] private Slider _turnedOffMusicSlider;
@@ -58,10 +59,8 @@ public class AudioVolumeChanger : MonoBehaviour
         {
             _turnedOffMusicSlider.gameObject.SetActive(false);
             _musicVolumeSlider.gameObject.SetActive(true);
-            
-            float lastSavedVolume = DIServicesContainer.Instance.GetService<IAudioPlayback>().GetLastSavedVolume(MusicVolumeTag);
 
-            _musicVolumeSlider.value = lastSavedVolume;
+            _musicVolumeSlider.value = MaxVolume;
             
             DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteMusic();
         }
@@ -80,10 +79,8 @@ public class AudioVolumeChanger : MonoBehaviour
         {
             _turnedOffSoundsSlider.gameObject.SetActive(false);
             _soundsVolumeSlider.gameObject.SetActive(true);
-            
-            float lastSavedVolume = DIServicesContainer.Instance.GetService<IAudioPlayback>().GetLastSavedVolume(SoundsVolumeTag);
 
-            _soundsVolumeSlider.value = lastSavedVolume;
+            _soundsVolumeSlider.value = MaxVolume;
             
             DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteSounds();
         }
@@ -91,6 +88,8 @@ public class AudioVolumeChanger : MonoBehaviour
         {
             _turnedOffSoundsSlider.gameObject.SetActive(true);
             _soundsVolumeSlider.gameObject.SetActive(false);
+            
+            PlayerPrefs.DeleteKey(MusicVolumeTag);
             
             DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteSounds();
         }

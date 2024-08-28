@@ -621,6 +621,10 @@
           <e p="Models" t="Include">
             <e p="Alien" t="Include" />
             <e p="Alien1" t="Include" />
+            <e p="low-poly-ladder" t="Include">
+              <e p="source" t="Include" />
+              <e p="Textures" t="Include" />
+            </e>
             <e p="LowlyPoly" t="Include">
               <e p="Free Stylized Rocks" t="Include">
                 <e p="Materials" t="Include" />
@@ -644,6 +648,9 @@
               </e>
               <e p="Textures" t="Include" />
             </e>
+            <e p="quick-little-toy-rocket" t="Include">
+              <e p="source" t="Include" />
+            </e>
             <e p="SimpleLowPolyNature" t="Include">
               <e p="Materials" t="Include" />
               <e p="Models" t="Include" />
@@ -664,6 +671,7 @@
                 <e p="Materials" t="Include" />
               </e>
             </e>
+            <e p="Tornado" t="Include" />
           </e>
           <e p="Plugins" t="Include">
             <e p="CW" t="Include">
@@ -831,31 +839,6 @@
                 <e p="readme.txt" t="Include" />
               </e>
             </e>
-            <e p="TypedScenes" t="Include">
-              <e p="Core" t="Include">
-                <e p="AnalyzableScene.cs" t="Include" />
-                <e p="ISceneLoadHandler.cs" t="Include" />
-                <e p="ITypedAwakeHandler.cs" t="Include" />
-                <e p="LoadingProcessor.cs" t="Include" />
-                <e p="SceneAnalyzer.cs" t="Include" />
-                <e p="ScenePostprocessor.cs" t="Include" />
-                <e p="TypedProcessor.cs" t="Include" />
-                <e p="TypedScene.cs" t="Include" />
-                <e p="TypedSceneGenerator.cs" t="Include" />
-                <e p="TypedSceneSettings.cs" t="Include" />
-                <e p="TypedSceneStorage.cs" t="Include" />
-                <e p="TypedSceneValidator.cs" t="Include" />
-              </e>
-              <e p="Samples" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="CustomClassHandler.cs" t="Include" />
-                  <e p="ExampleSceneLoadModel.cs" t="Include" />
-                  <e p="IntHandler.cs" t="Include" />
-                  <e p="MultiHandler.cs" t="Include" />
-                  <e p="StringHandler.cs" t="Include" />
-                </e>
-              </e>
-            </e>
           </e>
           <e p="Prefabs" t="Include">
             <e p="Chunks" t="Include">
@@ -880,7 +863,6 @@
           <e p="Sprites and Materials" t="Include">
             <e p="Materials" t="Include" />
           </e>
-          <e p="Tornado" t="Include" />
           <e p="UI" t="Include">
             <e p="Animations" t="Include" />
           </e>
@@ -929,15 +911,7 @@
             </e>
           </e>
         </e>
-        <e p="Scenes" t="Include">
-          <e p="Typed" t="Include">
-            <e p="Gameplay.cs" t="Include" />
-            <e p="LevelsChoose.cs" t="Include" />
-            <e p="MainMenu.cs" t="Include" />
-            <e p="Tutorial.cs" t="Include" />
-            <e p="YandexSDKInitialize.cs" t="Include" />
-          </e>
-        </e>
+        <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AudioVolumeChanger.cs" t="Include" />
           <e p="Chunk.cs" t="Include" />
@@ -990,6 +964,7 @@
             <e p="SimpleRotationState.cs" t="Include" />
             <e p="TornadoMovement.cs" t="Include" />
           </e>
+          <e p="FinalSceneCamera.cs" t="Include" />
           <e p="FinishTutorialWindowViewer.cs" t="Include" />
           <e p="FocusTest.cs" t="Include" />
           <e p="GravityRay.cs" t="Include" />
@@ -1047,6 +1022,8 @@
           <e p="PlayerFollowCamera.cs" t="Include" />
           <e p="Ragdoll.cs" t="Include" />
           <e p="RockElement.cs" t="Include" />
+          <e p="Rocket.cs" t="Include" />
+          <e p="RunnerToRocket.cs" t="Include" />
           <e p="ScaleAnimation.cs" t="Include" />
           <e p="Scriptable Objects" t="Include">
             <e p="Level.cs" t="Include" />

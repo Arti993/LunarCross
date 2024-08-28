@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ea1c485fdf9c1f247b887292ef11ae79, type: 2}
+    - target: {fileID: 1827747040561917845, guid: 363505f15faf5184ca11fe83c3b89c0e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ea1c485fdf9c1f247b887292ef11ae79, type: 2}
     - target: {fileID: 3036576035906353493, guid: 363505f15faf5184ca11fe83c3b89c0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -504,6 +508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mountains
       objectReference: {fileID: 0}
+    - target: {fileID: 5107923168922362077, guid: 363505f15faf5184ca11fe83c3b89c0e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ea1c485fdf9c1f247b887292ef11ae79, type: 2}
     - target: {fileID: 5891727694432648031, guid: 363505f15faf5184ca11fe83c3b89c0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

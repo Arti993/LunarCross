@@ -1,9 +1,12 @@
 using System.Collections;
 using Agava.YandexGames;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class YandexSDKInitializer : MonoBehaviour
 {
+    private const int MainMenuSceneIndex = 1;
+    
     private void Awake()
     {
         YandexGamesSdk.CallbackLogging = true;
@@ -16,6 +19,6 @@ public class YandexSDKInitializer : MonoBehaviour
 
     private void OnInitialized()
     {
-        IJunior.TypedScenes.MainMenu.Load();
+        SceneManager.LoadScene(MainMenuSceneIndex);
     }
 }
