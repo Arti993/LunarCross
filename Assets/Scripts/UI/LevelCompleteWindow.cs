@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System.Linq;
-using Agava.YandexGames;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
@@ -76,11 +75,13 @@ public class LevelCompleteWindow : GameplayUIWindow
             
             return;
         }
-        
-        //InterstitialAd.Show();
-        
+
         PlayerPrefs.DeleteKey("SelectedLevelNumber");
         
+#if UNITY_WEBGL && !UNITY_EDITOR
+    DIServicesContainer.Instance.GetService<IVideoAdService>().ShowInterstitialAd();
+#endif
+
         DIServicesContainer.Instance.GetService<IScenesLoader>().LoadLevelChooseScene();
     }
     
@@ -100,6 +101,7 @@ public class LevelCompleteWindow : GameplayUIWindow
         if (_points >= _pointsForFirstStar)
         {
             DIServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
+
             _continueButton.interactable = true;
         }
     }

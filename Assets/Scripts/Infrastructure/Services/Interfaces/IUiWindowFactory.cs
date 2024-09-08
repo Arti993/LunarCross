@@ -21,5 +21,6 @@ public interface IUiWindowFactory : IService
     public GameObject GetMainMenuButtonsWindow(GameObject parent);
     public GameObject GetLeaderboardWindow(GameObject parent);
     public GameObject GetSettingsWindow(GameObject parent);
+    public GameObject GetCompleteGameWindow(GameObject parent);
 
 }

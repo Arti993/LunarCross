@@ -3,21 +3,45 @@ using UnityEngine;
 
 public class LeaderboardView : MonoBehaviour
 {
-    [SerializeField] private Transform _container;
+    private const int MaxRowsCount = 10;
+    
+    [SerializeField] private Transform _mainContainer;
+    [SerializeField] private Transform _additionalContainer;
     [SerializeField] private LeaderboardElement _leaderboardElementPrefab;
 
     private List<LeaderboardElement> _spawnedElements = new List<LeaderboardElement>();
+    private bool _isCurrentScoreInTop;
 
-    public void ConstructiveLeaderboard(List<LeaderboardPlayer> leaderboardPlayers)
+    private void Awake()
+    {
+        _additionalContainer.gameObject.SetActive(false);
+    }
+
+    public void ConstructiveLeaderboard(List<LeaderboardPlayer> leaderboardPlayers, LeaderboardPlayer currentPlayer)
     {
         ClearLeaderBoard();
 
-        foreach (LeaderboardPlayer player in leaderboardPlayers)
+        for (int i = 0; i < MaxRowsCount; i++)
         {
-            LeaderboardElement leaderboardElementInstance = Instantiate(_leaderboardElementPrefab, _container);
-            leaderboardElementInstance.Initialize(player.Name, player.Score);
+            LeaderboardPlayer player = leaderboardPlayers[i];
+            
+            LeaderboardElement leaderboardElementInstance = Instantiate(_leaderboardElementPrefab, _mainContainer);
+            
+            leaderboardElementInstance.Initialize(player.Name, player.Score, player.Rank);
             
             _spawnedElements.Add(leaderboardElementInstance);
+
+            if (currentPlayer.Score >= player.Score)
+                _isCurrentScoreInTop = true;
+        }
+
+        if (_isCurrentScoreInTop == false)
+        {
+            _additionalContainer.gameObject.SetActive(true);
+            
+            LeaderboardElement leaderboardElementInstance = Instantiate(_leaderboardElementPrefab, _additionalContainer);
+            
+            leaderboardElementInstance.Initialize(currentPlayer.Name, currentPlayer.Score, currentPlayer.Rank);
         }
     }
 

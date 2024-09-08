@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundsCollection : MonoBehaviour
 {
     [SerializeField] private Sound[] _sounds;
-
+    
     private Sound _currentPlayingMusic;
 
     private void Awake()
@@ -86,7 +86,7 @@ public class SoundsCollection : MonoBehaviour
         Sound soundToPlay = Array.Find(_sounds, sound => sound.Name == soundName);
         
         if(soundToPlay == null)
-            throw new InvalidOperationException("Sound with this name not found");
+            throw new InvalidOperationException();
 
         return soundToPlay;
     }

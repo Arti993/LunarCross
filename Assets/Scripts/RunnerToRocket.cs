@@ -8,7 +8,7 @@ public class RunnerToRocket : MonoBehaviour
     private Transform _firstPoint;
     private Transform _secondPoint;
     private Transform _target;
-    private float _speed = 0.03f;
+    private float _speed = 0.025f;
     private float _minDistance = 0.01f;
     private int _currentPointIndex = 0;
 
@@ -35,7 +35,7 @@ public class RunnerToRocket : MonoBehaviour
             }
             else if (_currentPointIndex > 1)
             {
-                //DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetGreenCollectEffect(_transform.position);
+                DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetGreenCollectEffect(_transform.position);
                 
                 _rocket.PlaceRunner(this);
             }

@@ -12,5 +12,6 @@ public interface IGameProgress : IService
     public void ClearSaves();
 
     public void SelectLevel(int levelNumber);
+    public void ClearSelectedLevel();
 
 }

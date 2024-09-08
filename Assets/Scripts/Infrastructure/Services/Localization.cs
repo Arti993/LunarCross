@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Localization : ILocalization
 {
-    private readonly IAssets _provider;
+    private readonly IAssetsProvider _provider;
     private LanguageChanger _languageChanger;
 
-    public Localization(IAssets provider)
+    public Localization(IAssetsProvider provider)
     {
         _provider = provider;
 

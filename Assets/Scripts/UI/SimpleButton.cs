@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SimpleButton : MonoBehaviour
 {
     private Button _button;
-    
+
     private void Awake()
     {
         _button = GetComponent<Button>();
@@ -20,11 +20,6 @@ public class SimpleButton : MonoBehaviour
         DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete += OnScreenFaderDisable;
         DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
     }
-
-    protected void OnScreenFaderEnable()
-    {
-        _button.interactable = false;
-    }
     
     private void OnDisable()
     {
@@ -32,13 +27,22 @@ public class SimpleButton : MonoBehaviour
         DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart -= OnScreenFaderEnable;
     }
 
-    private void OnScreenFaderDisable()
-    {
-        _button.interactable = true;
-    }
-
     public void OnClick()
     {
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayButtonPressSound();
     }
+    
+    protected void OnScreenFaderEnable()
+    {
+        if (_button != null)
+            _button.interactable = false;
+    }
+
+
+    private void OnScreenFaderDisable()
+    {
+        if (_button != null)
+            _button.interactable = true;
+    }
+
 }

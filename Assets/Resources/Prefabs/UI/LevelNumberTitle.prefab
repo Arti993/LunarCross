@@ -36,10 +36,10 @@ RectTransform:
   m_Father: {fileID: 816990135712624275}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.31727085, y: 0.1811126}
-  m_AnchorMax: {x: 0.31727085, y: 0.1811126}
-  m_AnchoredPosition: {x: -33, y: 2}
-  m_SizeDelta: {x: 199.39328, y: 49.97834}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4236929202084472561
 CanvasRenderer:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -78.50946, y: 0, z: -82.011475, w: 0}
+  m_margin: {x: 98.91809, y: 0, z: 221.16846, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -201,10 +201,10 @@ RectTransform:
   m_Father: {fileID: 816990135712624275}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.31727085, y: 0.8287778}
-  m_AnchorMax: {x: 0.31727085, y: 0.8287778}
-  m_AnchoredPosition: {x: 44, y: -29}
-  m_SizeDelta: {x: 199.39328, y: 49.97834}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &247331020283045359
 CanvasRenderer:
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -95.42346, y: 0, z: -62.933228, w: 0}
+  m_margin: {x: 1.1925049, y: 0, z: -1.0327148, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -369,8 +369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.31727085, y: 0.8287778}
   m_AnchorMax: {x: 0.68829167, y: 0.94425935}
-  m_AnchoredPosition: {x: -5.5, y: -3.5}
-  m_SizeDelta: {x: -513, y: -75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6601278083303928125
 CanvasRenderer:
@@ -428,10 +428,10 @@ RectTransform:
   m_Father: {fileID: 7849084744479343446}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.31727085, y: 1}
-  m_AnchorMax: {x: 0.31727085, y: 1}
-  m_AnchoredPosition: {x: 302, y: -25.217712}
-  m_SizeDelta: {x: 199.39328, y: 49.97834}
+  m_AnchorMin: {x: 0.7977319, y: 0}
+  m_AnchorMax: {x: 0.9635395, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1103309565501864090
 CanvasRenderer:
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 27.956299, y: 0, z: 30.235596, w: 0}
+  m_margin: {x: 0.64160156, y: 0, z: -1.6362305, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -540,11 +540,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4704573497969729177, guid: 5c6fbd01f700e414792396de63bb8377, type: 3}
       propertyPath: currentLanguage
-      value: English
+      value: Russian
       objectReference: {fileID: 0}
     - target: {fileID: 5104807694080070716, guid: 5c6fbd01f700e414792396de63bb8377, type: 3}
       propertyPath: m_Name
       value: LeanLocalization
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104807694080070716, guid: 5c6fbd01f700e414792396de63bb8377, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8200164506107374998, guid: 5c6fbd01f700e414792396de63bb8377, type: 3}
       propertyPath: m_RootOrder

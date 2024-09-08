@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FinalSceneCamera : MonoBehaviour
+public class FinalSceneCamera : CameraFrustrumChanger
 {
     [SerializeField] private Transform _rocket;
     [SerializeField] private GameObject _designObjectsContainer;
@@ -11,7 +11,7 @@ public class FinalSceneCamera : MonoBehaviour
     private float _maxCameraOffset = 28;
     private float _maxRocketOffset = 55;
 
-    private void Awake()
+    private void Start()
     {
         _transform = transform;
         _startRocketPositionY = _rocket.position.y;
@@ -32,10 +32,17 @@ public class FinalSceneCamera : MonoBehaviour
         {
             Destroy(_rocket.gameObject);
             Destroy(_designObjectsContainer);
-            
-            //вызов UI
+
+            ShowCompleteGameWindow();
             
             Destroy(this);
         }
+    }
+
+    private void ShowCompleteGameWindow()
+    {
+        GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetCompleteGameWindow(uiRootObject);
     }
 }

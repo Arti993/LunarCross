@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 5754034596038711467}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.16346534, y: 0.17981796}
-  m_AnchorMax: {x: 0.30169797, y: 0.33380482}
-  m_AnchoredPosition: {x: 0.5, y: -1}
-  m_SizeDelta: {x: -12, y: -7}
+  m_AnchorMin: {x: 0.17400001, y: 0.186}
+  m_AnchorMax: {x: 0.294, y: 0.32353956}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3396508284233832210
 CanvasRenderer:
@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05565626, y: 0.34141028}
   m_AnchorMax: {x: 0.94732815, y: 0.81700003}
-  m_AnchoredPosition: {x: -30.5, y: -3.5}
-  m_SizeDelta: {x: -43, y: 17}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3367094102755893278
 CanvasRenderer:
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -18.571098, y: 0, z: -80.37774, w: 0}
+  m_margin: {x: -18.571098, y: 0, z: -3.114006, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -280,10 +280,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.14751853}
-  m_AnchorMax: {x: 1, y: 0.80200005}
-  m_AnchoredPosition: {x: -1543, y: -104.99124}
-  m_SizeDelta: {x: 632.7483, y: -245.7685}
+  m_AnchorMin: {x: 0.027770836, y: 0.14751853}
+  m_AnchorMax: {x: 0.36635417, y: 0.5985185}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3821672245798838318
 CanvasRenderer:
@@ -375,8 +375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27932656, y: 0.81441027}
   m_AnchorMax: {x: 0.71653473, y: 0.9627495}
-  m_AnchoredPosition: {x: 1.5010071, y: -2.5}
-  m_SizeDelta: {x: -4.302002, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3405079368851705117
 CanvasRenderer:
@@ -453,8 +453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.087606534, y: 0.31428507}
   m_AnchorMax: {x: 0.936396, y: 0.78621507}
-  m_AnchoredPosition: {x: -181, y: -2}
-  m_SizeDelta: {x: -488, y: -238}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2402497777723301883
 CanvasRenderer:
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -51.27079, y: 0, z: -423.24738, w: 0}
+  m_margin: {x: -1.5817032, y: 0, z: -0.67401123, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -618,10 +618,10 @@ RectTransform:
   m_Father: {fileID: 5754034596038711467}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7023111, y: 0.15812935}
-  m_AnchorMax: {x: 0.837302, y: 0.33380482}
-  m_AnchoredPosition: {x: -1, y: 2}
-  m_SizeDelta: {x: -11, y: -17}
+  m_AnchorMin: {x: 0.70846176, y: 0.186}
+  m_AnchorMax: {x: 0.82800007, y: 0.32353956}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9110555086271045471
 CanvasRenderer:
@@ -677,14 +677,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7017335979271987778}
-    - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Continue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633614337127617798, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7829593687627334274, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

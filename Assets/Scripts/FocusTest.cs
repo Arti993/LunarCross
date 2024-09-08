@@ -1,10 +1,11 @@
 using UnityEngine;
 using Agava.WebUtility;
+using UnityEngine.SceneManagement;
 
 public class FocusTest : MonoBehaviour
 {
     private bool _isGameAlreadyPaused;
-    
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -27,7 +28,7 @@ public class FocusTest : MonoBehaviour
         MuteAudio(!inApp);
         PauseGame(!inApp);
     }
-    
+
     private void OnInBackGroundChangeWeb(bool isBackground)
     {
         MuteAudio(isBackground);
@@ -36,7 +37,7 @@ public class FocusTest : MonoBehaviour
 
     private void MuteAudio(bool value)
     {
-        if(value)
+        if (value)
             DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteAudio();
         else
             DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteAudio();
@@ -44,12 +45,30 @@ public class FocusTest : MonoBehaviour
 
     private void PauseGame(bool value)
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        int tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
+
+        int gameplaySceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetGameplaySceneIndex();
+
+        if (currentSceneIndex == gameplaySceneIndex || currentSceneIndex == tutorialSceneIndex)
+        {
+            if (Time.timeScale != 0)
+            {
+                GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+
+                DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseMenuWindow(uiRoot);
+            }
+
+            return;
+        }
+
         if (Time.timeScale != 0)
             _isGameAlreadyPaused = false;
-        
+
         if (Time.timeScale == 0 && value)
             _isGameAlreadyPaused = true;
-        
+
         if (_isGameAlreadyPaused == false && value)
             Time.timeScale = 0;
 

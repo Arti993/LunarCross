@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AudioPlayback : IAudioPlayback
 {
+    private const string SoundsCollectionPrefabPath = "Prefabs/SoundsCollection";
     private const string MusicVolumeTag = "LastMusicVolume";
     private const string SoundsVolumeTag = "LastSoundsVolume";
     private const string MusicMutedTag = "MusicMuted";
@@ -22,35 +23,35 @@ public class AudioPlayback : IAudioPlayback
 
     private bool _isMenuThemePlaying;
     private readonly SoundsCollection _soundsCollection;
+    
 
-    public AudioPlayback(IAssets provider)
+    public AudioPlayback(IAssetsProvider provider)
     {
-        GameObject soundsCollectionObject = provider.Instantiate("Prefabs/SoundsCollection");
+        GameObject soundsCollectionObject =  provider.Instantiate(SoundsCollectionPrefabPath);
 
-        if (soundsCollectionObject.TryGetComponent(out SoundsCollection soundsCollection) == false)
+        if(soundsCollectionObject.TryGetComponent(out SoundsCollection soundsCollection) == false)
             throw new InvalidOperationException();
 
         _soundsCollection = soundsCollection;
-
+        
         ApplySavedVolume();
     }
 
     public void MuteAudio()
     {
-        _soundsCollection.MuteMusic();
-        _soundsCollection.MuteSounds();
+        AudioListener.volume = 0f;
     }
 
     public void UnMuteAudio()
     {
-        ApplySavedVolume();
+        AudioListener.volume = 1f;
     }
 
     public void MuteMusic()
     {
         _soundsCollection.MuteMusic();
 
-        PlayerPrefs.SetInt(MusicMutedTag, 0);
+        PlayerPrefs.SetInt(MusicMutedTag, 1);
         PlayerPrefs.Save();
     }
 
@@ -66,7 +67,7 @@ public class AudioPlayback : IAudioPlayback
     {
         _soundsCollection.MuteSounds();
 
-        PlayerPrefs.SetInt(SoundsMutedTag, 0);
+        PlayerPrefs.SetInt(SoundsMutedTag, 1);
         PlayerPrefs.Save();
     }
 

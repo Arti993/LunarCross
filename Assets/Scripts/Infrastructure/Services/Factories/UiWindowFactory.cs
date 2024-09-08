@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class UiWindowFactory : IUiWindowFactory
 {
-    private readonly IAssets _provider;
+    private readonly IAssetsProvider _provider;
     private GameObject _uiRootObject;
 
-    public UiWindowFactory(IAssets provider)
+    public UiWindowFactory(IAssetsProvider provider)
     {
         _provider = provider;
     }
@@ -118,5 +118,10 @@ public class UiWindowFactory : IUiWindowFactory
     public GameObject GetSettingsWindow(GameObject parent)
     {
         return _provider.Instantiate("Prefabs/UI/SettingsWindow", parent.transform);
+    }
+
+    public GameObject GetCompleteGameWindow(GameObject parent)
+    {
+        return _provider.Instantiate("Prefabs/UI/GameCompleteWindow", parent.transform);
     }
 }

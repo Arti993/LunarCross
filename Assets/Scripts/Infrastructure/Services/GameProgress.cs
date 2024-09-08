@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameProgress : IGameProgress
 {
+    private const string SelectedLevelNumberTag = "SelectedLevelNumber";
+    private const string ReachedLevelNumberTag = "ReachedLevelNumber";
     private const string Level1ResultTag = "Level1Result";
     private const string Level2ResultTag = "Level2Result";
     private const string Level3ResultTag = "Level3Result";
@@ -35,7 +37,7 @@ public class GameProgress : IGameProgress
             _levelResultsTagsDictionary.Add(levelNumber, levelsResultsTags[i]);
         }
         
-        PlayerPrefs.SetInt("SelectedLevelNumber", 0);
+        PlayerPrefs.SetInt(SelectedLevelNumberTag, 0);
         PlayerPrefs.Save();
     }
 
@@ -57,10 +59,10 @@ public class GameProgress : IGameProgress
     
     public int GetCurrentLevelNumber()
     {
-        int levelNumber = PlayerPrefs.GetInt("SelectedLevelNumber", 0);
+        int levelNumber = PlayerPrefs.GetInt(SelectedLevelNumberTag, 0);
 
         if (levelNumber == 0)
-            levelNumber = PlayerPrefs.GetInt("ReachedLevelNumber", 1);
+            levelNumber = PlayerPrefs.GetInt(ReachedLevelNumberTag, 1);
 
         return levelNumber;
     }
@@ -91,29 +93,34 @@ public class GameProgress : IGameProgress
             PlayerPrefs.SetInt(level.Value, 0);
         }
         
-        PlayerPrefs.SetInt("ReachedLevelNumber", 1);
+        PlayerPrefs.SetInt(ReachedLevelNumberTag, 1);
         
         PlayerPrefs.Save();
     }
 
     public void SelectLevel(int levelNumber)
     {
-        PlayerPrefs.SetInt("SelectedLevelNumber", levelNumber);
+        PlayerPrefs.SetInt(SelectedLevelNumberTag, levelNumber);
         
         PlayerPrefs.Save();
+    }
+
+    public void ClearSelectedLevel()
+    {
+        PlayerPrefs.DeleteKey(SelectedLevelNumberTag);
     }
 
     private void UnlockNextLevelIfNeed()
     {
         int completedLevelNumber = GetCurrentLevelNumber();
         
-        int reachedLevelNumber = PlayerPrefs.GetInt("ReachedLevelNumber", 1);
+        int reachedLevelNumber = PlayerPrefs.GetInt(ReachedLevelNumberTag, 1);
 
         if (completedLevelNumber == reachedLevelNumber)
         {
             reachedLevelNumber++;
             
-            PlayerPrefs.SetInt("ReachedLevelNumber", reachedLevelNumber);
+            PlayerPrefs.SetInt(ReachedLevelNumberTag, reachedLevelNumber);
             
             PlayerPrefs.Save();
         }

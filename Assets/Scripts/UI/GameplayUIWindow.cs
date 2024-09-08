@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class GameplayUIWindow : UIWindow
 {
-    private const string SelectedLevelNumber = "SelectedLevelNumber";
-
     public void GoToMainMenu()
     {
-        PlayerPrefs.DeleteKey(SelectedLevelNumber);
+        DIServicesContainer.Instance.GetService<IGameProgress>().ClearSelectedLevel();
         
         DIServicesContainer.Instance.GetService<IScenesLoader>().LoadMainMenuScene();
     }

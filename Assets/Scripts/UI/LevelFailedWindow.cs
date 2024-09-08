@@ -14,6 +14,8 @@ public class LevelFailedWindow : GameplayUIWindow
         PauseGame();
         
         DestroyPauseButton();
+        
+        PanelIntro();
     }
     
     public void RestartLevel()
@@ -38,7 +40,5 @@ public class LevelFailedWindow : GameplayUIWindow
         yield return new WaitForSeconds(_stopTimeDelay);
 
         Time.timeScale = 0f;
-        
-        PanelIntro();
     }
 }

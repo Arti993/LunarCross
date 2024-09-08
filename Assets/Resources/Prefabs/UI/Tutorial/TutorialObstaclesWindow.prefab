@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04118764, y: 0.25500003}
   m_AnchorMax: {x: 0.966, y: 0.88910264}
-  m_AnchoredPosition: {x: -31, y: -1}
-  m_SizeDelta: {x: -52, y: 6}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8519992813654857290
 CanvasRenderer:
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -18.571098, y: 0, z: -80.37774, w: 0}
+  m_margin: {x: -0.54465485, y: 0, z: 0.8732376, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -176,7 +176,6 @@ GameObject:
   - component: {fileID: 8203349590139438450}
   - component: {fileID: 7451523906874603195}
   - component: {fileID: 4061964566469781241}
-  - component: {fileID: 1245718862832940327}
   - component: {fileID: 8024272559362817276}
   m_Layer: 5
   m_Name: TutorialObstaclesWindow
@@ -203,10 +202,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.14751853}
-  m_AnchorMax: {x: 1, y: 0.80200005}
-  m_AnchoredPosition: {x: -1543, y: -71.89108}
-  m_SizeDelta: {x: 632.7483, y: -179.5682}
+  m_AnchorMin: {x: 0.03127084, y: 0.14751853}
+  m_AnchorMax: {x: 0.36487502, y: 0.6586668}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.0000076293945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7451523906874603195
 CanvasRenderer:
@@ -246,20 +245,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1245718862832940327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4993691195938888572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d00f20d238bbf354a87910ea42797f20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _container: {fileID: 8203349590139438450}
-  _leaderboardElementPrefab: {fileID: 761784285790715107, guid: 7b1bc31aa7784cf44819b15bc87becee, type: 3}
 --- !u!114 &8024272559362817276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,8 +297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27932656, y: 0.81441027}
   m_AnchorMax: {x: 0.71653473, y: 0.9627495}
-  m_AnchoredPosition: {x: 1.5010071, y: -2.5}
-  m_SizeDelta: {x: -4.302002, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2212546019491230158
 CanvasRenderer:
@@ -390,8 +375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.033, y: 0.26586032}
   m_AnchorMax: {x: 0.9843757, y: 0.76227945}
-  m_AnchoredPosition: {x: -178, y: -6}
-  m_SizeDelta: {x: -572, y: -282}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4359292931005849610
 CanvasRenderer:
@@ -485,7 +470,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -112.519615, y: 0, z: -461.4405, w: 0}
+  m_margin: {x: 1.0331802, y: 0, z: 1.6473389, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -538,14 +523,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8024272559362817276}
-    - target: {fileID: 4604125591320699085, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Continue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633614337127617798, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7829593687627334274, guid: 133e696b38cedb4488868b9443e7b857, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

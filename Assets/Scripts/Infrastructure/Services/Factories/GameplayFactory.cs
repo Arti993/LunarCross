@@ -8,9 +8,9 @@ public class GameplayFactory : IGameplayFactory
 
     private GameObject _playerInstance;
     
-    private readonly IAssets _provider;
+    private readonly IAssetsProvider _provider;
 
-    public GameplayFactory(IAssets provider)
+    public GameplayFactory(IAssetsProvider provider)
     {
         _provider = provider;
     }

@@ -10,6 +10,7 @@ public class YandexLeaderboard : MenuWindow
 
     private LeaderboardView _leaderboardView;
     private readonly List<LeaderboardPlayer> _leaderboardPlayers = new List<LeaderboardPlayer>();
+    private LeaderboardPlayer _currentPlayer;
 
     protected override void Awake()
     {
@@ -46,16 +47,17 @@ public class YandexLeaderboard : MenuWindow
         {
             foreach (var entry in result.entries)
             {
+                int rank = entry.rank;
                 int score = entry.score;
                 string name = entry.player.publicName;
 
                 if (string.IsNullOrEmpty(name))
                     name = AnonymousName;
 
-                _leaderboardPlayers.Add(new LeaderboardPlayer(name, score));
+                _leaderboardPlayers.Add(new LeaderboardPlayer(name, score, rank));
             }
 
-            _leaderboardView.ConstructiveLeaderboard(_leaderboardPlayers);
+            _leaderboardView.ConstructiveLeaderboard(_leaderboardPlayers, _currentPlayer);
         });
     }
 
@@ -63,11 +65,19 @@ public class YandexLeaderboard : MenuWindow
     {
         if (PlayerAccount.IsAuthorized == false)
             return;
-
+        
         Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
-            if (result == null || result.score < score)
+            if (result.score < score)
+            {
                 Leaderboard.SetScore(LeaderboardName, score);
+                
+                _currentPlayer = new LeaderboardPlayer(result.player.publicName, score, result.rank);
+            }
+            else
+            {
+                _currentPlayer = new LeaderboardPlayer(result.player.publicName, result.score, result.rank);
+            }
         });
     }
 }

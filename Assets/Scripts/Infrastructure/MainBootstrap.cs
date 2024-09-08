@@ -1,70 +1,65 @@
+using Agava.WebUtility;
 using Agava.YandexGames;
 using UnityEngine;
 
 public class MainBootstrap : MonoBehaviour
 {
-    //ВКЛЮЧИТЬ В AWAKE ЯНДЕКС!!!
-
-    private const string FocusTestPrefabPath = "Prefabs/FocusTest";
-    
     private DIServicesContainer _diContainer;
     private static bool _isFirstAwake = true;
 
     private void Awake()
     {
-        //YandexGamesSdk.GameReady();
+#if UNITY_WEBGL && !UNITY_EDITOR
+    YandexGamesSdk.GameReady();
+#endif
 
         if (_isFirstAwake)
         {
             _diContainer = new DIServicesContainer();
-            
+
             RegisterServices();
-            
-            _diContainer.GetService<IAssets>().Instantiate(FocusTestPrefabPath);
 
             _isFirstAwake = false;
         }
-        
-        DIServicesContainer.Instance.GetService<IAssets>().Instantiate("Prefabs/MainMenuDesign");
-        
+
         OpenMainMenu();
     }
 
     private void RegisterServices()
     {
-        _diContainer.RegisterService<IAssets>(new AssetProvider());
+        _diContainer.RegisterService<IAssetsProvider>(new AssetsProvider());
 
-        _diContainer.RegisterService<ILocalization>(new Localization(
-            _diContainer.GetService<IAssets>()));
-        
-        _diContainer.RegisterService<IAudioPlayback>(new AudioPlayback(
-            _diContainer.GetService<IAssets>()));
-        
+        IAssetsProvider provider = _diContainer.GetService<IAssetsProvider>();
+
+        _diContainer.RegisterService<ILocalization>(new Localization(provider));
+
+        _diContainer.RegisterService<IAudioPlayback>(new AudioPlayback(provider));
+
         _diContainer.RegisterService<IGameProgress>(new GameProgress());
-        
+
         _diContainer.RegisterService<ILevelsSettingsNomenclature>(new LevelsSettingsNomenclature());
-        
-        _diContainer.RegisterService<IScreenFader>(new ScreenFader(
-            _diContainer.GetService<IAssets>()));
-        
+
+        _diContainer.RegisterService<IScreenFader>(new ScreenFader(provider));
+
         _diContainer.RegisterService<IScenesLoader>(new ScenesLoader());
+
+        _diContainer.RegisterService<IUiWindowFactory>(new UiWindowFactory(provider));
+
+        _diContainer.RegisterService<IParticleSystemFactory>(new ParticleSystemFactory(provider));
+
+        _diContainer.RegisterService<IGameplayFactory>(new GameplayFactory(provider));
         
-        _diContainer.RegisterService<IUiWindowFactory>(new UiWindowFactory(
-            _diContainer.GetService<IAssets>()));
-        
-        _diContainer.RegisterService<IParticleSystemFactory>(new ParticleSystemFactory(
-            _diContainer.GetService<IAssets>()));
-        
-        _diContainer.RegisterService<IGameplayFactory>(new GameplayFactory(
-            _diContainer.GetService<IAssets>()));
+        _diContainer.RegisterService<IFocusTestStateChanger>(new FocusTestStateChanger(provider));
+
+        _diContainer.RegisterService<IVideoAdService>(new VideoAdService(provider));
     }
 
     private void OpenMainMenu()
     {
         GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-        
+
         DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetMainMenuButtonsWindow(uiRootObject);
-        
+
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayMenuTheme();
     }
 }

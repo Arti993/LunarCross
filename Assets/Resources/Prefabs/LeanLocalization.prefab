@@ -1,5 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3679229590828318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4753850697411732730}
+  - component: {fileID: 6776884938944363560}
+  m_Layer: 0
+  m_Name: CongratulationsStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4753850697411732730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679229590828318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8200164506107374998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6776884938944363560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679229590828318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Congratulations, brave explorer!
+
+      You overcame all obstacles and
+      helped save the lost astronauts on this mysterious planet. You became a true
+      space hero. Now the world is filled with hope again thanks to your efforts.
+      The galaxy is proud of you!'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Tebrikler cesur ka\u015Fif!\nT\xFCm engelleri a\u015Ft\u0131n\u0131z ve
+      bu gizemli gezegende kay\u0131p astronotlar\u0131n kurtar\u0131lmas\u0131na
+      yard\u0131mc\u0131 oldunuz. Ger\xE7ek bir uzay kahraman\u0131 oldun. Art\u0131k
+      sizlerin \xE7abalar\u0131 sayesinde d\xFCnya yeniden umutla doldu. Galaksi
+      seninle gurur duyuyor!"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u0435\u043C, \u043E\u0442\u0432\u0430\u0436\u043D\u044B\u0439
+      \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u044C!
+      \r\n\u0422\u044B \u043F\u0440\u0435\u043E\u0434\u043E\u043B\u0435\u043B \u0432\u0441\u0435
+      \u043F\u0440\u0435\u0433\u0440\u0430\u0434\u044B \u0438 \u043F\u043E\u043C\u043E\u0433
+      \u0441\u043F\u0430\u0441\u0442\u0438 \u043F\u043E\u0442\u0435\u0440\u044F\u0432\u0448\u0438\u0445\u0441\u044F
+      \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432 \u043D\u0430
+      \u044D\u0442\u043E\u0439 \u0437\u0430\u0433\u0430\u0434\u043E\u0447\u043D\u043E\u0439
+      \u043F\u043B\u0430\u043D\u0435\u0442\u0435. \u0422\u044B \u0441\u0442\u0430\u043B
+      \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0438\u043C \u0433\u0435\u0440\u043E\u0435\u043C
+      \u043A\u043E\u0441\u043C\u043E\u0441\u0430. \u0422\u0435\u043F\u0435\u0440\u044C
+      \u043C\u0438\u0440 \u0432\u043D\u043E\u0432\u044C \u043D\u0430\u043F\u043E\u043B\u043D\u044F\u0435\u0442\u0441\u044F
+      \u043D\u0430\u0434\u0435\u0436\u0434\u043E\u0439 \u0431\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044F
+      \u0442\u0432\u043E\u0438\u043C \u0443\u0441\u0438\u043B\u0438\u044F\u043C.
+      \u0413\u0430\u043B\u0430\u043A\u0442\u0438\u043A\u0430 \u0433\u043E\u0440\u0434\u0438\u0442\u0441\u044F
+      \u0442\u043E\u0431\u043E\u0439! "
+    Object: {fileID: 0}
 --- !u!1 &108516834815158035
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +132,61 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0424"
+    Object: {fileID: 0}
+--- !u!1 &235156062337918077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489655385734500179}
+  - component: {fileID: 5774166221746679392}
+  m_Layer: 0
+  m_Name: 'SavedAstronauts:'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1489655385734500179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235156062337918077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8200164506107374998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5774166221746679392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235156062337918077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Astronauts saved:'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Astronotlar kurtar\u0131ld\u0131:"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0421\u043F\u0430\u0441\u0435\u043D\u043E \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432:"
     Object: {fileID: 0}
 --- !u!1 &325248555114481042
 GameObject:
@@ -221,6 +354,61 @@ MonoBehaviour:
     Text: "\u0412\u044B \u0443\u0434\u0430\u043B\u0438\u0442\u0435 \u0432\u0435\u0441\u044C
       \u0441\u0432\u043E\u0439 \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441,
       \u0432\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B?"
+    Object: {fileID: 0}
+--- !u!1 &1122013991582658097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441253604884069725}
+  - component: {fileID: 5222964236563866004}
+  m_Layer: 0
+  m_Name: GlobalRating
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &441253604884069725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122013991582658097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8200164506107374998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5222964236563866004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122013991582658097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Global rating
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "K\xFCresel s\u0131ralama"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0413\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0435\u0439\u0442\u0438\u043D\u0433"
     Object: {fileID: 0}
 --- !u!1 &1376503151571455380
 GameObject:
@@ -1611,6 +1799,70 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u044B"
     Object: {fileID: 0}
+--- !u!1 &4943095009490621733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091749509663971797}
+  - component: {fileID: 331386947244963815}
+  m_Layer: 0
+  m_Name: CongratulationsEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1091749509663971797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943095009490621733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8200164506107374998}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331386947244963815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943095009490621733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: If you want to become even better, try to save as many astronauts as possible
+      on each level, see you in new adventures!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Daha da iyi olmak istiyorsan\u0131z her seviyede m\xFCmk\xFCn oldu\u011Funca
+      \xE7ok astronotu kurtarmaya \xE7al\u0131\u015F\u0131n, yeni maceralarda g\xF6r\xFC\u015Fmek
+      \xFCzere!"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0415\u0441\u043B\u0438 \u0445\u043E\u0447\u0435\u0448\u044C \u0441\u0442\u0430\u0442\u044C
+      \u0435\u0449\u0451 \u043B\u0443\u0447\u0448\u0435, \u043F\u043E\u0441\u0442\u0430\u0440\u0430\u0439\u0441\u044F
+      \u0441\u043F\u0430\u0441\u0442\u0438 \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E
+      \u0431\u043E\u043B\u044C\u0448\u0435 \u043A\u043E\u0441\u043C\u043E\u043D\u0430\u0432\u0442\u043E\u0432
+      \u043D\u0430 \u043A\u0430\u0436\u0434\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435,
+      \u0434\u043E \u0432\u0441\u0442\u0440\u0435\u0447\u0438 \u0432 \u043D\u043E\u0432\u044B\u0445
+      \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F\u0445!  "
+    Object: {fileID: 0}
 --- !u!1 &4955083884049707741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +2051,10 @@ Transform:
   - {fileID: 8662435689763565138}
   - {fileID: 2575924057724095661}
   - {fileID: 2848044072216643725}
+  - {fileID: 4753850697411732730}
+  - {fileID: 1091749509663971797}
+  - {fileID: 1489655385734500179}
+  - {fileID: 441253604884069725}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1826,7 +2082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 0
   defaultLanguage: English
   saveLoad: 1

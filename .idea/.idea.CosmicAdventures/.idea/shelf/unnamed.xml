@@ -1,0 +1,39 @@
+<changelist name="unnamed" date="1725689193750" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/shelf/unnamed/shelved.patch" />
+  <option name="DESCRIPTION" value="" />
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/BlackLevel.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/JungleLevel.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/MarsLevel.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/MenuTheme.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/MoonLevel.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/SandLevel.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assets/OtherAssets/Sounds/MusicThemes/SnowLevel.wav" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>

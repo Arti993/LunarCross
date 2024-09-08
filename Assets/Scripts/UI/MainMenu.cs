@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    private const string FirstTimeLaunched = "FirstTimeLaunched";
+    private const string NotFirstGameLaunch = "NotFirstGameLaunch";
     private Canvas _uiRoot;
 
     private void Awake()
@@ -22,14 +22,14 @@ public class MainMenu : MonoBehaviour
 
     public void OnNewGameButtonClick()
     {
-        if (PlayerPrefs.HasKey(FirstTimeLaunched))
+        if (PlayerPrefs.HasKey(NotFirstGameLaunch))
             DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetRestartGameQuestionWindow(_uiRoot.gameObject);
         else
         {
-            PlayerPrefs.SetInt(FirstTimeLaunched, 1);
-            PlayerPrefs.Save();
+            OnTutorialButtonClick();
             
-            OnPlayButtonClick();
+            PlayerPrefs.SetInt(NotFirstGameLaunch, 1);
+            PlayerPrefs.Save();
         }
     }
 
@@ -56,5 +56,16 @@ public class MainMenu : MonoBehaviour
     public void OnQuitGameButtonClick()
     {
         Application.Quit();
+    }
+
+    public void TestGameComplete()
+    {
+        //Тестовый метод, потом удалить НО СНАЧАЛА СДЕЛАТЬ МУЗЫКУ И ШУМ РАКЕТЫ
+        
+        PlayerPrefs.DeleteKey(NotFirstGameLaunch);
+        
+        DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
+        
+        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadFinalScene();
     }
 }

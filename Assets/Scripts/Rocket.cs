@@ -6,7 +6,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     [SerializeField] private GameObject _ladder;
-    [SerializeField] private GameObject _SmokeBeforeTakeOff;
+    [SerializeField] private GameObject _smokeBeforeTakeOff;
     [SerializeField] private Transform _bottomLadderPoint;
     [SerializeField] private Transform _middleLadderPoint;
     [SerializeField] private Transform _topLadderPoint;
@@ -38,12 +38,14 @@ public class Rocket : MonoBehaviour
     {
         yield return new WaitForSeconds(_delay);
         
-        // DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-        //     .GetGreenCollectEffect(_ladder.transform.position);
+        DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
+             .GetGreenCollectEffect(_middleLadderPoint.position);
         
         Destroy(_ladder);
         
         yield return new WaitForSeconds(_delay);
+        
+        Destroy(_smokeBeforeTakeOff);
         
         _rigidbody.AddForce(0f,_speed,0f, ForceMode.VelocityChange);
     }

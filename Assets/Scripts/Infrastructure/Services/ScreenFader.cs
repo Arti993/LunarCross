@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class ScreenFader : IScreenFader
 {
     private const float FadeDuration = 1f;
-    private const float Delay = 0.1f;
+    private const float Delay = 0.7f;
     private readonly GameObject _screenFaderObject;
     private readonly Image _blackScreen;
     private readonly LoadScreen _loadScreen;
     
-    public ScreenFader(IAssets provider)
+    public ScreenFader(IAssetsProvider provider)
     {
         _screenFaderObject = provider.Instantiate("Prefabs/UI/ScreenFader");
 

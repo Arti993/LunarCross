@@ -5,5 +5,7 @@ public interface IScenesLoader : IService
     void LoadMainMenuScene();
     void LoadLevelChooseScene();
     void LoadTutorialScene();
+    void LoadFinalScene();
     int GetTutorialSceneIndex();
+    int GetGameplaySceneIndex();
 }

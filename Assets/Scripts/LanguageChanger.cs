@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LeanLocalization))]
 public class LanguageChanger : MonoBehaviour
 {
+    private const string NotFirstGameLaunch = "NotFirstGameLaunch";
     private const string EnglishCode = "English";
     private const string TurkishCode = "Turkish";
     private const string RussianCode = "Russian";
@@ -17,14 +18,17 @@ public class LanguageChanger : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        
+
         _leanLocalization = GetComponent<LeanLocalization>();
-        
-        #if UNITY_WEBGL && !UNITY_EDITOR
+
+        if (PlayerPrefs.HasKey(NotFirstGameLaunch) == false)
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
             ChangeLanguageByLocation();
-        #endif
+#endif
+        }
     }
-    
+
     public void SetLanguage(string language)
     {
         _leanLocalization.SetCurrentLanguage(language);

@@ -914,6 +914,7 @@
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AudioVolumeChanger.cs" t="Include" />
+          <e p="CameraFrustrumChanger.cs" t="Include" />
           <e p="Chunk.cs" t="Include" />
           <e p="ChunkGround.cs" t="Include" />
           <e p="ChunkPlacer.cs" t="Include" />
@@ -980,17 +981,19 @@
             </e>
             <e p="MainBootstrap.cs" t="Include" />
             <e p="Services" t="Include">
-              <e p="AssetProvider.cs" t="Include" />
+              <e p="AssetsProvider.cs" t="Include" />
               <e p="AudioPlayback.cs" t="Include" />
               <e p="Factories" t="Include">
                 <e p="GameplayFactory.cs" t="Include" />
                 <e p="ParticleSystemFactory.cs" t="Include" />
                 <e p="UiWindowFactory.cs" t="Include" />
               </e>
+              <e p="FocusTestStateChanger.cs" t="Include" />
               <e p="GameProgress.cs" t="Include" />
               <e p="Interfaces" t="Include">
-                <e p="IAssets.cs" t="Include" />
+                <e p="IAssetsProvider.cs" t="Include" />
                 <e p="IAudioPlayback.cs" t="Include" />
+                <e p="IFocusTestStateChanger.cs" t="Include" />
                 <e p="IGameplayFactory.cs" t="Include" />
                 <e p="IGameProgress.cs" t="Include" />
                 <e p="ILevelsSettingsNomenclature.cs" t="Include" />
@@ -1000,13 +1003,16 @@
                 <e p="IScreenFader.cs" t="Include" />
                 <e p="IService.cs" t="Include" />
                 <e p="IUiWindowFactory.cs" t="Include" />
+                <e p="IVideoAdService.cs" t="Include" />
               </e>
               <e p="LevelsSettingsNomenclature.cs" t="Include" />
               <e p="Localization.cs" t="Include" />
               <e p="ScenesLoader.cs" t="Include" />
               <e p="ScreenFader.cs" t="Include" />
+              <e p="VideoAdService.cs" t="Include" />
             </e>
           </e>
+          <e p="InterstitialVideoAd.cs" t="Include" />
           <e p="IPlaceableToVehicle.cs" t="Include" />
           <e p="LanguageChanger.cs" t="Include" />
           <e p="LevelBorder.cs" t="Include" />
@@ -1035,7 +1041,8 @@
           <e p="TutorialChunkPlacer.cs" t="Include" />
           <e p="TutorialUIViewer.cs" t="Include" />
           <e p="UI" t="Include">
-            <e p="ContinueButton.cs" t="Include" />
+            <e p="FirstLaunchHiredButton.cs" t="Include" />
+            <e p="GameCompleteWindow.cs" t="Include" />
             <e p="GameplayUIWindow.cs" t="Include" />
             <e p="LanguageSetButton.cs" t="Include" />
             <e p="LevelCompleteWindow.cs" t="Include" />
@@ -1084,6 +1091,9 @@
             <e p="WheelAxle.cs" t="Include" />
           </e>
           <e p="YandexSDKInitializer.cs" t="Include" />
+        </e>
+        <e p="WebGLTemplates" t="Include">
+          <e p="FullscreenWindow" t="Include" />
         </e>
       </e>
       <e p="CosmicAdventures.sln" t="IncludeFlat" />

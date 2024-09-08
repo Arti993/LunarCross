@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ParticleSystemFactory : IParticleSystemFactory
 {
-    private readonly IAssets _provider;
+    private readonly IAssetsProvider _provider;
 
-    public ParticleSystemFactory(IAssets provider)
+    public ParticleSystemFactory(IAssetsProvider provider)
     {
         _provider = provider;
     }
