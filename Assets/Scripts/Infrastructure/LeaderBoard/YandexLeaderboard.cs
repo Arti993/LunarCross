@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using Agava.YandexGames;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(LeaderboardView))]
-public class YandexLeaderboard : MenuWindow
+public class YandexLeaderboard : UIWindow
 {
     private const string LeaderboardName = "LeaderBoard";
     private const string AnonymousName = "Anonymous";
@@ -12,11 +13,9 @@ public class YandexLeaderboard : MenuWindow
     private readonly List<LeaderboardPlayer> _leaderboardPlayers = new List<LeaderboardPlayer>();
     private LeaderboardPlayer _currentPlayer;
 
-    protected override void Awake()
+    private void Awake()
     {
         _leaderboardView = GetComponent<LeaderboardView>();
-        
-        base.Awake();
     }
     
     public void OpenWindow()
@@ -28,10 +27,23 @@ public class YandexLeaderboard : MenuWindow
             return;
 
         PlayerAccount.RequestPersonalProfileDataPermission();
+        
+        PanelIntro();
 
         Fill();
     }
-    
+
+    public void Exit()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        if(currentSceneIndex == (int)SceneIndex.MainMenu)
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+        
+        if(currentSceneIndex == (int)SceneIndex.Final)
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateGameComplete>();
+    }
+
     private void Fill()
     {
         if (PlayerAccount.IsAuthorized == false)

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cd3be3586da524cb1167e00a99a40c, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  _alienGrab:
+    ID: 1073741835
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _astronautPickUp:
+    ID: 1073741836
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _explosion:
+    ID: 1073741837
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _knock:
+    ID: 1073741838
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _ray:
+    ID: 1073741839
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _rocketEngine:
+    ID: 1073741840
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _rocketTurbine:
+    ID: 1073741841
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _savingAstronaut:
+    ID: 1073741842
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _starCollect:
+    ID: 1073741843
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _tornado:
+    ID: 1073741844
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}
+  _buttonClick:
+    ID: 536870913
+    _sourceAsset: {fileID: 11400000, guid: 8f38075f9ab7a5d42ba12d26ec4a08b3, type: 2}

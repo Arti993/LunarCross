@@ -5,7 +5,7 @@ public class MenuWindow : UIWindow
         PanelIntro();
     }
 
-    public void Exit()
+    public virtual void Exit()
     {
         PanelOutro();
     }

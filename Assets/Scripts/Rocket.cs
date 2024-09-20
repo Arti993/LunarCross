@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ami.BroAudio;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -13,7 +14,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] private List<RunnerToRocket> _runnersToRocket;
 
     private Rigidbody _rigidbody;
-    private float _speed = 6;
+    private float _speed = 5.3f;
     private float _delay = 0.5f;
     
     public Transform BottomLadderPoint => _bottomLadderPoint;
@@ -22,6 +23,10 @@ public class Rocket : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        
+        SoundID rocketEngine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketEngine;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(rocketEngine);
     }
 
     public void PlaceRunner(RunnerToRocket runner)
@@ -48,5 +53,9 @@ public class Rocket : MonoBehaviour
         Destroy(_smokeBeforeTakeOff);
         
         _rigidbody.AddForce(0f,_speed,0f, ForceMode.VelocityChange);
+        
+        SoundID rocketTurbine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketTurbine;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(rocketTurbine);
     }
 }

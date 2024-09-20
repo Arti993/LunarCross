@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class FocusTest : MonoBehaviour
 {
-    private bool _isGameAlreadyPaused;
+    private bool _isUnfocusePaused;
 
     private void Awake()
     {
@@ -40,39 +40,41 @@ public class FocusTest : MonoBehaviour
         if (value)
             DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteAudio();
         else
+        {
             DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteAudio();
+        }
     }
 
     private void PauseGame(bool value)
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        int tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
-
-        int gameplaySceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetGameplaySceneIndex();
-
-        if (currentSceneIndex == gameplaySceneIndex || currentSceneIndex == tutorialSceneIndex)
+        if (currentSceneIndex == (int)SceneIndex.Gameplay || currentSceneIndex == (int)SceneIndex.Tutorial)
         {
-            if (Time.timeScale != 0)
+            if (Time.timeScale != 0 && DIServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false)
             {
                 GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-                DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseMenuWindow(uiRoot);
+                DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.PauseMenu, uiRoot);
+                
+                return;
             }
-
-            return;
         }
 
-        if (Time.timeScale != 0)
-            _isGameAlreadyPaused = false;
+        if (Time.timeScale != 0
+            && DIServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false
+            && value)
+        {
+            _isUnfocusePaused = true;
+        }
 
-        if (Time.timeScale == 0 && value)
-            _isGameAlreadyPaused = true;
+        if (_isUnfocusePaused && value)
+            Time.timeScale = 0f;
 
-        if (_isGameAlreadyPaused == false && value)
-            Time.timeScale = 0;
-
-        if (_isGameAlreadyPaused == false && value == false)
-            Time.timeScale = 1;
+        if (_isUnfocusePaused && value == false)
+        {
+            Time.timeScale = 1f;
+            _isUnfocusePaused = false;
+        }
     }
 }

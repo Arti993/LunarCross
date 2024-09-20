@@ -49,8 +49,6 @@ public class AudioVolumeChanger : MonoBehaviour
     public void ChangeSoundsVolume()
     {
         DIServicesContainer.Instance.GetService<IAudioPlayback>().SaveVolume(_soundsVolumeSlider.value, SoundsVolumeTag);
-
-        DIServicesContainer.Instance.GetService<IAudioPlayback>().ChangeSoundsVolume(_soundsVolumeSlider.value);
     }
     
     public void MuteOrUnmuteMusic()
@@ -89,7 +87,7 @@ public class AudioVolumeChanger : MonoBehaviour
             _turnedOffSoundsSlider.gameObject.SetActive(true);
             _soundsVolumeSlider.gameObject.SetActive(false);
             
-            PlayerPrefs.DeleteKey(MusicVolumeTag);
+            PlayerPrefs.DeleteKey(SoundsMutedTag);
             
             DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteSounds();
         }

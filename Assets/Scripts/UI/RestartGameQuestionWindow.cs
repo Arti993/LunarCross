@@ -9,7 +9,7 @@ public class RestartGameQuestionWindow : UIWindow
     {
         DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
 
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadGameplayScene();
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
     }
     
     public void OnNoButtonClick()

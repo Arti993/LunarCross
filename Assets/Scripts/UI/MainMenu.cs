@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
     private const string NotFirstGameLaunch = "NotFirstGameLaunch";
     private Canvas _uiRoot;
+    private float _delay = 0.5f;
 
     private void Awake()
     {
@@ -12,22 +14,25 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayButtonClick()
     {
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadGameplayScene();
+        CloseUi();
+        
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
     }
 
     public void OnLevelsChooseButtonCLick()
     {
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadLevelChooseScene();
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
     }
 
     public void OnNewGameButtonClick()
     {
         if (PlayerPrefs.HasKey(NotFirstGameLaunch))
-            DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetRestartGameQuestionWindow(_uiRoot.gameObject);
+            DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                .GetWindow(PrefabsPaths.RestartGameQuestion, _uiRoot.gameObject);
         else
         {
             OnTutorialButtonClick();
-            
+
             PlayerPrefs.SetInt(NotFirstGameLaunch, 1);
             PlayerPrefs.Save();
         }
@@ -35,37 +40,37 @@ public class MainMenu : MonoBehaviour
 
     public void OnTutorialButtonClick()
     {
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadTutorialScene();
+        CloseUi();
+        
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
     }
 
     public void OnLeaderBoardButtonClick()
     {
-        GameObject leaderboardObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-            .GetLeaderboardWindow(_uiRoot.gameObject);
-
-        leaderboardObject.TryGetComponent(out YandexLeaderboard leaderboard);
-
-        leaderboard.OpenWindow();
+        CloseUi();
+        
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
     }
 
     public void OnSettingsButtonClick()
     {
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetSettingsWindow(_uiRoot.gameObject);
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
     }
 
-    public void OnQuitGameButtonClick()
+    public void Disable()
     {
-        Application.Quit();
+        StartCoroutine(DisableWithDelay());
     }
 
-    public void TestGameComplete()
+    private IEnumerator DisableWithDelay()
     {
-        //Тестовый метод, потом удалить НО СНАЧАЛА СДЕЛАТЬ МУЗЫКУ И ШУМ РАКЕТЫ
-        
-        PlayerPrefs.DeleteKey(NotFirstGameLaunch);
-        
-        DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
-        
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadFinalScene();
+       yield return new WaitForSeconds(_delay);
+       
+       gameObject.SetActive(false);
+    }
+
+    private void CloseUi()
+    {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
     }
 }

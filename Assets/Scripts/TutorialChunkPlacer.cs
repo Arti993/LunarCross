@@ -1,24 +1,16 @@
 using System;
+using UnityEngine;
+using Device = Agava.WebUtility.Device;
 
 public class TutorialChunkPlacer : ChunkPlacer
 {
-    private TutorialUIViewer _tutorialUIViewer;
-    
-    protected override void Awake()
-    {
-        _tutorialUIViewer = GetTutorialUIViewer();
-        
-        base.Awake();
-    }
-
-
     protected override void SpawnNextChunkInSequence()
     {
         switch (SpawnedChunks.Count)
         {
             case 1:
                 SpawnEmptyChunk();
-                _tutorialUIViewer.ShowTutorialControlWindow();
+                ShowTutorialControlWindow();
                 
                 break;
             case 2:
@@ -27,7 +19,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 3:
                 SpawnEmptyChunk();
-                _tutorialUIViewer.ShowTutorialCollectingWindow();
+                ShowTutorialCollectingWindow();
 
                 break;
             case 4:
@@ -36,7 +28,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 5:
                 SpawnEmptyChunk();
-                _tutorialUIViewer.ShowTutorialAliensWindow();
+                ShowTutorialAliensWindow();
 
                 break;
             case 6:
@@ -45,7 +37,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 7:
                 SpawnEmptyChunk();
-                _tutorialUIViewer.ShowTutorialObstaclesWindow();
+                ShowTutorialObstaclesWindow();
 
                 break;
             case 8:
@@ -54,7 +46,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 9:
                 SpawnFinishChunk();
-                _tutorialUIViewer.ShowTutorialTornadoWindow();
+                ShowTutorialTornadoWindow();
 
                 break;
             default:
@@ -62,10 +54,31 @@ public class TutorialChunkPlacer : ChunkPlacer
         }
     }
 
-    private TutorialUIViewer GetTutorialUIViewer()
+    private void ShowTutorialControlWindow()
     {
-       UIRoot uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot().GetComponent<UIRoot>();
+        if (Device.IsMobile)
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialTouchscreenControl>();
+        else
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialKeyboardControl>();
+    }
+    
+    private void ShowTutorialCollectingWindow()
+    {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialAstronauts>();
+    }
 
-       return uiRoot.GetTutorialUIViewer();
+    private void ShowTutorialAliensWindow()
+    {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialAliens>();
+    }
+
+    private void ShowTutorialObstaclesWindow()
+    {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialObstacles>();
+    }
+
+    private void ShowTutorialTornadoWindow()
+    {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialTornado>();
     }
 }

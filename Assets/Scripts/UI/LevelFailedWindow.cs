@@ -3,34 +3,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(RectTransform))]
-public class LevelFailedWindow : GameplayUIWindow
+public class LevelFailedWindow : MenuEscapeWindow
 {
     [SerializeField] private float _stopTimeDelay = 0.15f;
     
-    private bool _isGamePaused;
+    private bool _isFirstFailReacted;
     
     private void Awake()
     {
         PauseGame();
-        
-        DestroyPauseButton();
-        
-        PanelIntro();
     }
     
     public void RestartLevel()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
+        
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadScene(sceneIndex);
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(currentSceneIndex);
     }
 
     private void PauseGame()
     {
-        if (_isGamePaused)
+        if (_isFirstFailReacted)
             return;
 
-        _isGamePaused = true;
+        _isFirstFailReacted = true;
         
         StartCoroutine(StopTime());
     }

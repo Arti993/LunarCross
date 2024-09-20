@@ -9,10 +9,10 @@ public class GameCompleteWindow : UIWindow
 
     public void OpenLeaderBoard()
     {
-        Canvas uiRoot = GetComponentInParent<Canvas>();
-        
+        GameObject uiRoot = GetComponentInParent<Canvas>().gameObject;
+
         GameObject leaderboardObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-            .GetLeaderboardWindow(uiRoot.gameObject);
+            .GetWindow(PrefabsPaths.LeaderboardWindow, uiRoot);
 
         leaderboardObject.TryGetComponent(out YandexLeaderboard leaderboard);
 

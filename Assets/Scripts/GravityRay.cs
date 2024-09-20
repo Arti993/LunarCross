@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ami.BroAudio;
 using UnityEngine;
 
 public class GravityRay : MonoBehaviour
@@ -37,7 +38,9 @@ public class GravityRay : MonoBehaviour
 
             vehicleRotationLimit.enabled = false;
             
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayGravityRaySound();
+            SoundID raySound = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Ray;
+        
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(raySound);
             
             StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
         }
@@ -62,6 +65,8 @@ public class GravityRay : MonoBehaviour
 
     private void ShowLevelCompleteWindow()
     {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UIStateLevelComplete>();
+        
         GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
         GameObject window = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow(uiRoot);

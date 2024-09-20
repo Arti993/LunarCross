@@ -9,16 +9,16 @@ public class TutorialAliensWindow : TutorialWindow
         base.Awake();
     }
 
-    protected override void PauseGame()
+    public override void Open()
     {
         _catchZoneViewer.ShowDangerZones();
         
-        base.PauseGame();
+        base.Open();
     }
 
-    protected override void ResumeGame()
+    public override void Close()
     {
-        base.ResumeGame();
+        base.Close();
         
         _catchZoneViewer.StopShowDangerZones();
     }

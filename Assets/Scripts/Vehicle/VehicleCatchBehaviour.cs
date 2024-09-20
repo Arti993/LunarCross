@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ami.BroAudio;
 using UnityEngine;
 
 public class VehicleCatchBehaviour : MonoBehaviour
@@ -28,7 +29,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
         {
             isFillingSuccess = true;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayAstronautGetInSound();
+            PlayAstronautPickUpSound();
 
             previousBindPoint.Exempt();
         }
@@ -40,7 +41,8 @@ public class VehicleCatchBehaviour : MonoBehaviour
     {
         if(TryFillBindPoint(entity, _leftSideBindPoints))
         {
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
+            PlayAstronautPickUpSound();
+            
             return true;
         }
         else
@@ -51,7 +53,8 @@ public class VehicleCatchBehaviour : MonoBehaviour
     {
         if(TryFillBindPoint(entity, _rightSideBindPoints))
         {
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayPickUpAstronautSound();
+            PlayAstronautPickUpSound();
+            
             return true;
         }
         else
@@ -98,5 +101,12 @@ public class VehicleCatchBehaviour : MonoBehaviour
         {
             _allBindPoints.Add(bindPoint);
         }
+    }
+
+    private void PlayAstronautPickUpSound()
+    {
+        SoundID astronautPickUp = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.AstronautPickUp;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(astronautPickUp);
     }
 }

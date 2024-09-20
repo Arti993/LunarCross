@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 
-public class FirstLaunchHiredButton : SimpleButton
+public class FirstLaunchHiredButton : MonoBehaviour
 {
     private const string NotFirstGameLaunch = "NotFirstGameLaunch";
     
-    protected override void Start()
+    private void Start()
     {
         if (PlayerPrefs.HasKey(NotFirstGameLaunch) == false)
             Destroy(gameObject);
-        
-        base.Start();
     }
 }

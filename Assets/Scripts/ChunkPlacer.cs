@@ -25,7 +25,7 @@ public class ChunkPlacer : MonoBehaviour
     
     protected readonly List<Chunk> SpawnedChunks = new List<Chunk>();
 
-    protected virtual void Awake()
+    private void Awake()
     {
         _entitySpawner = GetComponent<EntitySpawner>();
         

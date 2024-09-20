@@ -4,10 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameplayFactory : IGameplayFactory
 {
-    private const int TutorialSceneIndex = 4;
-
     private GameObject _playerInstance;
-    
     private readonly IAssetsProvider _provider;
 
     public GameplayFactory(IAssetsProvider provider)
@@ -17,7 +14,7 @@ public class GameplayFactory : IGameplayFactory
 
     public GameObject CreatePlayer(Vector3 position)
     {
-        _playerInstance = _provider.Instantiate("Prefabs/RoverT30-1", position);
+        _playerInstance = _provider.Instantiate(PrefabsPaths.Rover, position);
 
         return _playerInstance;
     }
@@ -32,16 +29,33 @@ public class GameplayFactory : IGameplayFactory
     
     public GameObject CreateGameCamera()
     {
-        return _provider.Instantiate("Prefabs/GameCamera");
+        return _provider.Instantiate(PrefabsPaths.GameCamera);
     }
 
     public GameObject CreateSpawner()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         
-        if(sceneIndex == TutorialSceneIndex)
-            return _provider.Instantiate("Prefabs/TutorialSpawner");
+        if(sceneIndex == (int)SceneIndex.Tutorial)
+            return _provider.Instantiate(PrefabsPaths.TutorialSpawner);
         else
-            return _provider.Instantiate("Prefabs/Spawner");
+            return _provider.Instantiate(PrefabsPaths.Spawner);
+    }
+
+    public UIControlInput GetUiControlInput()
+    {
+        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        
+        GameObject uiPlayerInputObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+            .GetWindow(PrefabsPaths.UiControlInput,uiRoot);
+        
+        return uiPlayerInputObject.GetComponent<UIControlInput>();
+    }
+
+    public DesktopControlInput GetDesktopControlInput(Transform parent)
+    {
+        GameObject controlInputObject = _provider.Instantiate(PrefabsPaths.DesktopControlInput, parent);
+
+        return controlInputObject.GetComponent<DesktopControlInput>();
     }
 }

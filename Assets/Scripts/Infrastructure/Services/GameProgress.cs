@@ -36,7 +36,7 @@ public class GameProgress : IGameProgress
             levelNumber = i + 1;
             _levelResultsTagsDictionary.Add(levelNumber, levelsResultsTags[i]);
         }
-        
+
         PlayerPrefs.SetInt(SelectedLevelNumberTag, 0);
         PlayerPrefs.Save();
     }
@@ -93,9 +93,17 @@ public class GameProgress : IGameProgress
             PlayerPrefs.SetInt(level.Value, 0);
         }
         
+        if(PlayerPrefs.HasKey("GameIsComplete"))
+                PlayerPrefs.DeleteKey("GameIsComplete");
+        
         PlayerPrefs.SetInt(ReachedLevelNumberTag, 1);
         
         PlayerPrefs.Save();
+    }
+
+    public bool IsCurrentLevelLast()
+    {
+        return GetCurrentLevelNumber() == _levelResultsTagsDictionary.Count;
     }
 
     public void SelectLevel(int levelNumber)
@@ -115,6 +123,13 @@ public class GameProgress : IGameProgress
         int completedLevelNumber = GetCurrentLevelNumber();
         
         int reachedLevelNumber = PlayerPrefs.GetInt(ReachedLevelNumberTag, 1);
+
+        if (completedLevelNumber == _levelResultsTagsDictionary.Count)
+        {
+            PlayerPrefs.SetInt("GameIsComplete", 1);
+
+            return;
+        }
 
         if (completedLevelNumber == reachedLevelNumber)
         {

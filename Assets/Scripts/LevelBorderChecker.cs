@@ -19,23 +19,21 @@ public class LevelBorderChecker : MonoBehaviour
             
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(intersectionPoint);
 
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        int tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
-
-        if (sceneIndex == tutorialSceneIndex)
+        if (currentSceneIndex == (int)SceneIndex.Tutorial)
         {
             TimePauserWithDelay timePauserWithDelay = new TimePauserWithDelay();
             
-            DIServicesContainer.Instance.GetService<IScenesLoader>().LoadTutorialScene();
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
+            
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
 
             StartCoroutine(timePauserWithDelay.Pause());
         }
         else
         {
-            GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-                
-            DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLevelFailed>();
         }
     }
 }

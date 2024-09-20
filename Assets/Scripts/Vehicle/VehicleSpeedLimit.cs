@@ -62,23 +62,22 @@ public class VehicleSpeedLimit : MonoBehaviour
         {
             DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(_blowUpPoint.position);
 
-            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            int tutorialSceneIndex = DIServicesContainer.Instance.GetService<IScenesLoader>().GetTutorialSceneIndex();
-        
-            if (sceneIndex == tutorialSceneIndex)
+            if (currentSceneIndex == (int)SceneIndex.Tutorial)
             {
                 TimePauserWithDelay timePauserWithDelay = new TimePauserWithDelay();
             
-                DIServicesContainer.Instance.GetService<IScenesLoader>().LoadTutorialScene();
+                DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
 
                 StartCoroutine(timePauserWithDelay.Pause());
             }
             else
             {
                 GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-                
-                DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelFailedWindow(uiRoot);
+
+                DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.LevelFailedWindow, uiRoot);
             }
 
             _isMinSpeedViolation = true;

@@ -8,7 +8,7 @@ public class InterstitialVideoAd : MonoBehaviour
     {
         DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisableFocusTest();
         
-        AudioListener.volume = 0f;
+        AudioListener.volume = 0.01f;
     }
 
     private void OnCloseCallback(bool value)

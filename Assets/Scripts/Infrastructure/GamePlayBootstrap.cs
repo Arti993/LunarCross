@@ -50,10 +50,10 @@ public class GamePlayBootstrap : MonoBehaviour
             throw new InvalidOperationException();
     }
     
-    private void PrepareUI(GameObject uiRootObject)
+    private void PrepareUI(GameObject uiRoot)
     {
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRootObject);
-
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelNumberTitle(uiRootObject);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.LevelNumberTitle, uiRoot);
+        
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
     }
 }

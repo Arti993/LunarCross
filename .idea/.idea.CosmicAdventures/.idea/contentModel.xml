@@ -881,6 +881,7 @@
         </e>
         <e p="Resources" t="Include">
           <e p="Prefabs" t="Include">
+            <e p="AudioConfigs" t="Include" />
             <e p="LevelsConfigs" t="Include" />
             <e p="Particles" t="Include" />
             <e p="UI" t="Include">
@@ -889,6 +890,242 @@
           </e>
         </e>
         <e p="Samples" t="Include">
+          <e p="BroAudio" t="Include">
+            <e p="AudioAssets" t="Include">
+              <e p="SpatialSettings" t="Include" />
+            </e>
+            <e p="Core" t="Include">
+              <e p="Resources" t="Include">
+                <e p="Editor" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="BroAudio.asmdef" t="Include" />
+                <e p="BroAudio.cs" t="Include" />
+                <e p="BroAudioChainingMethod.cs" t="Include" />
+                <e p="BroAudioData.cs" t="Include" />
+                <e p="DataStruct" t="Include">
+                  <e p="BroAudioClip.cs" t="Include" />
+                  <e p="Core" t="Include">
+                    <e p="AudioAsset.cs" t="Include" />
+                    <e p="AudioEntity.cs" t="Include" />
+                  </e>
+                  <e p="Effect.cs" t="Include" />
+                  <e p="Fading.cs" t="Include" />
+                  <e p="SoundID.cs" t="Include" />
+                  <e p="SpatialPropertyType.cs" t="Include" />
+                  <e p="SpatialSetting.cs" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="AssetCredits.cs" t="Include" />
+                  <e p="AudioAssetEditor.cs" t="Include" />
+                  <e p="AudioEffectEditor" t="Include">
+                    <e p="AudioEffectEditor.cs" t="Include" />
+                    <e p="CustomExposedParametersPopupWindow.cs" t="Include" />
+                  </e>
+                  <e p="BroAudioEditor.asmdef" t="Include" />
+                  <e p="ClipEditor" t="Include">
+                    <e p="ClipEditorWindow.cs" t="Include" />
+                    <e p="DrawClipPropertiesHelper.cs" t="Include" />
+                  </e>
+                  <e p="DevTools" t="Include">
+                    <e p="BroAudioReflection.cs" t="Include" />
+                    <e p="BroProjectBuilder.cs" t="Include" />
+                    <e p="ClassReflectionHelper.cs" t="Include" />
+                    <e p="CustomParameterExposer.cs" t="Include" />
+                    <e p="DevToolsWindow.cs" t="Include" />
+                    <e p="ExposedParameterType.cs" t="Include" />
+                    <e p="PackageExporter.cs" t="Include" />
+                    <e p="SliderModelComparison.cs" t="Include" />
+                  </e>
+                  <e p="EditorSettings" t="Include">
+                    <e p="BroAudioGUISetting.cs" t="Include" />
+                    <e p="BroInstruction.cs" t="Include" />
+                    <e p="BroInstructionHelper.cs" t="Include" />
+                    <e p="DrawedProperty.cs" t="Include" />
+                    <e p="EditorSetting.cs" t="Include" />
+                    <e p="IconConstant.cs" t="Include" />
+                    <e p="Instruction.cs" t="Include" />
+                  </e>
+                  <e p="EditorWindow" t="Include">
+                    <e p="AssetNameEditorWindow.cs" t="Include" />
+                    <e p="GUIShowcase.cs" t="Include" />
+                    <e p="InfoEditorWindow.cs" t="Include" />
+                    <e p="LibraryManagerWindow.cs" t="Include" />
+                    <e p="LibraryManagerWindow.LibraryFactory.cs" t="Include" />
+                    <e p="PreferencesEditorWindow.cs" t="Include" />
+                    <e p="SpatialSettingsEditorWindow.cs" t="Include" />
+                  </e>
+                  <e p="EntityPropertyDrawer" t="Include">
+                    <e p="AudioEntityPropertyDrawer.AdditionalProperties.cs" t="Include" />
+                    <e p="AudioEntityPropertyDrawer.cs" t="Include" />
+                    <e p="ReorderableClips.cs" t="Include" />
+                  </e>
+                  <e p="Enums" t="Include">
+                    <e p="ValidationErrorCode.cs" t="Include" />
+                    <e p="VolumeSliderOptions.cs" t="Include" />
+                  </e>
+                  <e p="Extension" t="Include">
+                    <e p="AttributeDrawer" t="Include">
+                      <e p="FrequencyAttributeDrawer.cs" t="Include" />
+                      <e p="PitchAttributeDrawer.cs" t="Include" />
+                      <e p="ReadOnlyTextAreaAttributeDrawer.cs" t="Include" />
+                      <e p="VolumeAttributeDrawer.cs" t="Include" />
+                    </e>
+                    <e p="AudioClipEditingHelper.cs" t="Include" />
+                    <e p="EditorScriptingExtension.cs" t="Include" />
+                    <e p="EditorScrollViewHelper.cs" t="Include" />
+                    <e p="EditorTemplate" t="Include">
+                      <e p="MiEditorWindow.cs" t="Include" />
+                      <e p="MiPropertyDrawer.cs" t="Include" />
+                      <e p="ReflectedClass.cs" t="Include" />
+                    </e>
+                    <e p="EditorUpdateHelper.cs" t="Include" />
+                    <e p="EditorVersionAdapter.cs" t="Include" />
+                    <e p="IEditorDrawLineCounter.cs" t="Include" />
+                    <e p="ReflectionExtension.cs" t="Include" />
+                  </e>
+                  <e p="IDEditor" t="Include">
+                    <e p="IdGenerator.cs" t="Include" />
+                    <e p="IUniqueIDGenerator.cs" t="Include" />
+                    <e p="SoundIDAdvancedDropdown.cs" t="Include" />
+                    <e p="SoundIDAdvancedDropdownItem.cs" t="Include" />
+                    <e p="SoundIDPropertyDrawer.cs" t="Include" />
+                  </e>
+                  <e p="SoundSourceEditor.cs" t="Include" />
+                  <e p="ThirdParty" t="Include">
+                    <e p="SavWav.cs" t="Include" />
+                  </e>
+                  <e p="Transport" t="Include">
+                    <e p="ITransport.cs" t="Include" />
+                    <e p="SerializedTransport.cs" t="Include" />
+                    <e p="Transport.cs" t="Include" />
+                    <e p="TransportType.cs" t="Include" />
+                    <e p="TransportVectorPoints.cs" t="Include" />
+                  </e>
+                  <e p="UnityCalls" t="Include">
+                    <e p="AssetPostprocessorEditor.cs" t="Include" />
+                  </e>
+                  <e p="Utility" t="Include">
+                    <e p="BroEditorUtility" t="Include">
+                      <e p="BroEditorUtility.cs" t="Include" />
+                      <e p="BroEditorUtility.DataHandler.cs" t="Include" />
+                      <e p="BroEditorUtility.Json.cs" t="Include" />
+                      <e p="BroEditorUtility.Path.cs" t="Include" />
+                      <e p="BroEditorUtility.SerializedProperty.cs" t="Include" />
+                    </e>
+                    <e p="BroUserDataGenerator.cs" t="Include" />
+                    <e p="EditorAudioPreviewer.cs" t="Include" />
+                    <e p="EditorFlashingHelper.cs" t="Include" />
+                    <e p="EditorPlayAudioClip.cs" t="Include" />
+                    <e p="EditPrefabAssetScope.cs" t="Include" />
+                    <e p="GapDrawingHelper.cs" t="Include" />
+                    <e p="GUIStyleHelper.cs" t="Include" />
+                    <e p="ListElementNamePropertyDrawer.cs" t="Include" />
+                    <e p="PlaybackIndicatorUpdater.cs" t="Include" />
+                    <e p="PreviewClip.cs" t="Include" />
+                    <e p="WaveformRenderHelper.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Enums" t="Include">
+                  <e p="AudioTrackType.cs" t="Include" />
+                  <e p="BroAudioType.cs" t="Include" />
+                  <e p="EffectType.cs" t="Include" />
+                  <e p="FilterSlope.cs" t="Include" />
+                  <e p="MonoConversionMode.cs" t="Include" />
+                  <e p="MulticlipsPlayMode.cs" t="Include" />
+                  <e p="PitchShiftingSetting.cs" t="Include" />
+                  <e p="RandomFlag.cs" t="Include" />
+                  <e p="SetEffectMode.cs" t="Include" />
+                  <e p="StopMode.cs" t="Include" />
+                  <e p="Transition.cs" t="Include" />
+                </e>
+                <e p="Extension" t="Include">
+                  <e p="AnimationExtension.cs" t="Include" />
+                  <e p="AsyncTaskExtension.cs" t="Include" />
+                  <e p="Attributes" t="Include">
+                    <e p="Frequency.cs" t="Include" />
+                    <e p="Pitch.cs" t="Include" />
+                    <e p="ReadOnlyTextArea.cs" t="Include" />
+                    <e p="Volume.cs" t="Include" />
+                  </e>
+                  <e p="AudioConstant.cs" t="Include" />
+                  <e p="AudioExtension.cs" t="Include" />
+                  <e p="AudioSourcePropertyPath.cs" t="Include" />
+                  <e p="CoroutineExtension.cs" t="Include" />
+                  <e p="EaseExtension.cs" t="Include" />
+                  <e p="FlagsExtension.cs" t="Include" />
+                  <e p="LoopExtension.cs" t="Include" />
+                  <e p="StringExtension.cs" t="Include" />
+                  <e p="TimeExtension.cs" t="Include" />
+                  <e p="Tools" t="Include">
+                    <e p="CoroutineBehaviour.cs" t="Include" />
+                    <e p="EnumSeparator.cs" t="Include" />
+                    <e p="InstanceWrapper.cs" t="Include" />
+                    <e p="ListElementName.cs" t="Include" />
+                    <e p="ObjectPool.cs" t="Include" />
+                    <e p="VersionAdapter.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Interface" t="Include">
+                  <e p="AudioPlayer" t="Include">
+                    <e p="IAudioPlayer.cs" t="Include" />
+                    <e p="IAudioStoppable.cs" t="Include" />
+                    <e p="IEffectDecoratable.cs" t="Include" />
+                    <e p="IMusicDecoratable.cs" t="Include" />
+                    <e p="IMusicPlayer.cs" t="Include" />
+                    <e p="IPitchSettable.cs" t="Include" />
+                    <e p="IPlayable.cs" t="Include" />
+                    <e p="IPlayerEffect.cs" t="Include" />
+                    <e p="IVolumeSettable.cs" t="Include" />
+                  </e>
+                  <e p="IAudioAsset.cs" t="Include" />
+                  <e p="IAudioEntity.cs" t="Include" />
+                  <e p="IAudioMixer.cs" t="Include" />
+                  <e p="IAutoResetWaitable.cs" t="Include" />
+                  <e p="IEntityIdentity.cs" t="Include" />
+                  <e p="IRecyclable.cs" t="Include" />
+                </e>
+                <e p="MonoComponent" t="Include">
+                  <e p="SoundSource.cs" t="Include" />
+                </e>
+                <e p="Player" t="Include">
+                  <e p="AudioPlayer.cs" t="Include" />
+                  <e p="AudioPlayer.Pitch.cs" t="Include" />
+                  <e p="AudioPlayer.Playback.cs" t="Include" />
+                  <e p="AudioPlayer.Volume.cs" t="Include" />
+                  <e p="AudioPlayerDecorator.cs" t="Include" />
+                  <e p="AudioPlayerInstanceWrapper.cs" t="Include" />
+                  <e p="AudioTypePlaybackPreference.cs" t="Include" />
+                  <e p="DominatorPlayer.cs" t="Include" />
+                  <e p="FaderModule.cs" t="Include" />
+                  <e p="MusicPlayer.cs" t="Include" />
+                  <e p="ObjectPool" t="Include">
+                    <e p="AudioPlayerObjectPool.cs" t="Include" />
+                    <e p="AudioTrackObjectPool.cs" t="Include" />
+                  </e>
+                  <e p="PlaybackPreference.cs" t="Include" />
+                </e>
+                <e p="RuntimeSetting.cs" t="Include" />
+                <e p="SoundManager" t="Include">
+                  <e p="EffectAutomationHelper.cs" t="Include" />
+                  <e p="SeamlessLoopHelper.cs" t="Include" />
+                  <e p="SoundManager.cs" t="Include" />
+                  <e p="SoundManager.Editor.cs" t="Include" />
+                  <e p="SoundManager.Playback.cs" t="Include" />
+                  <e p="SoundManager.Setting.cs" t="Include" />
+                </e>
+                <e p="Utility" t="Include">
+                  <e p="BroAdvice.cs" t="Include" />
+                  <e p="BroName.cs" t="Include" />
+                  <e p="Utility.ClipPicking.cs" t="Include" />
+                  <e p="Utility.cs" t="Include" />
+                  <e p="Utility.Identity.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Documentation.txt" t="Include" />
+            <e p="Third-Party Notices.txt" t="Include" />
+          </e>
           <e p="Web Utility" t="Include">
             <e p="3.1.0" t="Include">
               <e p="Playtesting Sample" t="Include">
@@ -914,7 +1151,6 @@
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AudioVolumeChanger.cs" t="Include" />
-          <e p="CameraFrustrumChanger.cs" t="Include" />
           <e p="Chunk.cs" t="Include" />
           <e p="ChunkGround.cs" t="Include" />
           <e p="ChunkPlacer.cs" t="Include" />
@@ -965,6 +1201,10 @@
             <e p="SimpleRotationState.cs" t="Include" />
             <e p="TornadoMovement.cs" t="Include" />
           </e>
+          <e p="Enums" t="Include">
+            <e p="SceneIndex.cs" t="Include" />
+          </e>
+          <e p="ExampleSound.cs" t="Include" />
           <e p="FinalSceneCamera.cs" t="Include" />
           <e p="FinishTutorialWindowViewer.cs" t="Include" />
           <e p="FocusTest.cs" t="Include" />
@@ -999,7 +1239,6 @@
                 <e p="ILevelsSettingsNomenclature.cs" t="Include" />
                 <e p="ILocalization.cs" t="Include" />
                 <e p="IParticleSystemFactory.cs" t="Include" />
-                <e p="IScenesLoader.cs" t="Include" />
                 <e p="IScreenFader.cs" t="Include" />
                 <e p="IService.cs" t="Include" />
                 <e p="IUiWindowFactory.cs" t="Include" />
@@ -1007,10 +1246,42 @@
               </e>
               <e p="LevelsSettingsNomenclature.cs" t="Include" />
               <e p="Localization.cs" t="Include" />
-              <e p="ScenesLoader.cs" t="Include" />
               <e p="ScreenFader.cs" t="Include" />
               <e p="VideoAdService.cs" t="Include" />
             </e>
+            <e p="UIStateMachine" t="Include">
+              <e p="IUiStateMachine.cs" t="Include" />
+              <e p="States" t="Include">
+                <e p="TutorialStates" t="Include">
+                  <e p="UiStateTutorialAliens.cs" t="Include" />
+                  <e p="UiStateTutorialAstronauts.cs" t="Include" />
+                  <e p="UiStateTutorialFinish.cs" t="Include" />
+                  <e p="UiStateTutorialKeyboardControl.cs" t="Include" />
+                  <e p="UiStateTutorialObstacles.cs" t="Include" />
+                  <e p="UiStateTutorialTornado.cs" t="Include" />
+                  <e p="UiStateTutorialTouchscreenControl.cs" t="Include" />
+                </e>
+                <e p="UiStateGameComplete.cs" t="Include" />
+                <e p="UiStateLeaderboard.cs" t="Include" />
+                <e p="UIStateLevelComplete.cs" t="Include" />
+                <e p="UiStateLevelFailed.cs" t="Include" />
+                <e p="UiStateMainMenu.cs" t="Include" />
+                <e p="UiStateNoWindow.cs" t="Include" />
+                <e p="UiStatePauseButton.cs" t="Include" />
+                <e p="UiStatePauseMenu.cs" t="Include" />
+                <e p="UiStateSettings.cs" t="Include" />
+              </e>
+              <e p="UiStateMachine.cs" t="Include" />
+              <e p="UiStateMachineState.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Input" t="Include">
+            <e p="DesktopControlInput.cs" t="Include" />
+            <e p="IControlInput.cs" t="Include" />
+            <e p="New Input System" t="Include">
+              <e p="Player Input.cs" t="Include" />
+            </e>
+            <e p="UIControlInput.cs" t="Include" />
           </e>
           <e p="InterstitialVideoAd.cs" t="Include" />
           <e p="IPlaceableToVehicle.cs" t="Include" />
@@ -1020,12 +1291,10 @@
           <e p="LoadScreen.cs" t="Include" />
           <e p="MainThemeMusicStarter.cs" t="Include" />
           <e p="Mountain.cs" t="Include" />
-          <e p="New Input System" t="Include">
-            <e p="Player Input.cs" t="Include" />
-          </e>
           <e p="NPCMovement.cs" t="Include" />
           <e p="PlacementToVehiclePattern.cs" t="Include" />
           <e p="PlayerFollowCamera.cs" t="Include" />
+          <e p="PrefabsPaths.cs" t="Include" />
           <e p="Ragdoll.cs" t="Include" />
           <e p="RockElement.cs" t="Include" />
           <e p="Rocket.cs" t="Include" />
@@ -1033,30 +1302,33 @@
           <e p="ScaleAnimation.cs" t="Include" />
           <e p="Scriptable Objects" t="Include">
             <e p="Level.cs" t="Include" />
+            <e p="MusicContainer.cs" t="Include" />
+            <e p="SoundsContainer.cs" t="Include" />
           </e>
-          <e p="Sound.cs" t="Include" />
-          <e p="SoundsCollection.cs" t="Include" />
           <e p="TimePauserWithDelay.cs" t="Include" />
           <e p="TornadoChunk.cs" t="Include" />
           <e p="TutorialChunkPlacer.cs" t="Include" />
-          <e p="TutorialUIViewer.cs" t="Include" />
           <e p="UI" t="Include">
+            <e p="ButtonsFunctionalityImplementer.cs" t="Include" />
+            <e p="ControlButton.cs" t="Include" />
+            <e p="CustomButton.cs" t="Include" />
             <e p="FirstLaunchHiredButton.cs" t="Include" />
+            <e p="GameCompleteHiredButton.cs" t="Include" />
             <e p="GameCompleteWindow.cs" t="Include" />
-            <e p="GameplayUIWindow.cs" t="Include" />
+            <e p="GameSettingsWindow.cs" t="Include" />
             <e p="LanguageSetButton.cs" t="Include" />
             <e p="LevelCompleteWindow.cs" t="Include" />
+            <e p="LevelEndNextButton.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />
             <e p="LevelNumberTitle.cs" t="Include" />
             <e p="LevelPanel.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
             <e p="MainMenuButton.cs" t="Include" />
+            <e p="MenuEscapeWindow.cs" t="Include" />
             <e p="MenuWindow.cs" t="Include" />
-            <e p="NextLevelButton.cs" t="Include" />
             <e p="PauseButton.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
-            <e p="SimpleButton.cs" t="Include" />
             <e p="TotalScoreViewer.cs" t="Include" />
             <e p="Tutorial" t="Include">
               <e p="TutorialAliensWindow.cs" t="Include" />
@@ -1096,6 +1368,8 @@
           <e p="FullscreenWindow" t="Include" />
         </e>
       </e>
+      <e p="BroAudio.csproj" t="IncludeRecursive" />
+      <e p="BroAudioEditor.csproj" t="IncludeRecursive" />
       <e p="CosmicAdventures.sln" t="IncludeFlat" />
       <e p="CW.Common.csproj" t="IncludeRecursive" />
       <e p="LeanCommon.csproj" t="IncludeRecursive" />

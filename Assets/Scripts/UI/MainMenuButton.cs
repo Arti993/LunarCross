@@ -1,7 +1,7 @@
-public class MainMenuButton : SimpleButton
+public class MainMenuButton : CustomButton
 {
     public void GoToMainMenu()
     {
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadMainMenuScene();
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.MainMenu);
     }
 }

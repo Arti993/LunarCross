@@ -1,3 +1,4 @@
+using Ami.BroAudio;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -34,6 +35,8 @@ public class Obstacle : MonoBehaviour
         _rigidbody.angularVelocity =
             new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
 
-        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayKnockSound();
+        SoundID knock = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Knock;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(knock);
     }
 }

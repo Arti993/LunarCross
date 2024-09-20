@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerFollowCamera : CameraFrustrumChanger
+public class PlayerFollowCamera : MonoBehaviour
 {
     [SerializeField] private float _angle = 30;
     [SerializeField] private float _yPosition = 6;

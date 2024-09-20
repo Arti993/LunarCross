@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TutorialWindow : GameplayUIWindow
+public class TutorialWindow : UIWindow
 {
     private const float DelayBeforeShowWindow = 2.3f;
 
@@ -17,31 +17,22 @@ public class TutorialWindow : GameplayUIWindow
         StartCoroutine(ShowWindowAfterDelay());
     }
 
-    public void Continue()
+    public virtual void Open()
     {
-        ResumeGame();
+        Time.timeScale = 0f;
+        
+        PanelIntro();
     }
-
-    protected virtual void ResumeGame()
+    
+    public virtual void Close()
     {
         PanelOutro();
         
         Time.timeScale = 1f;
-        
-        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
     }
     
-    protected virtual void PauseGame()
-    {
-        DestroyPauseButton();
-
-        PanelIntro();
-
-        Time.timeScale = 0f;
-    }
-
     protected CatchZoneViewer GetCatchZoneViewer()
     {
         GameObject vehicle = DIServicesContainer.Instance.GetService<IGameplayFactory>().GetPlayerInstance();
@@ -56,6 +47,6 @@ public class TutorialWindow : GameplayUIWindow
     {
         yield return new WaitForSeconds(DelayBeforeShowWindow);
 
-        PauseGame();
+        Open();
     }
 }

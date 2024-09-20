@@ -1,6 +1,7 @@
+using Ami.BroAudio;
 using UnityEngine;
 
-public class FinalSceneCamera : CameraFrustrumChanger
+public class FinalSceneCamera : MonoBehaviour
 {
     [SerializeField] private Transform _rocket;
     [SerializeField] private GameObject _designObjectsContainer;
@@ -16,6 +17,10 @@ public class FinalSceneCamera : CameraFrustrumChanger
         _transform = transform;
         _startRocketPositionY = _rocket.position.y;
         _startCameraPositionY = _transform.position.y;
+
+        SoundID finalMusicTheme = DIServicesContainer.Instance.GetService<IAudioPlayback>().MusicContainer.FinalTheme;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayMusic(finalMusicTheme);
     }
     
     private void FixedUpdate()
@@ -41,8 +46,17 @@ public class FinalSceneCamera : CameraFrustrumChanger
 
     private void ShowCompleteGameWindow()
     {
-        GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        SoundID rocketEngine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketEngine;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Stop(rocketEngine);
+        
+        SoundID rocketTurbine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketTurbine;
+        
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Stop(rocketTurbine);
+        
+        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetCompleteGameWindow(uiRootObject);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+            .GetWindow(PrefabsPaths.GameCompleteWindow, uiRoot);
     }
 }

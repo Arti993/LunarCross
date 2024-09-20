@@ -24,3 +24,6 @@ MonoBehaviour:
   _surfaceMaterial: {fileID: 2100000, guid: 44db1af631cade444a892153b47b11bf, type: 2}
   _stonesMaterial: {fileID: 2100000, guid: 44db1af631cade444a892153b47b11bf, type: 2}
   _mountainsMaterial: {fileID: 2100000, guid: 44db1af631cade444a892153b47b11bf, type: 2}
+  _musicTheme:
+    ID: 268435462
+    _sourceAsset: {fileID: 11400000, guid: a0a1aa29b3d3f1e4a9f3b541c1232ab5, type: 2}

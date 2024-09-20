@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LeaderboardView : MonoBehaviour
 {
-    private const int MaxRowsCount = 10;
+    private const int MainContainerMaxRows = 8;
     
     [SerializeField] private Transform _mainContainer;
     [SerializeField] private Transform _additionalContainer;
@@ -21,7 +21,7 @@ public class LeaderboardView : MonoBehaviour
     {
         ClearLeaderBoard();
 
-        for (int i = 0; i < MaxRowsCount; i++)
+        for (int i = 0; i < MainContainerMaxRows; i++)
         {
             LeaderboardPlayer player = leaderboardPlayers[i];
             

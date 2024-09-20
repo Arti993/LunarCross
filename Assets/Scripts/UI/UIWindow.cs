@@ -5,17 +5,19 @@ public class UIWindow : MonoBehaviour
 {
     [SerializeField] protected RectTransform PanelRect;
     [SerializeField] protected float PanelTopPosY;
-    [SerializeField] protected float PanelBottomPosY = -1000f;
+    [SerializeField] protected float PanelBottomPosY = -1500f;
     [SerializeField] protected float PanelAnimationDuration = 0.5f;
 
-    protected void PanelIntro()
+    public void PanelIntro()
     {
+        gameObject.SetActive(true);
+        
         PanelRect.anchoredPosition = new Vector2(PanelRect.anchoredPosition.x, PanelBottomPosY);
         
         PanelRect.DOAnchorPosY(PanelTopPosY, PanelAnimationDuration).SetUpdate(true);
     }
 
-    protected void PanelOutro()
+    public void PanelOutro()
     {
         Sequence sequence = DOTween.Sequence().SetUpdate(true);
 
@@ -23,7 +25,7 @@ public class UIWindow : MonoBehaviour
         
         sequence.OnComplete(() =>
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         });
     }
 }

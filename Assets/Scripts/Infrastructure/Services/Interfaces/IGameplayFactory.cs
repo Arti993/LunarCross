@@ -9,4 +9,8 @@ public interface IGameplayFactory : IService
     public GameObject CreateGameCamera();
 
     public GameObject CreateSpawner();
+
+    public UIControlInput GetUiControlInput();
+    
+    public DesktopControlInput GetDesktopControlInput(Transform parent);
 }

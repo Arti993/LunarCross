@@ -3518,18 +3518,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1154141311937062210}
-        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1154141311937062210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3601,10 +3589,10 @@ RectTransform:
   m_Father: {fileID: 4450684671718629112}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.1}
-  m_AnchorMax: {x: 0.9, y: 0.9}
+  m_AnchorMin: {x: 0.5, y: 0.038000003}
+  m_AnchorMax: {x: 0.5, y: 0.8352223}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1536, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2702509062357772866
 CanvasRenderer:
@@ -6655,7 +6643,7 @@ GameObject:
   - component: {fileID: 4450684671718629112}
   - component: {fileID: 1849630004148128221}
   - component: {fileID: 3120462611447129894}
-  - component: {fileID: 7590246495235368989}
+  - component: {fileID: 8229506130263676961}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -6680,10 +6668,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1849630004148128221
 CanvasRenderer:
@@ -6723,7 +6711,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7590246495235368989
+--- !u!114 &8229506130263676961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6732,12 +6720,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5740182033113538291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1e0b11ea66887428c3c87a68cfbd72, type: 3}
+  m_Script: {fileID: 11500000, guid: 26b7f5b8b6f5e914384ed7aa425adf55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PanelRect: {fileID: 5430341234645776789}
   PanelTopPosY: 0
-  PanelBottomPosY: -1000
+  PanelBottomPosY: -1500
   PanelAnimationDuration: 0.5
 --- !u!1 &7157361426527153068
 GameObject:
@@ -6879,18 +6867,6 @@ MonoBehaviour:
       - m_Target: {fileID: 422375689549384261}
         m_TargetAssemblyTypeName: LanguageSetButton, Assembly-CSharp
         m_MethodName: ChooseLanguage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7734425087727880862}
-        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
-        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7075,18 +7051,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5852052609723703619}
-        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &5852052609723703619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7236,21 +7200,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7590246495235368989}
-        m_TargetAssemblyTypeName: MenuWindow, Assembly-CSharp
+      - m_Target: {fileID: 8229506130263676961}
+        m_TargetAssemblyTypeName: GameSettingsWindow, Assembly-CSharp
         m_MethodName: Exit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5570553219275265240}
-        m_TargetAssemblyTypeName: SimpleButton, Assembly-CSharp
-        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

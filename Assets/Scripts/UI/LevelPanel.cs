@@ -42,7 +42,7 @@ public class LevelPanel : MonoBehaviour
     {
         DIServicesContainer.Instance.GetService<IGameProgress>().SelectLevel(_levelNumber);
         
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadGameplayScene();
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
     }
 
     private void DisplayProgress()

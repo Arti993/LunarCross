@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Agava.WebUtility;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
     private const float InputChangeStepTime = 0.5f;
 
-    [SerializeField] private List<WheelAxle> wheelAxleList; 
+    [SerializeField] private List<WheelAxle> wheelAxleList;
     [SerializeField] private VehicleSettings vehicleSettings;
     [SerializeField] private float _ackermanFactor;
 
-    private PlayerInput _playerInput;
+    private IControlInput _playerInput;
     private Rigidbody _rigidbody;
     private Vector2 _moveInput;
     private float _steering;
@@ -18,14 +19,13 @@ public class CarController : MonoBehaviour
     private float _steeringFactor;
     private float _sensitiveInput;
 
-    private void Awake()
-    {
-        _playerInput = new PlayerInput();
-    }
-
     private void OnEnable()
     {
-        _playerInput.Enable();
+        if (Device.IsMobile)
+            _playerInput = DIServicesContainer.Instance.GetService<IGameplayFactory>().GetUiControlInput();
+        else
+            _playerInput = DIServicesContainer.Instance.GetService<IGameplayFactory>()
+                .GetDesktopControlInput(transform);
     }
 
     private void Start()
@@ -41,19 +41,14 @@ public class CarController : MonoBehaviour
         ControlWheels();
     }
 
-    private void OnDisable()
-    {
-        _playerInput.Disable();
-    }
-
     private void ControlWheels()
     {
-        _moveInput = _playerInput.Player.Turn.ReadValue<Vector2>();
+        _moveInput = _playerInput.GetMoveInput();
 
         _sensitiveInput = Mathf.Lerp(_sensitiveInput, _moveInput.x, InputChangeStepTime);
 
         _steering = vehicleSettings.steeringAngle * _sensitiveInput;
- 
+
         foreach (WheelAxle wheelAxle in wheelAxleList)
         {
             if (wheelAxle.steering)

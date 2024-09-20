@@ -3,72 +3,49 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class PauseMenu : GameplayUIWindow
+public class PauseMenu : MenuEscapeWindow
 {
     [SerializeField] private CanvasGroup _backgroundPanel;
-    
-    private bool _isGamePaused;
 
-    private void Awake()
+    public void PauseGame()
     {
-        PauseGame();
+        BackGroundPanelIntro();
+        
+        PanelIntro();
+
+        Time.timeScale = 0f;
     }
-    
+
     public void ResumeGame()
     {
-        if (_isGamePaused == false)
-            throw new InvalidOperationException();
-
-        PausePanelOutro();
-
         Time.timeScale = 1f;
-        
-        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetPauseButton(uiRoot);
+        BackGroundPanelOutro();
+        
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
     }
 
     public void RestartLevel()
     {
-        _isGamePaused = false;
-        
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
 
-        DIServicesContainer.Instance.GetService<IScenesLoader>().LoadScene(sceneIndex);
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
     }
 
     public void ChangeGameSettings()
     {
-        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-        
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetSettingsWindow(uiRoot.gameObject);
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
     }
 
-    private void PausePanelIntro()
+    private void BackGroundPanelIntro()
     {
         _backgroundPanel.DOFade(1, PanelAnimationDuration).SetUpdate(true);
-        
-        PanelIntro();
     }
 
-    private void PausePanelOutro()
+    private void BackGroundPanelOutro()
     {
         _backgroundPanel.DOFade(0, PanelAnimationDuration).SetUpdate(true);
-        
-        PanelOutro();
-    }
-
-    private void PauseGame()
-    {
-        if (_isGamePaused)
-            throw new InvalidOperationException();
-
-        _isGamePaused = true;
-
-        DestroyPauseButton();
-        
-        PausePanelIntro();
-
-        Time.timeScale = 0f;
     }
 }
