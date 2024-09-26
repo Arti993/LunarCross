@@ -8,7 +8,7 @@ public class UIWindow : MonoBehaviour
     [SerializeField] protected float PanelBottomPosY = -1500f;
     [SerializeField] protected float PanelAnimationDuration = 0.5f;
 
-    public void PanelIntro()
+    public virtual void PanelIntro()
     {
         gameObject.SetActive(true);
         
@@ -17,13 +17,9 @@ public class UIWindow : MonoBehaviour
         PanelRect.DOAnchorPosY(PanelTopPosY, PanelAnimationDuration).SetUpdate(true);
     }
 
-    public void PanelOutro()
+    public virtual void PanelOutro()
     {
-        Sequence sequence = DOTween.Sequence().SetUpdate(true);
-
-        sequence.Append(PanelRect.DOAnchorPosY(PanelBottomPosY, PanelAnimationDuration).SetUpdate(true));
-        
-        sequence.OnComplete(() =>
+        PanelRect.DOAnchorPosY(PanelBottomPosY, PanelAnimationDuration).SetUpdate(true).OnComplete(() =>
         {
             gameObject.SetActive(false);
         });

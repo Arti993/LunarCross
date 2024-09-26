@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LanguageSetButton : MonoBehaviour
+public class LanguageSetButton : CustomButton
 {
     [SerializeField] private string _language;
 

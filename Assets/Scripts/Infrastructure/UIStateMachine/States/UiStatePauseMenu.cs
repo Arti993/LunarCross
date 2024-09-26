@@ -8,7 +8,7 @@ public class UiStatePauseMenu : UiStateMachineState
     
     public override void Enter()
     {
-        if (UiWindow == null)
+        if (_pauseMenu == null)
         {
             GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
                 .GetWindow(PrefabsPaths.PauseMenu,GetUiRoot());

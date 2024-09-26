@@ -19,6 +19,7 @@ public class AlienAfterEjectingState : AfterEjectingState
         Move();
     }
 
+
     public override void Move()
     {
         _entityTransform.rotation = Quaternion.LookRotation(-_entityTransform.forward);
@@ -34,10 +35,9 @@ public class AlienAfterEjectingState : AfterEjectingState
     {
         _stateSwitcher.SwitchState<KnockedState>();
     }
-
-
+    
     public override void Stop()
     {
-        
+        NoReact();
     }
 }

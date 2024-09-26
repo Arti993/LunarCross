@@ -20,13 +20,13 @@ public class CustomButton : MonoBehaviour, IPointerClickHandler
         DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete -= OnScreenFaderDisable;
         DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart -= OnScreenFaderEnable;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if(IsClickable == false)
             return;

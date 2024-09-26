@@ -863,9 +863,6 @@
           <e p="Sprites and Materials" t="Include">
             <e p="Materials" t="Include" />
           </e>
-          <e p="UI" t="Include">
-            <e p="Animations" t="Include" />
-          </e>
           <e p="VehicleTools" t="Include">
             <e p="Materials" t="Include" />
             <e p="Models" t="Include" />
@@ -1158,6 +1155,7 @@
           <e p="DeleteComponentsFromBuild.cs" t="Include" />
           <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
           <e p="EmptyChunk.cs" t="Include" />
+          <e p="EntitiesObjectPool.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="EntityCollection.cs" t="Include" />
           <e p="EntitySpawner.cs" t="Include" />
@@ -1167,7 +1165,6 @@
               <e p="AlienAfterEjectingState.cs" t="Include" />
               <e p="AlienBaseMovementState.cs" t="Include" />
               <e p="AlienBehaviour.cs" t="Include" />
-              <e p="AlienKnockedState.cs" t="Include" />
             </e>
             <e p="Astronaut" t="Include">
               <e p="AstronautBaseMovementState.cs" t="Include" />
@@ -1178,7 +1175,6 @@
               <e p="AstronautOutsideAttachState.cs" t="Include" />
               <e p="RisingByGravityRayState.cs" t="Include" />
             </e>
-            <e p="AstronautKnockedbyVehicleState.cs" t="Include" />
             <e p="BaseMovementState.cs" t="Include" />
             <e p="EjectedFromVehicleState.cs" t="Include" />
             <e p="EntityBaseState.cs" t="Include" />
@@ -1190,6 +1186,7 @@
             <e p="KnockedState.cs" t="Include" />
             <e p="LevitationState.cs" t="Include" />
             <e p="Movement.cs" t="Include" />
+            <e p="NoActionState.cs" t="Include" />
             <e p="NpcBehaviour.cs" t="Include" />
             <e p="Obstacle.cs" t="Include" />
             <e p="ObstacleKnockedState.cs" t="Include" />
@@ -1309,13 +1306,14 @@
           <e p="TornadoChunk.cs" t="Include" />
           <e p="TutorialChunkPlacer.cs" t="Include" />
           <e p="UI" t="Include">
-            <e p="ButtonsFunctionalityImplementer.cs" t="Include" />
+            <e p="BackToMenuButton.cs" t="Include" />
             <e p="ControlButton.cs" t="Include" />
             <e p="CustomButton.cs" t="Include" />
             <e p="FirstLaunchHiredButton.cs" t="Include" />
             <e p="GameCompleteHiredButton.cs" t="Include" />
             <e p="GameCompleteWindow.cs" t="Include" />
             <e p="GameSettingsWindow.cs" t="Include" />
+            <e p="GameTitle.cs" t="Include" />
             <e p="LanguageSetButton.cs" t="Include" />
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelEndNextButton.cs" t="Include" />
@@ -1323,7 +1321,7 @@
             <e p="LevelNumberTitle.cs" t="Include" />
             <e p="LevelPanel.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
-            <e p="MainMenuButton.cs" t="Include" />
+            <e p="MenuButton.cs" t="Include" />
             <e p="MenuEscapeWindow.cs" t="Include" />
             <e p="MenuWindow.cs" t="Include" />
             <e p="PauseButton.cs" t="Include" />

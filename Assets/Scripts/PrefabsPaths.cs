@@ -22,8 +22,6 @@ public static class PrefabsPaths
     public static readonly string GameMainTitle = $"Prefabs/UI/{nameof(GameMainTitle)}";
     public static readonly string LevelNumberTitle = $"Prefabs/UI/{nameof(LevelNumberTitle)}";
     public static readonly string LeaderboardWindow = $"Prefabs/UI/{nameof(LeaderboardWindow)}";
-    public static readonly string LeaderboardElement = $"Prefabs/UI/{nameof(LeaderboardElement)}";
-    public static readonly string LevelPanel = $"Prefabs/UI/{nameof(LevelPanel)}";
     public static readonly string MainMenuButtons = $"Prefabs/UI/{nameof(MainMenuButtons)}";
     public static readonly string PauseButton = $"Prefabs/UI/{nameof(PauseButton)}";
     public static readonly string PauseMenu = $"Prefabs/UI/{nameof(PauseMenu)}";

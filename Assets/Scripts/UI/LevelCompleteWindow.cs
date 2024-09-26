@@ -1,10 +1,10 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System.Linq;
 using Ami.BroAudio;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
 public class LevelCompleteWindow : MenuEscapeWindow
@@ -41,9 +41,14 @@ public class LevelCompleteWindow : MenuEscapeWindow
         _points = 0;
         _pointsLabel.text = _points.ToString();
 
+        DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisablePauseMenuOpening();
+    }
+
+    private void Start()
+    {
         _levelEndNextButton.SetNotInterractable();
     }
-    
+
     public void CollectPoint()
     {
         _points++;
@@ -65,15 +70,13 @@ public class LevelCompleteWindow : MenuEscapeWindow
     {
         if (_currentSceneIndex == (int)SceneIndex.Tutorial)
         {
-            GoToMainMenu();
+            FromGamePlayToMainMenu();
             
             return;
         }
 
         if (PlayerPrefs.HasKey("GameIsComplete") && DIServicesContainer.Instance.GetService<IGameProgress>().IsCurrentLevelLast())
         {
-            CloseUI();
-            
             DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Final);
             
             return;
@@ -84,16 +87,12 @@ public class LevelCompleteWindow : MenuEscapeWindow
 #if UNITY_WEBGL && !UNITY_EDITOR
     DIServicesContainer.Instance.GetService<IVideoAdService>().ShowInterstitialAd();
 #endif
-
-        CloseUI();
         
         DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
     }
     
     public void RestartLevel()
     {
-        CloseUI();
-        
         DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(_currentSceneIndex);
     }
 
@@ -154,10 +153,5 @@ public class LevelCompleteWindow : MenuEscapeWindow
         SoundID starCollect = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.StarCollect;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(starCollect);
-    }
-
-    private void CloseUI()
-    {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
     }
 }

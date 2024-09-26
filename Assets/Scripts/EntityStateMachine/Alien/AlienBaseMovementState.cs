@@ -1,12 +1,10 @@
 public class AlienBaseMovementState : BaseMovementState
 {
     private NPCMovement _npcMovement;
-    private IEntityStateSwitcher _stateSwitcher;
 
     public AlienBaseMovementState(IEntityStateSwitcher stateSwitcher, NPCMovement npcMovement) : base(stateSwitcher)
     {
         _npcMovement = npcMovement;
-        _stateSwitcher = stateSwitcher;
     }
 
     public override void Start()
@@ -31,6 +29,6 @@ public class AlienBaseMovementState : BaseMovementState
 
     public override void ReactOnEntryVehicleTossZone()
     {
-        _stateSwitcher.SwitchState<KnockedState>();
+        StateSwitcher.SwitchState<KnockedState>();
     }
 }

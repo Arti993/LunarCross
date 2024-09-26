@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectableEntity: {fileID: 2555628779545650321, guid: f4bbe1f8ae2ee7f4fa9a4c2f980ea9f7, type: 3}
   _enemyEntity: {fileID: 4456213831787357402, guid: a9d987851c714414f82bec8d35a360eb, type: 3}
-  _expeditionSimpleEntities:
+  _simpleEntities:
   - {fileID: 5801173739738990709, guid: b5abcff847171304abef033421d0dfab, type: 3}
   - {fileID: 7937989495493608415, guid: 0faaaa34269b8c54a9792fdbfd972ba9, type: 3}
   _enemySimpleEntities:

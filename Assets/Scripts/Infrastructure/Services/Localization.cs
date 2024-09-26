@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Localization : ILocalization
@@ -11,15 +12,22 @@ public class Localization : ILocalization
 
         _languageChanger = CreateLanguageChanger();
     }
-    
+    public event Action<string> LanguageChanged;
+
+    public string GetCurrentLanguage()
+    {
+        return _languageChanger.GetCurrentLanguage();
+    }
+
     public void SetLanguage(string language)
     {
         _languageChanger.SetLanguage(language);
+        LanguageChanged?.Invoke(language);
     }
 
     private LanguageChanger CreateLanguageChanger()
     {
-           GameObject leanLocalizationObject = _provider.Instantiate("Prefabs/LeanLocalization");
+           GameObject leanLocalizationObject = _provider.Instantiate(PrefabsPaths.LeanLocalization);
 
            return leanLocalizationObject.GetComponent<LanguageChanger>();
     }

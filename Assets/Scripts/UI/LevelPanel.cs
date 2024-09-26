@@ -41,7 +41,7 @@ public class LevelPanel : MonoBehaviour
     public void LoadLevel()
     {
         DIServicesContainer.Instance.GetService<IGameProgress>().SelectLevel(_levelNumber);
-        
+
         DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
     }
 

@@ -3,25 +3,39 @@ using UnityEngine;
 
 public class HumanoidKnockedState : KnockedState
 {
-    private readonly Ragdoll RagdollBody;
-    private Rigidbody SpineRigidbody;
+    private readonly Collider _collider;
+    private readonly Ragdoll _ragdollBody;
+    private Rigidbody _spineRigidbody;
+    private Vector3 _initialPosition;
+    private Quaternion _initialRotation;
     
-    public HumanoidKnockedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Ragdoll ragdollBody) : base(stateSwitcher, rigidbody)
+    public HumanoidKnockedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Ragdoll ragdollBody, Collider collider) : base(stateSwitcher, rigidbody)
     {
-        RagdollBody = ragdollBody;
+        _ragdollBody = ragdollBody;
+        _collider = collider;
     }
 
     public override void Move()
     {
-        RagdollBody.TurnOn();
+        _initialPosition = _collider.transform.position;
+        _initialRotation = _collider.transform.rotation;
+        
+        _ragdollBody.TurnOn();
 
-        SpineRigidbody = RagdollBody.GetSpineRigidbody();
-
-        SpineRigidbody.velocity = MovementDirection * MovementSpeed;
-        SpineRigidbody.angularVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
+        _spineRigidbody = _ragdollBody.GetSpineRigidbody();
+ 
+        _spineRigidbody.velocity = MovementDirection * MovementSpeed;
+        _spineRigidbody.angularVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
         
         SoundID knock = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Knock;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(knock);
+    }
+
+    public override void Stop()
+    {
+        _ragdollBody.TurnOff();
+
+        base.Stop();
     }
 }

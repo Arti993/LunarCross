@@ -33,4 +33,9 @@ public class AstronautEjectedState : EjectedFromVehicleState
         Rigidbody.useGravity = false;
         PlacementPattern.TryPlaceToVehicle();
     }
+
+    public override void Stop()
+    {
+        Rigidbody.drag = 0f;
+    }
 }

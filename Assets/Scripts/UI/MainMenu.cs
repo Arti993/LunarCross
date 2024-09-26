@@ -5,7 +5,6 @@ public class MainMenu : MonoBehaviour
 {
     private const string NotFirstGameLaunch = "NotFirstGameLaunch";
     private Canvas _uiRoot;
-    private float _delay = 0.5f;
 
     private void Awake()
     {
@@ -14,8 +13,6 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayButtonClick()
     {
-        CloseUi();
-        
         DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
     }
 
@@ -40,15 +37,11 @@ public class MainMenu : MonoBehaviour
 
     public void OnTutorialButtonClick()
     {
-        CloseUi();
-        
         DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
     }
 
     public void OnLeaderBoardButtonClick()
     {
-        CloseUi();
-        
         DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
     }
 
@@ -59,18 +52,6 @@ public class MainMenu : MonoBehaviour
 
     public void Disable()
     {
-        StartCoroutine(DisableWithDelay());
-    }
-
-    private IEnumerator DisableWithDelay()
-    {
-       yield return new WaitForSeconds(_delay);
-       
-       gameObject.SetActive(false);
-    }
-
-    private void CloseUi()
-    {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
+        gameObject.SetActive(false);
     }
 }

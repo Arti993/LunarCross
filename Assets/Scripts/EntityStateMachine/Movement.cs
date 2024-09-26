@@ -11,7 +11,5 @@ public abstract class Movement : MonoBehaviour
     {
         if (MovingCoroutine != null)
             StopCoroutine(MovingCoroutine);
-
-        IsMoving = false;
     }
 }

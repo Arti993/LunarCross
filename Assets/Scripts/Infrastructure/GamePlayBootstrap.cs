@@ -55,5 +55,7 @@ public class GamePlayBootstrap : MonoBehaviour
         DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.LevelNumberTitle, uiRoot);
         
         DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+        
+        
     }
 }

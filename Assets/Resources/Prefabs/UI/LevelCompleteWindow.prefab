@@ -342,7 +342,7 @@ MonoBehaviour:
   - {fileID: 6080485179355275844}
   - {fileID: 7191552373815210600}
   _pointsLabel: {fileID: 2372704829336790110}
-  _continueButton: {fileID: 6682062307189829195}
+  _levelEndNextButton: {fileID: 3077823902239848013}
   _pointsTextSizeMultiplier: 2
   _sizeChangeAnimationDuration: 0.3
 --- !u!1 &1528025272746906998

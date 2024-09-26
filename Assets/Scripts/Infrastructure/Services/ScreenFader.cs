@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 public class ScreenFader : IScreenFader
 {
     private const float FadeDuration = 0.5f;
-    private const float Delay = 0.1f;
+    private const float Delay = 0.01f;
     private readonly GameObject _screenFaderObject;
     private readonly Image _blackScreen;
     private readonly LoadScreen _loadScreen;
-
     
     public ScreenFader(IAssetsProvider provider)
     {
@@ -51,21 +50,37 @@ public class ScreenFader : IScreenFader
         {
             _screenFaderObject.SetActive(false);
             
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            
+            if (currentSceneIndex == (int) SceneIndex.Gameplay || currentSceneIndex == (int) SceneIndex.Tutorial)
+                DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().EnablePauseMenuOpening();
+            
             FadingComplete?.Invoke();
         });
     }
 
     public void FadeOutAndLoadScene(int sceneIndex)
     {
-        FadingStart?.Invoke();
+        Sequence sequence = DOTween.Sequence();
         
-        _screenFaderObject.SetActive(true);
+        sequence.AppendInterval(Delay).SetUpdate(true);
         
-        _blackScreen.DOFade(1f, FadeDuration).SetUpdate(true).OnComplete(() =>
+        sequence.AppendCallback(() =>
+        {
+            FadingStart?.Invoke();
+            
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
+            
+            _screenFaderObject.SetActive(true);
+        });
+        
+        sequence.Append(_blackScreen.DOFade(1f, FadeDuration).SetUpdate(true)).OnComplete(() =>
         {
             Time.timeScale = 1f;
             
             Resources.UnloadUnusedAssets();
+            
+            FadingComplete?.Invoke();
 
             SceneManager.LoadScene(sceneIndex);
         });

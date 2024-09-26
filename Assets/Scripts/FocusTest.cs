@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class FocusTest : MonoBehaviour
 {
     private bool _isUnfocusePaused;
+    private bool _isFocused;
 
     private void Awake()
     {
@@ -13,24 +14,47 @@ public class FocusTest : MonoBehaviour
 
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         Application.focusChanged += OnInBackGroundChangeApp;
         WebApplication.InBackgroundChangeEvent += OnInBackGroundChangeWeb;
     }
 
     private void OnDisable()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         Application.focusChanged -= OnInBackGroundChangeApp;
         WebApplication.InBackgroundChangeEvent -= OnInBackGroundChangeWeb;
     }
 
+    public bool IsFocused()
+    {
+        return _isFocused;
+    }
+    
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        if (currentSceneIndex == (int) SceneIndex.Gameplay || currentSceneIndex == (int) SceneIndex.Tutorial)
+            DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisablePauseMenuOpening();
+        
+        if (_isFocused == false)
+        {
+            MuteAudio(true);
+            PauseGame(true);
+        }
+    }
+
     private void OnInBackGroundChangeApp(bool inApp)
     {
-        MuteAudio(!inApp);
-        PauseGame(!inApp);
+        _isFocused = inApp;
+        MuteAudio(inApp == false);
+        PauseGame(inApp == false);
     }
 
     private void OnInBackGroundChangeWeb(bool isBackground)
     {
+        _isFocused = !isBackground;
         MuteAudio(isBackground);
         PauseGame(isBackground);
     }
@@ -47,29 +71,18 @@ public class FocusTest : MonoBehaviour
 
     private void PauseGame(bool value)
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        if (currentSceneIndex == (int)SceneIndex.Gameplay || currentSceneIndex == (int)SceneIndex.Tutorial)
+        if (value && Time.timeScale != 0)
         {
-            if (Time.timeScale != 0 && DIServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false)
+            if (DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().IsNeedToOpenPauseMenu)
             {
-                GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-
-                DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.PauseMenu, uiRoot);
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseMenu>();
                 
                 return;
             }
-        }
-
-        if (Time.timeScale != 0
-            && DIServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false
-            && value)
-        {
+            
             _isUnfocusePaused = true;
-        }
-
-        if (_isUnfocusePaused && value)
             Time.timeScale = 0f;
+        }
 
         if (_isUnfocusePaused && value == false)
         {

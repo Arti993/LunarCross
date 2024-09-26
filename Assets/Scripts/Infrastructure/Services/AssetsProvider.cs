@@ -1,32 +1,46 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AssetsProvider : IAssetsProvider
 {
+    private Dictionary<string, GameObject> _loadedPrefabs = new Dictionary<string, GameObject>();
+    private GameObject _prefabToInstantiate;
+
     public GameObject Instantiate(string path)
     {
-        GameObject prefab = Resources.Load<GameObject>(path);
-
-        return Object.Instantiate(prefab);
+        return GameObject.Instantiate(GetPrefab(path));
     }
 
     public GameObject Instantiate(string path, Vector3 position)
     {
-        GameObject prefab = Resources.Load<GameObject>(path);
-
-        return Object.Instantiate(prefab, position, Quaternion.identity);
+        return GameObject.Instantiate(GetPrefab(path), position, Quaternion.identity);
     }
 
     public GameObject Instantiate(string path, Vector3 position, Quaternion rotation)
     {
-        GameObject prefab = Resources.Load<GameObject>(path);
-
-        return Object.Instantiate(prefab, position, rotation);
+        return GameObject.Instantiate(GetPrefab(path), position, rotation);
     }
 
     public GameObject Instantiate(string path, Transform parent)
     {
-        GameObject prefab = Resources.Load<GameObject>(path);
+        return GameObject.Instantiate(GetPrefab(path), parent);
+    }
 
-        return Object.Instantiate(prefab, parent);
+    private GameObject GetPrefab(string path)
+    {
+        if (_loadedPrefabs.ContainsKey(path))
+        {
+            _loadedPrefabs.TryGetValue(path, out GameObject prefab);
+
+            _prefabToInstantiate = prefab;
+        }
+        else
+        {
+            _prefabToInstantiate = Resources.Load<GameObject>(path);
+
+            _loadedPrefabs.Add(path, _prefabToInstantiate);
+        }
+
+        return _prefabToInstantiate;
     }
 }

@@ -9,17 +9,17 @@ public class TutorialCollectingWindow : TutorialWindow
         base.Awake();
     }
 
-    public override void Open()
+    public override void PanelIntro()
     {
         _catchZoneViewer.ShowCatchZones();
         
-        base.Open();
+        base.PanelIntro();
     }
 
-    public override void Close()
+    public override void PanelOutro()
     {
-        base.Close();
-        
         _catchZoneViewer.StopShowCatchZones();
+        
+        base.PanelOutro();
     }
 }

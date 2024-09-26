@@ -291,7 +291,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2993641092347281826}
         m_TargetAssemblyTypeName: LevelFailedWindow, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+        m_MethodName: FromGamePlayToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -13,23 +13,22 @@ public class TutorialWindow : UIWindow
         startPosition.y = PanelBottomPosY;
 
         PanelRect.localPosition = startPosition;
-        
-        StartCoroutine(ShowWindowAfterDelay());
     }
 
-    public virtual void Open()
+    public void Open()
     {
-        Time.timeScale = 0f;
-        
-        PanelIntro();
+        StartCoroutine(ShowWindowAfterDelay());
     }
     
-    public virtual void Close()
+    public void Close()
     {
         PanelOutro();
         
         Time.timeScale = 1f;
+    }
 
+    public void Exit()
+    {
         DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
     }
     
@@ -47,6 +46,8 @@ public class TutorialWindow : UIWindow
     {
         yield return new WaitForSeconds(DelayBeforeShowWindow);
 
-        Open();
+        Time.timeScale = 0f;
+        
+        PanelIntro();
     }
 }

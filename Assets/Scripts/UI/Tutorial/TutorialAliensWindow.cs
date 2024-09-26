@@ -9,17 +9,17 @@ public class TutorialAliensWindow : TutorialWindow
         base.Awake();
     }
 
-    public override void Open()
+    public override void PanelIntro()
     {
         _catchZoneViewer.ShowDangerZones();
         
-        base.Open();
+        base.PanelIntro();
     }
 
-    public override void Close()
+    public override void PanelOutro()
     {
-        base.Close();
-        
         _catchZoneViewer.StopShowDangerZones();
+        
+        base.PanelOutro();
     }
 }

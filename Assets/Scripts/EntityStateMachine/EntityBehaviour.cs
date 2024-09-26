@@ -24,11 +24,26 @@ public class EntityBehaviour : Entity, IEntityStateSwitcher
     public void SwitchState<T>() where T : EntityBaseState
     {
         var state = AllStates.FirstOrDefault(state => state is T);
+        
+        if(state == CurrentState)
+            return;
 
-        CurrentState.Stop();
-
-        state.Start();
+        CurrentState?.Stop();
 
         CurrentState = state;
+
+        CurrentState.Start();
+    }
+
+    public EntityBaseState GetCurrentState()
+    {
+        return CurrentState;
+    }
+
+    public override void Disable()
+    {
+        SwitchState<NoActionState>();
+        
+        base.Disable();
     }
 }

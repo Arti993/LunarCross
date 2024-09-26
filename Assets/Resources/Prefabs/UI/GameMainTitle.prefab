@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 271783057279558509}
   - component: {fileID: 7796560704804344198}
   - component: {fileID: 8701972193661730413}
+  - component: {fileID: 5334140067390255046}
   m_Layer: 5
   m_Name: GameMainTitle
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c680492f0c3d59543b7a835f97827c14, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a2a3ecaa253b5a44af760735a797cf9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,3 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5334140067390255046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279288801103092933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e163d28de12124da76a9322f022548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _titleImage: {fileID: 8701972193661730413}
+  _titleENG: {fileID: 21300000, guid: 14794517e7a899449ac71a5f34d790f6, type: 3}
+  _titleRUS: {fileID: 21300000, guid: 0a2a3ecaa253b5a44af760735a797cf9, type: 3}
+  _titleTUR: {fileID: 21300000, guid: 3b2f80a356f1bce44a37209c3c55df90, type: 3}

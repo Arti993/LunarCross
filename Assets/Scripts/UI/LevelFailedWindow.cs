@@ -16,8 +16,6 @@ public class LevelFailedWindow : MenuEscapeWindow
     
     public void RestartLevel()
     {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
-        
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(currentSceneIndex);

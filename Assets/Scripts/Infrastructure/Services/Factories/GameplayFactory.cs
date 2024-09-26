@@ -34,9 +34,9 @@ public class GameplayFactory : IGameplayFactory
 
     public GameObject CreateSpawner()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int currentsceneIndex = SceneManager.GetActiveScene().buildIndex;
         
-        if(sceneIndex == (int)SceneIndex.Tutorial)
+        if(currentsceneIndex == (int)SceneIndex.Tutorial)
             return _provider.Instantiate(PrefabsPaths.TutorialSpawner);
         else
             return _provider.Instantiate(PrefabsPaths.Spawner);

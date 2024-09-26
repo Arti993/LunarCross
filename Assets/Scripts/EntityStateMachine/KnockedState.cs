@@ -42,6 +42,7 @@ public class KnockedState : EntityBaseState
 
     public override void Stop()
     {
-        NoReact();
+        Rigidbody.velocity = Vector3.zero;
+        Rigidbody.gameObject.transform.rotation = Quaternion.identity;
     }
 }

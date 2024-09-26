@@ -18,4 +18,9 @@ public class UiStateLeaderboard : UiStateMachineState
 
         _leaderboard.OpenWindow();
     }
+
+    public override void Exit()
+    {
+        _leaderboard.PanelOutro();
+    }
 }

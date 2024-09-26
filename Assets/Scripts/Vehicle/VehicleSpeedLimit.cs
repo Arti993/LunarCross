@@ -74,10 +74,7 @@ public class VehicleSpeedLimit : MonoBehaviour
             }
             else
             {
-                GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-
-                DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.LevelFailedWindow, uiRoot);
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLevelFailed>();
             }
 
             _isMinSpeedViolation = true;

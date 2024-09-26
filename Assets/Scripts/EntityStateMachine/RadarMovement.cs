@@ -18,6 +18,8 @@ public class RadarMovement : Movement
 
     private void OnEnable()
     {
+        transform.rotation = Quaternion.identity;
+        
         _startRotation = transform.rotation;
         _endRotation = Quaternion.Euler(_startRotation.x, _startRotation.y + _rotationAngle, _startRotation.z);
         _fullRotationAngle = Quaternion.Angle(_startRotation, _endRotation);

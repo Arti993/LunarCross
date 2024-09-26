@@ -24,9 +24,7 @@ public class LevelBorderChecker : MonoBehaviour
         if (currentSceneIndex == (int)SceneIndex.Tutorial)
         {
             TimePauserWithDelay timePauserWithDelay = new TimePauserWithDelay();
-            
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
-            
+
             DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
 
             StartCoroutine(timePauserWithDelay.Pause());

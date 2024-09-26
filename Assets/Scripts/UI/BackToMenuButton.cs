@@ -1,4 +1,4 @@
-public class MainMenuButton : CustomButton
+public class BackToMenuButton : CustomButton
 {
     public void GoToMainMenu()
     {

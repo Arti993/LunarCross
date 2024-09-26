@@ -6,8 +6,7 @@ public class EntitiesDisabler : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Entity entity))
         {
-            Destroy(entity.gameObject);
-            //entity.gameObject.SetActive(false);
+            entity.Disable();
         }
     }
 }

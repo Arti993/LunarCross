@@ -17,7 +17,7 @@ public class LanguageChanger : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         _leanLocalization = GetComponent<LeanLocalization>();
 
@@ -32,6 +32,11 @@ public class LanguageChanger : MonoBehaviour
     public void SetLanguage(string language)
     {
         _leanLocalization.SetCurrentLanguage(language);
+    }
+
+    public string GetCurrentLanguage()
+    {
+        return _leanLocalization.CurrentLanguage;
     }
 
     private void ChangeLanguageByLocation()

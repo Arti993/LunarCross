@@ -20,7 +20,8 @@ public class YandexLeaderboard : UIWindow
     
     public void OpenWindow()
     {
-        if (PlayerAccount.IsAuthorized == false)
+#if UNITY_WEBGL && !UNITY_EDITOR
+    if (PlayerAccount.IsAuthorized == false)
             PlayerAccount.Authorize();
         
         if (PlayerAccount.IsAuthorized == false)
@@ -28,9 +29,10 @@ public class YandexLeaderboard : UIWindow
 
         PlayerAccount.RequestPersonalProfileDataPermission();
         
-        PanelIntro();
-
         Fill();
+#endif
+        
+        PanelIntro();
     }
 
     public void Exit()

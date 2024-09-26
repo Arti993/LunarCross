@@ -35,7 +35,10 @@ public class FinalSceneCamera : MonoBehaviour
         }
         else if (rocketOffset > _maxRocketOffset)
         {
+            StopRocketSounds();
+            
             Destroy(_rocket.gameObject);
+            
             Destroy(_designObjectsContainer);
 
             ShowCompleteGameWindow();
@@ -46,6 +49,11 @@ public class FinalSceneCamera : MonoBehaviour
 
     private void ShowCompleteGameWindow()
     {
+        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateGameComplete>();
+    }
+
+    private void StopRocketSounds()
+    {
         SoundID rocketEngine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketEngine;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Stop(rocketEngine);
@@ -53,10 +61,5 @@ public class FinalSceneCamera : MonoBehaviour
         SoundID rocketTurbine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketTurbine;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Stop(rocketTurbine);
-        
-        GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-            .GetWindow(PrefabsPaths.GameCompleteWindow, uiRoot);
     }
 }

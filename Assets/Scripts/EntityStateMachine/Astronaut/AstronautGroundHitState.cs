@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AstronautGroundHitState : HumanoidKnockedState
 {
-    public AstronautGroundHitState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Ragdoll ragdollBody) : base(stateSwitcher, rigidbody, ragdollBody)
+    public AstronautGroundHitState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Ragdoll ragdollBody, Collider collider) : base(stateSwitcher, rigidbody, ragdollBody, collider)
     {
         MovementSpeed = 10;
     }

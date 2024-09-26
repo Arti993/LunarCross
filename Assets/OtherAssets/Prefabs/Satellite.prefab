@@ -1626,7 +1626,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4534689706382532760
 Transform:
@@ -1718,7 +1718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544905d2429a0db49865d1bbc96057be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levitationHeight: 1
+  _levitationHeight: 0.7
   _levitationHalfCycleTime: 2
   _minDelayBeforeMove: 0
   _maxDelayBeforeMove: 0.7
