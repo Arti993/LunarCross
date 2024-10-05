@@ -15,7 +15,7 @@ public class Obstacle : MonoBehaviour
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Movement _movement;
-    private float _disableColliderTime = 0.5f;
+    private float _disableColliderTime = 0.7f;
     private bool _isCanCollise;
 
     private void Awake()
@@ -34,7 +34,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<VehicleCatchBehaviour>() && _isCanCollise)
+        if (_isCanCollise && (other.GetComponent<Bumper>() || other.GetComponent<VehicleCatchZone>()))
         {
             _isCanCollise = false;
             

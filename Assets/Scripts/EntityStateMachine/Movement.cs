@@ -9,6 +9,8 @@ public abstract class Movement : MonoBehaviour
 
     private void OnDisable()
     {
+        IsMoving = false;
+        
         if (MovingCoroutine != null)
             StopCoroutine(MovingCoroutine);
     }

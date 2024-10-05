@@ -12,6 +12,7 @@ public class FocusTestStateChanger : IFocusTestStateChanger
     public FocusTestStateChanger(IAssetsProvider provider)
     {
         _focusTestObject = provider.Instantiate(PrefabsPaths.FocusTest);
+        _focusTest = _focusTestObject.GetComponent<FocusTest>();
     }
     
     public void EnableFocusTest()

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Agava.WebUtility;
+using YG;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
@@ -21,7 +21,7 @@ public class CarController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (Device.IsMobile)
+        if (YandexGame.EnvironmentData.isMobile)
             _playerInput = DIServicesContainer.Instance.GetService<IGameplayFactory>().GetUiControlInput();
         else
             _playerInput = DIServicesContainer.Instance.GetService<IGameplayFactory>()

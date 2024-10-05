@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Ami.BroAudio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioPlayback : IAudioPlayback
 {
@@ -13,6 +14,7 @@ public class AudioPlayback : IAudioPlayback
     private const string MusicMutedTag = "MusicMuted";
     private const string SoundsMutedTag = "SoundsMuted";
     private const int MaxConvertedVolume = 100;
+    private const float MaxVolume = 1;
 
     private bool _isMenuThemePlaying;
     private List<SoundID> _music;
@@ -24,6 +26,8 @@ public class AudioPlayback : IAudioPlayback
         MusicContainer = Resources.Load<MusicContainer>(MusicContainerPath);
 
         ApplySavedVolume();
+
+        UnMuteAudio();
     }
 
     public MusicContainer MusicContainer { get; }
@@ -31,12 +35,12 @@ public class AudioPlayback : IAudioPlayback
 
     public void MuteAudio()
     {
-        AudioListener.volume = 0f;
+        AudioListener.pause = true;
     }
 
     public void UnMuteAudio()
     {
-        AudioListener.volume = 1f;
+        AudioListener.pause = false;
     }
 
     public void MuteMusic()
@@ -81,9 +85,11 @@ public class AudioPlayback : IAudioPlayback
 
             _isMenuThemePlaying = true;
         }
-        
+
         if (MusicContainer.GetIdList().Contains(soundID))
+        {
             MusicContainer.Play(soundID);
+        }
         else
             throw new InvalidOperationException();
     }
@@ -107,11 +113,23 @@ public class AudioPlayback : IAudioPlayback
     public void PlayLevelTheme()
     {
         _isMenuThemePlaying = false;
+        
+        SoundID levelTheme;
 
-        int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        SoundID levelTheme = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-            .GetLevelSettings(levelNumber).MusicTheme;
+        if (currentSceneIndex != (int) SceneIndex.Tutorial)
+        {
+            int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+
+            levelTheme = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetLevelSettings(levelNumber).MusicTheme;
+        }
+        else
+        {
+            levelTheme = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                .GetTutorialLevelSettings().MusicTheme;
+        }
 
         MusicContainer.Play(levelTheme);
     }
@@ -145,12 +163,12 @@ public class AudioPlayback : IAudioPlayback
     {
         if (PlayerPrefs.HasKey(MusicMutedTag))
             MuteMusic();
-        else
+        else if (PlayerPrefs.HasKey(MusicVolumeTag))
             ChangeMusicVolume(GetLastSavedVolume(MusicVolumeTag));
-
+        else
+            ChangeMusicVolume(MaxVolume);
+        
         if (PlayerPrefs.HasKey(SoundsMutedTag))
             MuteSounds();
-        else
-            ChangeMusicVolume(GetLastSavedVolume(SoundVolumeTag));
     }
 }

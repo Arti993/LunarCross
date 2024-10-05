@@ -16,6 +16,5 @@ public class UiStatePauseButton : UiStateMachineState
     public override void Exit()
     {
         _pauseButton.SetActive(false);
-        //Object.Destroy(_pauseButton);
     }
 }

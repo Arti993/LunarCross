@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -87,8 +86,6 @@ public class LevelCompleteWindow : MenuEscapeWindow
 #if UNITY_WEBGL && !UNITY_EDITOR
     DIServicesContainer.Instance.GetService<IVideoAdService>().ShowInterstitialAd();
 #endif
-        
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
     }
     
     public void RestartLevel()

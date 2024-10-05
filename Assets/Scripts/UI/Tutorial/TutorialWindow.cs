@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TutorialWindow : UIWindow
 {
-    private const float DelayBeforeShowWindow = 2.3f;
-
     protected virtual void Awake()
     {
         Vector3 startPosition = PanelRect.localPosition;
@@ -17,7 +15,9 @@ public class TutorialWindow : UIWindow
 
     public void Open()
     {
-        StartCoroutine(ShowWindowAfterDelay());
+        Time.timeScale = 0f;
+        
+        PanelIntro();
     }
     
     public void Close()
@@ -42,12 +42,5 @@ public class TutorialWindow : UIWindow
         return catchZoneViewer;
     }
 
-    private IEnumerator ShowWindowAfterDelay()
-    {
-        yield return new WaitForSeconds(DelayBeforeShowWindow);
-
-        Time.timeScale = 0f;
-        
-        PanelIntro();
-    }
+    
 }

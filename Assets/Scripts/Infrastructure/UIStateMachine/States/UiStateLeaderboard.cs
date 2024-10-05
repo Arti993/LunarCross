@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class UiStateLeaderboard : UiStateMachineState
 {
-    private YandexLeaderboard _leaderboard;
+    private LeaderboardWindow _leaderboardWindow;
     
     public override void Enter()
     {
-        if (_leaderboard == null)
+        if (_leaderboardWindow == null)
         {
             GameObject leaderboardObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
                 .GetWindow(PrefabsPaths.LeaderboardWindow,GetUiRoot());
 
-            leaderboardObject.TryGetComponent(out YandexLeaderboard leaderboard);
+            leaderboardObject.TryGetComponent(out LeaderboardWindow leaderboard);
 
-            _leaderboard = leaderboard;
+            _leaderboardWindow = leaderboard;
         }
 
-        _leaderboard.OpenWindow();
+        _leaderboardWindow.OpenWindow();
     }
 
     public override void Exit()
     {
-        _leaderboard.PanelOutro();
+        _leaderboardWindow.PanelOutro();
     }
 }

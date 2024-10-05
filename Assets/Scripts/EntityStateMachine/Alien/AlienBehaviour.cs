@@ -7,6 +7,9 @@ public class AlienBehaviour : NpcBehaviour
     {
         if(AllStates != null)
             SwitchState<AlienBaseMovementState>();
+
+        if(TryGetComponent(out EntityToEjectDetector ejector))
+            ejector.enabled = true;
     }
     
     private void Start()

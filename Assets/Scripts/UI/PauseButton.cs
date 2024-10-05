@@ -1,10 +1,17 @@
+using System;
+
 public class PauseButton : CustomButton
 {
+    public event Action Enabled;
+    public event Action Disabled;
+    
     protected override void OnEnable()
     {
         base.OnEnable();
 
         Clicked += OnClicked;
+        
+        Enabled?.Invoke();
     }
 
     protected override void OnDisable()
@@ -12,6 +19,8 @@ public class PauseButton : CustomButton
         base.OnDisable();
         
         Clicked -= OnClicked;
+        
+        Disabled?.Invoke();
     }
 
     private void OnClicked()

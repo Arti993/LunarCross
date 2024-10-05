@@ -1,0 +1,2 @@
+Build path: C:/Users/Artem/Cosmic Adventures Test/CosmicAdventures/Build
+Build number: 7

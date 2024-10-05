@@ -45,11 +45,11 @@ public class LeaderboardView : MonoBehaviour
         }
     }
 
-    private void ClearLeaderBoard()
+    public void ClearLeaderBoard()
     {
         foreach (var element in _spawnedElements)
         {
-            Destroy(element);
+            Destroy(element.gameObject);
         }
         
         _spawnedElements = new List<LeaderboardElement>();

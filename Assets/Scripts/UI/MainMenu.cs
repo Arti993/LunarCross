@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using YG;
 
 public class MainMenu : MonoBehaviour
 {
@@ -24,8 +24,7 @@ public class MainMenu : MonoBehaviour
     public void OnNewGameButtonClick()
     {
         if (PlayerPrefs.HasKey(NotFirstGameLaunch))
-            DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.RestartGameQuestion, _uiRoot.gameObject);
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateRestartGameQuestion>();
         else
         {
             OnTutorialButtonClick();
@@ -42,7 +41,12 @@ public class MainMenu : MonoBehaviour
 
     public void OnLeaderBoardButtonClick()
     {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+#if UNITY_WEBGL && !UNITY_EDITOR
+        if(YandexGame.auth)
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+        else
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateAuthorizationQuestion>();
+#endif 
     }
 
     public void OnSettingsButtonClick()

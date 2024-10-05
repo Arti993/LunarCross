@@ -25,9 +25,6 @@ public abstract class BindPoint : MonoBehaviour
 
     public void Exempt()
     {
-   //     if (IsFree)
-   //         throw new InvalidOperationException();
-
         IsFree = true;
     }
 }

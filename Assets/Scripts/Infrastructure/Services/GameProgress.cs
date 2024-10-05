@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using YG;
 using UnityEngine;
 
 public class GameProgress : IGameProgress
@@ -50,13 +51,15 @@ public class GameProgress : IGameProgress
         if (PlayerPrefs.GetInt(levelResultTag, 0) < points)
         {
             PlayerPrefs.SetInt(levelResultTag, points);
+
+            SaveTotalScore();
+            
             UnlockNextLevelIfNeed();
         }
         
         PlayerPrefs.Save();
     }
-    
-    
+
     public int GetCurrentLevelNumber()
     {
         int levelNumber = PlayerPrefs.GetInt(SelectedLevelNumberTag, 0);
@@ -139,5 +142,12 @@ public class GameProgress : IGameProgress
             
             PlayerPrefs.Save();
         }
+    }
+
+    private void SaveTotalScore()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    YandexGame.NewLeaderboardScores("LeaderBoard", GetTotalScore());
+#endif
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScreenFader : IScreenFader
 {
     private const float FadeDuration = 0.5f;
-    private const float Delay = 0.01f;
+    private const float Delay = 0.1f;
     private readonly GameObject _screenFaderObject;
     private readonly Image _blackScreen;
     private readonly LoadScreen _loadScreen;

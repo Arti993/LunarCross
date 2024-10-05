@@ -1,4 +1,5 @@
 using Ami.BroAudio;
+using Ami.Extension;
 using UnityEngine;
 
 public class HumanoidKnockedState : KnockedState
@@ -13,6 +14,14 @@ public class HumanoidKnockedState : KnockedState
     {
         _ragdollBody = ragdollBody;
         _collider = collider;
+    }
+
+    public override void Start()
+    {
+        if (Rigidbody.gameObject.TryGetComponent(out EntityToEjectDetector ejector))
+            ejector.Disable();
+        
+        base.Start();
     }
 
     public override void Move()

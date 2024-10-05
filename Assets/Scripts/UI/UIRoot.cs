@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIRoot : MonoBehaviour
 {
     private Canvas _canvas;
-    private int _cameraPlaneDistance = 4;
+    private int _cameraPlaneDistance = 2;
 
     private void Awake()
     {

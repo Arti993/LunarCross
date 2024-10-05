@@ -1,36 +1,38 @@
-using Agava.WebUtility;
-using Agava.YandexGames;
+using System.Collections;
+using YG;
 using Ami.BroAudio;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class MainBootstrap : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    
+
     private DIServicesContainer _diContainer;
-    private UiStateMachine _uiStateMachine;
+    private IAssetsProvider _provider;
+    private float _enableFocusTestDelay = 0.6f;
     private static bool _isFirstAwake = true;
 
     private void Awake()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-    YandexGamesSdk.GameReady();
-#endif
-
         if (_isFirstAwake)
         {
+            
+#if UNITY_WEBGL && !UNITY_EDITOR
+    YandexGame.GameReadyAPI();
+    YandexGame.SetFullscreen(true);
+#endif
+            
             _diContainer = new DIServicesContainer();
 
             RegisterServices();
-            
-            MouseClickOnScreenForStartAudio();
-            
+
             PrepareUiStateMachine();
 
             _isFirstAwake = false;
+
+            StartCoroutine(EnableFocusTest());
         }
-        
+
         OpenMainMenu();
     }
 
@@ -38,9 +40,9 @@ public class MainBootstrap : MonoBehaviour
     {
         _diContainer.RegisterService<IAssetsProvider>(new AssetsProvider());
 
-        IAssetsProvider provider = _diContainer.GetService<IAssetsProvider>();
+        _provider = _diContainer.GetService<IAssetsProvider>();
 
-        _diContainer.RegisterService<ILocalization>(new Localization(provider));
+        _diContainer.RegisterService<ILocalization>(new Localization(_provider));
 
         _diContainer.RegisterService<IAudioPlayback>(new AudioPlayback());
 
@@ -48,21 +50,17 @@ public class MainBootstrap : MonoBehaviour
 
         _diContainer.RegisterService<ILevelsSettingsNomenclature>(new LevelsSettingsNomenclature());
 
-        _diContainer.RegisterService<IScreenFader>(new ScreenFader(provider));
+        _diContainer.RegisterService<IScreenFader>(new ScreenFader(_provider));
 
-        _diContainer.RegisterService<IUiWindowFactory>(new UiWindowFactory(provider));
-        
-        _diContainer.RegisterService<IParticleSystemFactory>(new ParticleSystemFactory(provider));
+        _diContainer.RegisterService<IUiWindowFactory>(new UiWindowFactory(_provider));
 
-        _diContainer.RegisterService<IGameplayFactory>(new GameplayFactory(provider));
-        
-        _diContainer.RegisterService<IFocusTestStateChanger>(new FocusTestStateChanger(provider));
+        _diContainer.RegisterService<IParticleSystemFactory>(new ParticleSystemFactory(_provider));
 
-        _diContainer.RegisterService<IVideoAdService>(new VideoAdService(provider));
-        
-        _uiStateMachine = new UiStateMachine();
+        _diContainer.RegisterService<IGameplayFactory>(new GameplayFactory(_provider));
 
-        _diContainer.RegisterService<IUiStateMachine>(_uiStateMachine);
+        _diContainer.RegisterService<IVideoAdService>(new VideoAdService(_provider));
+
+        _diContainer.RegisterService<IUiStateMachine>(new UiStateMachine());
     }
 
     private void PrepareUiStateMachine()
@@ -75,6 +73,8 @@ public class MainBootstrap : MonoBehaviour
         AddState(new UiStatePauseButton());
         AddState(new UIStateLevelComplete());
         AddState(new UiStateLevelFailed());
+        AddState(new UiStateRestartGameQuestion());
+        AddState(new UiStateAuthorizationQuestion());
         AddState(new UiStateTutorialAliens());
         AddState(new UiStateTutorialAstronauts());
         AddState(new UiStateTutorialTornado());
@@ -93,24 +93,27 @@ public class MainBootstrap : MonoBehaviour
     private void OpenMainMenu()
     {
         GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-        
+
         uiRootObject.GetComponent<UIRoot>().SetCamera(_camera);
 
         DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.GameMainTitle, uiRootObject);
 
         DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
 
-        SoundID menuMusicTheme = DIServicesContainer.Instance.GetService<IAudioPlayback>().MusicContainer.MenuTheme;
-        
-        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayMusic(menuMusicTheme);
+        StartMenuMusicTheme();
     }
 
-    private void MouseClickOnScreenForStartAudio()
+    private IEnumerator EnableFocusTest()
     {
-        Vector3 mousePosition = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-        PointerEventData pointerData = new PointerEventData(EventSystem.current)
-        {
-            position = mousePosition
-        };
+        yield return new WaitForSeconds(_enableFocusTestDelay);
+
+        _diContainer.RegisterService<IFocusTestStateChanger>(new FocusTestStateChanger(_provider));
+    }
+
+    private void StartMenuMusicTheme()
+    {
+        SoundID menuMusicTheme = DIServicesContainer.Instance.GetService<IAudioPlayback>().MusicContainer.MenuTheme;
+
+        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayMusic(menuMusicTheme);
     }
 }
