@@ -13,7 +13,7 @@ public class UiWindowFactory : IUiWindowFactory
 
     public GameObject GetUIRoot()
     {
-        return _uiRootObject ? _uiRootObject : (_uiRootObject = _provider.Instantiate(PrefabsPaths.UIRoot));
+        return _uiRootObject ? _uiRootObject : _uiRootObject = _provider.Instantiate(PrefabsPaths.UIRoot);
     }
 
     public void DeleteUIRoot()

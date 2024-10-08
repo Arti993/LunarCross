@@ -41,4 +41,6 @@ public static class PrefabsPaths
     
     public static readonly string LevelConfig = "Prefabs/LevelsConfigs/Level";
     public static readonly string TutorialConfig = "Prefabs/LevelsConfigs/Tutorial";
+    public static readonly string SoundsContainerPath = "Prefabs/AudioConfigs/Sounds";
+    public static readonly string MusicContainerPath = "Prefabs/AudioConfigs/Music";
 }

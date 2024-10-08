@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class RunnerToRocket : MonoBehaviour
 {
+    private const float _speed = 0.03f;
+    private const float _minDistance = 0.01f;
+    
     [SerializeField] private Rocket _rocket;
 
     private Transform _transform;
     private Transform _firstPoint;
     private Transform _secondPoint;
     private Transform _target;
-    private float _speed = 0.03f;
-    private float _minDistance = 0.01f;
-    private int _currentPointIndex = 0;
+    private int _currentPointIndex;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class RunnerToRocket : MonoBehaviour
         _secondPoint = _rocket.TopLadderPoint;
         _transform = transform;
         _target = _firstPoint;
+        _currentPointIndex = 0;
     }
 
     private void Update()

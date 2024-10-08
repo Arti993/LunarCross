@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class PlacementToVehiclePattern : IPlaceableToVehicle
 {
+    private const float SearchRadius = 1;
+    
     private EntityBehaviour _entity;
-    private float _searchRadius = 1;
     private VehicleCatchBehaviour _vehicleCatchBehaviour;
     private CatchZoneChecker _catchZoneChecker;
 
     public PlacementToVehiclePattern(EntityBehaviour entity)
     {
         _entity = entity;
-        _catchZoneChecker = new CatchZoneChecker(entity, _searchRadius);
+        _catchZoneChecker = new CatchZoneChecker(entity, SearchRadius);
     }
 
     public bool TryPlaceToVehicle()

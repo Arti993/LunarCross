@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour
 {
+    private const float MinSpawnDistanceTreshold = 1f;
+    private const int PrewarmedObjectsCount = 3;
+    private const int MinSimpleEntitiesCount = 4;
+    private const int MaxSimpleEntitiesCount = 7;
+    
     [SerializeField] private EntityBehaviour _collectableEntity;
     [SerializeField] private EntityBehaviour _enemyEntity;
     [SerializeField] private List<Entity> _simpleEntities;
     [SerializeField] private List<Entity> _enemySimpleEntities;
     
-    private EntityCollection _spawnedEntities = new EntityCollection();
     private List<Vector3> _occupiedPositions = new List<Vector3>();
-    private float _minSpawnDistanceTreshold = 1f;
-    private int _prewarmedObjectsCount = 3;
-    private int _minSimpleEntitiesCount = 4;
-    private int _maxSimpleEntitiesCount = 7;
     private bool _isOverlap;
     private bool _isPositionFound;
     
@@ -24,14 +24,14 @@ public class EntitySpawner : MonoBehaviour
     
     private void Awake()
     {
-        _collectablesPool = new EntitiesObjectPool(_collectableEntity, _prewarmedObjectsCount);
-        _enemiesPool = new EntitiesObjectPool(_enemyEntity, _prewarmedObjectsCount);
+        _collectablesPool = new EntitiesObjectPool(_collectableEntity, PrewarmedObjectsCount);
+        _enemiesPool = new EntitiesObjectPool(_enemyEntity, PrewarmedObjectsCount);
 
         IReadOnlyList<Entity> simpleEntities = _simpleEntities;
         IReadOnlyList<Entity> enemySimpleEntities = _enemySimpleEntities;
         
-        _simpleEntitiesPool = new EntitiesObjectPool(simpleEntities, _prewarmedObjectsCount);
-        _enemySimpleEntitiesPool = new EntitiesObjectPool(enemySimpleEntities, _prewarmedObjectsCount);
+        _simpleEntitiesPool = new EntitiesObjectPool(simpleEntities, PrewarmedObjectsCount);
+        _enemySimpleEntitiesPool = new EntitiesObjectPool(enemySimpleEntities, PrewarmedObjectsCount);
     }
 
     public void SpawnEntitiesForEnemyChunk(int entitiesCount, Chunk chunk)
@@ -51,7 +51,7 @@ public class EntitySpawner : MonoBehaviour
 
         Spawn(entitiesPool, entitiesCount, chunk);
 
-        int simpleEntitiesCount = Random.Range(_minSimpleEntitiesCount, _maxSimpleEntitiesCount);
+        int simpleEntitiesCount = Random.Range(MinSimpleEntitiesCount, MaxSimpleEntitiesCount);
 
         Spawn(simpleEntitiesPool, simpleEntitiesCount, chunk);
       
@@ -75,7 +75,7 @@ public class EntitySpawner : MonoBehaviour
 
                 foreach (Vector3 occupiedPosition in _occupiedPositions)
                 {
-                    if (Vector3.Distance(occupiedPosition, spawnPosition) < _minSpawnDistanceTreshold)
+                    if (Vector3.Distance(occupiedPosition, spawnPosition) < MinSpawnDistanceTreshold)
                     {
                         _isOverlap = true;
                         break;
@@ -92,8 +92,6 @@ public class EntitySpawner : MonoBehaviour
 
                     newEntity.transform.position = spawnPosition;
                     newEntity.transform.rotation = Quaternion.identity;
-
-                    _spawnedEntities.Add(newEntity);
                 }
             }
         }

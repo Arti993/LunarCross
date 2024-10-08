@@ -6,14 +6,15 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody))]
 public class NPCMovement : MonoBehaviour
 {
-    private float _changeDirectionInterval = 5f;
-    private float _speed = 0.8f;
+    private const float ChangeDirectionInterval = 5f;
+    private const float Speed = 0.8f;
+    private const float MaxDeflectAngle = 60;
+    
     private Coroutine _changeDirectionCoroutine;
     private Vector3 _moveDirection;
     private Rigidbody _rigidbody;
     private Transform _transform;
     private bool _canTrigger;
-    private float _maxDeflectAngle = 60;
 
     private void OnEnable()
     {
@@ -55,7 +56,7 @@ public class NPCMovement : MonoBehaviour
 
         _transform.rotation = Quaternion.LookRotation(_moveDirection);
 
-        _rigidbody.AddForce(transform.forward * _speed, ForceMode.Impulse);
+        _rigidbody.AddForce(transform.forward * Speed, ForceMode.Impulse);
     }
 
     private void ReflectDirection(Collider otherCollider)
@@ -69,7 +70,7 @@ public class NPCMovement : MonoBehaviour
 
         Vector3 newDirection = new Vector3(-normal.x, 0f, -normal.z).normalized;
 
-        Quaternion deflection = Quaternion.Euler(0f, Random.Range(0f, _maxDeflectAngle), 0f);
+        Quaternion deflection = Quaternion.Euler(0f, Random.Range(0f, MaxDeflectAngle), 0f);
 
         _moveDirection = deflection * newDirection;
 
@@ -86,7 +87,7 @@ public class NPCMovement : MonoBehaviour
 
     private IEnumerator ChangeDirectionWithInterval()
     {
-        yield return new WaitForSeconds(_changeDirectionInterval);
+        yield return new WaitForSeconds(ChangeDirectionInterval);
 
         _moveDirection = GetRandomDirection();
 

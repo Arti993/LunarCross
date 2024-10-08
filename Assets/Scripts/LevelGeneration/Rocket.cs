@@ -6,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Rocket : MonoBehaviour
 {
+    private const float Speed = 5.3f;
+    private const float Delay = 0.5f;
+    
     [SerializeField] private GameObject _ladder;
     [SerializeField] private GameObject _smokeBeforeTakeOff;
     [SerializeField] private Transform _bottomLadderPoint;
@@ -14,8 +17,6 @@ public class Rocket : MonoBehaviour
     [SerializeField] private List<RunnerToRocket> _runnersToRocket;
 
     private Rigidbody _rigidbody;
-    private float _speed = 5.3f;
-    private float _delay = 0.5f;
     
     public Transform BottomLadderPoint => _bottomLadderPoint;
     public Transform TopLadderPoint => _topLadderPoint;
@@ -41,18 +42,18 @@ public class Rocket : MonoBehaviour
 
     private IEnumerator FlyAway()
     {
-        yield return new WaitForSeconds(_delay);
+        yield return new WaitForSeconds(Delay);
         
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
              .GetGreenCollectEffect(_middleLadderPoint.position);
         
         Destroy(_ladder);
         
-        yield return new WaitForSeconds(_delay);
+        yield return new WaitForSeconds(Delay);
         
         Destroy(_smokeBeforeTakeOff);
         
-        _rigidbody.AddForce(0f,_speed,0f, ForceMode.VelocityChange);
+        _rigidbody.AddForce(0f,Speed,0f, ForceMode.VelocityChange);
         
         SoundID rocketTurbine = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketTurbine;
         

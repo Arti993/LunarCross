@@ -28,173 +28,115 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04aabbf9-7ec0-4adb-896a-57aef3559404" name="Default Changelist" comment="Add Dependency injection container, levelcomplete and levelfail functions. Add UI and Particle factories">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardWindow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CosmicAdventures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Satellite.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/Satellite.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/UI/LeaderboardElement.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OtherAssets/Prefabs/UI/LeaderboardElement.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/CosmicAdventuresRUS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/CosmicAdventuresRUS.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/CosmicAdventuresTUR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/CosmicAdventuresTUR.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/LogoCosmicAdventures.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/LogoCosmicAdventures.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/СosmicAdventureENG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OtherAssets/Sprites and Materials/СosmicAdventureENG.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/FocusTest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/FocusTest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LeanLocalization.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LeanLocalization.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Rover.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Rover.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/GameMainTitle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/GameMainTitle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/LeaderBoardWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/LeaderBoardWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/LevelNumberTitle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/LevelNumberTitle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/PauseMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/PauseMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/RestartGameQuestion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/RestartGameQuestion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/SettingsWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/SettingsWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UiControlInput.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UiControlInput.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/Agava.WebUtility.Samples.Playtesting.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/Agava.WebUtility.Samples.Playtesting.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/PlaytestingCanvas.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/PlaytestingCanvas.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/PlaytestingScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/PlaytestingScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/TestAudio.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Web Utility/3.1.0/Playtesting Sample/TestAudio.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/Agava.YandexGames.Samples.Playtesting.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/Agava.YandexGames.Samples.Playtesting.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/ApplicationAliveIndicator.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/ApplicationAliveIndicator.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PlaytestingCanvas.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PlaytestingCanvas.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PlaytestingScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PlaytestingScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/ProductCatalogPanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/ProductCatalogPanel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/ProductPanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/ProductPanel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PurchasedProductListPanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PurchasedProductListPanel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PurchasedProductPanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/PurchasedProductPanel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/WebEventSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/Yandex Games/16.0.0/Playtesting Sample/WebEventSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/YandexSDKInitialize.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/YandexSDKInitialize.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioVolumeChanger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioVolumeChanger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkGround.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkGround.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkPlacer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkWithObstacles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkWithObstacles.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EmptyChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EmptyChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntitiesObjectPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntitiesObjectPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entity.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityCollection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityCollection.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityToEjectDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityToEjectDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/HumanoidKnockedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/HumanoidKnockedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/IEntityStateSwitcher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/IEntityStateSwitcher.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Obstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Obstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums/SceneIndex.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums/SceneIndex.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExampleSound.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExampleSound.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FinalSceneCamera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FinalSceneCamera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FinishTutorialWindowViewer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FinishTutorialWindowViewer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FocusTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FocusTest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityRay.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GravityRay.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IEjectorFromVehicle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IEjectorFromVehicle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IPlaceableToVehicle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IPlaceableToVehicle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GamePlayBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GamePlayBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/YandexLeaderboard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/YandexLeaderboard.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardWindow.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/MainBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/MainBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/AfterEjectingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/AfterEjectingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienAfterEjectingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienAfterEjectingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBaseMovementState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBaseMovementState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautBaseMovementState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautBaseMovementState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautEjectedState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautEjectedState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautGroundHitState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautGroundHitState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautInsideAttachState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautInsideAttachState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautOutsideAttachState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautOutsideAttachState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/RisingByGravityRayState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/RisingByGravityRayState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/BaseMovementState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/BaseMovementState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EjectedFromVehicleState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EjectedFromVehicleState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityBaseState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityBaseState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityToEjectDetector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityToEjectDetector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/HumanoidKnockedState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/HumanoidKnockedState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/InsideVehicleAttachState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/InsideVehicleAttachState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces/IEjectorFromVehicle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces/IEjectorFromVehicle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces/IEntityStateSwitcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces/IEntityStateSwitcher.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces/IPlaceableToVehicle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Interfaces/IPlaceableToVehicle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/KnockedState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/KnockedState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/LevitationState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/LevitationState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Movement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Movement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NPCMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NPCMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NoActionState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NoActionState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NpcBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NpcBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Obstacle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Obstacle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/ObstacleKnockedState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/ObstacleKnockedState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/OutsideVehicleAttachState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/OutsideVehicleAttachState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/PlacementToVehiclePattern.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/PlacementToVehiclePattern.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/RadarMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/RadarMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Ragdoll.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Ragdoll.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/SimpleRotationState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/SimpleRotationState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/TornadoMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/TornadoMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums&amp;Consts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums&amp;Consts/PrefabsPaths.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums&amp;Consts/PrefabsPaths.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums&amp;Consts/SceneIndex.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums&amp;Consts/SceneIndex.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardElement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardElement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardWindow.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/AudioPlayback.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/AudioPlayback.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/FocusTestStateChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/FocusTestStateChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LevelsSettingsNomenclature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LevelsSettingsNomenclature.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ScreenFader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ScreenFader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateLeaderboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateLeaderboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateLevelFailed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateLevelFailed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStatePauseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStatePauseButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/YandexSDKInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/YandexSDKInitializer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/UIControlInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/UIControlInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InterstitialVideoAd.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InterstitialVideoAd.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LanguageChanger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LanguageChanger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelBorder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelBorder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelBorderChecker.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelBorderChecker.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoadScreen.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoadScreen.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainThemeMusicStarter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainThemeMusicStarter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mountain.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mountain.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlacementToVehiclePattern.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlacementToVehiclePattern.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerFollowCamera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerFollowCamera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PrefabsPaths.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PrefabsPaths.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ragdoll.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ragdoll.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RockElement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RockElement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rocket.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rocket.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunnerToRocket.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunnerToRocket.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScaleAnimation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScaleAnimation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimePauserWithDelay.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimePauserWithDelay.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TornadoChunk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TornadoChunk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TutorialChunkPlacer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TutorialChunkPlacer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ControlButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ControlButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameSettingsWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameSettingsWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/EntityCollection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/EntityCollection.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/EntitySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/EntitySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/FinalSceneCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/FinalSceneCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/Rocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/Rocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/RunnerToRocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/RunnerToRocket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/RestartGameQuestionWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/RestartGameQuestionWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Tutorial/TutorialWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Tutorial/TutorialWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TotalScoreViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TotalScoreViewer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/BindPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/BindPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/YandexSDKInitializer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/YandexSDKInitializer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/OutsideBindPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/OutsideBindPoint.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +178,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/97/d12859f1/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D04E01F6-1B56-4167-8DD1-B35B66008BE9/7f/f9435ad9/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NoActionState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_SubMeshUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateLevelFailed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0DA8A948-97C9-4541-9A99-35A75F4E9B6A/40/c3828c0a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -271,30 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBaseMovementState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienKnockedState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautGroundHitState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ragdoll.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienAfterEjectingState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntitiesObjectPool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Movement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/BindPoint.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/HumanoidKnockedState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EntityToEjectDetector.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/FocusTestStateChanger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RestartGameQuestionWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateRestartGameQuestion.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateAuthorizationQuestion.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStateLevelFailed.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ScreenFader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FocusTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Obstacle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GamePlayBootstrap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Tutorial/TutorialWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameSettingsWindow.cs" />
@@ -302,12 +219,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/UiStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/IUiStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/UIStateMachine/States/UiStatePauseButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/UIControlInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable Objects/MusicContainer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/ControlButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NPCMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/AudioPlayback.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PrefabsPaths.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LevelsSettingsNomenclature.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" />
@@ -315,13 +230,39 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/LanguageChanger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/YandexLeaderboard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InterstitialVideoAd.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/CarController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TutorialChunkPlacer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/YandexSDKInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/MainBootstrap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/EjectedFromVehicleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/KnockedState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/NPCMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Obstacle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/PlacementToVehiclePattern.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Alien/AlienAfterEjectingState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautEjectedState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Astronaut/AstronautGroundHitState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EntityStateMachine/Satellite/SatelliteMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/EntitySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/FinalSceneCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/Rocket.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelGeneration/RunnerToRocket.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/YandexSDKInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/LeaderBoard/LeaderboardPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/AssetsProvider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Data/PrefabsPaths.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/AudioPlayback.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/GameProgress.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/GameplayFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/Factories/UiWindowFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Input/UIControlInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LevelCompleteWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/TotalScoreViewer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIRoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/BindPoints/OutsideBindPoint.cs" />
       </list>
     </option>
   </component>
@@ -437,7 +378,8 @@
       <workItem from="1726130877229" duration="15028000" />
       <workItem from="1726508314799" duration="216457000" />
       <workItem from="1727678768559" duration="42650000" />
-      <workItem from="1728147516379" duration="1244000" />
+      <workItem from="1728147516379" duration="2157000" />
+      <workItem from="1728369114880" duration="4314000" />
     </task>
     <task id="LOCAL-00001" summary="Adding LevelChoose functional, changing Chunks prefabs">
       <created>1706812177803</created>
@@ -621,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1727391732193</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Change SDK, fixing bugs, refactoring">
+      <created>1728148880686</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728148880686</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -640,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Adding LevelChoose functional, changing Chunks prefabs" />
     <MESSAGE value="Changing level selecting" />
     <MESSAGE value="Adding new scripts, fixing code" />
     <MESSAGE value="Change NPC move action" />
@@ -665,7 +613,8 @@
     <MESSAGE value="Fixing bugs, UI changes" />
     <MESSAGE value="Add Ui State Machine, refactoring" />
     <MESSAGE value="Add Object Pool Pattern for entities spawn, refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Object Pool Pattern for entities spawn, refactoring" />
+    <MESSAGE value="Change SDK, fixing bugs, refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change SDK, fixing bugs, refactoring" />
   </component>
   <component name="WindowStateProjectService">
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1725689599163">
@@ -676,70 +625,6 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="537" y="311" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1723060927985" />
-    <state width="1493" height="159" key="GridCell.Tab.0.bottom" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.0.center" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.0.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.0.left" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.0.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.0.right" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.0.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.1.bottom" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.1.center" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.1.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.1.left" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.1.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.1.right" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.1.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.2.bottom" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.2.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.2.center" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.2.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.2.left" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.2.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.2.right" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.2.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.3.bottom" timestamp="1719173671079">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.3.bottom/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671079" />
-    <state width="1493" height="159" key="GridCell.Tab.3.center" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.3.center/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.3.left" timestamp="1719173671078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.3.left/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671078" />
-    <state width="1493" height="159" key="GridCell.Tab.3.right" timestamp="1719173671079">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="159" key="GridCell.Tab.3.right/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1719173671079" />
     <state x="570" y="129" key="RiderGenerateDialog" timestamp="1727206977900">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -749,15 +634,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1727419309518" />
-    <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2" timestamp="1727391758652">
+    <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2" timestamp="1728149093396">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="442" y="200" width="997" height="533" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1727391758652" />
     <state x="2473" y="174" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1721762321094" />
-    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1728047787030">
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1728149093396" />
+    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1728372163797">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1728047787030" />
+    <state x="463" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@0.0.1536.824" timestamp="1728372163797" />
     <state x="2499" y="105" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.-78.1920.1040@1920.-78.1920.1040" timestamp="1727809254328" />
   </component>
 </project>

@@ -7,10 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class AudioPlayback : IAudioPlayback
 {
-    private const string SoundsContainerPath = "Prefabs/AudioConfigs/Sounds";
-    private const string MusicContainerPath = "Prefabs/AudioConfigs/Music";
     private const string MusicVolumeTag = "LastMusicVolume";
-    private const string SoundVolumeTag = "LastSoundsVolume";
     private const string MusicMutedTag = "MusicMuted";
     private const string SoundsMutedTag = "SoundsMuted";
     private const int MaxConvertedVolume = 100;
@@ -22,8 +19,8 @@ public class AudioPlayback : IAudioPlayback
 
     public AudioPlayback()
     {
-        SoundsContainer = Resources.Load<SoundsContainer>(SoundsContainerPath);
-        MusicContainer = Resources.Load<MusicContainer>(MusicContainerPath);
+        SoundsContainer = Resources.Load<SoundsContainer>(PrefabsPaths.SoundsContainerPath);
+        MusicContainer = Resources.Load<MusicContainer>(PrefabsPaths.MusicContainerPath);
 
         ApplySavedVolume();
 
@@ -143,7 +140,7 @@ public class AudioPlayback : IAudioPlayback
 
     public void SaveVolume(float volume, string VolumeTag)
     {
-        var convertedVolume = (int) Mathf.Round(volume * 100);
+        var convertedVolume = (int) Mathf.Round(volume * MaxConvertedVolume);
 
         PlayerPrefs.SetInt(VolumeTag, convertedVolume);
 
@@ -154,7 +151,7 @@ public class AudioPlayback : IAudioPlayback
     {
         int convertedVolume = PlayerPrefs.GetInt(VolumeTag, MaxConvertedVolume);
 
-        float unConvertedVolume = (float) convertedVolume / 100;
+        float unConvertedVolume = (float) convertedVolume / MaxConvertedVolume;
 
         return unConvertedVolume;
     }

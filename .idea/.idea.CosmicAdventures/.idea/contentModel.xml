@@ -1124,58 +1124,12 @@
         </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
-          <e p="DeleteComponentsFromBuild.cs" t="Include" />
-          <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
-          <e p="EntityStateMachine" t="Include">
-            <e p="AfterEjectingState.cs" t="Include" />
-            <e p="Alien" t="Include">
-              <e p="AlienAfterEjectingState.cs" t="Include" />
-              <e p="AlienBaseMovementState.cs" t="Include" />
-              <e p="AlienBehaviour.cs" t="Include" />
-            </e>
-            <e p="Astronaut" t="Include">
-              <e p="AstronautBaseMovementState.cs" t="Include" />
-              <e p="AstronautBehaviour.cs" t="Include" />
-              <e p="AstronautEjectedState.cs" t="Include" />
-              <e p="AstronautGroundHitState.cs" t="Include" />
-              <e p="AstronautInsideAttachState.cs" t="Include" />
-              <e p="AstronautOutsideAttachState.cs" t="Include" />
-              <e p="RisingByGravityRayState.cs" t="Include" />
-            </e>
-            <e p="BaseMovementState.cs" t="Include" />
-            <e p="EjectedFromVehicleState.cs" t="Include" />
-            <e p="EntityBaseState.cs" t="Include" />
-            <e p="EntityBehaviour.cs" t="Include" />
-            <e p="EntityToEjectDetector.cs" t="Include" />
-            <e p="HumanoidKnockedState.cs" t="Include" />
-            <e p="InsideVehicleAttachState.cs" t="Include" />
-            <e p="Interfaces" t="Include">
-              <e p="IEjectorFromVehicle.cs" t="Include" />
-              <e p="IEntityStateSwitcher.cs" t="Include" />
-              <e p="IPlaceableToVehicle.cs" t="Include" />
-            </e>
-            <e p="KnockedState.cs" t="Include" />
-            <e p="LevitationState.cs" t="Include" />
-            <e p="Movement.cs" t="Include" />
-            <e p="NoActionState.cs" t="Include" />
-            <e p="NpcBehaviour.cs" t="Include" />
-            <e p="NPCMovement.cs" t="Include" />
-            <e p="Obstacle.cs" t="Include" />
-            <e p="ObstacleKnockedState.cs" t="Include" />
-            <e p="OutsideVehicleAttachState.cs" t="Include" />
-            <e p="PlacementToVehiclePattern.cs" t="Include" />
-            <e p="RadarMovement.cs" t="Include" />
-            <e p="Ragdoll.cs" t="Include" />
-            <e p="Satellite" t="Include">
-              <e p="SatelliteMovement.cs" t="Include" />
-            </e>
-            <e p="SimpleRotationState.cs" t="Include" />
-            <e p="TornadoMovement.cs" t="Include" />
-          </e>
-          <e p="Enums&amp;Consts" t="Include">
+          <e p="Data" t="Include">
             <e p="PrefabsPaths.cs" t="Include" />
             <e p="SceneIndex.cs" t="Include" />
           </e>
+          <e p="DeleteComponentsFromBuild.cs" t="Include" />
+          <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
           <e p="Infrastructure" t="Include">
             <e p="AudioVolumeChanger.cs" t="Include" />
             <e p="DIServicesContainer.cs" t="Include" />
@@ -1183,12 +1137,7 @@
             <e p="GamePlayBootstrap.cs" t="Include" />
             <e p="InterstitialVideoAd.cs" t="Include" />
             <e p="LanguageChanger.cs" t="Include" />
-            <e p="LeaderBoard" t="Include">
-              <e p="LeaderboardElement.cs" t="Include" />
-              <e p="LeaderboardPlayer.cs" t="Include" />
-              <e p="LeaderboardView.cs" t="Include" />
-              <e p="LeaderboardWindow.cs" t="Include" />
-            </e>
+            <e p="LeaderBoard" t="Include" />
             <e p="LoadScreen.cs" t="Include" />
             <e p="MainBootstrap.cs" t="Include" />
             <e p="MainThemeMusicStarter.cs" t="Include" />
@@ -1265,10 +1214,53 @@
             <e p="ChunkGround.cs" t="Include" />
             <e p="ChunkPlacer.cs" t="Include" />
             <e p="ChunkWithObstacles.cs" t="Include" />
+            <e p="CreatableEntities" t="Include">
+              <e p="EntityStateMachine" t="Include">
+                <e p="AfterEjectingState.cs" t="Include" />
+                <e p="Alien" t="Include">
+                  <e p="AlienAfterEjectingState.cs" t="Include" />
+                  <e p="AlienBaseMovementState.cs" t="Include" />
+                  <e p="AlienBehaviour.cs" t="Include" />
+                </e>
+                <e p="Astronaut" t="Include">
+                  <e p="AstronautBaseMovementState.cs" t="Include" />
+                  <e p="AstronautBehaviour.cs" t="Include" />
+                  <e p="AstronautEjectedState.cs" t="Include" />
+                  <e p="AstronautGroundHitState.cs" t="Include" />
+                  <e p="AstronautInsideAttachState.cs" t="Include" />
+                  <e p="AstronautOutsideAttachState.cs" t="Include" />
+                  <e p="RisingByGravityRayState.cs" t="Include" />
+                </e>
+                <e p="BaseMovementState.cs" t="Include" />
+                <e p="EjectedFromVehicleState.cs" t="Include" />
+                <e p="EntityBaseState.cs" t="Include" />
+                <e p="EntityBehaviour.cs" t="Include" />
+                <e p="EntityToEjectDetector.cs" t="Include" />
+                <e p="HumanoidKnockedState.cs" t="Include" />
+                <e p="IEntityStateSwitcher.cs" t="Include" />
+                <e p="InsideVehicleAttachState.cs" t="Include" />
+                <e p="KnockedState.cs" t="Include" />
+                <e p="LevitationState.cs" t="Include" />
+                <e p="NoActionState.cs" t="Include" />
+                <e p="NpcBehaviour.cs" t="Include" />
+                <e p="OutsideVehicleAttachState.cs" t="Include" />
+              </e>
+              <e p="Interfaces" t="Include">
+                <e p="IEjectorFromVehicle.cs" t="Include" />
+                <e p="IPlaceableToVehicle.cs" t="Include" />
+              </e>
+              <e p="Movement.cs" t="Include" />
+              <e p="NPCMovement.cs" t="Include" />
+              <e p="Obstacle.cs" t="Include" />
+              <e p="PlacementToVehiclePattern.cs" t="Include" />
+              <e p="RadarMovement.cs" t="Include" />
+              <e p="Ragdoll.cs" t="Include" />
+              <e p="SatelliteMovement.cs" t="Include" />
+              <e p="TornadoMovement.cs" t="Include" />
+            </e>
             <e p="EmptyChunk.cs" t="Include" />
             <e p="EntitiesObjectPool.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
-            <e p="EntityCollection.cs" t="Include" />
             <e p="EntitySpawner.cs" t="Include" />
             <e p="FinalSceneCamera.cs" t="Include" />
             <e p="GravityRay.cs" t="Include" />
@@ -1298,6 +1290,7 @@
             <e p="GameSettingsWindow.cs" t="Include" />
             <e p="GameTitle.cs" t="Include" />
             <e p="LanguageSetButton.cs" t="Include" />
+            <e p="LeaderboardWindow.cs" t="Include" />
             <e p="LevelCompleteWindow.cs" t="Include" />
             <e p="LevelEndNextButton.cs" t="Include" />
             <e p="LevelFailedWindow.cs" t="Include" />

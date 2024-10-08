@@ -6,13 +6,13 @@ public class EjectedFromVehicleState : EntityBaseState
 {
     private const string LevitatingTrigger = "isLevitating";
     private const string IdleTrigger = "isIdle";
+    private const float TimeToEnableCollider = 1;
     
     protected Rigidbody Rigidbody;
     protected Animator Animator;
     protected Collider Collider;
     protected IPlaceableToVehicle PlacementPattern;
     private EntityBehaviour _entity;
-    private float _timeToEnableCollider = 1;
     
     protected EjectedFromVehicleState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
         Collider collider, IPlaceableToVehicle placementPattern) : base(stateSwitcher)
@@ -66,7 +66,7 @@ public class EjectedFromVehicleState : EntityBaseState
 
     private IEnumerator WaitToEnableCollider()
     {
-        yield return new WaitForSeconds(_timeToEnableCollider);  
+        yield return new WaitForSeconds(TimeToEnableCollider);  
 
         Collider.enabled = true;
     }

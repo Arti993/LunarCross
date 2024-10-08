@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class FinalSceneCamera : MonoBehaviour
 {
+    private const float MaxCameraOffset = 28;
+    private const float MaxRocketOffset = 55;
+    
     [SerializeField] private Transform _rocket;
     [SerializeField] private GameObject _designObjectsContainer;
 
     private Transform _transform;
     private float _startRocketPositionY;
     private float _startCameraPositionY;
-    private float _maxCameraOffset = 28;
-    private float _maxRocketOffset = 55;
 
     private void Start()
     {
@@ -27,13 +28,13 @@ public class FinalSceneCamera : MonoBehaviour
     {
         float rocketOffset = _rocket.position.y - _startRocketPositionY;
 
-        if (rocketOffset < _maxCameraOffset)
+        if (rocketOffset < MaxCameraOffset)
         {
             Vector3 newCameraPosition = _transform.position;
             newCameraPosition.y = _startCameraPositionY + rocketOffset;
             _transform.position = newCameraPosition;
         }
-        else if (rocketOffset > _maxRocketOffset)
+        else if (rocketOffset > MaxRocketOffset)
         {
             StopRocketSounds();
             

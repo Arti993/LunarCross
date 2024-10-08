@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class AlienAfterEjectingState : AfterEjectingState
 {
+    private const float Speed = 0.5f;
+    
     private IEntityStateSwitcher _stateSwitcher;
     private Rigidbody _rigidbody;
     private Transform _entityTransform;
-    private float _speed = 0.5f;
 
     public AlienAfterEjectingState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody) : base(stateSwitcher)
     {
@@ -19,11 +20,10 @@ public class AlienAfterEjectingState : AfterEjectingState
         Move();
     }
 
-
     public override void Move()
     {
         _entityTransform.rotation = Quaternion.LookRotation(-_entityTransform.forward);
-        _rigidbody.velocity = _entityTransform.forward * _speed;
+        _rigidbody.velocity = _entityTransform.forward * Speed;
     }
 
     public override void ReactOnEntryVehicleCatchZone()

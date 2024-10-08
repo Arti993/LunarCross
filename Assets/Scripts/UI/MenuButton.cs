@@ -4,17 +4,17 @@ using DG.Tweening;
 
 public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandler
 {
+    private const float IncreaseFactor = 1.3f;
+    private const float AnimationDuration = 0.3f;
     private Transform _transform;
     private Vector3 _startScale;
     private Vector3 _increasedScale;
-    private float _increaseFactor = 1.3f;
-    private float _animationDuration = 0.3f;
 
     private void Awake()
     {
         _transform = transform;
         _startScale = _transform.localScale;
-        _increasedScale = _startScale * _increaseFactor;
+        _increasedScale = _startScale * IncreaseFactor;
     }
 
     protected override void OnEnable()
@@ -29,7 +29,7 @@ public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandle
         if(IsClickable == false)
             return;
 
-        _transform.DOScale(_increasedScale, _animationDuration).SetUpdate(true);
+        _transform.DOScale(_increasedScale, AnimationDuration).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -37,7 +37,7 @@ public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandle
         if(IsClickable == false)
             return;
         
-        _transform.DOScale(_startScale, _animationDuration).SetUpdate(true);
+        _transform.DOScale(_startScale, AnimationDuration).SetUpdate(true);
     }
     
     

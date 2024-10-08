@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Canvas))]
 public class UIRoot : MonoBehaviour
 {
+    private const int CameraPlaneDistance = 2;
+    
     private Canvas _canvas;
-    private int _cameraPlaneDistance = 2;
 
     private void Awake()
     {
@@ -20,6 +20,6 @@ public class UIRoot : MonoBehaviour
     public void SetCamera(Camera camera)
     {
         _canvas.worldCamera = camera;
-        _canvas.planeDistance = _cameraPlaneDistance;
+        _canvas.planeDistance = CameraPlaneDistance;
     }
 }

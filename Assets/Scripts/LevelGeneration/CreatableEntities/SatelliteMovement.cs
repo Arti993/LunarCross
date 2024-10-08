@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SatelliteMovement : Movement
 {
+    private const float OffsetY = 0.45f;
+    
     [SerializeField] private float _levitationHeight = 0.45f;
     [SerializeField] private float _levitationHalfCycleTime = 2f;
     [SerializeField] private float _minDelayBeforeMove = 0f;
@@ -10,7 +12,6 @@ public class SatelliteMovement : Movement
 
     private Vector3 _startPoint;
     private Vector3 _endPoint;
-    private float _offsetY = 0.45f;
     private float _startTime;
     private float _delayBeforeMove;
     private float _distanceCovered;
@@ -46,7 +47,7 @@ public class SatelliteMovement : Movement
     {
         yield return new WaitForSeconds(_delayBeforeMove);
 
-        _startPoint = new Vector3(_transform.position.x, _transform.position.y + _offsetY, _transform.position.z);
+        _startPoint = new Vector3(_transform.position.x, _transform.position.y + OffsetY, _transform.position.z);
         _transform.position = _startPoint;
         _endPoint = new Vector3(_startPoint.x, _startPoint.y + _levitationHeight, _startPoint.z);
         _journeyLength = Vector3.Distance(_startPoint, _endPoint);

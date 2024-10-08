@@ -1,33 +1,31 @@
 using System.Collections.Generic;
-using YG;
 using UnityEngine;
 
 public class GameProgress : IGameProgress
 {
-    private const string SelectedLevelNumberTag = "SelectedLevelNumber";
-    private const string ReachedLevelNumberTag = "ReachedLevelNumber";
-    private const string Level1ResultTag = "Level1Result";
-    private const string Level2ResultTag = "Level2Result";
-    private const string Level3ResultTag = "Level3Result";
-    private const string Level4ResultTag = "Level4Result";
-    private const string Level5ResultTag = "Level5Result";
-    private const string Level6ResultTag = "Level6Result";
-    private const string Level7ResultTag = "Level7Result";
-    private const string Level8ResultTag = "Level8Result";
-    private const string Level9ResultTag = "Level9Result";
-    private const string Level10ResultTag = "Level10Result";
-    private const string Level11ResultTag = "Level11Result";
-    private const string Level12ResultTag = "Level12Result";
+    private const string SelectedLevelNumber = nameof(SelectedLevelNumber);
+    private const string ReachedLevelNumber = nameof(ReachedLevelNumber);
+    private const string Level1Result = nameof(Level1Result);
+    private const string Level2Result = nameof(Level2Result);
+    private const string Level3Result = nameof(Level3Result);
+    private const string Level4Result = nameof(Level4Result);
+    private const string Level5Result = nameof(Level5Result);
+    private const string Level6Result = nameof(Level6Result);
+    private const string Level7Result = nameof(Level7Result);
+    private const string Level8Result = nameof(Level8Result);
+    private const string Level9Result = nameof(Level9Result);
+    private const string Level10Result = nameof(Level10Result);
+    private const string Level11Result = nameof(Level11Result);
+    private const string Level12Result = nameof(Level12Result);
 
     private Dictionary<int, string> _levelResultsTagsDictionary = new Dictionary<int, string>();
     
     public GameProgress()
     {
-        string[] levelsResultsTags = new string[]
-        {
-            Level1ResultTag,Level2ResultTag,Level3ResultTag,Level4ResultTag,Level5ResultTag,
-            Level6ResultTag,Level7ResultTag,Level8ResultTag,Level9ResultTag,Level10ResultTag,
-            Level11ResultTag, Level12ResultTag
+        string[] levelsResultsTags = {
+            Level1Result,Level2Result,Level3Result,Level4Result,Level5Result,
+            Level6Result,Level7Result,Level8Result,Level9Result,Level10Result,
+            Level11Result, Level12Result
         };
 
         int levelNumber;
@@ -38,7 +36,7 @@ public class GameProgress : IGameProgress
             _levelResultsTagsDictionary.Add(levelNumber, levelsResultsTags[i]);
         }
 
-        PlayerPrefs.SetInt(SelectedLevelNumberTag, 0);
+        PlayerPrefs.SetInt(SelectedLevelNumber, 0);
         PlayerPrefs.Save();
     }
 
@@ -62,10 +60,10 @@ public class GameProgress : IGameProgress
 
     public int GetCurrentLevelNumber()
     {
-        int levelNumber = PlayerPrefs.GetInt(SelectedLevelNumberTag, 0);
+        int levelNumber = PlayerPrefs.GetInt(SelectedLevelNumber, 0);
 
         if (levelNumber == 0)
-            levelNumber = PlayerPrefs.GetInt(ReachedLevelNumberTag, 1);
+            levelNumber = PlayerPrefs.GetInt(ReachedLevelNumber, 1);
 
         return levelNumber;
     }
@@ -99,7 +97,7 @@ public class GameProgress : IGameProgress
         if(PlayerPrefs.HasKey("GameIsComplete"))
                 PlayerPrefs.DeleteKey("GameIsComplete");
         
-        PlayerPrefs.SetInt(ReachedLevelNumberTag, 1);
+        PlayerPrefs.SetInt(ReachedLevelNumber, 1);
         
         PlayerPrefs.Save();
     }
@@ -111,21 +109,21 @@ public class GameProgress : IGameProgress
 
     public void SelectLevel(int levelNumber)
     {
-        PlayerPrefs.SetInt(SelectedLevelNumberTag, levelNumber);
+        PlayerPrefs.SetInt(SelectedLevelNumber, levelNumber);
         
         PlayerPrefs.Save();
     }
 
     public void ClearSelectedLevel()
     {
-        PlayerPrefs.DeleteKey(SelectedLevelNumberTag);
+        PlayerPrefs.DeleteKey(SelectedLevelNumber);
     }
 
     private void UnlockNextLevelIfNeed()
     {
         int completedLevelNumber = GetCurrentLevelNumber();
         
-        int reachedLevelNumber = PlayerPrefs.GetInt(ReachedLevelNumberTag, 1);
+        int reachedLevelNumber = PlayerPrefs.GetInt(ReachedLevelNumber, 1);
 
         if (completedLevelNumber == _levelResultsTagsDictionary.Count)
         {
@@ -138,7 +136,7 @@ public class GameProgress : IGameProgress
         {
             reachedLevelNumber++;
             
-            PlayerPrefs.SetInt(ReachedLevelNumberTag, reachedLevelNumber);
+            PlayerPrefs.SetInt(ReachedLevelNumber, reachedLevelNumber);
             
             PlayerPrefs.Save();
         }

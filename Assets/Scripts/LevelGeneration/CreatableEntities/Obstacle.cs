@@ -1,21 +1,20 @@
-using System;
 using System.Collections;
 using Ami.BroAudio;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Collider))]
 public class Obstacle : MonoBehaviour
 {
+    private const float DisableColliderTime = 0.7f;
+    
     [SerializeField] private float _hitDeviationСoefficient = 0.25f;
     [SerializeField] private float _afterHitMovementSpeed = 10;
 
     private Rigidbody _rigidbody;
     private Collider _collider;
     private Movement _movement;
-    private float _disableColliderTime = 0.7f;
     private bool _isCanCollise;
 
     private void Awake()
@@ -66,7 +65,7 @@ public class Obstacle : MonoBehaviour
     {
         _collider.enabled = false;
         
-        yield return new WaitForSeconds(_disableColliderTime);
+        yield return new WaitForSeconds(DisableColliderTime);
         
         _collider.enabled = true;
         _isCanCollise = true;

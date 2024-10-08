@@ -8,7 +8,6 @@ public class YandexSDKInitializer : MonoBehaviour
     {
         if (YandexGame.SDKEnabled)
             StartGame();
-        
     }
 
     private void StartGame()

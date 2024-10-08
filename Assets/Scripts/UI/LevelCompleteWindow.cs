@@ -8,6 +8,9 @@ using Ami.BroAudio;
 [RequireComponent(typeof(RectTransform))]
 public class LevelCompleteWindow : MenuEscapeWindow
 {
+    private const int LoopsCount = 2;
+    private const float HalfFactor = 0.5f;
+    
     [SerializeField] private GameObject[] _ratingStars;
     [SerializeField] private TMP_Text _pointsLabel;
     [SerializeField] private LevelEndNextButton _levelEndNextButton;
@@ -56,7 +59,7 @@ public class LevelCompleteWindow : MenuEscapeWindow
         Vector3 baseScale = _pointsLabel.transform.localScale;
         Vector3 increasedScale = baseScale * _pointsTextSizeMultiplier;
 
-        _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration / 2).SetLoops(2, LoopType.Yoyo);
+        _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration * HalfFactor).SetLoops(LoopsCount, LoopType.Yoyo);
         
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
             .GetYellowBurstEffect(_pointsLabel.transform.position);

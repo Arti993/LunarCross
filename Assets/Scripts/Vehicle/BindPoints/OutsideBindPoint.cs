@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class OutsideBindPoint : BindPoint
 {
+    private const int RightAngleGradus = 90;
+    
     protected float AngleShift = 15;
 
     public override void Fill(EntityBehaviour entity)
@@ -12,7 +14,7 @@ public class OutsideBindPoint : BindPoint
         EntityTransform.position = Transform.position;
         EntityTransform.rotation = Transform.rotation;
 
-        Quaternion quaternion = Quaternion.AngleAxis(90, Transform.right) * Transform.rotation;
+        Quaternion quaternion = Quaternion.AngleAxis(RightAngleGradus, Transform.right) * Transform.rotation;
 
         quaternion = Quaternion.AngleAxis(AngleShift, Transform.up) * quaternion;
 
