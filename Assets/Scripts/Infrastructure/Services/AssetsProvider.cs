@@ -30,7 +30,7 @@ public class AssetsProvider : IAssetsProvider
     {
         if (_loadedPrefabs.ContainsKey(path))
         {
-            _loadedPrefabs.TryGetValue(path, out GameObject prefab);
+            _ = _loadedPrefabs.TryGetValue(path, out GameObject prefab);
 
             _prefabToInstantiate = prefab;
         }

@@ -37,7 +37,7 @@ public class Obstacle : MonoBehaviour
         {
             _isCanCollise = false;
             
-            StartCoroutine(PauseCollisions());
+            _ = StartCoroutine(PauseCollisions());
 
             HitByVehicle();
         }

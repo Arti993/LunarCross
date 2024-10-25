@@ -13,7 +13,7 @@ public class TutorialChunkPlacer : ChunkPlacer
         {
             case 1:
                 SpawnEmptyChunk();
-                StartCoroutine(ShowWithDelay(ShowTutorialControlWindow));
+                _ = StartCoroutine(ShowWithDelay(ShowTutorialControlWindow));
 
                 break;
             case 2:
@@ -22,7 +22,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 3:
                 SpawnEmptyChunk();
-                StartCoroutine(ShowWithDelay(ShowTutorialCollectingWindow));
+                _ = StartCoroutine(ShowWithDelay(ShowTutorialCollectingWindow));
 
                 break;
             case 4:
@@ -31,7 +31,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 5:
                 SpawnEmptyChunk();
-                StartCoroutine(ShowWithDelay(ShowTutorialAliensWindow));
+                _ = StartCoroutine(ShowWithDelay(ShowTutorialAliensWindow));
 
                 break;
             case 6:
@@ -40,7 +40,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 7:
                 SpawnEmptyChunk();
-                StartCoroutine(ShowWithDelay(ShowTutorialObstaclesWindow));
+                _ = StartCoroutine(ShowWithDelay(ShowTutorialObstaclesWindow));
 
                 break;
             case 8:
@@ -49,7 +49,7 @@ public class TutorialChunkPlacer : ChunkPlacer
                 break;
             case 9:
                 SpawnFinishChunk();
-                StartCoroutine(ShowWithDelay(ShowTutorialTornadoWindow));
+                _ = StartCoroutine(ShowWithDelay(ShowTutorialTornadoWindow));
 
                 break;
             default:

@@ -1137,7 +1137,6 @@
             <e p="GamePlayBootstrap.cs" t="Include" />
             <e p="InterstitialVideoAd.cs" t="Include" />
             <e p="LanguageChanger.cs" t="Include" />
-            <e p="LeaderBoard" t="Include" />
             <e p="LoadScreen.cs" t="Include" />
             <e p="MainBootstrap.cs" t="Include" />
             <e p="MainThemeMusicStarter.cs" t="Include" />

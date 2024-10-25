@@ -30,14 +30,13 @@ public class AlienBehaviour : NpcBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.TryGetComponent(out BindPoint bindpoint);
+        _ = other.gameObject.TryGetComponent(out BindPoint bindpoint);
 
         if (bindpoint != null && bindpoint.IsFree == false)
         {
             if(GetCurrentState() is HumanoidKnockedState == false)
                 SwitchState<AlienAfterEjectingState>();
         }
-
 
         if (other.gameObject.TryGetComponent(out VehicleCatchBehaviour vehicle))
         {

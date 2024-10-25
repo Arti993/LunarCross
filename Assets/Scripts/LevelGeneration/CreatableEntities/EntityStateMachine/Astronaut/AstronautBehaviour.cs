@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AstronautBehaviour : NpcBehaviour, IPlaceableToVehicle
+public class AstronautBehaviour : NpcBehaviour
 {
     private IPlaceableToVehicle _placementPattern;
 
@@ -20,7 +20,7 @@ public class AstronautBehaviour : NpcBehaviour, IPlaceableToVehicle
             AllStates = new List<EntityBaseState>()
             {
                 new AstronautBaseMovementState(this, NpcMovement, _placementPattern),
-                new AstronautInsideAttachState(this, Animator, _placementPattern),
+                new AstronautInsideAttachState(this, Animator),
                 new AstronautOutsideAttachState(this, Rigidbody, Animator, _placementPattern),
                 new AstronautEjectedState(this, Rigidbody, Animator, Collider, _placementPattern),
                 new HumanoidKnockedState(this, Rigidbody, RagdollFly, Collider),
@@ -40,15 +40,5 @@ public class AstronautBehaviour : NpcBehaviour, IPlaceableToVehicle
             if(otherCollider.gameObject.TryGetComponent(out ChunkGround chunkGround))
                 SwitchState<AstronautGroundHitState>();
         }
-    }
-
-    public bool TryPlaceToVehicle()
-    {
-        return _placementPattern.TryPlaceToVehicle();
-    }
-
-    public void UnplaceFromVehicle()
-    {
-        _placementPattern.UnplaceFromVehicle();
     }
 }

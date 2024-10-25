@@ -42,7 +42,7 @@ public class GravityRay : MonoBehaviour
         
             DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(raySound);
             
-            StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
+            _ = StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
         }
     }
 
@@ -60,7 +60,7 @@ public class GravityRay : MonoBehaviour
 
         ShowLevelCompleteWindow();
 
-        StartCoroutine(EjectEntitiesByGravityRay());
+        _ = StartCoroutine(EjectEntitiesByGravityRay());
     }
 
     private void ShowLevelCompleteWindow()
@@ -91,7 +91,7 @@ public class GravityRay : MonoBehaviour
         Vector3 entityPosition = bindPoint.BindedEntity.transform.position;
 
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .GetGreenCollectEffect(entityPosition);
+            .ShowGreenCollectEffect(entityPosition);
 
         _levelCompleteWindow.CollectPoint();
 

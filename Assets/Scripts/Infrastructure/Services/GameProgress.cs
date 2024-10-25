@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,8 +44,9 @@ public class GameProgress : IGameProgress
     public void SaveLevelProgress(int points)
     {
         int levelNumber = GetCurrentLevelNumber();
-
-        _levelResultsTagsDictionary.TryGetValue(levelNumber, out string levelResultTag);
+        
+        if(_levelResultsTagsDictionary.TryGetValue(levelNumber, out string levelResultTag) == false)
+            throw new InvalidOperationException();
 
         if (PlayerPrefs.GetInt(levelResultTag, 0) < points)
         {
@@ -70,7 +72,8 @@ public class GameProgress : IGameProgress
 
     public int GetLevelResult(int levelNumber)
     {
-        _levelResultsTagsDictionary.TryGetValue(levelNumber, out string levelResultTag);
+        if(_levelResultsTagsDictionary.TryGetValue(levelNumber, out string levelResultTag) == false)
+            throw new InvalidOperationException();
 
         return PlayerPrefs.GetInt(levelResultTag, 0);
     }

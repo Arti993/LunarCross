@@ -20,10 +20,13 @@ public class DeleteComponentsFromBuild : IProcessSceneWithReport
     public void OnProcessScene(Scene scene, BuildReport report)
     {
         foreach (GameObject rootGameObject in scene.GetRootGameObjects())
-        foreach(string uselessComponentName in _uselessComponentNames)
-            DeleteComponents(rootGameObject.transform, uselessComponentName);
+        {
+            foreach(string uselessComponentName in _uselessComponentNames)
+                DeleteComponents(rootGameObject.transform, uselessComponentName);
+        }
 
         Object[] deletionComponents = Resources.FindObjectsOfTypeAll(typeof(DeleteSpecificComponentsFromBuild));
+        
         foreach (DeleteSpecificComponentsFromBuild deletionComponent in deletionComponents)
             deletionComponent.DeleteComponents();
     }
@@ -31,6 +34,7 @@ public class DeleteComponentsFromBuild : IProcessSceneWithReport
     private void DeleteComponents(Transform transform, string componentName)
     {
         var uselessComponent = transform.GetComponent(componentName);
+        
         if (uselessComponent != null)
             Object.DestroyImmediate(uselessComponent);
 

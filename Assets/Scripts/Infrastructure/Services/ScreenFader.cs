@@ -18,10 +18,10 @@ public class ScreenFader : IScreenFader
 
         _blackScreen = _screenFaderObject.GetComponentInChildren<Image>();
 
-        _screenFaderObject.TryGetComponent(out LoadScreen loadScreen);
-
-        if (loadScreen != null)
-            _loadScreen = loadScreen;
+        if(_screenFaderObject.TryGetComponent(out LoadScreen loadScreen) == false)
+            throw new InvalidOperationException();
+        
+        _loadScreen = loadScreen;
 
         FadeIn();
     }
@@ -56,6 +56,8 @@ public class ScreenFader : IScreenFader
                 DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().EnablePauseMenuOpening();
             
             FadingComplete?.Invoke();
+            
+            sequence.Kill();
         });
     }
 
@@ -83,6 +85,8 @@ public class ScreenFader : IScreenFader
             FadingComplete?.Invoke();
 
             SceneManager.LoadScene(sceneIndex);
+            
+            sequence.Kill();
         });
     }
 }

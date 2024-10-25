@@ -33,4 +33,9 @@ public class UiWindowFactory : IUiWindowFactory
     {
         return _provider.Instantiate(path, parent.transform);
     }
+    
+    public void ShowUIObject(string path, GameObject parent)
+    {
+        _ = _provider.Instantiate(path, parent.transform);
+    }
 }

@@ -40,7 +40,7 @@ public class SatelliteMovement : Movement
 
     public override void Move()
     {
-        StartCoroutine(StartMovementAfterDelay());
+        _ = StartCoroutine(StartMovementAfterDelay());
     }
     
     private IEnumerator StartMovementAfterDelay()

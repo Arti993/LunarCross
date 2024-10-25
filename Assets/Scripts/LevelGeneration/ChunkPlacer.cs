@@ -52,8 +52,7 @@ public class ChunkPlacer : MonoBehaviour
     {
         _playerTransform = playerTransform;
     }
-
-
+    
     protected virtual void SpawnNextChunkInSequence()
     {
         switch (SpawnedChunks.Count)
@@ -115,17 +114,17 @@ public class ChunkPlacer : MonoBehaviour
 
     protected void SpawnLandscapeChunk()
     {
-        SpawnChunk(_landscapeChunk);
+        _ = SpawnChunk(_landscapeChunk);
     }
 
     protected void SpawnTornadoChunk()
     {
-        SpawnChunk(_tornadoChunk);
+        _ = SpawnChunk(_tornadoChunk);
     }
 
     protected void SpawnFinishChunk()
     {
-        SpawnChunk(_finishChunk);
+        _ = SpawnChunk(_finishChunk);
 
         _isAllChunksSpawned = true;
     }

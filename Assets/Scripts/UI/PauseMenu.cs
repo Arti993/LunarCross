@@ -39,11 +39,11 @@ public class PauseMenu : MenuEscapeWindow
 
     private void BackGroundPanelIntro()
     {
-        _backgroundPanel.DOFade(0.5f, PanelAnimationDuration).SetUpdate(true);
+        _ = _backgroundPanel.DOFade(0.5f, PanelAnimationDuration).SetUpdate(true);
     }
 
     private void BackGroundPanelOutro()
     {
-        _backgroundPanel.DOFade(0f, PanelAnimationDuration).SetUpdate(true);
+        _ = _backgroundPanel.DOFade(0f, PanelAnimationDuration).SetUpdate(true);
     }
 }

@@ -10,47 +10,47 @@ public class ParticleSystemFactory : IParticleSystemFactory
         _provider = provider;
     }
 
-    public GameObject GetExplosionEffect(Vector3 position)
+    public void ShowExplosionEffect(Vector3 position)
     {
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayExplosionSound();
         
-        return _provider.Instantiate(PrefabsPaths.Explosion, position);
+        _ = _provider.Instantiate(PrefabsPaths.Explosion, position);
     }
 
-    public GameObject GetGreenCollectEffect(Vector3 position)
+    public void ShowGreenCollectEffect(Vector3 position)
     {
         SoundID saveSound = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.SavingAstronaut;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(saveSound);
         
-        return _provider.Instantiate(PrefabsPaths.RayPulling, position);
+        _ = _provider.Instantiate(PrefabsPaths.RayPulling, position);
     }
 
-    public GameObject GetCollectEffect(Vector3 position)
+    public void ShowCollectEffect(Vector3 position)
     {
-        return _provider.Instantiate(PrefabsPaths.CollectEffect, position);
+        _ = _provider.Instantiate(PrefabsPaths.CollectEffect, position);
     }
 
-    public GameObject GetAlienEjectEffect(Vector3 position)
+    public void ShowAlienEjectEffect(Vector3 position)
     {
         SoundID alienGrabSound = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.AlienGrab;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(alienGrabSound);
         
-        return _provider.Instantiate(PrefabsPaths.EjectEffect, position);
+        _ = _provider.Instantiate(PrefabsPaths.EjectEffect, position);
     }
 
-    public GameObject GetTornadoEjectEffect(Vector3 position)
+    public void ShowTornadoEjectEffect(Vector3 position)
     {
         SoundID tornadoSound = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Tornado;
         
         DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(tornadoSound);
         
-        return _provider.Instantiate(PrefabsPaths.EjectEffect, position);
+        _ = _provider.Instantiate(PrefabsPaths.EjectEffect, position);
     }
 
-    public GameObject GetYellowBurstEffect(Vector3 position)
+    public void ShowYellowBurstEffect(Vector3 position)
     {
-        return _provider.Instantiate(PrefabsPaths.BurstYellow, position);
+        _ = _provider.Instantiate(PrefabsPaths.BurstYellow, position);
     }
 }

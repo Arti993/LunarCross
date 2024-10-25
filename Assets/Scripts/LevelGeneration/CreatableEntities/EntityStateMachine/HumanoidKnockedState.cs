@@ -7,8 +7,6 @@ public class HumanoidKnockedState : KnockedState
     private readonly Collider _collider;
     private readonly Ragdoll _ragdollBody;
     private Rigidbody _spineRigidbody;
-    private Vector3 _initialPosition;
-    private Quaternion _initialRotation;
     
     public HumanoidKnockedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Ragdoll ragdollBody, Collider collider) : base(stateSwitcher, rigidbody)
     {
@@ -26,9 +24,6 @@ public class HumanoidKnockedState : KnockedState
 
     public override void Move()
     {
-        _initialPosition = _collider.transform.position;
-        _initialRotation = _collider.transform.rotation;
-        
         _ragdollBody.TurnOn();
 
         _spineRigidbody = _ragdollBody.GetSpineRigidbody();

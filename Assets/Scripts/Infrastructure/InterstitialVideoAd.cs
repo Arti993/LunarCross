@@ -29,7 +29,5 @@ public class InterstitialVideoAd : MonoBehaviour
         AudioListener.pause = false;
         
         DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().EnableFocusTest();
-        
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
     }
 }

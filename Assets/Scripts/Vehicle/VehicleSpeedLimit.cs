@@ -60,7 +60,7 @@ public class VehicleSpeedLimit : MonoBehaviour
     {
         if (_isMinSpeedViolation == false)
         {
-            DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(_blowUpPoint.position);
+            DIServicesContainer.Instance.GetService<IParticleSystemFactory>().ShowExplosionEffect(_blowUpPoint.position);
 
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -70,7 +70,7 @@ public class VehicleSpeedLimit : MonoBehaviour
             
                 DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
 
-                StartCoroutine(timePauserWithDelay.Pause());
+                _ = StartCoroutine(timePauserWithDelay.Pause());
             }
             else
             {

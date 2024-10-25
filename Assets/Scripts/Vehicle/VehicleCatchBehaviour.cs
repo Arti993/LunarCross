@@ -46,7 +46,9 @@ public class VehicleCatchBehaviour : MonoBehaviour
             return true;
         }
         else
+        {
             return false;
+        }
     }
 
     public bool TryFillRightSideBindPoint(EntityBehaviour entity)
@@ -58,7 +60,9 @@ public class VehicleCatchBehaviour : MonoBehaviour
             return true;
         }
         else
+        {
             return false;
+        }
     }
 
     public IReadOnlyList<BindPoint> GetEntitiesBindPoints()
@@ -74,7 +78,7 @@ public class VehicleCatchBehaviour : MonoBehaviour
         {
             if (bindPoints[i].IsFree)
             {
-                DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetCollectEffect(entity.transform.position);
+                DIServicesContainer.Instance.GetService<IParticleSystemFactory>().ShowCollectEffect(entity.transform.position);
                 
                 bindPoints[i].Fill(entity);
                 isFillingSuccess = true;

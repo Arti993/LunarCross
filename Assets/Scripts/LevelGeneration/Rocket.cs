@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ami.BroAudio;
@@ -32,12 +33,13 @@ public class Rocket : MonoBehaviour
 
     public void PlaceRunner(RunnerToRocket runner)
     {
-        _runnersToRocket.Remove(runner);
+        if (_runnersToRocket.Remove(runner) == false)
+            throw new InvalidOperationException();
         
         Destroy(runner.gameObject);
 
         if (_runnersToRocket.Count == 0)
-            StartCoroutine(FlyAway());
+            _ = StartCoroutine(FlyAway());
     }
 
     private IEnumerator FlyAway()
@@ -45,7 +47,7 @@ public class Rocket : MonoBehaviour
         yield return new WaitForSeconds(Delay);
         
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-             .GetGreenCollectEffect(_middleLadderPoint.position);
+             .ShowGreenCollectEffect(_middleLadderPoint.position);
         
         Destroy(_ladder);
         

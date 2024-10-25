@@ -16,7 +16,6 @@ public class MainBootstrap : MonoBehaviour
     {
         if (_isFirstAwake)
         {
-            
 #if UNITY_WEBGL && !UNITY_EDITOR
     YandexGame.GameReadyAPI();
     YandexGame.SetFullscreen(true);
@@ -96,7 +95,7 @@ public class MainBootstrap : MonoBehaviour
 
         uiRootObject.GetComponent<UIRoot>().SetCamera(_camera);
 
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.GameMainTitle, uiRootObject);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().ShowUIObject(PrefabsPaths.GameMainTitle, uiRootObject);
 
         DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
 

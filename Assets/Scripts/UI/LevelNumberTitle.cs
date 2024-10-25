@@ -8,9 +8,13 @@ public class LevelNumberTitle : MonoBehaviour
     private const float AnimateTime = 1.2f;
     private const float MaxScale = 2;
     private const int TutorialSceneIndex = 4;
+    
     [SerializeField] private TMP_Text _levelNumber;
     [SerializeField] private TMP_Text _level;
     [SerializeField] private TMP_Text _tutorial;
+
+    private Sequence _sequence;
+
 
     private void Start()
     {
@@ -37,30 +41,35 @@ public class LevelNumberTitle : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        _sequence.Kill();
+    }
+    
     private void Animate(TMP_Text text)
     {
-        Sequence sequence = DOTween.Sequence();
+        _sequence = DOTween.Sequence();
 
-        sequence.Append(text.transform.DOScale(MaxScale, AnimateTime));
-        sequence.Append(text.DOFade(0f, AnimateTime));
+        _sequence.Append(text.transform.DOScale(MaxScale, AnimateTime));
+        _sequence.Append(text.DOFade(0f, AnimateTime));
         
-        sequence.OnComplete(() =>
+        _sequence.OnComplete(() =>
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         });
     }
     
     private void Animate(TMP_Text text, TMP_Text number)
     {
-        Sequence sequence = DOTween.Sequence();
+        _sequence = DOTween.Sequence();
 
-        sequence.Append(text.transform.DOScale(MaxScale, AnimateTime));
-        sequence.Append(text.DOFade(0f, AnimateTime));
-        sequence.Join(number.DOFade(0f, AnimateTime));
+        _sequence.Append(text.transform.DOScale(MaxScale, AnimateTime));
+        _sequence.Append(text.DOFade(0f, AnimateTime));
+        _sequence.Join(number.DOFade(0f, AnimateTime));
         
-        sequence.OnComplete(() =>
+        _sequence.OnComplete(() =>
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         });
     }
 }

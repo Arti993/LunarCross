@@ -29,7 +29,7 @@ public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandle
         if(IsClickable == false)
             return;
 
-        _transform.DOScale(_increasedScale, AnimationDuration).SetUpdate(true);
+        _ = _transform.DOScale(_increasedScale, AnimationDuration).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -37,7 +37,7 @@ public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandle
         if(IsClickable == false)
             return;
         
-        _transform.DOScale(_startScale, AnimationDuration).SetUpdate(true);
+        _ = _transform.DOScale(_startScale, AnimationDuration).SetUpdate(true);
     }
     
     

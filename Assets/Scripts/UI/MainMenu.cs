@@ -4,12 +4,6 @@ using YG;
 public class MainMenu : MonoBehaviour
 {
     private const string NotFirstGameLaunch = "NotFirstGameLaunch";
-    private Canvas _uiRoot;
-
-    private void Awake()
-    {
-        _uiRoot = GetComponentInParent<Canvas>();
-    }
 
     public void OnPlayButtonClick()
     {
@@ -24,7 +18,9 @@ public class MainMenu : MonoBehaviour
     public void OnNewGameButtonClick()
     {
         if (PlayerPrefs.HasKey(NotFirstGameLaunch))
+        {
             DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateRestartGameQuestion>();
+        }
         else
         {
             OnTutorialButtonClick();
@@ -43,9 +39,13 @@ public class MainMenu : MonoBehaviour
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
         if(YandexGame.auth)
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+            {
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+            }
         else
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateAuthorizationQuestion>();
+            {
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateAuthorizationQuestion>();
+            }
 #endif 
     }
 

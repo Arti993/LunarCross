@@ -52,7 +52,7 @@ public class GamePlayBootstrap : MonoBehaviour
     
     private void PrepareUI(GameObject uiRoot)
     {
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetWindow(PrefabsPaths.LevelNumberTitle, uiRoot);
+        DIServicesContainer.Instance.GetService<IUiWindowFactory>().ShowUIObject(PrefabsPaths.LevelNumberTitle, uiRoot);
         
         DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
     }

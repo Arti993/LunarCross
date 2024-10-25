@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +17,8 @@ public class LevelCompleteWindow : MenuEscapeWindow
     [SerializeField] private LevelEndNextButton _levelEndNextButton;
     [SerializeField] private float _pointsTextSizeMultiplier = 2;
     [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
-    
+
+    private List<Tweener> _tweeners = new List<Tweener>();
     private int _pointsForFirstStar;
     private int _pointsForSecondStar;
     private int _pointsForThirdStar;
@@ -51,6 +53,14 @@ public class LevelCompleteWindow : MenuEscapeWindow
         _levelEndNextButton.SetNotInterractable();
     }
 
+    private void OnDisable()
+    {
+        foreach (Tweener tweener in _tweeners)
+        {
+            tweener.Kill();
+        }
+    }
+
     public void CollectPoint()
     {
         _points++;
@@ -59,10 +69,12 @@ public class LevelCompleteWindow : MenuEscapeWindow
         Vector3 baseScale = _pointsLabel.transform.localScale;
         Vector3 increasedScale = baseScale * _pointsTextSizeMultiplier;
 
-        _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration * HalfFactor).SetLoops(LoopsCount, LoopType.Yoyo);
+        Tweener tweener = _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration * HalfFactor).SetLoops(LoopsCount, LoopType.Yoyo);
+        
+        _tweeners.Add(tweener);
         
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .GetYellowBurstEffect(_pointsLabel.transform.position);
+            .ShowYellowBurstEffect(_pointsLabel.transform.position);
 
        if(new[] { _pointsForFirstStar, _pointsForSecondStar, _pointsForThirdStar }.Any(p => _points == p))
             GetStar();
@@ -89,6 +101,8 @@ public class LevelCompleteWindow : MenuEscapeWindow
 #if UNITY_WEBGL && !UNITY_EDITOR
     DIServicesContainer.Instance.GetService<IVideoAdService>().ShowInterstitialAd();
 #endif
+        
+        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
     }
     
     public void RestartLevel()
@@ -145,10 +159,12 @@ public class LevelCompleteWindow : MenuEscapeWindow
         
         currentStar.SetActive(true);
 
-        currentStar.transform.DOScale(baseScale, _sizeChangeAnimationDuration);
+        Tweener tweener = currentStar.transform.DOScale(baseScale, _sizeChangeAnimationDuration);
+        
+        _tweeners.Add(tweener); 
         
         DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .GetYellowBurstEffect(currentStar.transform.position);
+            .ShowYellowBurstEffect(currentStar.transform.position);
 
         SoundID starCollect = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.StarCollect;
         

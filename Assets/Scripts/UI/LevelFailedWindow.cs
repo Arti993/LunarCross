@@ -28,7 +28,7 @@ public class LevelFailedWindow : MenuEscapeWindow
 
         _isFirstFailReacted = true;
         
-        StartCoroutine(StopTime());
+        _ = StartCoroutine(StopTime());
     }
     
     private IEnumerator StopTime()

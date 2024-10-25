@@ -26,7 +26,7 @@ public class AstronautBaseMovementState : BaseMovementState
 
     public override void ReactOnEntryVehicleCatchZone()
     {
-        _placementPattern.TryPlaceToVehicle();
+        _ = _placementPattern.TryPlaceToVehicle();
     }
 
     public override void ReactOnEntryVehicleTossZone()

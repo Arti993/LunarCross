@@ -37,7 +37,7 @@ public class RunnerToRocket : MonoBehaviour
             }
             else if (_currentPointIndex > 1)
             {
-                DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetGreenCollectEffect(_transform.position);
+                DIServicesContainer.Instance.GetService<IParticleSystemFactory>().ShowGreenCollectEffect(_transform.position);
                 
                 _rocket.PlaceRunner(this);
             }

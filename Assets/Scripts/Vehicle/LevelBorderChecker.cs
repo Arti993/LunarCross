@@ -17,7 +17,7 @@ public class LevelBorderChecker : MonoBehaviour
                 
         Vector3 intersectionPoint = transform.GetComponent<Collider>().ClosestPointOnBounds(other.transform.position);
             
-        DIServicesContainer.Instance.GetService<IParticleSystemFactory>().GetExplosionEffect(intersectionPoint);
+        DIServicesContainer.Instance.GetService<IParticleSystemFactory>().ShowExplosionEffect(intersectionPoint);
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -27,7 +27,7 @@ public class LevelBorderChecker : MonoBehaviour
 
             DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
 
-            StartCoroutine(timePauserWithDelay.Pause());
+            _ = StartCoroutine(timePauserWithDelay.Pause());
         }
         else
         {

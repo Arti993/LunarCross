@@ -8,7 +8,6 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
     
     private readonly Rigidbody _rigidbody;
     private readonly Animator _animator;
-    private readonly IEntityStateSwitcher _stateSwitcher;
     private readonly IPlaceableToVehicle _placementPattern;
     private EntityBehaviour _entityBehaviour;
     private Coroutine _changeAttachStateCoroutine;
@@ -19,7 +18,6 @@ public class AstronautOutsideAttachState : OutsideVehicleAttachState
     {
         _rigidbody = rigidbody;
         _animator = animator;
-        _stateSwitcher = stateSwitcher;
         _placementPattern = placementPattern;
     }
 

@@ -14,8 +14,6 @@ public class AudioPlayback : IAudioPlayback
     private const float MaxVolume = 1;
 
     private bool _isMenuThemePlaying;
-    private List<SoundID> _music;
-    private List<SoundID> _sounds;
 
     public AudioPlayback()
     {
@@ -88,7 +86,9 @@ public class AudioPlayback : IAudioPlayback
             MusicContainer.Play(soundID);
         }
         else
+        {
             throw new InvalidOperationException();
+        }
     }
 
     public void PlaySound(SoundID soundID)

@@ -10,8 +10,7 @@ public class LevitationState : EntityBaseState
     private Coroutine _movingCoroutine;
     private float _levitationHeight;
     private float _levitationHalfCycleTime;
-
-
+    
     public LevitationState(IEntityStateSwitcher stateSwitcher,  EntityBehaviour entity, Rigidbody rigidbody, 
         float levitationHeight, float levitationHalfCycleTime) : base(stateSwitcher)
     {

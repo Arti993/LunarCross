@@ -6,13 +6,10 @@ public class AstronautInsideAttachState : InsideVehicleAttachState
     private const string IdleTrigger = "isIdle";
 
     private readonly Animator _animator;
-    private IPlaceableToVehicle _placementPattern;
 
-    public AstronautInsideAttachState(IEntityStateSwitcher stateSwitcher, Animator animator, 
-        IPlaceableToVehicle placementPattern) : base(stateSwitcher)
+    public AstronautInsideAttachState(IEntityStateSwitcher stateSwitcher, Animator animator) : base(stateSwitcher)
     {
         _animator = animator;
-        _placementPattern = placementPattern;
     }
 
     public override void Start()

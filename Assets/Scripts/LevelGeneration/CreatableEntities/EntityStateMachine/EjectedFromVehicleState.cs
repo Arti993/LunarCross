@@ -25,7 +25,7 @@ public class EjectedFromVehicleState : EntityBaseState
 
     public override void Start()
     {
-        Rigidbody.TryGetComponent(out EntityBehaviour entity);
+        _ = Rigidbody.TryGetComponent(out EntityBehaviour entity);
 
         _entity = entity;
 
@@ -36,7 +36,7 @@ public class EjectedFromVehicleState : EntityBaseState
 
         Collider.enabled = false;
 
-        _entity.StartCoroutine(WaitToEnableCollider());
+        _ = _entity.StartCoroutine(WaitToEnableCollider());
         
         if (Animator.GetBool(IdleTrigger))
             Animator.SetBool(IdleTrigger, false);
@@ -57,7 +57,7 @@ public class EjectedFromVehicleState : EntityBaseState
 
     public override void ReactOnEntryVehicleCatchZone()
     {
-        PlacementPattern.TryPlaceToVehicle();
+        _ = PlacementPattern.TryPlaceToVehicle();
     }
 
     public override void ReactOnEntryVehicleTossZone()

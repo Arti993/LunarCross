@@ -24,12 +24,12 @@ public class CatchZoneViewer : MonoBehaviour
 
     public void StopShowCatchZones()
     {
-        StartCoroutine(StopShowAfterDelay(_catchZonesViews));
+        _ = StartCoroutine(StopShowAfterDelay(_catchZonesViews));
     }
     
     public void StopShowDangerZones()
     {
-        StartCoroutine(StopShowAfterDelay(_dangerZonesViews));
+        _ = StartCoroutine(StopShowAfterDelay(_dangerZonesViews));
     }
     
     private void Show(IEnumerable<GameObject> zones)

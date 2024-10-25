@@ -17,7 +17,7 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
 
     public bool TryPlaceToVehicle()
     {
-        CheckEntityPlacement(out BindPoint bindPoint);
+        _ = CheckEntityPlacement(out BindPoint bindPoint);
 
         if(bindPoint == null)
         {
@@ -40,10 +40,14 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
         else
+        {
             return false;
+        }
     }
 
     public void UnplaceFromVehicle()
@@ -51,7 +55,7 @@ public class PlacementToVehiclePattern : IPlaceableToVehicle
         if (_entity == null)
             throw new InvalidOperationException();
 
-        CheckEntityPlacement(out BindPoint bindPoint);
+        _ = CheckEntityPlacement(out BindPoint bindPoint);
 
         if (bindPoint == null)
             throw new InvalidOperationException();

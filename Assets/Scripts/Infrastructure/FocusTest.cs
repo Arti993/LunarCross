@@ -63,7 +63,9 @@ public class FocusTest : MonoBehaviour
     private void MuteAudio(bool value)
     {
         if (value)
+        {
             DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteAudio();
+        }
         else
         {
             DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteAudio();
