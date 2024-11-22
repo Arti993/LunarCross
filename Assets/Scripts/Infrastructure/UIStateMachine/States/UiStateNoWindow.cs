@@ -1,10 +1,13 @@
-public class UiStateNoWindow : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    public override void Enter()
+    public class UiStateNoWindow : UiStateMachineState
     {
-    }
+        public override void Enter()
+        {
+        }
 
-    public override void Exit()
-    {
+        public override void Exit()
+        {
+        }
     }
 }

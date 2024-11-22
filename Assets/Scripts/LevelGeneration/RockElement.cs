@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class RockElement : MonoBehaviour
+namespace LevelGeneration
 {
+    public class RockElement : MonoBehaviour
+    {
+    }
 }

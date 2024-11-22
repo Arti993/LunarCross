@@ -1,26 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UiStateTutorialTornado : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States.TutorialStates
 {
-    private TutorialWindow _tutorialWindow;
-
-    public override void Enter()
+    public class UiStateTutorialTornado : UiStateMachineState
     {
-        if (_tutorialWindow == null)
+        private TutorialWindow _tutorialWindow;
+
+        public override void Enter()
         {
-            GameObject tutorialWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.TutorialTornadoWindow, GetUiRoot());
+            if (_tutorialWindow == null)
+            {
+                GameObject tutorialWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.TutorialTornadoWindow, GetUiRoot());
 
-            _tutorialWindow = tutorialWindowObject.GetComponent<TutorialWindow>();
+                _tutorialWindow = tutorialWindowObject.GetComponent<TutorialWindow>();
+            }
+
+            _tutorialWindow.Open();
         }
-        
-        _tutorialWindow.Open();
-    }
 
-    public override void Exit()
-    {
-        _tutorialWindow.Close();
+        public override void Exit()
+        {
+            _tutorialWindow.Close();
+        }
     }
 }

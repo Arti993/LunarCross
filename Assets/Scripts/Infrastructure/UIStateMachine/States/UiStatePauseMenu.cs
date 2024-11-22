@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UiStatePauseMenu : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    private PauseMenu _pauseMenu;
-    
-    public override void Enter()
+    public class UiStatePauseMenu : UiStateMachineState
     {
-        if (_pauseMenu == null)
+        private PauseMenu _pauseMenu;
+
+        public override void Enter()
         {
-            GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.PauseMenu,GetUiRoot());
+            if (_pauseMenu == null)
+            {
+                GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.PauseMenu, GetUiRoot());
 
-            UiWindow = uiWindowObject.GetComponentInChildren<UIWindow>();
-            
-            _pauseMenu = uiWindowObject.GetComponentInChildren<PauseMenu>();
+                UiWindow = uiWindowObject.GetComponentInChildren<UIWindow>();
+
+                _pauseMenu = uiWindowObject.GetComponentInChildren<PauseMenu>();
+            }
+
+            _pauseMenu.PauseGame();
         }
-
-        _pauseMenu.PauseGame();
     }
 }

@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class GameCompleteHiredButton : MonoBehaviour
+namespace UI
 {
-    private const string GameIsComplete = nameof(GameIsComplete);
-    
-    private void Start()
+    public class GameCompleteHiredButton : MonoBehaviour
     {
-        if (PlayerPrefs.HasKey(GameIsComplete))
-            Destroy(gameObject);
+        private const string GameIsComplete = nameof(GameIsComplete);
+
+        private void Start()
+        {
+            if (PlayerPrefs.HasKey(GameIsComplete))
+                Destroy(gameObject);
+        }
     }
 }

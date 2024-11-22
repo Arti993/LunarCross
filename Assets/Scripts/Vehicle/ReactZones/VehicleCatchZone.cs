@@ -1,12 +1,16 @@
+using LevelGeneration.Entities.EntityStateMachine;
 using UnityEngine;
 
-public abstract class VehicleCatchZone : MonoBehaviour
+namespace Vehicle.ReactZones
 {
-    private void OnTriggerEnter(Collider other)
+    public abstract class VehicleCatchZone : MonoBehaviour
     {
-        if (other.gameObject.TryGetComponent(out EntityBehaviour entityBehaviour))
+        private void OnTriggerEnter(Collider other)
         {
-            entityBehaviour.ReactOnEntryVehicleCatchZone();
+            if (other.gameObject.TryGetComponent(out EntityBehaviour entityBehaviour))
+            {
+                entityBehaviour.ReactOnEntryVehicleCatchZone();
+            }
         }
     }
 }

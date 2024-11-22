@@ -1,5 +1,8 @@
-public interface IUiStateMachine : IService
+namespace Infrastructure.UIStateMachine
 {
-    public void AddState(UiStateMachineState state);
-    public void SetState<T>() where T : UiStateMachineState;
+    public interface IUiStateMachine : IService
+    {
+        public void AddState(UiStateMachineState state);
+        public void SetState<T>() where T : UiStateMachineState;
+    }
 }

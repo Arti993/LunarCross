@@ -1,11 +1,16 @@
+using Infrastructure;
+using Infrastructure.Services.Localization;
 using UnityEngine;
 
-public class LanguageSetButton : CustomButton
+namespace UI
 {
-    [SerializeField] private string _language;
-
-    public void ChooseLanguage()
+    public class LanguageSetButton : CustomButton
     {
-        DIServicesContainer.Instance.GetService<ILocalization>().SetLanguage(_language);
+        [SerializeField] private string _language;
+
+        public void ChooseLanguage()
+        {
+            DIServicesContainer.Instance.GetService<ILocalization>().SetLanguage(_language);
+        }
     }
 }

@@ -1,51 +1,54 @@
 using UnityEngine;
 
-public class Chunk : MonoBehaviour
+namespace LevelGeneration
 {
-    [SerializeField] private Transform _begin;
-    [SerializeField] private Transform _end;
-    [SerializeField] private Renderer _planeRenderer;
-
-    private Material _surfaceMaterial;
-    private Material _stonesMaterial;
-    private Material _mountainsMaterial;
-    
-    public Transform Begin => _begin;
-
-    public Transform End => _end;
-
-    public Renderer SurfaceRenderer => _planeRenderer;
-
-    public void SetMaterials(Material surfaceMaterial, Material stonesMaterial, Material mountainsMaterial)
+    public class Chunk : MonoBehaviour
     {
-        _surfaceMaterial = surfaceMaterial;
-        _stonesMaterial = stonesMaterial;
-        _mountainsMaterial = mountainsMaterial;
+        [SerializeField] private Transform _begin;
+        [SerializeField] private Transform _end;
+        [SerializeField] private Renderer _planeRenderer;
 
-        AssignMaterials();
-    }
+        private Material _surfaceMaterial;
+        private Material _stonesMaterial;
+        private Material _mountainsMaterial;
 
-    private void AssignMaterials()
-    {
-        AssignPlaneMaterial(_surfaceMaterial);
-        
-        RockElement[] rockElements = GetComponentsInChildren<RockElement>();
+        public Transform Begin => _begin;
 
-        foreach (var rockElement in rockElements)
+        public Transform End => _end;
+
+        public Renderer SurfaceRenderer => _planeRenderer;
+
+        public void SetMaterials(Material surfaceMaterial, Material stonesMaterial, Material mountainsMaterial)
         {
-            rockElement.GetComponent<Renderer>().material = _stonesMaterial;
-        }
-        
-        Mountain[] mountains = GetComponentsInChildren<Mountain>();
-     
-        foreach (var mountain in mountains)
-        {
-            mountain.GetComponent<Renderer>().material = _mountainsMaterial;
-        }
-    }
+            _surfaceMaterial = surfaceMaterial;
+            _stonesMaterial = stonesMaterial;
+            _mountainsMaterial = mountainsMaterial;
 
-    protected virtual void AssignPlaneMaterial(Material material)
-    {
-        _planeRenderer.material = material;
+            AssignMaterials();
+        }
+
+        private void AssignMaterials()
+        {
+            AssignPlaneMaterial(_surfaceMaterial);
+
+            RockElement[] rockElements = GetComponentsInChildren<RockElement>();
+
+            foreach (var rockElement in rockElements)
+            {
+                rockElement.GetComponent<Renderer>().material = _stonesMaterial;
+            }
+
+            Mountain[] mountains = GetComponentsInChildren<Mountain>();
+
+            foreach (var mountain in mountains)
+            {
+                mountain.GetComponent<Renderer>().material = _mountainsMaterial;
+            }
+        }
+
+        protected virtual void AssignPlaneMaterial(Material material)
+        {
+            _planeRenderer.material = material;
+        }
     }
 }

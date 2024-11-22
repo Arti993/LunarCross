@@ -1,23 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public abstract class UiStateMachineState
+namespace Infrastructure.UIStateMachine
 {
-    protected UIWindow UiWindow;
-
-    public virtual void Enter()
+    public abstract class UiStateMachineState
     {
-        UiWindow.PanelIntro();
-    }
+        protected UIWindow UiWindow;
 
-    public virtual void Exit()
-    {
-        UiWindow.PanelOutro();
-    }
+        public virtual void Enter()
+        {
+            UiWindow.PanelIntro();
+        }
 
-    protected GameObject GetUiRoot()
-    {
-        return DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        public virtual void Exit()
+        {
+            UiWindow.PanelOutro();
+        }
+
+        protected GameObject GetUiRoot()
+        {
+            return DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+        }
     }
 }

@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+namespace LevelGeneration
 {
-    public event Action<Entity> Disabled;
-
-    public virtual void Disable()
+    public class Entity : MonoBehaviour
     {
-        Disabled?.Invoke(this);
+        public event Action<Entity> Disabled;
+
+        public virtual void Disable()
+        {
+            Disabled?.Invoke(this);
+        }
     }
 }

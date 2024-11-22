@@ -1,12 +1,15 @@
-public class MenuWindow : UIWindow
+namespace UI
 {
-    protected virtual void Awake()
+    public class MenuWindow : UIWindow
     {
-        PanelIntro();
-    }
+        protected virtual void Awake()
+        {
+            PanelIntro();
+        }
 
-    public virtual void Exit()
-    {
-        PanelOutro();
+        public virtual void Exit()
+        {
+            PanelOutro();
+        }
     }
 }

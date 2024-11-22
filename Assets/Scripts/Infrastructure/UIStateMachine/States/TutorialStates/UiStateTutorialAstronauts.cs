@@ -1,26 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UiStateTutorialAstronauts : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States.TutorialStates
 {
-    private TutorialWindow _tutorialWindow;
-
-    public override void Enter()
+    public class UiStateTutorialAstronauts : UiStateMachineState
     {
-        if (_tutorialWindow == null)
+        private TutorialWindow _tutorialWindow;
+
+        public override void Enter()
         {
-            GameObject tutorialWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.TutorialCollectingWindow, GetUiRoot());
+            if (_tutorialWindow == null)
+            {
+                GameObject tutorialWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.TutorialCollectingWindow, GetUiRoot());
 
-            _tutorialWindow = tutorialWindowObject.GetComponent<TutorialWindow>();
+                _tutorialWindow = tutorialWindowObject.GetComponent<TutorialWindow>();
+            }
+
+            _tutorialWindow.Open();
         }
-        
-        _tutorialWindow.Open();
-    }
 
-    public override void Exit()
-    {
-        _tutorialWindow.Close();
+        public override void Exit()
+        {
+            _tutorialWindow.Close();
+        }
     }
 }

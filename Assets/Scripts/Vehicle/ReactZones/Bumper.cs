@@ -1,12 +1,16 @@
+using LevelGeneration.Entities.EntityStateMachine;
 using UnityEngine;
 
-public class Bumper : MonoBehaviour
+namespace Vehicle.ReactZones
 {
-    private void OnTriggerEnter(Collider other)
+    public class Bumper : MonoBehaviour
     {
-        if (other.gameObject.TryGetComponent(out EntityBehaviour entityBehaviour))
+        private void OnTriggerEnter(Collider other)
         {
-            entityBehaviour.ReactOnEntryVehicleTossZone();
+            if (other.gameObject.TryGetComponent(out EntityBehaviour entityBehaviour))
+            {
+                entityBehaviour.ReactOnEntryVehicleTossZone();
+            }
         }
     }
 }

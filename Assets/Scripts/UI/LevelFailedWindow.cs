@@ -1,40 +1,45 @@
 using System.Collections;
+using Infrastructure;
+using Infrastructure.Services.ScreenFader;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(RectTransform))]
-public class LevelFailedWindow : MenuEscapeWindow
+namespace UI
 {
-    [SerializeField] private float _stopTimeDelay = 0.15f;
-    
-    private bool _isFirstFailReacted;
-    
-    private void Awake()
+    [RequireComponent(typeof(RectTransform))]
+    public class LevelFailedWindow : MenuEscapeWindow
     {
-        PauseGame();
-    }
-    
-    public void RestartLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        [SerializeField] private float _stopTimeDelay = 0.15f;
 
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(currentSceneIndex);
-    }
+        private bool _isFirstFailReacted;
 
-    private void PauseGame()
-    {
-        if (_isFirstFailReacted)
-            return;
+        private void Awake()
+        {
+            PauseGame();
+        }
 
-        _isFirstFailReacted = true;
-        
-        _ = StartCoroutine(StopTime());
-    }
-    
-    private IEnumerator StopTime()
-    {
-        yield return new WaitForSeconds(_stopTimeDelay);
+        public void RestartLevel()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        Time.timeScale = 0f;
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(currentSceneIndex);
+        }
+
+        private void PauseGame()
+        {
+            if (_isFirstFailReacted)
+                return;
+
+            _isFirstFailReacted = true;
+
+            _ = StartCoroutine(StopTime());
+        }
+
+        private IEnumerator StopTime()
+        {
+            yield return new WaitForSeconds(_stopTimeDelay);
+
+            Time.timeScale = 0f;
+        }
     }
 }

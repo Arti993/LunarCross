@@ -1,12 +1,16 @@
+using LevelGeneration;
 using UnityEngine;
 
-public class EntitiesDisabler : MonoBehaviour
+namespace Vehicle.ReactZones
 {
-    private void OnTriggerEnter(Collider other)
+    public class EntitiesDisabler : MonoBehaviour
     {
-        if (other.gameObject.TryGetComponent(out Entity entity))
+        private void OnTriggerEnter(Collider other)
         {
-            entity.Disable();
+            if (other.gameObject.TryGetComponent(out Entity entity))
+            {
+                entity.Disable();
+            }
         }
     }
 }

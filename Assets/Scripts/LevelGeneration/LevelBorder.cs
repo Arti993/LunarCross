@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class LevelBorder : MonoBehaviour
+namespace LevelGeneration
 {
+    public class LevelBorder : MonoBehaviour
+    {
 
+    }
 }

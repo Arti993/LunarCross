@@ -1,15 +1,19 @@
+using LevelGeneration.Entities.EntityStateMachine;
 using UnityEngine;
 
-public class InsideBindPoint : BindPoint
+namespace Vehicle.BindPoints
 {
-    public override void Fill(EntityBehaviour entity)
+    public class InsideBindPoint : BindPoint
     {
-        base.Fill(entity);
+        public override void Fill(EntityBehaviour entity)
+        {
+            base.Fill(entity);
 
-        Transform bindedEntityTransform = BindedEntity.transform;
-        bindedEntityTransform.position = Transform.position;
-        bindedEntityTransform.rotation = Transform.rotation;
-        
-        BindedEntity.transform.SetParent(Transform);
+            Transform bindedEntityTransform = BindedEntity.transform;
+            bindedEntityTransform.position = Transform.position;
+            bindedEntityTransform.rotation = Transform.rotation;
+
+            BindedEntity.transform.SetParent(Transform);
+        }
     }
 }

@@ -1,21 +1,27 @@
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UiStateLevelFailed : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    public override void Enter()
+    public class UiStateLevelFailed : UiStateMachineState
     {
-        if (UiWindow == null)
+        public override void Enter()
         {
-            GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.LevelFailedWindow,GetUiRoot());
+            if (UiWindow == null)
+            {
+                GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.LevelFailedWindow, GetUiRoot());
 
-            UiWindow = uiWindowObject.GetComponent<UIWindow>();
+                UiWindow = uiWindowObject.GetComponent<UIWindow>();
+            }
+
+            base.Enter();
         }
 
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
+        public override void Exit()
+        {
+        }
     }
 }

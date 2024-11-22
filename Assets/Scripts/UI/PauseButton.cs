@@ -1,30 +1,36 @@
 using System;
+using Infrastructure;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
 
-public class PauseButton : CustomButton
+namespace UI
 {
-    public event Action Enabled;
-    public event Action Disabled;
-    
-    protected override void OnEnable()
+    public class PauseButton : CustomButton
     {
-        base.OnEnable();
+        public event Action Enabled;
+        public event Action Disabled;
 
-        Clicked += OnClicked;
-        
-        Enabled?.Invoke();
-    }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-        
-        Clicked -= OnClicked;
-        
-        Disabled?.Invoke();
-    }
+            Clicked += OnClicked;
 
-    private void OnClicked()
-    {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseMenu>();
+            Enabled?.Invoke();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            Clicked -= OnClicked;
+
+            Disabled?.Invoke();
+        }
+
+        private void OnClicked()
+        {
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseMenu>();
+        }
     }
 }

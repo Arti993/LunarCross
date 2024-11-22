@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class EmptyChunk : Chunk
+namespace LevelGeneration
 {
-    [SerializeField] private Renderer _texturePlaneRenderer;
-
-    protected override void AssignPlaneMaterial(Material material)
+    public class EmptyChunk : Chunk
     {
-        _texturePlaneRenderer.material = material;
+        [SerializeField] private Renderer _texturePlaneRenderer;
+
+        protected override void AssignPlaneMaterial(Material material)
+        {
+            _texturePlaneRenderer.material = material;
+        }
     }
 }

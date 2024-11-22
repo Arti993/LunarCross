@@ -1,24 +1,31 @@
+using Data;
+using Infrastructure;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
 using UnityEngine;
 using YG;
 using UnityEngine.SceneManagement;
 
-public class LeaderboardWindow : UIWindow
+namespace UI
 {
-    [SerializeField] private LeaderboardYG _leaderboardYG;
-
-    public void OpenWindow()
+    public class LeaderboardWindow : UIWindow
     {
-        PanelIntro();
-    }
+        [SerializeField] private LeaderboardYG _leaderboardYG;
 
-    public void Exit()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        public void OpenWindow()
+        {
+            PanelIntro();
+        }
 
-        if (currentSceneIndex == (int) SceneIndex.MainMenu)
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+        public void Exit()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentSceneIndex == (int) SceneIndex.Final)
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateGameComplete>();
+            if (currentSceneIndex == (int) SceneIndex.MainMenu)
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+
+            if (currentSceneIndex == (int) SceneIndex.Final)
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateGameComplete>();
+        }
     }
 }

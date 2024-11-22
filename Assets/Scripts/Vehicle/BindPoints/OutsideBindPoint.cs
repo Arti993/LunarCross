@@ -1,25 +1,29 @@
+using LevelGeneration.Entities.EntityStateMachine;
 using UnityEngine;
 
-public class OutsideBindPoint : BindPoint
+namespace Vehicle.BindPoints
 {
-    private const int RightAngleGradus = 90;
-    
-    protected float AngleShift = 15;
-
-    public override void Fill(EntityBehaviour entity)
+    public class OutsideBindPoint : BindPoint
     {
-        base.Fill(entity);
+        private const int RightAngleGradus = 90;
 
-        var EntityTransform = BindedEntity.transform;
-        EntityTransform.position = Transform.position;
-        EntityTransform.rotation = Transform.rotation;
+        protected float AngleShift = 15;
 
-        Quaternion quaternion = Quaternion.AngleAxis(RightAngleGradus, Transform.right) * Transform.rotation;
+        public override void Fill(EntityBehaviour entity)
+        {
+            base.Fill(entity);
 
-        quaternion = Quaternion.AngleAxis(AngleShift, Transform.up) * quaternion;
+            var EntityTransform = BindedEntity.transform;
+            EntityTransform.position = Transform.position;
+            EntityTransform.rotation = Transform.rotation;
 
-        EntityTransform.rotation = quaternion * EntityTransform.rotation;
+            Quaternion quaternion = Quaternion.AngleAxis(RightAngleGradus, Transform.right) * Transform.rotation;
 
-        EntityTransform.SetParent(Transform);
+            quaternion = Quaternion.AngleAxis(AngleShift, Transform.up) * quaternion;
+
+            EntityTransform.rotation = quaternion * EntityTransform.rotation;
+
+            EntityTransform.SetParent(Transform);
+        }
     }
 }

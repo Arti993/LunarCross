@@ -1,30 +1,34 @@
 using System;
+using LevelGeneration.Entities.EntityStateMachine;
 using UnityEngine;
 
-public abstract class BindPoint : MonoBehaviour
+namespace Vehicle.BindPoints
 {
-    protected Transform Transform;
-    
-    public EntityBehaviour BindedEntity { get; private set; }
-    public bool IsFree { get; private set; }
-
-    private void Awake()
+    public abstract class BindPoint : MonoBehaviour
     {
-        Transform = transform;
-        IsFree = true;
-    }
+        protected Transform Transform;
 
-    public virtual void Fill(EntityBehaviour entity)
-    {
-        if (IsFree == false)
-            throw new InvalidOperationException();
+        public EntityBehaviour BindedEntity { get; private set; }
+        public bool IsFree { get; private set; }
 
-        BindedEntity = entity;
-        IsFree = false;
-    }
+        private void Awake()
+        {
+            Transform = transform;
+            IsFree = true;
+        }
 
-    public void Exempt()
-    {
-        IsFree = true;
+        public virtual void Fill(EntityBehaviour entity)
+        {
+            if (IsFree == false)
+                throw new InvalidOperationException();
+
+            BindedEntity = entity;
+            IsFree = false;
+        }
+
+        public void Exempt()
+        {
+            IsFree = true;
+        }
     }
 }

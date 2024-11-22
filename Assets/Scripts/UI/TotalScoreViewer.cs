@@ -1,14 +1,19 @@
+using Infrastructure;
+using Infrastructure.Services.GameProgress;
 using TMPro;
 using UnityEngine;
 
-public class TotalScoreViewer : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TMP_Text _scoreText;
-
-    private void Start()
+    public class TotalScoreViewer : MonoBehaviour
     {
-        int totalScore = DIServicesContainer.Instance.GetService<IGameProgress>().GetTotalScore();
+        [SerializeField] private TMP_Text _scoreText;
 
-        _scoreText.text = totalScore.ToString();
+        private void Start()
+        {
+            int totalScore = DIServicesContainer.Instance.GetService<IGameProgress>().GetTotalScore();
+
+            _scoreText.text = totalScore.ToString();
+        }
     }
 }

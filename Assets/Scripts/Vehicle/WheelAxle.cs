@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public class WheelAxle
+namespace Vehicle
 {
-    public WheelCollider wheelColliderLeft;
-    public WheelCollider wheelColliderRight;
-    public GameObject wheelMeshLeft;
-    public GameObject wheelMeshRight;
-    public bool motor;
-    public bool steering;
+    [System.Serializable]
+    public class WheelAxle
+    {
+        public WheelCollider wheelColliderLeft;
+        public WheelCollider wheelColliderRight;
+        public GameObject wheelMeshLeft;
+        public GameObject wheelMeshRight;
+        public bool motor;
+        public bool steering;
+    }
 }
 

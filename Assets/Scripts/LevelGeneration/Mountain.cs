@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class Mountain : MonoBehaviour
+namespace LevelGeneration
 {
+    public class Mountain : MonoBehaviour
+    {
+    }
 }

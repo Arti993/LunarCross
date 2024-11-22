@@ -1,4 +1,7 @@
-public class TornadoChunk : Chunk
+namespace LevelGeneration
 {
+    public class TornadoChunk : Chunk
+    {
 
+    }
 }

@@ -1,14 +1,24 @@
-public class RestartGameQuestionWindow : UIWindow
-{
-    public void OnYesButtonClick()
-    {
-        DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
+using Data;
+using Infrastructure;
+using Infrastructure.Services.GameProgress;
+using Infrastructure.Services.ScreenFader;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
 
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
-    }
-    
-    public void OnNoButtonClick()
+namespace UI
+{
+    public class RestartGameQuestionWindow : UIWindow
     {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+        public void OnYesButtonClick()
+        {
+            DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
+
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Gameplay);
+        }
+
+        public void OnNoButtonClick()
+        {
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+        }
     }
 }

@@ -1,27 +1,30 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class UIWindow : MonoBehaviour
+namespace UI
 {
-    [SerializeField] protected RectTransform PanelRect;
-    [SerializeField] protected float PanelTopPosY;
-    [SerializeField] protected float PanelBottomPosY = -1500f;
-    [SerializeField] protected float PanelAnimationDuration = 0.5f;
-
-    public virtual void PanelIntro()
+    public class UIWindow : MonoBehaviour
     {
-        gameObject.SetActive(true);
-        
-        PanelRect.anchoredPosition = new Vector2(PanelRect.anchoredPosition.x, PanelBottomPosY);
-        
-        PanelRect.DOAnchorPosY(PanelTopPosY, PanelAnimationDuration).SetUpdate(true);
-    }
+        [SerializeField] protected RectTransform PanelRect;
+        [SerializeField] protected float PanelTopPosY;
+        [SerializeField] protected float PanelBottomPosY = -1500f;
+        [SerializeField] protected float PanelAnimationDuration = 0.5f;
 
-    public virtual void PanelOutro()
-    {
-        PanelRect.DOAnchorPosY(PanelBottomPosY, PanelAnimationDuration).SetUpdate(true).OnComplete(() =>
+        public virtual void PanelIntro()
         {
-            gameObject.SetActive(false);
-        });
+            gameObject.SetActive(true);
+
+            PanelRect.anchoredPosition = new Vector2(PanelRect.anchoredPosition.x, PanelBottomPosY);
+
+            PanelRect.DOAnchorPosY(PanelTopPosY, PanelAnimationDuration).SetUpdate(true);
+        }
+
+        public virtual void PanelOutro()
+        {
+            PanelRect.DOAnchorPosY(PanelBottomPosY, PanelAnimationDuration).SetUpdate(true).OnComplete(() =>
+            {
+                gameObject.SetActive(false);
+            });
+        }
     }
 }

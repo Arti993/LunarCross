@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class ChunkGround : MonoBehaviour
+namespace LevelGeneration
 {
+    public class ChunkGround : MonoBehaviour
+    {
+    }
 }

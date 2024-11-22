@@ -1,59 +1,72 @@
 using System;
+using Data;
+using Infrastructure.Services.AudioPlayback;
+using Infrastructure.Services.Factories.GameplayFactory;
+using Infrastructure.Services.Factories.UiFactory;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
+using LevelGeneration;
+using UI;
 using UnityEngine;
 
-public class GamePlayBootstrap : MonoBehaviour
+namespace Infrastructure
 {
-    [SerializeField] private Transform _startPoint;
-
-    private void Awake()
+    public class GamePlayBootstrap : MonoBehaviour
     {
-        GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
-        
-        GameObject cameraObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreateGameCamera();
+        [SerializeField] private Transform _startPoint;
 
-        GameObject playerObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreatePlayer(_startPoint.position);
+        private void Awake()
+        {
+            GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
 
-        GameObject spawnerObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreateSpawner();
+            GameObject cameraObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreateGameCamera();
 
-        SetCameraForCanvas(uiRootObject, cameraObject);
+            GameObject playerObject = DIServicesContainer.Instance.GetService<IGameplayFactory>()
+                .CreatePlayer(_startPoint.position);
 
-        SetPlayerTransformForGameCamera(cameraObject, playerObject);
+            GameObject spawnerObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreateSpawner();
 
-        SetPlayerTransformForSpawner(spawnerObject, playerObject);
+            SetCameraForCanvas(uiRootObject, cameraObject);
 
-        PrepareUI(uiRootObject);
-        
-        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayLevelTheme();
-    }
+            SetPlayerTransformForGameCamera(cameraObject, playerObject);
 
-    private void SetCameraForCanvas(GameObject uiRootObject, GameObject cameraObject)
-    {
-        if (uiRootObject.TryGetComponent(out UIRoot uiRoot) && cameraObject.TryGetComponent(out Camera camera))
-            uiRoot.SetCamera(camera);
-        else
-            throw new InvalidOperationException();
-    }
+            SetPlayerTransformForSpawner(spawnerObject, playerObject);
 
-    private void SetPlayerTransformForGameCamera(GameObject cameraObject, GameObject playerObject)
-    {
-        if(cameraObject.TryGetComponent(out PlayerFollowCamera playerFollowCamera))
-            playerFollowCamera.SetPlayerTransform(playerObject.transform);
-        else
-            throw new InvalidOperationException();
-    }
+            PrepareUI(uiRootObject);
 
-    private void SetPlayerTransformForSpawner(GameObject spawnerObject, GameObject playerObject)
-    {
-        if(spawnerObject.TryGetComponent(out ChunkPlacer chunkPlacer))
-            chunkPlacer.SetPlayerTransform(playerObject.transform);
-        else
-            throw new InvalidOperationException();
-    }
-    
-    private void PrepareUI(GameObject uiRoot)
-    {
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().ShowUIObject(PrefabsPaths.LevelNumberTitle, uiRoot);
-        
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayLevelTheme();
+        }
+
+        private void SetCameraForCanvas(GameObject uiRootObject, GameObject cameraObject)
+        {
+            if (uiRootObject.TryGetComponent(out UIRoot uiRoot) && cameraObject.TryGetComponent(out Camera camera))
+                uiRoot.SetCamera(camera);
+            else
+                throw new InvalidOperationException();
+        }
+
+        private void SetPlayerTransformForGameCamera(GameObject cameraObject, GameObject playerObject)
+        {
+            if (cameraObject.TryGetComponent(out PlayerFollowCamera playerFollowCamera))
+                playerFollowCamera.SetPlayerTransform(playerObject.transform);
+            else
+                throw new InvalidOperationException();
+        }
+
+        private void SetPlayerTransformForSpawner(GameObject spawnerObject, GameObject playerObject)
+        {
+            if (spawnerObject.TryGetComponent(out ChunkPlacer chunkPlacer))
+                chunkPlacer.SetPlayerTransform(playerObject.transform);
+            else
+                throw new InvalidOperationException();
+        }
+
+        private void PrepareUI(GameObject uiRoot)
+        {
+            DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                .ShowUIObject(PrefabsPaths.LevelNumberTitle, uiRoot);
+
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+        }
     }
 }

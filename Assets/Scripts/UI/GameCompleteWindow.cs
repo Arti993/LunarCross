@@ -1,7 +1,14 @@
-public class GameCompleteWindow : UIWindow
+using Infrastructure;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
+
+namespace UI
 {
-    public void OpenLeaderBoard()
+    public class GameCompleteWindow : UIWindow
     {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+        public void OpenLeaderBoard()
+        {
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+        }
     }
 }

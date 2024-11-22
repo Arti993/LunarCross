@@ -1,26 +1,32 @@
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UiStateLeaderboard : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    private LeaderboardWindow _leaderboardWindow;
-    
-    public override void Enter()
+    public class UiStateLeaderboard : UiStateMachineState
     {
-        if (_leaderboardWindow == null)
+        private LeaderboardWindow _leaderboardWindow;
+
+        public override void Enter()
         {
-            GameObject leaderboardObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.LeaderboardWindow,GetUiRoot());
+            if (_leaderboardWindow == null)
+            {
+                GameObject leaderboardObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.LeaderboardWindow, GetUiRoot());
 
-            leaderboardObject.TryGetComponent(out LeaderboardWindow leaderboard);
+                leaderboardObject.TryGetComponent(out LeaderboardWindow leaderboard);
 
-            _leaderboardWindow = leaderboard;
+                _leaderboardWindow = leaderboard;
+            }
+
+            _leaderboardWindow.OpenWindow();
         }
 
-        _leaderboardWindow.OpenWindow();
-    }
-
-    public override void Exit()
-    {
-        _leaderboardWindow.PanelOutro();
+        public override void Exit()
+        {
+            _leaderboardWindow.PanelOutro();
+        }
     }
 }

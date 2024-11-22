@@ -1,4 +1,7 @@
-public class ChunkWithObstacles : Chunk
+namespace LevelGeneration
 {
+    public class ChunkWithObstacles : Chunk
+    {
 
+    }
 }

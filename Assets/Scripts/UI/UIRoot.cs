@@ -1,25 +1,31 @@
+using Infrastructure;
+using Infrastructure.Services.Factories.UiFactory;
 using UnityEngine;
 
-[RequireComponent(typeof(Canvas))]
-public class UIRoot : MonoBehaviour
+namespace UI
 {
-    private const int CameraPlaneDistance = 2;
-    
-    private Canvas _canvas;
-
-    private void Awake()
+    [RequireComponent(typeof(Canvas))]
+    public class UIRoot : MonoBehaviour
     {
-        _canvas = GetComponent<Canvas>();
-    }
+        private const int CameraPlaneDistance = 2;
 
-    private void OnDisable()
-    {
-        DIServicesContainer.Instance.GetService<IUiWindowFactory>().DeleteUIRoot();
-    }
+        private Canvas _canvas;
 
-    public void SetCamera(Camera camera)
-    {
-        _canvas.worldCamera = camera;
-        _canvas.planeDistance = CameraPlaneDistance;
+        private void Awake()
+        {
+            _canvas = GetComponent<Canvas>();
+        }
+
+        private void OnDisable()
+        {
+            DIServicesContainer.Instance.GetService<IUiWindowFactory>().DeleteUIRoot();
+        }
+
+        public void SetCamera(Camera camera)
+        {
+            _canvas.worldCamera = camera;
+            _canvas.planeDistance = CameraPlaneDistance;
+        }
     }
 }
+

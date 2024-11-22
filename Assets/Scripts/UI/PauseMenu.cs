@@ -1,49 +1,56 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Infrastructure;
+using Infrastructure.Services.ScreenFader;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
 using UnityEngine.UI;
 
-public class PauseMenu : MenuEscapeWindow
+namespace UI
 {
-    [SerializeField] private Image _backgroundPanel;
-
-    public void PauseGame()
+    public class PauseMenu : MenuEscapeWindow
     {
-        PanelIntro();
+        [SerializeField] private Image _backgroundPanel;
 
-        Time.timeScale = 0f;
-        
-        BackGroundPanelIntro();
-    }
+        public void PauseGame()
+        {
+            PanelIntro();
 
-    public void ResumeGame()
-    {
-        BackGroundPanelOutro();
-        
-        Time.timeScale = 1f;
-        
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
-    }
+            Time.timeScale = 0f;
 
-    public void RestartLevel()
-    {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
-    }
+            BackGroundPanelIntro();
+        }
 
-    public void ChangeGameSettings()
-    {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
-    }
+        public void ResumeGame()
+        {
+            BackGroundPanelOutro();
 
-    private void BackGroundPanelIntro()
-    {
-        _ = _backgroundPanel.DOFade(0.5f, PanelAnimationDuration).SetUpdate(true);
-    }
+            Time.timeScale = 1f;
 
-    private void BackGroundPanelOutro()
-    {
-        _ = _backgroundPanel.DOFade(0f, PanelAnimationDuration).SetUpdate(true);
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+        }
+
+        public void RestartLevel()
+        {
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+        }
+
+        public void ChangeGameSettings()
+        {
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
+        }
+
+        private void BackGroundPanelIntro()
+        {
+            _ = _backgroundPanel.DOFade(0.5f, PanelAnimationDuration).SetUpdate(true);
+        }
+
+        private void BackGroundPanelOutro()
+        {
+            _ = _backgroundPanel.DOFade(0f, PanelAnimationDuration).SetUpdate(true);
+        }
     }
 }

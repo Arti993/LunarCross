@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UIStateLevelComplete : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    public override void Enter()
+    public class UIStateLevelComplete : UiStateMachineState
     {
-        if (UiWindow == null)
+        public override void Enter()
         {
-            GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetLevelCompleteWindow(GetUiRoot());
+            if (UiWindow == null)
+            {
+                GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetLevelCompleteWindow(GetUiRoot());
 
-            UiWindow = uiWindowObject.GetComponent<UIWindow>();
+                UiWindow = uiWindowObject.GetComponent<UIWindow>();
+            }
+
+            base.Enter();
         }
-
-        base.Enter();
     }
 }

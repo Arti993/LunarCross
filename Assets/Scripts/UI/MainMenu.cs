@@ -1,42 +1,49 @@
+using Data;
+using Infrastructure;
+using Infrastructure.Services.ScreenFader;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States;
 using UnityEngine;
 using YG;
 
-public class MainMenu : MonoBehaviour
+namespace UI
 {
-    private const string NotFirstGameLaunch = "NotFirstGameLaunch";
-
-    public void OnPlayButtonClick()
+    public class MainMenu : MonoBehaviour
     {
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Gameplay);
-    }
+        private const string NotFirstGameLaunch = "NotFirstGameLaunch";
 
-    public void OnLevelsChooseButtonCLick()
-    {
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
-    }
-
-    public void OnNewGameButtonClick()
-    {
-        if (PlayerPrefs.HasKey(NotFirstGameLaunch))
+        public void OnPlayButtonClick()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateRestartGameQuestion>();
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Gameplay);
         }
-        else
+
+        public void OnLevelsChooseButtonCLick()
         {
-            OnTutorialButtonClick();
-
-            PlayerPrefs.SetInt(NotFirstGameLaunch, 1);
-            PlayerPrefs.Save();
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
         }
-    }
 
-    public void OnTutorialButtonClick()
-    {
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Tutorial);
-    }
+        public void OnNewGameButtonClick()
+        {
+            if (PlayerPrefs.HasKey(NotFirstGameLaunch))
+            {
+                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateRestartGameQuestion>();
+            }
+            else
+            {
+                OnTutorialButtonClick();
 
-    public void OnLeaderBoardButtonClick()
-    {
+                PlayerPrefs.SetInt(NotFirstGameLaunch, 1);
+                PlayerPrefs.Save();
+            }
+        }
+
+        public void OnTutorialButtonClick()
+        {
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Tutorial);
+        }
+
+        public void OnLeaderBoardButtonClick()
+        {
 #if UNITY_WEBGL && !UNITY_EDITOR
         if(YandexGame.auth)
             {
@@ -46,16 +53,17 @@ public class MainMenu : MonoBehaviour
             {
                 DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateAuthorizationQuestion>();
             }
-#endif 
-    }
+#endif
+        }
 
-    public void OnSettingsButtonClick()
-    {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
-    }
+        public void OnSettingsButtonClick()
+        {
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
+        }
 
-    public void Disable()
-    {
-        gameObject.SetActive(false);
+        public void Disable()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

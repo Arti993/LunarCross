@@ -1128,49 +1128,65 @@
             <e p="PrefabsPaths.cs" t="Include" />
             <e p="SceneIndex.cs" t="Include" />
           </e>
-          <e p="DeleteComponentsFromBuild.cs" t="Include" />
-          <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
           <e p="Infrastructure" t="Include">
-            <e p="AudioVolumeChanger.cs" t="Include" />
             <e p="DIServicesContainer.cs" t="Include" />
-            <e p="FocusTest.cs" t="Include" />
             <e p="GamePlayBootstrap.cs" t="Include" />
-            <e p="InterstitialVideoAd.cs" t="Include" />
-            <e p="LanguageChanger.cs" t="Include" />
-            <e p="LoadScreen.cs" t="Include" />
             <e p="MainBootstrap.cs" t="Include" />
-            <e p="MainThemeMusicStarter.cs" t="Include" />
-            <e p="ScaleAnimation.cs" t="Include" />
             <e p="Services" t="Include">
-              <e p="AssetsProvider.cs" t="Include" />
-              <e p="AudioPlayback.cs" t="Include" />
-              <e p="Factories" t="Include">
-                <e p="GameplayFactory.cs" t="Include" />
-                <e p="ParticleSystemFactory.cs" t="Include" />
-                <e p="UiWindowFactory.cs" t="Include" />
-              </e>
-              <e p="FocusTestStateChanger.cs" t="Include" />
-              <e p="GameProgress.cs" t="Include" />
-              <e p="Interfaces" t="Include">
+              <e p="AssetsProvider" t="Include">
+                <e p="AssetsProvider.cs" t="Include" />
                 <e p="IAssetsProvider.cs" t="Include" />
-                <e p="IAudioPlayback.cs" t="Include" />
-                <e p="IFocusTestStateChanger.cs" t="Include" />
-                <e p="IGameplayFactory.cs" t="Include" />
-                <e p="IGameProgress.cs" t="Include" />
-                <e p="ILevelsSettingsNomenclature.cs" t="Include" />
-                <e p="ILocalization.cs" t="Include" />
-                <e p="IParticleSystemFactory.cs" t="Include" />
-                <e p="IScreenFader.cs" t="Include" />
-                <e p="IService.cs" t="Include" />
-                <e p="IUiWindowFactory.cs" t="Include" />
-                <e p="IVideoAdService.cs" t="Include" />
               </e>
-              <e p="LevelsSettingsNomenclature.cs" t="Include" />
-              <e p="Localization.cs" t="Include" />
-              <e p="ScreenFader.cs" t="Include" />
-              <e p="VideoAdService.cs" t="Include" />
+              <e p="AudioPlayback" t="Include">
+                <e p="AudioPlayback.cs" t="Include" />
+                <e p="AudioVolumeChanger.cs" t="Include" />
+                <e p="IAudioPlayback.cs" t="Include" />
+                <e p="MainThemeMusicStarter.cs" t="Include" />
+              </e>
+              <e p="Factories" t="Include">
+                <e p="GameplayFactory" t="Include">
+                  <e p="GameplayFactory.cs" t="Include" />
+                  <e p="IGameplayFactory.cs" t="Include" />
+                </e>
+                <e p="ParticleSystemFactory" t="Include">
+                  <e p="IParticleSystemFactory.cs" t="Include" />
+                  <e p="ParticleSystemFactory.cs" t="Include" />
+                </e>
+                <e p="UIFactory" t="Include">
+                  <e p="IUiWindowFactory.cs" t="Include" />
+                  <e p="UiWindowFactory.cs" t="Include" />
+                </e>
+              </e>
+              <e p="FocusTest" t="Include">
+                <e p="FocusTest.cs" t="Include" />
+                <e p="FocusTestStateChanger.cs" t="Include" />
+                <e p="IFocusTestStateChanger.cs" t="Include" />
+              </e>
+              <e p="GameProgress" t="Include">
+                <e p="GameProgress.cs" t="Include" />
+                <e p="IGameProgress.cs" t="Include" />
+              </e>
+              <e p="InterstitialAd" t="Include">
+                <e p="IInterstitionalAdService.cs" t="Include" />
+                <e p="InterstitialAd.cs" t="Include" />
+                <e p="InterstitialAdService.cs" t="Include" />
+              </e>
+              <e p="IService.cs" t="Include" />
+              <e p="LevelSettings" t="Include">
+                <e p="ILevelsSettingsNomenclature.cs" t="Include" />
+                <e p="LevelsSettingsNomenclature.cs" t="Include" />
+              </e>
+              <e p="Localization" t="Include">
+                <e p="ILocalization.cs" t="Include" />
+                <e p="LanguageChanger.cs" t="Include" />
+                <e p="Localization.cs" t="Include" />
+              </e>
+              <e p="ScreenFader" t="Include">
+                <e p="IScreenFader.cs" t="Include" />
+                <e p="LoadScreen.cs" t="Include" />
+                <e p="ScreenFader.cs" t="Include" />
+              </e>
             </e>
-            <e p="TimePauserWithDelay.cs" t="Include" />
             <e p="UIStateMachine" t="Include">
               <e p="IUiStateMachine.cs" t="Include" />
               <e p="States" t="Include">
@@ -1198,22 +1214,14 @@
               <e p="UiStateMachine.cs" t="Include" />
               <e p="UiStateMachineState.cs" t="Include" />
             </e>
-            <e p="YandexSDKInitializer.cs" t="Include" />
-          </e>
-          <e p="Input" t="Include">
-            <e p="DesktopControlInput.cs" t="Include" />
-            <e p="IControlInput.cs" t="Include" />
-            <e p="New Input System" t="Include">
-              <e p="Player Input.cs" t="Include" />
-            </e>
-            <e p="UIControlInput.cs" t="Include" />
           </e>
           <e p="LevelGeneration" t="Include">
             <e p="Chunk.cs" t="Include" />
             <e p="ChunkGround.cs" t="Include" />
             <e p="ChunkPlacer.cs" t="Include" />
             <e p="ChunkWithObstacles.cs" t="Include" />
-            <e p="CreatableEntities" t="Include">
+            <e p="EmptyChunk.cs" t="Include" />
+            <e p="Entities" t="Include">
               <e p="EntityStateMachine" t="Include">
                 <e p="AfterEjectingState.cs" t="Include" />
                 <e p="Alien" t="Include">
@@ -1244,10 +1252,8 @@
                 <e p="NpcBehaviour.cs" t="Include" />
                 <e p="OutsideVehicleAttachState.cs" t="Include" />
               </e>
-              <e p="Interfaces" t="Include">
-                <e p="IEjectorFromVehicle.cs" t="Include" />
-                <e p="IPlaceableToVehicle.cs" t="Include" />
-              </e>
+              <e p="IEjectorFromVehicle.cs" t="Include" />
+              <e p="IPlaceableToVehicle.cs" t="Include" />
               <e p="Movement.cs" t="Include" />
               <e p="NPCMovement.cs" t="Include" />
               <e p="Obstacle.cs" t="Include" />
@@ -1257,7 +1263,6 @@
               <e p="SatelliteMovement.cs" t="Include" />
               <e p="TornadoMovement.cs" t="Include" />
             </e>
-            <e p="EmptyChunk.cs" t="Include" />
             <e p="EntitiesObjectPool.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
             <e p="EntitySpawner.cs" t="Include" />
@@ -1272,10 +1277,26 @@
             <e p="TornadoChunk.cs" t="Include" />
             <e p="TutorialChunkPlacer.cs" t="Include" />
           </e>
-          <e p="Scriptable Objects" t="Include">
+          <e p="PlayersInput" t="Include">
+            <e p="DesktopControlInput.cs" t="Include" />
+            <e p="IControlInput.cs" t="Include" />
+            <e p="New Input System" t="Include">
+              <e p="Player Input.cs" t="Include" />
+            </e>
+            <e p="UIControlInput.cs" t="Include" />
+          </e>
+          <e p="ProjectInstaller.cs" t="Include" />
+          <e p="ScriptableObjects" t="Include">
             <e p="Level.cs" t="Include" />
             <e p="MusicContainer.cs" t="Include" />
             <e p="SoundsContainer.cs" t="Include" />
+          </e>
+          <e p="Tools" t="Include">
+            <e p="DeleteComponentsFromBuild.cs" t="Include" />
+            <e p="DeleteSpecificComponentsFromBuild.cs" t="Include" />
+            <e p="ScaleAnimation.cs" t="Include" />
+            <e p="TimePauserWithDelay.cs" t="Include" />
+            <e p="YandexSDKInitializer.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="AuthorizationQuestion.cs" t="Include" />
@@ -1303,11 +1324,9 @@
             <e p="PauseMenu.cs" t="Include" />
             <e p="RestartGameQuestionWindow.cs" t="Include" />
             <e p="TotalScoreViewer.cs" t="Include" />
-            <e p="Tutorial" t="Include">
-              <e p="TutorialAliensWindow.cs" t="Include" />
-              <e p="TutorialCollectingWindow.cs" t="Include" />
-              <e p="TutorialWindow.cs" t="Include" />
-            </e>
+            <e p="TutorialAliensWindow.cs" t="Include" />
+            <e p="TutorialCollectingWindow.cs" t="Include" />
+            <e p="TutorialWindow.cs" t="Include" />
             <e p="UIRoot.cs" t="Include" />
             <e p="UIWindow.cs" t="Include" />
           </e>

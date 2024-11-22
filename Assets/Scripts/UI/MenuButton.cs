@@ -2,43 +2,44 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandler
+namespace UI
 {
-    private const float IncreaseFactor = 1.3f;
-    private const float AnimationDuration = 0.3f;
-    private Transform _transform;
-    private Vector3 _startScale;
-    private Vector3 _increasedScale;
-
-    private void Awake()
+    public class MenuButton : CustomButton, IPointerEnterHandler, IPointerExitHandler
     {
-        _transform = transform;
-        _startScale = _transform.localScale;
-        _increasedScale = _startScale * IncreaseFactor;
-    }
+        private const float IncreaseFactor = 1.3f;
+        private const float AnimationDuration = 0.3f;
+        private Transform _transform;
+        private Vector3 _startScale;
+        private Vector3 _increasedScale;
 
-    protected override void OnEnable()
-    {
-        _transform.localScale = _startScale;
-        
-        base.OnEnable();
-    }
+        private void Awake()
+        {
+            _transform = transform;
+            _startScale = _transform.localScale;
+            _increasedScale = _startScale * IncreaseFactor;
+        }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if(IsClickable == false)
-            return;
+        protected override void OnEnable()
+        {
+            _transform.localScale = _startScale;
 
-        _ = _transform.DOScale(_increasedScale, AnimationDuration).SetUpdate(true);
-    }
+            base.OnEnable();
+        }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if(IsClickable == false)
-            return;
-        
-        _ = _transform.DOScale(_startScale, AnimationDuration).SetUpdate(true);
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (IsClickable == false)
+                return;
+
+            _ = _transform.DOScale(_increasedScale, AnimationDuration).SetUpdate(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (IsClickable == false)
+                return;
+
+            _ = _transform.DOScale(_startScale, AnimationDuration).SetUpdate(true);
+        }
     }
-    
-    
 }

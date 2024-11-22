@@ -1,24 +1,30 @@
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
+using UI;
 using UnityEngine;
 
-public class UiStateMainMenu : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    private MainMenu _menu;
-    
-    public override void Enter()
+    public class UiStateMainMenu : UiStateMachineState
     {
-        if (_menu == null)
-        {
-            GameObject mainMenuObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.MainMenuButtons,GetUiRoot());
+        private MainMenu _menu;
 
-            _menu = mainMenuObject.GetComponent<MainMenu>();
+        public override void Enter()
+        {
+            if (_menu == null)
+            {
+                GameObject mainMenuObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.MainMenuButtons, GetUiRoot());
+
+                _menu = mainMenuObject.GetComponent<MainMenu>();
+            }
+
+            _menu.gameObject.SetActive(true);
         }
 
-        _menu.gameObject.SetActive(true);
-    }
-
-    public override void Exit()
-    {
-        _menu.Disable();
+        public override void Exit()
+        {
+            _menu.Disable();
+        }
     }
 }

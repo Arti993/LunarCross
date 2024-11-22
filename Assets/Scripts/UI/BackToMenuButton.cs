@@ -1,7 +1,14 @@
-public class BackToMenuButton : CustomButton
+using Data;
+using Infrastructure;
+using Infrastructure.Services.ScreenFader;
+
+namespace UI
 {
-    public void GoToMainMenu()
+    public class BackToMenuButton : CustomButton
     {
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.MainMenu);
+        public void GoToMainMenu()
+        {
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.MainMenu);
+        }
     }
 }

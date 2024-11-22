@@ -5,169 +5,183 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System.Linq;
 using Ami.BroAudio;
+using Data;
+using Infrastructure;
+using Infrastructure.Services.AudioPlayback;
+using Infrastructure.Services.Factories.ParticleSystemFactory;
+using Infrastructure.Services.FocusTest;
+using Infrastructure.Services.GameProgress;
+using Infrastructure.Services.LevelSettings;
+using Infrastructure.Services.ScreenFader;
+using ScriptableObjects;
 
-[RequireComponent(typeof(RectTransform))]
-public class LevelCompleteWindow : MenuEscapeWindow
+namespace UI
 {
-    private const int LoopsCount = 2;
-    private const float HalfFactor = 0.5f;
-    
-    [SerializeField] private GameObject[] _ratingStars;
-    [SerializeField] private TMP_Text _pointsLabel;
-    [SerializeField] private LevelEndNextButton _levelEndNextButton;
-    [SerializeField] private float _pointsTextSizeMultiplier = 2;
-    [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
-
-    private List<Tweener> _tweeners = new List<Tweener>();
-    private int _pointsForFirstStar;
-    private int _pointsForSecondStar;
-    private int _pointsForThirdStar;
-    private int _points;
-    private int _starsCount;
-    private int _currentSceneIndex;
-
-    private void Awake()
+    [RequireComponent(typeof(RectTransform))]
+    public class LevelCompleteWindow : MenuEscapeWindow
     {
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        private const int LoopsCount = 2;
+        private const float HalfFactor = 0.5f;
 
-        Level currentLevel = GetLevelSettings();
+        [SerializeField] private GameObject[] _ratingStars;
+        [SerializeField] private TMP_Text _pointsLabel;
+        [SerializeField] private LevelEndNextButton _levelEndNextButton;
+        [SerializeField] private float _pointsTextSizeMultiplier = 2;
+        [SerializeField] private float _sizeChangeAnimationDuration = 0.3f;
 
-        _pointsForFirstStar = currentLevel.PointsForFirstStar;
-        _pointsForSecondStar = currentLevel.PointsForSecondStar;
-        _pointsForThirdStar = currentLevel.PointsForThirdStar;
-        
-        foreach (var ratingStar in _ratingStars)
+        private List<Tweener> _tweeners = new List<Tweener>();
+        private int _pointsForFirstStar;
+        private int _pointsForSecondStar;
+        private int _pointsForThirdStar;
+        private int _points;
+        private int _starsCount;
+        private int _currentSceneIndex;
+
+        private void Awake()
         {
-            ratingStar.SetActive(false);
+            _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            Level currentLevel = GetLevelSettings();
+
+            _pointsForFirstStar = currentLevel.PointsForFirstStar;
+            _pointsForSecondStar = currentLevel.PointsForSecondStar;
+            _pointsForThirdStar = currentLevel.PointsForThirdStar;
+
+            foreach (var ratingStar in _ratingStars)
+            {
+                ratingStar.SetActive(false);
+            }
+
+            _starsCount = 0;
+            _points = 0;
+            _pointsLabel.text = _points.ToString();
+
+            DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisablePauseMenuOpening();
         }
 
-        _starsCount = 0;
-        _points = 0;
-        _pointsLabel.text = _points.ToString();
-
-        DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisablePauseMenuOpening();
-    }
-
-    private void Start()
-    {
-        _levelEndNextButton.SetNotInterractable();
-    }
-
-    private void OnDisable()
-    {
-        foreach (Tweener tweener in _tweeners)
+        private void Start()
         {
-            tweener.Kill();
-        }
-    }
-
-    public void CollectPoint()
-    {
-        _points++;
-        _pointsLabel.text = _points.ToString();
-
-        Vector3 baseScale = _pointsLabel.transform.localScale;
-        Vector3 increasedScale = baseScale * _pointsTextSizeMultiplier;
-
-        Tweener tweener = _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration * HalfFactor).SetLoops(LoopsCount, LoopType.Yoyo);
-        
-        _tweeners.Add(tweener);
-        
-        DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .ShowYellowBurstEffect(_pointsLabel.transform.position);
-
-       if(new[] { _pointsForFirstStar, _pointsForSecondStar, _pointsForThirdStar }.Any(p => _points == p))
-            GetStar();
-    }
-
-    public void GoToNextScreen()
-    {
-        if (_currentSceneIndex == (int)SceneIndex.Tutorial)
-        {
-            FromGamePlayToMainMenu();
-            
-            return;
+            _levelEndNextButton.SetNotInterractable();
         }
 
-        if (PlayerPrefs.HasKey("GameIsComplete") && DIServicesContainer.Instance.GetService<IGameProgress>().IsCurrentLevelLast())
+        private void OnDisable()
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.Final);
-            
-            return;
+            foreach (Tweener tweener in _tweeners)
+            {
+                tweener.Kill();
+            }
         }
-        
-        PlayerPrefs.DeleteKey("SelectedLevelNumber");
-        
+
+        public void CollectPoint()
+        {
+            _points++;
+            _pointsLabel.text = _points.ToString();
+
+            Vector3 baseScale = _pointsLabel.transform.localScale;
+            Vector3 increasedScale = baseScale * _pointsTextSizeMultiplier;
+
+            Tweener tweener = _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration * HalfFactor)
+                .SetLoops(LoopsCount, LoopType.Yoyo);
+
+            _tweeners.Add(tweener);
+
+            DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
+                .ShowYellowBurstEffect(_pointsLabel.transform.position);
+
+            if (new[] {_pointsForFirstStar, _pointsForSecondStar, _pointsForThirdStar}.Any(p => _points == p))
+                GetStar();
+        }
+
+        public void GoToNextScreen()
+        {
+            if (_currentSceneIndex == (int) SceneIndex.Tutorial)
+            {
+                FromGamePlayToMainMenu();
+
+                return;
+            }
+
+            if (PlayerPrefs.HasKey("GameIsComplete") &&
+                DIServicesContainer.Instance.GetService<IGameProgress>().IsCurrentLevelLast())
+            {
+                DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Final);
+
+                return;
+            }
+
+            PlayerPrefs.DeleteKey("SelectedLevelNumber");
+
 #if UNITY_WEBGL && !UNITY_EDITOR
-    DIServicesContainer.Instance.GetService<IVideoAdService>().ShowInterstitialAd();
+    DIServicesContainer.Instance.GetService<IInterstitionalAdService>().ShowAd();
 #endif
-        
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int)SceneIndex.LevelChoose);
-    }
-    
-    public void RestartLevel()
-    {
-        DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(_currentSceneIndex);
-    }
 
-    public void EvaluatePassage()
-    {
-        if (_currentSceneIndex == (int)SceneIndex.Tutorial)
-        {
-            _levelEndNextButton.SetInterractable();
-            return;
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
         }
 
-        if (_points >= _pointsForFirstStar)
+        public void RestartLevel()
         {
-            DIServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
-
-            _levelEndNextButton.SetInterractable();
-        }
-    }
-
-    private Level GetLevelSettings()
-    {
-        Level currentLevel;
-        
-        if (_currentSceneIndex == (int)SceneIndex.Tutorial)
-        {
-            currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                .GetTutorialLevelSettings();
-        }
-        else
-        {
-            int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
-
-            currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                .GetLevelSettings(levelNumber);
+            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(_currentSceneIndex);
         }
 
-        return currentLevel;
-    }
+        public void EvaluatePassage()
+        {
+            if (_currentSceneIndex == (int) SceneIndex.Tutorial)
+            {
+                _levelEndNextButton.SetInterractable();
+                return;
+            }
 
-    private void GetStar()
-    {
-        _starsCount++;
-        
-        GameObject currentStar = _ratingStars[_starsCount - 1];
-        
-        Vector3 initialScale = Vector3.zero;
-        Vector3 baseScale = currentStar.transform.localScale;
+            if (_points >= _pointsForFirstStar)
+            {
+                DIServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
 
-        currentStar.transform.localScale = initialScale;
-        
-        currentStar.SetActive(true);
+                _levelEndNextButton.SetInterractable();
+            }
+        }
 
-        Tweener tweener = currentStar.transform.DOScale(baseScale, _sizeChangeAnimationDuration);
-        
-        _tweeners.Add(tweener); 
-        
-        DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-            .ShowYellowBurstEffect(currentStar.transform.position);
+        private Level GetLevelSettings()
+        {
+            Level currentLevel;
 
-        SoundID starCollect = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.StarCollect;
-        
-        DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(starCollect);
+            if (_currentSceneIndex == (int) SceneIndex.Tutorial)
+            {
+                currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                    .GetTutorialLevelSettings();
+            }
+            else
+            {
+                int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+
+                currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
+                    .GetLevelSettings(levelNumber);
+            }
+
+            return currentLevel;
+        }
+
+        private void GetStar()
+        {
+            _starsCount++;
+
+            GameObject currentStar = _ratingStars[_starsCount - 1];
+
+            Vector3 initialScale = Vector3.zero;
+            Vector3 baseScale = currentStar.transform.localScale;
+
+            currentStar.transform.localScale = initialScale;
+
+            currentStar.SetActive(true);
+
+            Tweener tweener = currentStar.transform.DOScale(baseScale, _sizeChangeAnimationDuration);
+
+            _tweeners.Add(tweener);
+
+            DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
+                .ShowYellowBurstEffect(currentStar.transform.position);
+
+            SoundID starCollect = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.StarCollect;
+
+            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(starCollect);
+        }
     }
 }

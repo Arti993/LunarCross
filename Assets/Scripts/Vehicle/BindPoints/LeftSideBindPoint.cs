@@ -1,3 +1,6 @@
-public class LeftSideBindPoint : OutsideBindPoint
+namespace Vehicle.BindPoints
 {
+    public class LeftSideBindPoint : OutsideBindPoint
+    {
+    }
 }

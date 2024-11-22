@@ -1,7 +1,10 @@
-public class RightSideBindPoint : OutsideBindPoint
+namespace Vehicle.BindPoints
 {
-    private void Start()
+    public class RightSideBindPoint : OutsideBindPoint
     {
-        AngleShift = -AngleShift;
+        private void Start()
+        {
+            AngleShift = -AngleShift;
+        }
     }
 }

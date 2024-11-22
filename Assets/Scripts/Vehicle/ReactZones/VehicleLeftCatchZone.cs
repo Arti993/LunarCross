@@ -1,3 +1,6 @@
-public class VehicleLeftCatchZone : VehicleCatchZone
+namespace Vehicle.ReactZones
 {
+    public class VehicleLeftCatchZone : VehicleCatchZone
+    {
+    }
 }

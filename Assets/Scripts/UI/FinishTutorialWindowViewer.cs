@@ -1,19 +1,26 @@
+using Infrastructure;
+using Infrastructure.UIStateMachine;
+using Infrastructure.UIStateMachine.States.TutorialStates;
 using UnityEngine;
+using Vehicle;
 
-public class FinishTutorialWindowViewer : MonoBehaviour
+namespace UI
 {
-    private bool _isShowed;
-    
-    private void OnTriggerEnter(Collider other)
+    public class FinishTutorialWindowViewer : MonoBehaviour
     {
-        if (_isShowed == false && other.gameObject.TryGetComponent(out VehicleCatchBehaviour _vehicle))
-            Show();
-    }
+        private bool _isShowed;
 
-    private void Show()
-    {
-        DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialFinish>();
+        private void OnTriggerEnter(Collider other)
+        {
+            if (_isShowed == false && other.gameObject.TryGetComponent(out VehicleCatchBehaviour _vehicle))
+                Show();
+        }
 
-        _isShowed = true;
+        private void Show()
+        {
+            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialFinish>();
+
+            _isShowed = true;
+        }
     }
 }

@@ -1,20 +1,25 @@
+using Data;
+using Infrastructure.Services.Factories.UiFactory;
 using UnityEngine;
 
-public class UiStatePauseButton : UiStateMachineState
+namespace Infrastructure.UIStateMachine.States
 {
-    private GameObject _pauseButton;
-
-    public override void Enter()
+    public class UiStatePauseButton : UiStateMachineState
     {
-        if (_pauseButton == null)
-            _pauseButton = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.PauseButton, GetUiRoot());
+        private GameObject _pauseButton;
 
-        _pauseButton.SetActive(true);
-    }
+        public override void Enter()
+        {
+            if (_pauseButton == null)
+                _pauseButton = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
+                    .GetWindow(PrefabsPaths.PauseButton, GetUiRoot());
 
-    public override void Exit()
-    {
-        _pauseButton.SetActive(false);
+            _pauseButton.SetActive(true);
+        }
+
+        public override void Exit()
+        {
+            _pauseButton.SetActive(false);
+        }
     }
 }
