@@ -1,5 +1,4 @@
 using Data;
-using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -9,12 +8,16 @@ namespace Infrastructure.UIStateMachine.States
     {
         private LeaderboardWindow _leaderboardWindow;
 
+        public UiStateLeaderboard()
+        {
+            PrefabPath = PrefabsPaths.LeaderboardWindow;
+        }
+
         public override void Enter()
         {
             if (_leaderboardWindow == null)
             {
-                GameObject leaderboardObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.LeaderboardWindow, GetUiRoot());
+                GameObject leaderboardObject = GetUiObject();
 
                 leaderboardObject.TryGetComponent(out LeaderboardWindow leaderboard);
 

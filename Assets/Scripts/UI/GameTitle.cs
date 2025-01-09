@@ -1,5 +1,5 @@
-using Infrastructure;
 using Infrastructure.Services.Localization;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,19 +17,27 @@ namespace UI
         [SerializeField] private Sprite _titleTUR;
 
         private string _currentLanguage;
+        private ILocalization _localization;
+
+        [Inject]
+        private void Construct(ILocalization localization)
+        {
+            _localization = localization;
+            Debug.Log("отработал");
+        }
 
         private void OnEnable()
         {
-            _currentLanguage = DIServicesContainer.Instance.GetService<ILocalization>().GetCurrentLanguage();
+            _currentLanguage = _localization.GetCurrentLanguage();
 
             ShowTitle(_currentLanguage);
 
-            DIServicesContainer.Instance.GetService<ILocalization>().LanguageChanged += OnLanguageChanged;
+            _localization.LanguageChanged += OnLanguageChanged;
         }
 
         private void OnDisable()
         {
-            DIServicesContainer.Instance.GetService<ILocalization>().LanguageChanged -= OnLanguageChanged;
+            _localization.LanguageChanged -= OnLanguageChanged;
         }
 
         private void OnLanguageChanged(string language)

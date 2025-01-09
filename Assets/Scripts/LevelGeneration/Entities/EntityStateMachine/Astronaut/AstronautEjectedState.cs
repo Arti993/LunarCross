@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 {
-    public class AstronautEjectedState : EjectedFromVehicleState
+    public class AstronautEjectedState : EjectedFromVehicleState, IReactableOnCatch
     {
         private const float MaxDirectionValueX = 0.5f;
         private const float MinDirectionValueX = -0.5f;
@@ -17,8 +17,10 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
         {
         }
 
-        public override void Move()
+        public override void Start()
         {
+            base.Start();
+            
             Rigidbody.isKinematic = false;
             Rigidbody.useGravity = true;
             Rigidbody.drag = DragFactor;
@@ -29,12 +31,13 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
             Rigidbody.AddForce(movementDirection * Multiplier, ForceMode.Impulse);
         }
 
-        public override void ReactOnEntryVehicleCatchZone()
+        public void ReactOnEntryVehicleCatchZone()
         {
             Rigidbody.velocity = Vector3.zero;
             Rigidbody.drag = 0f;
             Rigidbody.isKinematic = true;
             Rigidbody.useGravity = false;
+            
             _ = PlacementPattern.TryPlaceToVehicle();
         }
 

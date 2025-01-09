@@ -5,6 +5,7 @@ using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
 using LevelGeneration.Entities.EntityStateMachine;
+using Reflex.Attributes;
 using UnityEngine;
 using Vehicle.BindPoints;
 
@@ -17,6 +18,15 @@ namespace Vehicle
         [SerializeField] private List<InsideBindPoint> _insideBindPoints;
 
         private List<BindPoint> _allBindPoints = new List<BindPoint>();
+        private IAudioPlayback _audioPlayback;
+        private IParticleSystemFactory _particleSystemFactory;
+        
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback, IParticleSystemFactory particleSystemFactory)
+        {
+            _audioPlayback = audioPlayback;
+            _particleSystemFactory = particleSystemFactory;
+        }
 
         private void Start()
         {
@@ -85,8 +95,7 @@ namespace Vehicle
             {
                 if (bindPoints[i].IsFree)
                 {
-                    DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                        .ShowCollectEffect(entity.transform.position);
+                    _particleSystemFactory.ShowCollectEffect(entity.transform.position);
 
                     bindPoints[i].Fill(entity);
                     isFillingSuccess = true;
@@ -117,10 +126,9 @@ namespace Vehicle
 
         private void PlayAstronautPickUpSound()
         {
-            SoundID astronautPickUp = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer
-                .AstronautPickUp;
+            SoundID astronautPickUp = _audioPlayback.SoundsContainer.AstronautPickUp;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(astronautPickUp);
+            _audioPlayback.PlaySound(astronautPickUp);
         }
     }
 }

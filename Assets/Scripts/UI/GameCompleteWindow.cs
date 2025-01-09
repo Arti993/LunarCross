@@ -1,14 +1,22 @@
-using Infrastructure;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 
 namespace UI
 {
-    public class GameCompleteWindow : UIWindow
+    public class GameCompleteWindow : UiWindow
     {
+        private IUiStateMachine _uiStateMachine;
+
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine)
+        {
+            _uiStateMachine = uiStateMachine;
+        }
+        
         public void OpenLeaderBoard()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+            _uiStateMachine.SetState<UiStateLeaderboard>();
         }
     }
 }

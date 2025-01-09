@@ -3,6 +3,7 @@ using Ami.BroAudio;
 using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.ScreenFader;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,24 +12,34 @@ namespace UI
     public class CustomButton : MonoBehaviour, IPointerClickHandler
     {
         protected bool IsClickable;
+        private IAudioPlayback _audioPlayback;
+        private IScreenFader _screenFader;
 
         public event Action Clicked;
 
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback,
+            IScreenFader screenFader)
+        {
+            _audioPlayback = audioPlayback;
+            _screenFader = screenFader;
+        }
+
         protected virtual void OnEnable()
         {
-            if (DIServicesContainer.Instance.GetService<IScreenFader>().IsActive())
+            if (_screenFader.IsActive())
                 IsClickable = false;
             else
                 IsClickable = true;
 
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete += OnScreenFaderDisable;
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
+            _screenFader.FadingComplete += OnScreenFaderDisable;
+            _screenFader.FadingStart += OnScreenFaderEnable;
         }
 
         protected virtual void OnDisable()
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete -= OnScreenFaderDisable;
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart -= OnScreenFaderEnable;
+            _screenFader.FadingComplete -= OnScreenFaderDisable;
+            _screenFader.FadingStart -= OnScreenFaderEnable;
         }
 
         public virtual void OnPointerClick(PointerEventData eventData)
@@ -36,9 +47,9 @@ namespace UI
             if (IsClickable == false)
                 return;
 
-            SoundID buttonClick = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.ButtonClick;
+            SoundID buttonClick = _audioPlayback.SoundsContainer.ButtonClick;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(buttonClick);
+            _audioPlayback.PlaySound(buttonClick);
 
             Clicked?.Invoke();
         }

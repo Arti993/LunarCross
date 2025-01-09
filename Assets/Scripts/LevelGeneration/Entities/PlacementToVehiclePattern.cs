@@ -1,5 +1,6 @@
 using System;
 using LevelGeneration.Entities.EntityStateMachine;
+using LevelGeneration.Entities.EntityStateMachine.Astronaut;
 using UnityEngine;
 using Vehicle;
 using Vehicle.BindPoints;

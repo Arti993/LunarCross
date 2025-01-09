@@ -1,5 +1,5 @@
-using Infrastructure;
 using Infrastructure.Services.Localization;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace UI
@@ -8,9 +8,17 @@ namespace UI
     {
         [SerializeField] private string _language;
 
+        private ILocalization _localization;
+
+        [Inject]
+        private void Construct(ILocalization localization)
+        {
+            _localization = localization;
+        }
+        
         public void ChooseLanguage()
         {
-            DIServicesContainer.Instance.GetService<ILocalization>().SetLanguage(_language);
+            _localization.SetLanguage(_language);
         }
     }
 }

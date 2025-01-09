@@ -1,13 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 namespace LevelGeneration.Entities
 {
     public abstract class Movement : MonoBehaviour
     {
         protected bool IsMoving;
-        protected Coroutine MovingCoroutine;
-
-        public abstract void Move();
+        private Coroutine MovingCoroutine;
 
         private void OnDisable()
         {
@@ -16,5 +15,12 @@ namespace LevelGeneration.Entities
             if (MovingCoroutine != null)
                 StopCoroutine(MovingCoroutine);
         }
+
+        protected void Move()
+        {
+            MovingCoroutine = StartCoroutine(StartMovementAfterDelay());
+        }
+
+        protected abstract IEnumerator StartMovementAfterDelay();
     }
 }

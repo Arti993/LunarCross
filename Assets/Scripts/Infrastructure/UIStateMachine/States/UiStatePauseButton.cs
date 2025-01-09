@@ -1,5 +1,4 @@
 using Data;
-using Infrastructure.Services.Factories.UiFactory;
 using UnityEngine;
 
 namespace Infrastructure.UIStateMachine.States
@@ -8,11 +7,15 @@ namespace Infrastructure.UIStateMachine.States
     {
         private GameObject _pauseButton;
 
+        public UiStatePauseButton()
+        {
+            PrefabPath = PrefabsPaths.PauseButton;
+        }
+
         public override void Enter()
         {
             if (_pauseButton == null)
-                _pauseButton = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.PauseButton, GetUiRoot());
+                _pauseButton = GetUiObject();
 
             _pauseButton.SetActive(true);
         }

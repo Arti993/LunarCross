@@ -13,6 +13,7 @@ using Infrastructure.Services.FocusTest;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
 using Infrastructure.Services.ScreenFader;
+using Reflex.Attributes;
 using ScriptableObjects;
 
 namespace UI
@@ -36,6 +37,25 @@ namespace UI
         private int _points;
         private int _starsCount;
         private int _currentSceneIndex;
+        private IFocusTestStateChanger _focusTestStateChanger;
+        private IGameProgress _gameProgress;
+        private IParticleSystemFactory _particleSystemFactory;
+        private IAudioPlayback _audioPlayback;
+        private IScreenFader _screenFader;
+        private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
+
+        [Inject]
+        private void Construct(IFocusTestStateChanger focusTestStateChanger, IGameProgress gameProgress,
+            IParticleSystemFactory particleSystemFactory, IAudioPlayback audioPlayback, IScreenFader screenFader,
+            ILevelsSettingsNomenclature levelsSettingsNomenclature)
+        {
+            _focusTestStateChanger = focusTestStateChanger;
+            _gameProgress = gameProgress;
+            _particleSystemFactory = particleSystemFactory;
+            _audioPlayback = audioPlayback;
+            _screenFader = screenFader;
+            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+        }
 
         private void Awake()
         {
@@ -56,7 +76,7 @@ namespace UI
             _points = 0;
             _pointsLabel.text = _points.ToString();
 
-            DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisablePauseMenuOpening();
+            _focusTestStateChanger.DisablePauseMenuOpening();
         }
 
         private void Start()
@@ -80,13 +100,12 @@ namespace UI
             Vector3 baseScale = _pointsLabel.transform.localScale;
             Vector3 increasedScale = baseScale * _pointsTextSizeMultiplier;
 
-            Tweener tweener = _pointsLabel.transform.DOScale(increasedScale, _sizeChangeAnimationDuration * HalfFactor)
-                .SetLoops(LoopsCount, LoopType.Yoyo);
+            Tweener tweener = _pointsLabel.transform.DOScale(increasedScale,
+                _sizeChangeAnimationDuration * HalfFactor).SetLoops(LoopsCount, LoopType.Yoyo);
 
             _tweeners.Add(tweener);
 
-            DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                .ShowYellowBurstEffect(_pointsLabel.transform.position);
+            _particleSystemFactory.ShowYellowBurstEffect(_pointsLabel.transform.position);
 
             if (new[] {_pointsForFirstStar, _pointsForSecondStar, _pointsForThirdStar}.Any(p => _points == p))
                 GetStar();
@@ -101,10 +120,9 @@ namespace UI
                 return;
             }
 
-            if (PlayerPrefs.HasKey("GameIsComplete") &&
-                DIServicesContainer.Instance.GetService<IGameProgress>().IsCurrentLevelLast())
+            if (PlayerPrefs.HasKey("GameIsComplete") && _gameProgress.IsCurrentLevelLast())
             {
-                DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Final);
+                _screenFader.FadeOutAndLoadScene((int) SceneIndex.Final);
 
                 return;
             }
@@ -115,12 +133,12 @@ namespace UI
     DIServicesContainer.Instance.GetService<IInterstitionalAdService>().ShowAd();
 #endif
 
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
+            _screenFader.FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
         }
 
         public void RestartLevel()
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(_currentSceneIndex);
+            _screenFader.FadeOutAndLoadScene(_currentSceneIndex);
         }
 
         public void EvaluatePassage()
@@ -133,7 +151,7 @@ namespace UI
 
             if (_points >= _pointsForFirstStar)
             {
-                DIServicesContainer.Instance.GetService<IGameProgress>().SaveLevelProgress(_points);
+                _gameProgress.SaveLevelProgress(_points);
 
                 _levelEndNextButton.SetInterractable();
             }
@@ -145,15 +163,13 @@ namespace UI
 
             if (_currentSceneIndex == (int) SceneIndex.Tutorial)
             {
-                currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                    .GetTutorialLevelSettings();
+                currentLevel = _levelsSettingsNomenclature.GetTutorialLevelSettings();
             }
             else
             {
-                int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+                int levelNumber = _gameProgress.GetCurrentLevelNumber();
 
-                currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                    .GetLevelSettings(levelNumber);
+                currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
             }
 
             return currentLevel;
@@ -176,12 +192,11 @@ namespace UI
 
             _tweeners.Add(tweener);
 
-            DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                .ShowYellowBurstEffect(currentStar.transform.position);
+            _particleSystemFactory.ShowYellowBurstEffect(currentStar.transform.position);
 
-            SoundID starCollect = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.StarCollect;
+            SoundID starCollect = _audioPlayback.SoundsContainer.StarCollect;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(starCollect);
+            _audioPlayback.PlaySound(starCollect);
         }
     }
 }

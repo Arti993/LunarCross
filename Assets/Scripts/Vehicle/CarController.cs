@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Infrastructure;
 using Infrastructure.Services.Factories.GameplayFactory;
 using PlayersInput;
+using Reflex.Attributes;
 using YG;
 
 namespace Vehicle
@@ -23,14 +23,20 @@ namespace Vehicle
         private float _steeringSign;
         private float _steeringFactor;
         private float _sensitiveInput;
+        private IGameplayFactory _gameplayFactory;
+
+        [Inject]
+        private void Construct(IGameplayFactory gameplayFactory)
+        {
+            _gameplayFactory = gameplayFactory;
+        }
 
         private void OnEnable()
         {
             if (YandexGame.EnvironmentData.isMobile)
-                _playerInput = DIServicesContainer.Instance.GetService<IGameplayFactory>().GetUiControlInput();
+                _playerInput = _gameplayFactory.GetUiControlInput();
             else
-                _playerInput = DIServicesContainer.Instance.GetService<IGameplayFactory>()
-                    .GetDesktopControlInput(transform);
+                _playerInput = _gameplayFactory.GetDesktopControlInput(transform);
         }
 
         private void Start()

@@ -1,9 +1,9 @@
 using Data;
-using Infrastructure;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
 using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,6 +26,18 @@ namespace Vehicle
         private float _distanceTraveled;
         private float _periodStartPositionZ;
         private bool _isMinSpeedViolation;
+        private IUiStateMachine _uiStateMachine;
+        private IParticleSystemFactory _particleSystemFactory;
+        private IScreenFader _screenFader;
+        
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine, IParticleSystemFactory particleSystemFactory,
+            IScreenFader screenFader)
+        {
+            _uiStateMachine = uiStateMachine;
+            _particleSystemFactory = particleSystemFactory;
+            _screenFader = screenFader;
+        }
 
         private void Start()
         {
@@ -69,8 +81,7 @@ namespace Vehicle
         {
             if (_isMinSpeedViolation == false)
             {
-                DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                    .ShowExplosionEffect(_blowUpPoint.position);
+                _particleSystemFactory.ShowExplosionEffect(_blowUpPoint.position);
 
                 int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -78,14 +89,13 @@ namespace Vehicle
                 {
                     TimePauserWithDelay timePauserWithDelay = new TimePauserWithDelay();
 
-                    DIServicesContainer.Instance.GetService<IScreenFader>()
-                        .FadeOutAndLoadScene((int) SceneIndex.Tutorial);
+                    _screenFader.FadeOutAndLoadScene((int) SceneIndex.Tutorial);
 
                     _ = StartCoroutine(timePauserWithDelay.Pause());
                 }
                 else
                 {
-                    DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLevelFailed>();
+                    _uiStateMachine.SetState<UiStateLevelFailed>();
                 }
 
                 _isMinSpeedViolation = true;

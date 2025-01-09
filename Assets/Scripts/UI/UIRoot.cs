@@ -1,5 +1,5 @@
-using Infrastructure;
 using Infrastructure.Services.Factories.UiFactory;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace UI
@@ -10,6 +10,13 @@ namespace UI
         private const int CameraPlaneDistance = 2;
 
         private Canvas _canvas;
+        private IUiWindowFactory _uiWindowFactory;
+
+        [Inject]
+        private void Construct(IUiWindowFactory uiWindowFactory)
+        {
+            _uiWindowFactory = uiWindowFactory;
+        }
 
         private void Awake()
         {
@@ -18,7 +25,7 @@ namespace UI
 
         private void OnDisable()
         {
-            DIServicesContainer.Instance.GetService<IUiWindowFactory>().DeleteUIRoot();
+            _uiWindowFactory.DeleteUIRoot();
         }
 
         public void SetCamera(Camera camera)

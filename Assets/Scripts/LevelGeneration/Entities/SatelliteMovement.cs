@@ -39,27 +39,11 @@ namespace LevelGeneration.Entities
 
             Move();
         }
-
-        public override void Move()
-        {
-            _ = StartCoroutine(StartMovementAfterDelay());
-        }
-
-        private IEnumerator StartMovementAfterDelay()
+        
+        protected override IEnumerator StartMovementAfterDelay()
         {
             yield return new WaitForSeconds(_delayBeforeMove);
-
-            _startPoint = new Vector3(_transform.position.x, _transform.position.y + OffsetY, _transform.position.z);
-            _transform.position = _startPoint;
-            _endPoint = new Vector3(_startPoint.x, _startPoint.y + _levitationHeight, _startPoint.z);
-            _journeyLength = Vector3.Distance(_startPoint, _endPoint);
-            _delayBeforeMove = Random.Range(_minDelayBeforeMove, _maxDelayBeforeMove);
-
-            MovingCoroutine = StartCoroutine(LoopMovement());
-        }
-
-        private IEnumerator LoopMovement()
-        {
+            
             _startTime = Time.time;
             IsMoving = true;
 
@@ -80,6 +64,12 @@ namespace LevelGeneration.Entities
 
                 yield return null;
             }
+
+            _startPoint = new Vector3(_transform.position.x, _transform.position.y + OffsetY, _transform.position.z);
+            _transform.position = _startPoint;
+            _endPoint = new Vector3(_startPoint.x, _startPoint.y + _levitationHeight, _startPoint.z);
+            _journeyLength = Vector3.Distance(_startPoint, _endPoint);
+            _delayBeforeMove = Random.Range(_minDelayBeforeMove, _maxDelayBeforeMove);
         }
     }
 }

@@ -1,5 +1,4 @@
 using Data;
-using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -9,12 +8,16 @@ namespace Infrastructure.UIStateMachine.States
     {
         private MainMenu _menu;
 
+        public UiStateMainMenu()
+        {
+            PrefabPath = PrefabsPaths.MainMenuButtons;
+        }
+
         public override void Enter()
         {
             if (_menu == null)
             {
-                GameObject mainMenuObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.MainMenuButtons, GetUiRoot());
+                GameObject mainMenuObject = GetUiObject();
 
                 _menu = mainMenuObject.GetComponent<MainMenu>();
             }

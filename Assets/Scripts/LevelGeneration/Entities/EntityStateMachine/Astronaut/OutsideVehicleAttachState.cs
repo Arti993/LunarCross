@@ -4,7 +4,7 @@ using Vehicle.BindPoints;
 
 namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 {
-    public class AstronautOutsideAttachState : OutsideVehicleAttachState
+    public class OutsideVehicleAttachState : EntityBaseState
     {
         private const string LevitatingTrigger = "isLevitating";
         private const float ChangeAttachStateTime = 12;
@@ -14,9 +14,8 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
         private readonly IPlaceableToVehicle _placementPattern;
         private EntityBehaviour _entityBehaviour;
         private Coroutine _changeAttachStateCoroutine;
-
-
-        public AstronautOutsideAttachState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
+        
+        public OutsideVehicleAttachState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
             IPlaceableToVehicle placementPattern) : base(stateSwitcher)
         {
             _rigidbody = rigidbody;
@@ -30,11 +29,6 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
             _rigidbody.TryGetComponent(out EntityBehaviour behaviour);
             _entityBehaviour = behaviour;
 
-            Move();
-        }
-
-        public override void Move()
-        {
             _animator.SetBool(LevitatingTrigger, true);
 
             if (_entityBehaviour != null)
@@ -50,16 +44,6 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 
                 _changeAttachStateCoroutine = null;
             }
-        }
-
-        public override void ReactOnEntryVehicleCatchZone()
-        {
-            NoReact();
-        }
-
-        public override void ReactOnEntryVehicleTossZone()
-        {
-            NoReact();
         }
 
         private IEnumerator WaitToInsideAttach()

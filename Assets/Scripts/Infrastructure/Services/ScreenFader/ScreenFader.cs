@@ -5,6 +5,7 @@ using Infrastructure.Services.AssetsProvider;
 using Infrastructure.Services.FocusTest;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -18,9 +19,14 @@ namespace Infrastructure.Services.ScreenFader
         private readonly GameObject _screenFaderObject;
         private readonly Image _blackScreen;
         private readonly LoadScreen _loadScreen;
+        private IFocusTestStateChanger _focusTestStateChanger;
+        private IUiStateMachine _uiStateMachine;
 
-        public ScreenFader(IAssetsProvider provider)
+        public ScreenFader(IAssetsProvider provider, IFocusTestStateChanger focusTestStateChanger, IUiStateMachine uiStateMachine)
         {
+            _focusTestStateChanger = focusTestStateChanger;
+            _uiStateMachine = uiStateMachine;
+            
             _screenFaderObject = provider.Instantiate(PrefabsPaths.ScreenFader);
 
             _blackScreen = _screenFaderObject.GetComponentInChildren<Image>();
@@ -60,7 +66,7 @@ namespace Infrastructure.Services.ScreenFader
                 int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
                 if (currentSceneIndex == (int) SceneIndex.Gameplay || currentSceneIndex == (int) SceneIndex.Tutorial)
-                    DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().EnablePauseMenuOpening();
+                    _focusTestStateChanger.EnablePauseMenuOpening();
 
                 FadingComplete?.Invoke();
 
@@ -78,7 +84,7 @@ namespace Infrastructure.Services.ScreenFader
             {
                 FadingStart?.Invoke();
 
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateNoWindow>();
+                _uiStateMachine.SetState<UiStateNoWindow>();
 
                 _screenFaderObject.SetActive(true);
             });

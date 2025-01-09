@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using Infrastructure;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States.TutorialStates;
+using Reflex.Attributes;
 using UnityEngine;
 using YG;
 
@@ -12,6 +12,13 @@ namespace LevelGeneration
     public class TutorialChunkPlacer : ChunkPlacer
     {
         private const float DelayBeforeShowWindow = 2.3f;
+        private IUiStateMachine _uiStateMachine;
+
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine)
+        {
+            _uiStateMachine = uiStateMachine;
+        }
 
         protected override void SpawnNextChunkInSequence()
         {
@@ -66,30 +73,29 @@ namespace LevelGeneration
         private void ShowTutorialControlWindow()
         {
             if (YandexGame.EnvironmentData.isMobile)
-                DIServicesContainer.Instance.GetService<IUiStateMachine>()
-                    .SetState<UiStateTutorialTouchscreenControl>();
+                _uiStateMachine.SetState<UiStateTutorialTouchscreenControl>();
             else
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialKeyboardControl>();
+                _uiStateMachine.SetState<UiStateTutorialKeyboardControl>();
         }
 
         private void ShowTutorialCollectingWindow()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialAstronauts>();
+            _uiStateMachine.SetState<UiStateTutorialAstronauts>();
         }
 
         private void ShowTutorialAliensWindow()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialAliens>();
+            _uiStateMachine.SetState<UiStateTutorialAliens>();
         }
 
         private void ShowTutorialObstaclesWindow()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialObstacles>();
+            _uiStateMachine.SetState<UiStateTutorialObstacles>();
         }
 
         private void ShowTutorialTornadoWindow()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateTutorialTornado>();
+            _uiStateMachine.SetState<UiStateTutorialTornado>();
         }
 
         private IEnumerator ShowWithDelay(Action showMethod)

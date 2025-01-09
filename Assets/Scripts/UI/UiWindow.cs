@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UIWindow : MonoBehaviour
+    public class UiWindow : MonoBehaviour
     {
         [SerializeField] protected RectTransform PanelRect;
         [SerializeField] protected float PanelTopPosY;

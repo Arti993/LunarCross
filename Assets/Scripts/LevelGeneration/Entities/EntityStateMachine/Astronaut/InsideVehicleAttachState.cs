@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 {
-    public class AstronautInsideAttachState : InsideVehicleAttachState
+    public class InsideVehicleAttachState : EntityBaseState
     {
         private const string LevitatingTrigger = "isLevitating";
         private const string IdleTrigger = "isIdle";
 
         private readonly Animator _animator;
 
-        public AstronautInsideAttachState(IEntityStateSwitcher stateSwitcher, Animator animator) : base(stateSwitcher)
+        public InsideVehicleAttachState(IEntityStateSwitcher stateSwitcher, Animator animator) : base(stateSwitcher)
         {
             _animator = animator;
         }
@@ -18,27 +18,12 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
         {
             _animator.SetBool(LevitatingTrigger, false);
 
-            Move();
-        }
-
-        public override void Move()
-        {
             _animator.SetBool(IdleTrigger, true);
-        }
-
-        public override void ReactOnEntryVehicleCatchZone()
-        {
-            NoReact();
-        }
-
-        public override void ReactOnEntryVehicleTossZone()
-        {
-            NoReact();
         }
 
         public override void Stop()
         {
-
+            _animator.SetBool(IdleTrigger, false);
         }
     }
 }

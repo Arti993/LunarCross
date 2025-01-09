@@ -1,14 +1,22 @@
 using Data;
-using Infrastructure;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using YG;
 using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    public class AuthorizationQuestion : UIWindow
+    public class AuthorizationQuestion : UiWindow
     {
+        private IUiStateMachine _uiStateMachine;
+        
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine)
+        {
+            _uiStateMachine = uiStateMachine;
+        }
+        
         public void OnYesButtonClick()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -25,17 +33,17 @@ namespace UI
 
             if (currentSceneIndex == (int) SceneIndex.MainMenu)
             {
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+                _uiStateMachine.SetState<UiStateMainMenu>();
                 return;
             }
 
             if (currentSceneIndex == (int) SceneIndex.Final)
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateGameComplete>();
+                _uiStateMachine.SetState<UiStateGameComplete>();
         }
 
         private void OpenLeaderBoard()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+            _uiStateMachine.SetState<UiStateLeaderboard>();
         }
     }
 }

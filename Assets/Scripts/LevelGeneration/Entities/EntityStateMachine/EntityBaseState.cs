@@ -11,12 +11,5 @@ namespace LevelGeneration.Entities.EntityStateMachine
 
         public abstract void Start();
         public abstract void Stop();
-        public abstract void Move();
-        public abstract void ReactOnEntryVehicleCatchZone();
-        public abstract void ReactOnEntryVehicleTossZone();
-
-        protected virtual void NoReact()
-        {
-        }
     }
 }

@@ -1,5 +1,5 @@
-using Infrastructure;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace LevelGeneration
@@ -16,6 +16,14 @@ namespace LevelGeneration
         private Transform _secondPoint;
         private Transform _target;
         private int _currentPointIndex;
+
+        private IParticleSystemFactory _particleSystemFactory;
+
+        [Inject]
+        private void Construct(IParticleSystemFactory particleSystemFactory)
+        {
+            _particleSystemFactory = particleSystemFactory;
+        }
 
         private void Start()
         {
@@ -41,8 +49,7 @@ namespace LevelGeneration
                 }
                 else if (_currentPointIndex > 1)
                 {
-                    DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                        .ShowGreenCollectEffect(_transform.position);
+                    _particleSystemFactory.ShowGreenCollectEffect(_transform.position);
 
                     _rocket.PlaceRunner(this);
                 }

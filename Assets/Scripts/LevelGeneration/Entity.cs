@@ -7,7 +7,7 @@ namespace LevelGeneration
     {
         public event Action<Entity> Disabled;
 
-        public virtual void Disable()
+        public void Disable()
         {
             Disabled?.Invoke(this);
         }

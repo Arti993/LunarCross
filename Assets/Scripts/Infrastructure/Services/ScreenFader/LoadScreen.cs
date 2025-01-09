@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,14 @@ namespace Infrastructure.Services.ScreenFader
 {
     public class LoadScreen : MonoBehaviour
     {
+        private IScreenFader _screenFader;
+        
+        [Inject]
+        private void Construct(IScreenFader screenFader)
+        {
+            _screenFader = screenFader;
+        }
+        
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -19,7 +28,7 @@ namespace Infrastructure.Services.ScreenFader
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeIn();
+            _screenFader.FadeIn();
         }
     }
 }

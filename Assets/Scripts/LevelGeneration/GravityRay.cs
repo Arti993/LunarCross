@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
 using Infrastructure.Services.Factories.UiFactory;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
 using LevelGeneration.Entities.EntityStateMachine.Astronaut;
+using Reflex.Attributes;
 using UI;
 using UnityEngine;
 using Vehicle;
@@ -25,6 +25,20 @@ namespace LevelGeneration
         private Transform _vehicleTransform;
         private IReadOnlyList<BindPoint> _vehicleBindPoints;
         private LevelCompleteWindow _levelCompleteWindow;
+        private IAudioPlayback _audioPlayback;
+        private IUiStateMachine _uiStateMachine;
+        private IParticleSystemFactory _particleSystemFactory;
+        private IUiWindowFactory _uiWindowFactory;
+
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback, IUiStateMachine uiStateMachine,
+            IParticleSystemFactory particleSystemFactory, IUiWindowFactory uiWindowFactory)
+        {
+            _audioPlayback = audioPlayback;
+            _uiStateMachine = uiStateMachine;
+            _particleSystemFactory = particleSystemFactory;
+            _uiWindowFactory = uiWindowFactory;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -50,9 +64,9 @@ namespace LevelGeneration
 
                 vehicleRotationLimit.enabled = false;
 
-                SoundID raySound = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Ray;
+                SoundID raySound = _audioPlayback.SoundsContainer.Ray;
 
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(raySound);
+                _audioPlayback.PlaySound(raySound);
 
                 _ = StartCoroutine(MoveVehicleToCenter(_evacuationPoint.position, AttractionTime));
             }
@@ -77,12 +91,11 @@ namespace LevelGeneration
 
         private void ShowLevelCompleteWindow()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UIStateLevelComplete>();
+            _uiStateMachine.SetState<UIStateLevelComplete>();
 
-            GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+            GameObject uiRoot = _uiWindowFactory.GetUIRoot();
 
-            GameObject window = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetLevelCompleteWindow(uiRoot);
+            GameObject window = _uiWindowFactory.GetLevelCompleteWindow(uiRoot);
 
             if (window.TryGetComponent(out LevelCompleteWindow levelCompleteWindow))
                 _levelCompleteWindow = levelCompleteWindow;
@@ -103,8 +116,7 @@ namespace LevelGeneration
         {
             Vector3 entityPosition = bindPoint.BindedEntity.transform.position;
 
-            DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                .ShowGreenCollectEffect(entityPosition);
+            _particleSystemFactory.ShowGreenCollectEffect(entityPosition);
 
             _levelCompleteWindow.CollectPoint();
 

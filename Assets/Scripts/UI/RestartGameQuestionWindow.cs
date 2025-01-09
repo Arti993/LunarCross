@@ -4,21 +4,35 @@ using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 
 namespace UI
 {
-    public class RestartGameQuestionWindow : UIWindow
+    public class RestartGameQuestionWindow : UiWindow
     {
+        private IUiStateMachine _uiStateMachine;
+        private IGameProgress _gameProgress;
+        private IScreenFader _screenFader;
+
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine, IGameProgress gameProgress,
+            IScreenFader screenFader)
+        {
+            _uiStateMachine = uiStateMachine;
+            _gameProgress = gameProgress;
+            _screenFader = screenFader;
+        }
+        
         public void OnYesButtonClick()
         {
-            DIServicesContainer.Instance.GetService<IGameProgress>().ClearSaves();
+            _gameProgress.ClearSaves();
 
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Gameplay);
+            _screenFader.FadeOutAndLoadScene((int) SceneIndex.Gameplay);
         }
 
         public void OnNoButtonClick()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateMainMenu>();
+            _uiStateMachine.SetState<UiStateMainMenu>();
         }
     }
 }

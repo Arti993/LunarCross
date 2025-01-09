@@ -1,6 +1,7 @@
 using System.Collections;
 using Infrastructure;
 using Infrastructure.Services.ScreenFader;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,13 @@ namespace UI
         [SerializeField] private float _stopTimeDelay = 0.15f;
 
         private bool _isFirstFailReacted;
+        private IScreenFader _screenFader;
+        
+        [Inject]
+        private void Construct(IScreenFader screenFader)
+        {
+            _screenFader = screenFader;
+        }
 
         private void Awake()
         {
@@ -22,7 +30,7 @@ namespace UI
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(currentSceneIndex);
+            _screenFader.FadeOutAndLoadScene(currentSceneIndex);
         }
 
         private void PauseGame()

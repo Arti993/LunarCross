@@ -1,16 +1,25 @@
 using System;
-using System.Collections;
-using Infrastructure;
 using Infrastructure.Services.Factories.GameplayFactory;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using UnityEngine;
 using Vehicle;
 
 namespace UI
 {
-    public class TutorialWindow : UIWindow
+    public class TutorialWindow : UiWindow
     {
+        private IUiStateMachine _uiStateMachine;
+        private IGameplayFactory _gameplayFactory;
+        
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine, IGameplayFactory gameplayFactory)
+        {
+            _uiStateMachine = uiStateMachine;
+            _gameplayFactory = gameplayFactory;
+        }
+        
         protected virtual void Awake()
         {
             Vector3 startPosition = PanelRect.localPosition;
@@ -36,12 +45,12 @@ namespace UI
 
         public void Exit()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+            _uiStateMachine.SetState<UiStatePauseButton>();
         }
 
         protected CatchZoneViewer GetCatchZoneViewer()
         {
-            GameObject vehicle = DIServicesContainer.Instance.GetService<IGameplayFactory>().GetPlayerInstance();
+            GameObject vehicle = _gameplayFactory.GetPlayerInstance();
 
             if (vehicle.TryGetComponent(out CatchZoneViewer catchZoneViewer) == false)
                 throw new InvalidOperationException();

@@ -10,9 +10,16 @@ namespace Infrastructure.Services.Localization
         private readonly IAssetsProvider _provider;
         private LanguageChanger _languageChanger;
 
+        public Localization()
+        {
+            Debug.Log("локализация создана через пустой конструктор");
+        }
+        
         public Localization(IAssetsProvider provider)
         {
             _provider = provider;
+            
+            Debug.Log("локализация создана");
 
             _languageChanger = CreateLanguageChanger();
         }

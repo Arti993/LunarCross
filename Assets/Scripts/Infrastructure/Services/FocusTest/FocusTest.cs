@@ -4,6 +4,7 @@ using Data;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.FocusTest
@@ -12,7 +13,18 @@ namespace Infrastructure.Services.FocusTest
     {
         private bool _isUnfocusePaused;
         private bool _isFocused;
+        private IAudioPlayback _audioPlayback;
+        private IFocusTestStateChanger _focusTestStateChanger;
+        private IUiStateMachine _uiStateMachine;
 
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback, IFocusTestStateChanger focusTestStateChanger, IUiStateMachine uiStateMachine)
+        {
+            _audioPlayback = audioPlayback;
+            _focusTestStateChanger = focusTestStateChanger;
+            _uiStateMachine = uiStateMachine;
+        }
+        
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -43,7 +55,7 @@ namespace Infrastructure.Services.FocusTest
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
             if (currentSceneIndex == (int) SceneIndex.Gameplay || currentSceneIndex == (int) SceneIndex.Tutorial)
-                DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisablePauseMenuOpening();
+                _focusTestStateChanger.DisablePauseMenuOpening();
 
             if (_isFocused == false)
             {
@@ -70,11 +82,11 @@ namespace Infrastructure.Services.FocusTest
         {
             if (value)
             {
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteAudio();
+                _audioPlayback.MuteAudio();
             }
             else
             {
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteAudio();
+                _audioPlayback.UnMuteAudio();
             }
         }
 
@@ -82,9 +94,9 @@ namespace Infrastructure.Services.FocusTest
         {
             if (value && Time.timeScale != 0)
             {
-                if (DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().IsNeedToOpenPauseMenu)
+                if (_focusTestStateChanger.IsNeedToOpenPauseMenu)
                 {
-                    DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseMenu>();
+                    _uiStateMachine.SetState<UiStatePauseMenu>();
 
                     return;
                 }

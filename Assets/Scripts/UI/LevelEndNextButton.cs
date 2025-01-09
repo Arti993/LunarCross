@@ -1,5 +1,5 @@
-using Infrastructure;
 using Infrastructure.Services.ScreenFader;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +9,20 @@ namespace UI
     public class LevelEndNextButton : CustomButton
     {
         private Button _button;
+        
+        private IScreenFader _screenFader;
+        
+        [Inject]
+        private void Construct(IScreenFader screenFader)
+        {
+            _screenFader = screenFader;
+        }
 
         protected override void OnEnable()
         {
             _button = gameObject.GetComponent<Button>();
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadingComplete += OnScreenFaderDisable;
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadingStart += OnScreenFaderEnable;
+            _screenFader.FadingComplete += OnScreenFaderDisable;
+            _screenFader.FadingStart += OnScreenFaderEnable;
         }
 
         public void SetInterractable()

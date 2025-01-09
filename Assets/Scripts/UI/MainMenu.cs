@@ -3,6 +3,7 @@ using Infrastructure;
 using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using UnityEngine;
 using YG;
 
@@ -11,22 +12,31 @@ namespace UI
     public class MainMenu : MonoBehaviour
     {
         private const string NotFirstGameLaunch = "NotFirstGameLaunch";
+        private IScreenFader _screenFader;
+        private IUiStateMachine _uiStateMachine;
+        
+        [Inject]
+        private void Construct(IScreenFader screenFader, IUiStateMachine uiStateMachine)
+        {
+            _screenFader = screenFader;
+            _uiStateMachine = uiStateMachine;
+        }
 
         public void OnPlayButtonClick()
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Gameplay);
+            _screenFader.FadeOutAndLoadScene((int) SceneIndex.Gameplay);
         }
 
         public void OnLevelsChooseButtonCLick()
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
+            _screenFader.FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
         }
 
         public void OnNewGameButtonClick()
         {
             if (PlayerPrefs.HasKey(NotFirstGameLaunch))
             {
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateRestartGameQuestion>();
+                _uiStateMachine.SetState<UiStateRestartGameQuestion>();
             }
             else
             {
@@ -39,7 +49,7 @@ namespace UI
 
         public void OnTutorialButtonClick()
         {
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Tutorial);
+            _screenFader.FadeOutAndLoadScene((int) SceneIndex.Tutorial);
         }
 
         public void OnLeaderBoardButtonClick()
@@ -47,18 +57,18 @@ namespace UI
 #if UNITY_WEBGL && !UNITY_EDITOR
         if(YandexGame.auth)
             {
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateLeaderboard>();
+                _uiStateMachine.SetState<UiStateLeaderboard>();
             }
         else
             {
-                DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateAuthorizationQuestion>();
+                _uiStateMachine.SetState<UiStateAuthorizationQuestion>();
             }
 #endif
         }
 
         public void OnSettingsButtonClick()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
+            _uiStateMachine.SetState<UiStateSettings>();
         }
 
         public void Disable()

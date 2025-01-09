@@ -5,6 +5,7 @@ using Infrastructure;
 using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using UnityEngine.UI;
 
 namespace UI
@@ -12,7 +13,16 @@ namespace UI
     public class PauseMenu : MenuEscapeWindow
     {
         [SerializeField] private Image _backgroundPanel;
+        private IUiStateMachine _uiStateMachine;
+        private IScreenFader _screenFader;
 
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine, IScreenFader screenFader)
+        {
+            _uiStateMachine = uiStateMachine;
+            _screenFader = screenFader;
+        }
+        
         public void PauseGame()
         {
             PanelIntro();
@@ -28,19 +38,19 @@ namespace UI
 
             Time.timeScale = 1f;
 
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+            _uiStateMachine.SetState<UiStatePauseButton>();
         }
 
         public void RestartLevel()
         {
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene(sceneIndex);
+            _screenFader.FadeOutAndLoadScene(sceneIndex);
         }
 
         public void ChangeGameSettings()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateSettings>();
+            _uiStateMachine.SetState<UiStateSettings>();
         }
 
         private void BackGroundPanelIntro()

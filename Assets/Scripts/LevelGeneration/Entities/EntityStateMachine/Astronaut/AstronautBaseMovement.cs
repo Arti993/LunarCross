@@ -1,11 +1,11 @@
 namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 {
-    public class AstronautBaseMovementState : BaseMovementState
+    public class AstronautBaseMovement : EntityBaseState, IReactableOnCatch, IReactableOnToss
     {
         private NPCMovement _npcMovement;
         private IPlaceableToVehicle _placementPattern;
 
-        public AstronautBaseMovementState(IEntityStateSwitcher stateSwitcher, NPCMovement npcMovement,
+        public AstronautBaseMovement(IEntityStateSwitcher stateSwitcher, NPCMovement npcMovement,
             IPlaceableToVehicle placementPattern) : base(stateSwitcher)
         {
             _npcMovement = npcMovement;
@@ -14,7 +14,7 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 
         public override void Start()
         {
-            Move();
+            _npcMovement.enabled = true;
         }
 
         public override void Stop()
@@ -22,17 +22,12 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
             _npcMovement.Disable();
         }
 
-        public override void Move()
-        {
-            _npcMovement.enabled = true;
-        }
-
-        public override void ReactOnEntryVehicleCatchZone()
+        public void ReactOnEntryVehicleCatchZone()
         {
             _ = _placementPattern.TryPlaceToVehicle();
         }
 
-        public override void ReactOnEntryVehicleTossZone()
+        public void ReactOnEntryVehicleTossZone()
         {
             StateSwitcher.SwitchState<KnockedState>();
         }

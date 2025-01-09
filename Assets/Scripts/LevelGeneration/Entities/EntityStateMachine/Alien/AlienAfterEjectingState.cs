@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LevelGeneration.Entities.EntityStateMachine.Alien
 {
-    public class AlienAfterEjectingState : AfterEjectingState
+    public class AlienAfterEjectingState : AfterEjectingState, IReactableOnToss
     {
         private const float Speed = 0.5f;
 
@@ -19,28 +19,18 @@ namespace LevelGeneration.Entities.EntityStateMachine.Alien
 
         public override void Start()
         {
-            Move();
-        }
-
-        public override void Move()
-        {
             _entityTransform.rotation = Quaternion.LookRotation(-_entityTransform.forward);
             _rigidbody.velocity = _entityTransform.forward * Speed;
         }
 
-        public override void ReactOnEntryVehicleCatchZone()
-        {
-            NoReact();
-        }
-
-        public override void ReactOnEntryVehicleTossZone()
+        public void ReactOnEntryVehicleTossZone()
         {
             _stateSwitcher.SwitchState<KnockedState>();
         }
 
         public override void Stop()
         {
-            NoReact();
+            _rigidbody.velocity = Vector3.zero;
         }
     }
 }

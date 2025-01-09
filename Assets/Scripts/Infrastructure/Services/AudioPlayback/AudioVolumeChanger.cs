@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,20 +19,26 @@ namespace Infrastructure.Services.AudioPlayback
         [SerializeField] private Toggle _musicVolumeToggle;
         [SerializeField] private Toggle _soundsVolumeToggle;
 
+        private IAudioPlayback _audioPlayback;
+        
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback)
+        {
+            _audioPlayback = audioPlayback;
+        }
+        
         private void Awake()
         {
             if (PlayerPrefs.HasKey(MusicVolumeTag))
             {
-                float lastSavedMusicVolume = DIServicesContainer.Instance.GetService<IAudioPlayback>()
-                    .GetLastSavedVolume(MusicVolumeTag);
+                float lastSavedMusicVolume = _audioPlayback.GetLastSavedVolume(MusicVolumeTag);
 
                 _musicVolumeSlider.value = lastSavedMusicVolume;
             }
 
             if (PlayerPrefs.HasKey(SoundsVolumeTag))
             {
-                float lastSavedSoundsVolume = DIServicesContainer.Instance.GetService<IAudioPlayback>()
-                    .GetLastSavedVolume(SoundsVolumeTag);
+                float lastSavedSoundsVolume = _audioPlayback.GetLastSavedVolume(SoundsVolumeTag);
 
                 _soundsVolumeSlider.value = lastSavedSoundsVolume;
             }
@@ -45,16 +52,14 @@ namespace Infrastructure.Services.AudioPlayback
 
         public void ChangeMusicVolume()
         {
-            DIServicesContainer.Instance.GetService<IAudioPlayback>()
-                .SaveVolume(_musicVolumeSlider.value, MusicVolumeTag);
+            _audioPlayback.SaveVolume(_musicVolumeSlider.value, MusicVolumeTag);
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().ChangeMusicVolume(_musicVolumeSlider.value);
+            _audioPlayback.ChangeMusicVolume(_musicVolumeSlider.value);
         }
 
         public void ChangeSoundsVolume()
         {
-            DIServicesContainer.Instance.GetService<IAudioPlayback>()
-                .SaveVolume(_soundsVolumeSlider.value, SoundsVolumeTag);
+            _audioPlayback.SaveVolume(_soundsVolumeSlider.value, SoundsVolumeTag);
         }
 
         public void MuteOrUnmuteMusic()
@@ -66,14 +71,14 @@ namespace Infrastructure.Services.AudioPlayback
 
                 _musicVolumeSlider.value = MaxVolume;
 
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteMusic();
+                _audioPlayback.UnMuteMusic();
             }
             else
             {
                 _turnedOffMusicSlider.gameObject.SetActive(true);
                 _musicVolumeSlider.gameObject.SetActive(false);
 
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteMusic();
+                _audioPlayback.MuteMusic();
             }
         }
 
@@ -86,7 +91,7 @@ namespace Infrastructure.Services.AudioPlayback
 
                 _soundsVolumeSlider.value = MaxVolume;
 
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().UnMuteSounds();
+                _audioPlayback.UnMuteSounds();
             }
             else
             {
@@ -95,7 +100,7 @@ namespace Infrastructure.Services.AudioPlayback
 
                 PlayerPrefs.DeleteKey(SoundsMutedTag);
 
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().MuteSounds();
+                _audioPlayback.MuteSounds();
             }
         }
     }

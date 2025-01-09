@@ -4,6 +4,7 @@ using Ami.BroAudio;
 using Data;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
+using Reflex.Attributes;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,11 +19,17 @@ namespace Infrastructure.Services.AudioPlayback
         private const int MaxConvertedVolume = 100;
         private const float MaxVolume = 1;
 
+        private IGameProgress _gameProgress;
+        private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
         private bool _isMenuThemePlaying;
 
-        public AudioPlayback()
+        public AudioPlayback(IGameProgress gameProgress, ILevelsSettingsNomenclature levelsSettingsNomenclature)
         {
+            _gameProgress = gameProgress;
+            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+            
             SoundsContainer = Resources.Load<SoundsContainer>(PrefabsPaths.SoundsContainerPath);
+            
             MusicContainer = Resources.Load<MusicContainer>(PrefabsPaths.MusicContainerPath);
 
             ApplySavedVolume();
@@ -32,6 +39,7 @@ namespace Infrastructure.Services.AudioPlayback
 
         public MusicContainer MusicContainer { get; }
         public SoundsContainer SoundsContainer { get; }
+        
 
         public void MuteAudio()
         {
@@ -122,15 +130,13 @@ namespace Infrastructure.Services.AudioPlayback
 
             if (currentSceneIndex != (int) SceneIndex.Tutorial)
             {
-                int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+                int levelNumber = _gameProgress.GetCurrentLevelNumber();
 
-                levelTheme = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                    .GetLevelSettings(levelNumber).MusicTheme;
+                levelTheme = _levelsSettingsNomenclature.GetLevelSettings(levelNumber).MusicTheme;
             }
             else
             {
-                levelTheme = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                    .GetTutorialLevelSettings().MusicTheme;
+                levelTheme = _levelsSettingsNomenclature.GetTutorialLevelSettings().MusicTheme;
             }
 
             MusicContainer.Play(levelTheme);

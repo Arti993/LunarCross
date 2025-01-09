@@ -1,7 +1,7 @@
 using System.Collections;
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
+using Reflex.Attributes;
 using UnityEngine;
 using Vehicle.ReactZones;
 
@@ -22,6 +22,13 @@ namespace LevelGeneration.Entities
         private Collider _collider;
         private Movement _movement;
         private bool _isCanCollise;
+        private IAudioPlayback _audioPlayback;
+
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback)
+        {
+            _audioPlayback = audioPlayback;
+        }
 
         private void Awake()
         {
@@ -62,9 +69,9 @@ namespace LevelGeneration.Entities
             _rigidbody.angularVelocity =
                 new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
 
-            SoundID knock = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Knock;
+            SoundID knock = _audioPlayback.SoundsContainer.Knock;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(knock);
+            _audioPlayback.PlaySound(knock);
         }
 
         private IEnumerator PauseCollisions()

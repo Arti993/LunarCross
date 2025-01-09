@@ -1,8 +1,8 @@
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace LevelGeneration
@@ -18,6 +18,15 @@ namespace LevelGeneration
         private Transform _transform;
         private float _startRocketPositionY;
         private float _startCameraPositionY;
+        private IAudioPlayback _audioPlayback;
+        private IUiStateMachine _uiStateMachine;
+
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback, IUiStateMachine uiStateMachine)
+        {
+            _audioPlayback = audioPlayback;
+            _uiStateMachine = uiStateMachine;
+        }
 
         private void Start()
         {
@@ -25,10 +34,9 @@ namespace LevelGeneration
             _startRocketPositionY = _rocket.position.y;
             _startCameraPositionY = _transform.position.y;
 
-            SoundID finalMusicTheme =
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().MusicContainer.FinalTheme;
+            SoundID finalMusicTheme = _audioPlayback.MusicContainer.FinalTheme;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayMusic(finalMusicTheme);
+            _audioPlayback.PlayMusic(finalMusicTheme);
         }
 
         private void FixedUpdate()
@@ -57,20 +65,18 @@ namespace LevelGeneration
 
         private void ShowCompleteGameWindow()
         {
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStateGameComplete>();
+            _uiStateMachine.SetState<UiStateGameComplete>();
         }
 
         private void StopRocketSounds()
         {
-            SoundID rocketEngine =
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketEngine;
+            SoundID rocketEngine = _audioPlayback.SoundsContainer.RocketEngine;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Stop(rocketEngine);
+            _audioPlayback.SoundsContainer.Stop(rocketEngine);
 
-            SoundID rocketTurbine =
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketTurbine;
+            SoundID rocketTurbine = _audioPlayback.SoundsContainer.RocketTurbine;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Stop(rocketTurbine);
+            _audioPlayback.SoundsContainer.Stop(rocketTurbine);
         }
     }
 }

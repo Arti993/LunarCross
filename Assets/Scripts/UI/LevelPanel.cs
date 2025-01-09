@@ -3,6 +3,7 @@ using Infrastructure;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
 using Infrastructure.Services.ScreenFader;
+using Reflex.Attributes;
 using ScriptableObjects;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,18 @@ namespace UI
         [SerializeField] private int _levelNumber;
 
         private Button _button;
+        private IGameProgress _gameProgress;
+        private IScreenFader _screenFader;
+        private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
+
+        [Inject]
+        private void Construct(IGameProgress gameProgress, IScreenFader screenFader,
+            ILevelsSettingsNomenclature levelsSettingsNomenclature)
+        {
+            _gameProgress = gameProgress;
+            _screenFader = screenFader;
+            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+        }
 
         private void Awake()
         {
@@ -37,7 +50,7 @@ namespace UI
                 _unblockedView.SetActive(true);
                 _blockedView.SetActive(false);
 
-                if (DIServicesContainer.Instance.GetService<IScreenFader>().IsActive() == false)
+                if (_screenFader.IsActive() == false)
                     _button.interactable = true;
 
                 _levelNumberTitle.text = _levelNumber.ToString();
@@ -48,14 +61,14 @@ namespace UI
 
         public void LoadLevel()
         {
-            DIServicesContainer.Instance.GetService<IGameProgress>().SelectLevel(_levelNumber);
+            _gameProgress.SelectLevel(_levelNumber);
 
-            DIServicesContainer.Instance.GetService<IScreenFader>().FadeOutAndLoadScene((int) SceneIndex.Gameplay);
+            _screenFader.FadeOutAndLoadScene((int) SceneIndex.Gameplay);
         }
 
         private void DisplayProgress()
         {
-            int levelResult = DIServicesContainer.Instance.GetService<IGameProgress>().GetLevelResult(_levelNumber);
+            int levelResult = _gameProgress.GetLevelResult(_levelNumber);
 
             _bestRecordTitle.text = levelResult.ToString();
 
@@ -64,8 +77,7 @@ namespace UI
 
         private void DisplayStars(int levelResult)
         {
-            Level levelSettings = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                .GetLevelSettings(_levelNumber);
+            Level levelSettings = _levelsSettingsNomenclature.GetLevelSettings(_levelNumber);
             
             foreach (var star in _ratingStars)
             {

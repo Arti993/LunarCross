@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LevelGeneration.Entities
 {
@@ -10,6 +11,7 @@ namespace LevelGeneration.Entities
         [SerializeField] private float _minDelayBeforeMove = 0f;
         [SerializeField] private float _maxDelayBeforeMove = 0.7f;
 
+        private Transform _transform;
         private Quaternion _startRotation;
         private Quaternion _endRotation;
         private float _startTime;
@@ -18,9 +20,14 @@ namespace LevelGeneration.Entities
         private float _fullRotationAngle;
         private float _rotationPathCovered;
 
+        private void Awake()
+        {
+            _transform = transform;
+        }
+
         private void OnEnable()
         {
-            transform.rotation = Quaternion.identity;
+            _transform.rotation = Quaternion.identity;
 
             _startRotation = transform.rotation;
             _endRotation = Quaternion.Euler(_startRotation.x, _startRotation.y + _rotationAngle, _startRotation.z);
@@ -30,20 +37,10 @@ namespace LevelGeneration.Entities
             Move();
         }
 
-        public override void Move()
-        {
-            _ = StartCoroutine(StartMovementAfterDelay());
-        }
-
-        private IEnumerator StartMovementAfterDelay()
+        protected override IEnumerator StartMovementAfterDelay()
         {
             yield return new WaitForSeconds(_delayBeforeMove);
 
-            MovingCoroutine = StartCoroutine(LoopMovement());
-        }
-
-        private IEnumerator LoopMovement()
-        {
             _startTime = Time.time;
             IsMoving = true;
 
@@ -52,7 +49,7 @@ namespace LevelGeneration.Entities
                 _angleCovered = (Time.time - _startTime) * _fullRotationAngle / _rotationHalfCycleTime;
                 _rotationPathCovered = _angleCovered / _fullRotationAngle;
 
-                transform.rotation = Quaternion.Lerp(_startRotation, _endRotation, _rotationPathCovered);
+                _transform.rotation = Quaternion.Lerp(_startRotation, _endRotation, _rotationPathCovered);
 
                 if (_rotationPathCovered >= 1)
                 {

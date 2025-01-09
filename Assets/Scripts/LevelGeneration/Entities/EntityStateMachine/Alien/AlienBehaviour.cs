@@ -10,7 +10,7 @@ namespace LevelGeneration.Entities.EntityStateMachine.Alien
         private void OnEnable()
         {
             if (AllStates != null)
-                SwitchState<AlienBaseMovementState>();
+                SwitchState<AlienBaseMovement>();
 
             if (TryGetComponent(out EntityToEjectDetector ejector))
                 ejector.enabled = true;
@@ -22,14 +22,13 @@ namespace LevelGeneration.Entities.EntityStateMachine.Alien
             {
                 AllStates = new List<EntityBaseState>()
                 {
-                    new AlienBaseMovementState(this, NpcMovement),
+                    new AlienBaseMovement(this, NpcMovement),
                     new AlienAfterEjectingState(this, Rigidbody),
                     new HumanoidKnockedState(this, Rigidbody, RagdollFly, Collider),
-                    new NoActionState(this)
                 };
             }
 
-            SwitchState<AlienBaseMovementState>();
+            SwitchState<AlienBaseMovement>();
         }
 
         private void OnTriggerEnter(Collider other)

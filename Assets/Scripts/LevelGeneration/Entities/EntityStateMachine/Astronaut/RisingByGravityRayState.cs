@@ -10,8 +10,10 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
         {
         }
 
-        public override void Move()
+        public override void Start()
         {
+            base.Start();
+            
             Rigidbody.isKinematic = false;
             Rigidbody.useGravity = false;
 

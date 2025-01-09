@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Ami.BroAudio;
 using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -23,9 +24,16 @@ namespace ScriptableObjects
         [SerializeField] private SoundID _blackLevel;
 
         private SoundID _currentPlayingMusicID;
+        private IAudioPlayback _audioPlayback;
 
         public SoundID MenuTheme => _menuTheme;
         public SoundID FinalTheme => _finalTheme;
+        
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback)
+        {
+            _audioPlayback = audioPlayback;
+        }
 
         public IReadOnlyList<SoundID> GetIdList()
         {
@@ -54,7 +62,7 @@ namespace ScriptableObjects
             if (PlayerPrefs.HasKey(MusicMutedTag))
                 volume = 0f;
             else
-                volume = DIServicesContainer.Instance.GetService<IAudioPlayback>().GetLastSavedVolume(MusicVolumeTag);
+                volume = _audioPlayback.GetLastSavedVolume(MusicVolumeTag);
 
             BroAudio.Play(soundID);
 

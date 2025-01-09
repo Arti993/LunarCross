@@ -3,6 +3,7 @@ using Data;
 using Infrastructure.Services.AssetsProvider;
 using Infrastructure.Services.Factories.UiFactory;
 using PlayersInput;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,12 +11,14 @@ namespace Infrastructure.Services.Factories.GameplayFactory
 {
     public class GameplayFactory : IGameplayFactory
     {
-        private GameObject _playerInstance;
         private readonly IAssetsProvider _provider;
+        private GameObject _playerInstance;
+        private IUiWindowFactory _uiWindowFactory;
 
-        public GameplayFactory(IAssetsProvider provider)
+        public GameplayFactory(IAssetsProvider provider, IUiWindowFactory uiWindowFactory)
         {
             _provider = provider;
+            _uiWindowFactory = uiWindowFactory;
         }
 
         public GameObject CreatePlayer(Vector3 position)
@@ -50,10 +53,9 @@ namespace Infrastructure.Services.Factories.GameplayFactory
 
         public UIControlInput GetUiControlInput()
         {
-            GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+            GameObject uiRoot = _uiWindowFactory.GetUIRoot();
 
-            GameObject uiPlayerInputObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .GetWindow(PrefabsPaths.UiControlInput, uiRoot);
+            GameObject uiPlayerInputObject = _uiWindowFactory.GetWindow(PrefabsPaths.UiControlInput, uiRoot);
 
             return uiPlayerInputObject.GetComponent<UIControlInput>();
         }

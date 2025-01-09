@@ -2,6 +2,7 @@ using Ami.BroAudio;
 using Ami.Extension;
 using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace LevelGeneration.Entities.EntityStateMachine
@@ -11,12 +12,19 @@ namespace LevelGeneration.Entities.EntityStateMachine
         private readonly Collider _collider;
         private readonly Ragdoll _ragdollBody;
         private Rigidbody _spineRigidbody;
+        private IAudioPlayback _audioPlayback;
 
         public HumanoidKnockedState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Ragdoll ragdollBody,
             Collider collider) : base(stateSwitcher, rigidbody)
         {
             _ragdollBody = ragdollBody;
             _collider = collider;
+        }
+        
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback)
+        {
+            _audioPlayback = audioPlayback;
         }
 
         public override void Start()
@@ -27,7 +35,14 @@ namespace LevelGeneration.Entities.EntityStateMachine
             base.Start();
         }
 
-        public override void Move()
+        public override void Stop()
+        {
+            _ragdollBody.TurnOff();
+
+            base.Stop();
+        }
+        
+        protected override void Move()
         {
             _ragdollBody.TurnOn();
 
@@ -37,16 +52,9 @@ namespace LevelGeneration.Entities.EntityStateMachine
             _spineRigidbody.angularVelocity =
                 new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f)).normalized;
 
-            SoundID knock = DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.Knock;
+            SoundID knock = _audioPlayback.SoundsContainer.Knock;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(knock);
-        }
-
-        public override void Stop()
-        {
-            _ragdollBody.TurnOff();
-
-            base.Stop();
+            _audioPlayback.PlaySound(knock);
         }
     }
 }

@@ -1,5 +1,4 @@
 using Data;
-using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -9,14 +8,18 @@ namespace Infrastructure.UIStateMachine.States
     {
         private PauseMenu _pauseMenu;
 
+        public UiStatePauseMenu()
+        {
+            PrefabPath = PrefabsPaths.PauseMenu;
+        }
+
         public override void Enter()
         {
             if (_pauseMenu == null)
             {
-                GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.PauseMenu, GetUiRoot());
+                GameObject uiWindowObject = GetUiObject();
 
-                UiWindow = uiWindowObject.GetComponentInChildren<UIWindow>();
+                UiWindow = uiWindowObject.GetComponentInChildren<UiWindow>();
 
                 _pauseMenu = uiWindowObject.GetComponentInChildren<PauseMenu>();
             }

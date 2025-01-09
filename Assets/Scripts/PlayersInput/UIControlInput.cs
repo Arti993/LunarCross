@@ -1,5 +1,5 @@
-using Infrastructure;
 using Infrastructure.Services.Factories.UiFactory;
+using Reflex.Attributes;
 using UI;
 using UnityEngine;
 
@@ -10,10 +10,17 @@ namespace PlayersInput
         [SerializeField] private GameObject _controlButtons;
         private Vector2 _currentInput;
         private PauseButton _pauseButton;
+        private IUiWindowFactory _uiWindowFactory;
 
+        [Inject]
+        private void Construct(IUiWindowFactory uiwindowFactory)
+        {
+            _uiWindowFactory = uiwindowFactory;
+        }
+        
         private void Start()
         {
-            GameObject uiRoot = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+            GameObject uiRoot = _uiWindowFactory.GetUIRoot();
 
             _pauseButton = uiRoot.GetComponentInChildren<PauseButton>();
             _pauseButton.Enabled += OnControlEnabled;

@@ -10,10 +10,10 @@ namespace LevelGeneration.Entities.EntityStateMachine
         private const string IdleTrigger = "isIdle";
         private const float TimeToEnableCollider = 1;
 
-        protected Rigidbody Rigidbody;
-        protected Animator Animator;
-        protected Collider Collider;
-        protected IPlaceableToVehicle PlacementPattern;
+        protected readonly Rigidbody Rigidbody;
+        protected readonly IPlaceableToVehicle PlacementPattern;
+        private Animator Animator;
+        private Collider Collider;
         private EntityBehaviour _entity;
 
         protected EjectedFromVehicleState(IEntityStateSwitcher stateSwitcher, Rigidbody rigidbody, Animator animator,
@@ -45,25 +45,11 @@ namespace LevelGeneration.Entities.EntityStateMachine
 
             if (Animator.GetBool(LevitatingTrigger) == false)
                 Animator.SetBool(LevitatingTrigger, true);
-
-            Move();
         }
 
         public override void Stop()
         {
-        }
-
-        public override void Move()
-        {
-        }
-
-        public override void ReactOnEntryVehicleCatchZone()
-        {
-            _ = PlacementPattern.TryPlaceToVehicle();
-        }
-
-        public override void ReactOnEntryVehicleTossZone()
-        {
+            Rigidbody.velocity = Vector3.zero;
         }
 
         private IEnumerator WaitToEnableCollider()

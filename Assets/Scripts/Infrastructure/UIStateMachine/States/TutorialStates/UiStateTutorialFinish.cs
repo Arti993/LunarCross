@@ -1,30 +1,12 @@
 using Data;
-using Infrastructure.Services.Factories.UiFactory;
-using UI;
-using UnityEngine;
 
 namespace Infrastructure.UIStateMachine.States.TutorialStates
 {
-    public class UiStateTutorialFinish : UiStateMachineState
+    public class UiStateTutorialFinish : UiStateMachineTutorialState
     {
-        private TutorialWindow _tutorialWindow;
-
-        public override void Enter()
+        public UiStateTutorialFinish()
         {
-            if (_tutorialWindow == null)
-            {
-                GameObject tutorialWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.TutorialFinishWindow, GetUiRoot());
-
-                _tutorialWindow = tutorialWindowObject.GetComponent<TutorialWindow>();
-            }
-
-            _tutorialWindow.Open();
-        }
-
-        public override void Exit()
-        {
-            _tutorialWindow.Close();
+            PrefabPath = PrefabsPaths.TutorialFinishWindow;
         }
     }
 }

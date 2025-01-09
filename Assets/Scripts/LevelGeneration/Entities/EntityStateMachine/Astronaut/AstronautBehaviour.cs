@@ -10,7 +10,7 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
         private void OnEnable()
         {
             if (AllStates != null)
-                SwitchState<AstronautBaseMovementState>();
+                SwitchState<AstronautBaseMovement>();
         }
 
         private void Start()
@@ -21,18 +21,17 @@ namespace LevelGeneration.Entities.EntityStateMachine.Astronaut
 
                 AllStates = new List<EntityBaseState>()
                 {
-                    new AstronautBaseMovementState(this, NpcMovement, _placementPattern),
-                    new AstronautInsideAttachState(this, Animator),
-                    new AstronautOutsideAttachState(this, Rigidbody, Animator, _placementPattern),
+                    new AstronautBaseMovement(this, NpcMovement, _placementPattern),
+                    new InsideVehicleAttachState(this, Animator),
+                    new OutsideVehicleAttachState(this, Rigidbody, Animator, _placementPattern),
                     new AstronautEjectedState(this, Rigidbody, Animator, Collider, _placementPattern),
                     new HumanoidKnockedState(this, Rigidbody, RagdollFly, Collider),
                     new AstronautGroundHitState(this, Rigidbody, RagdollFly, Collider),
                     new RisingByGravityRayState(this, Rigidbody, Animator, Collider, _placementPattern),
-                    new NoActionState(this)
                 };
             }
 
-            SwitchState<AstronautBaseMovementState>();
+            SwitchState<AstronautBaseMovement>();
         }
 
         private void OnTriggerEnter(Collider otherCollider)

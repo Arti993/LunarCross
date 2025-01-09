@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Infrastructure;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
+using Reflex.Attributes;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -30,6 +31,16 @@ namespace LevelGeneration
         private Chunk _newChunk;
 
         protected readonly List<Chunk> SpawnedChunks = new List<Chunk>();
+        
+        private IGameProgress _gameProgress;
+        private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
+        
+        [Inject]
+        private void Construct(IGameProgress gameProgress, ILevelsSettingsNomenclature levelsSettingsNomenclature)
+        {
+            _gameProgress = gameProgress;
+            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+        }
 
         private void Awake()
         {
@@ -147,15 +158,13 @@ namespace LevelGeneration
 
             if (this is TutorialChunkPlacer)
             {
-                currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                    .GetTutorialLevelSettings();
+                currentLevel = _levelsSettingsNomenclature.GetTutorialLevelSettings();
             }
             else
             {
-                int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+                int levelNumber = _gameProgress.GetCurrentLevelNumber();
 
-                currentLevel = DIServicesContainer.Instance.GetService<ILevelsSettingsNomenclature>()
-                    .GetLevelSettings(levelNumber);
+                currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
             }
 
             _landscapeChunk = currentLevel.ChunkWithObstacles;

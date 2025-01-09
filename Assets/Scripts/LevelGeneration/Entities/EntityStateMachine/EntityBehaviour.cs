@@ -6,21 +6,19 @@ namespace LevelGeneration.Entities.EntityStateMachine
     public class EntityBehaviour : Entity, IEntityStateSwitcher
     {
         protected IReadOnlyList<EntityBaseState> AllStates;
-        public EntityBaseState CurrentState { get; protected set; }
-
-        public void Move()
-        {
-            CurrentState.Move();
-        }
+        
+        protected EntityBaseState CurrentState { get; private set; }
 
         public void ReactOnEntryVehicleCatchZone()
         {
-            CurrentState.ReactOnEntryVehicleCatchZone();
+            if(CurrentState is IReactableOnCatch reactableOnCatchState)
+                reactableOnCatchState.ReactOnEntryVehicleCatchZone();
         }
 
         public void ReactOnEntryVehicleTossZone()
         {
-            CurrentState.ReactOnEntryVehicleTossZone();
+            if(CurrentState is IReactableOnToss reactableOnTossState)
+                reactableOnTossState.ReactOnEntryVehicleTossZone();
         }
 
         public void SwitchState<T>() where T : EntityBaseState
@@ -37,16 +35,9 @@ namespace LevelGeneration.Entities.EntityStateMachine
             CurrentState.Start();
         }
 
-        public EntityBaseState GetCurrentState()
+        protected EntityBaseState GetCurrentState()
         {
             return CurrentState;
-        }
-
-        public override void Disable()
-        {
-            SwitchState<NoActionState>();
-
-            base.Disable();
         }
     }
 }

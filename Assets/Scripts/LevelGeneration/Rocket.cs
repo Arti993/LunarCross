@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace LevelGeneration
@@ -23,18 +23,27 @@ namespace LevelGeneration
         [SerializeField] private List<RunnerToRocket> _runnersToRocket;
 
         private Rigidbody _rigidbody;
+        private IAudioPlayback _audioPlayback;
+        private IParticleSystemFactory _particleSystemFactory;
 
         public Transform BottomLadderPoint => _bottomLadderPoint;
         public Transform TopLadderPoint => _topLadderPoint;
+        
+        [Inject]
+        private void Construct(IAudioPlayback audioPlayback,
+            IParticleSystemFactory particleSystemFactory)
+        {
+            _audioPlayback = audioPlayback;
+            _particleSystemFactory = particleSystemFactory;
+        }
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
 
-            SoundID rocketEngine =
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketEngine;
+            SoundID rocketEngine = _audioPlayback.SoundsContainer.RocketEngine;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(rocketEngine);
+            _audioPlayback.PlaySound(rocketEngine);
         }
 
         public void PlaceRunner(RunnerToRocket runner)
@@ -52,8 +61,7 @@ namespace LevelGeneration
         {
             yield return new WaitForSeconds(Delay);
 
-            DIServicesContainer.Instance.GetService<IParticleSystemFactory>()
-                .ShowGreenCollectEffect(_middleLadderPoint.position);
+            _particleSystemFactory.ShowGreenCollectEffect(_middleLadderPoint.position);
 
             Destroy(_ladder);
 
@@ -63,10 +71,9 @@ namespace LevelGeneration
 
             _rigidbody.AddForce(0f, Speed, 0f, ForceMode.VelocityChange);
 
-            SoundID rocketTurbine =
-                DIServicesContainer.Instance.GetService<IAudioPlayback>().SoundsContainer.RocketTurbine;
+            SoundID rocketTurbine = _audioPlayback.SoundsContainer.RocketTurbine;
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlaySound(rocketTurbine);
+            _audioPlayback.PlaySound(rocketTurbine);
         }
     }
 }

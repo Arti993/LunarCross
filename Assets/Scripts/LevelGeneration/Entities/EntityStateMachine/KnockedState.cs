@@ -4,7 +4,7 @@ namespace LevelGeneration.Entities.EntityStateMachine
 {
     public class KnockedState : EntityBaseState
     {
-        protected Rigidbody Rigidbody;
+        protected readonly Rigidbody Rigidbody;
         protected Vector3 MovementDirection;
         protected float MovementSpeed;
 
@@ -26,22 +26,13 @@ namespace LevelGeneration.Entities.EntityStateMachine
             Move();
         }
 
-        public override void Move()
+        protected virtual void Move()
         {
             Rigidbody.velocity = MovementDirection * MovementSpeed;
             Rigidbody.angularVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1, 1f), Random.Range(-1f, 1f))
                 .normalized;
         }
-
-        public override void ReactOnEntryVehicleCatchZone()
-        {
-            NoReact();
-        }
-
-        public override void ReactOnEntryVehicleTossZone()
-        {
-            NoReact();
-        }
+        
 
         public override void Stop()
         {

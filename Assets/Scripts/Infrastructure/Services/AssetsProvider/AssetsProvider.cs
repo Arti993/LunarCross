@@ -17,12 +17,7 @@ namespace Infrastructure.Services.AssetsProvider
         {
             return GameObject.Instantiate(GetPrefab(path), position, Quaternion.identity);
         }
-
-        public GameObject Instantiate(string path, Vector3 position, Quaternion rotation)
-        {
-            return GameObject.Instantiate(GetPrefab(path), position, rotation);
-        }
-
+        
         public GameObject Instantiate(string path, Transform parent)
         {
             return GameObject.Instantiate(GetPrefab(path), parent);

@@ -6,6 +6,7 @@ using Infrastructure.Services.Factories.UiFactory;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
 using LevelGeneration;
+using Reflex.Attributes;
 using UI;
 using UnityEngine;
 
@@ -14,17 +15,31 @@ namespace Infrastructure
     public class GamePlayBootstrap : MonoBehaviour
     {
         [SerializeField] private Transform _startPoint;
+        
+        private IUiStateMachine _uiStateMachine;
+        private IUiWindowFactory _uiWindowFactory;
+        private IGameplayFactory _gameplayFactory;
+        private IAudioPlayback _audioPlayback;
+
+        [Inject]
+        private void Construct(IUiStateMachine uiStateMachine, IUiWindowFactory uiWindowFactory,
+            IGameplayFactory gameplayFactory, IAudioPlayback audioPlayback)
+        {
+            _uiStateMachine = uiStateMachine;
+            _uiWindowFactory = uiWindowFactory;
+            _gameplayFactory = gameplayFactory;
+            _audioPlayback = audioPlayback;
+        }
 
         private void Awake()
         {
-            GameObject uiRootObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>().GetUIRoot();
+            GameObject uiRootObject = _uiWindowFactory.GetUIRoot();
 
-            GameObject cameraObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreateGameCamera();
+            GameObject cameraObject = _gameplayFactory.CreateGameCamera();
 
-            GameObject playerObject = DIServicesContainer.Instance.GetService<IGameplayFactory>()
-                .CreatePlayer(_startPoint.position);
+            GameObject playerObject = _gameplayFactory.CreatePlayer(_startPoint.position);
 
-            GameObject spawnerObject = DIServicesContainer.Instance.GetService<IGameplayFactory>().CreateSpawner();
+            GameObject spawnerObject = _gameplayFactory.CreateSpawner();
 
             SetCameraForCanvas(uiRootObject, cameraObject);
 
@@ -34,7 +49,7 @@ namespace Infrastructure
 
             PrepareUI(uiRootObject);
 
-            DIServicesContainer.Instance.GetService<IAudioPlayback>().PlayLevelTheme();
+            _audioPlayback.PlayLevelTheme();
         }
 
         private void SetCameraForCanvas(GameObject uiRootObject, GameObject cameraObject)
@@ -63,10 +78,9 @@ namespace Infrastructure
 
         private void PrepareUI(GameObject uiRoot)
         {
-            DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                .ShowUIObject(PrefabsPaths.LevelNumberTitle, uiRoot);
+            _uiWindowFactory.ShowUIObject(PrefabsPaths.LevelNumberTitle, uiRoot);
 
-            DIServicesContainer.Instance.GetService<IUiStateMachine>().SetState<UiStatePauseButton>();
+            _uiStateMachine.SetState<UiStatePauseButton>();
         }
     }
 }

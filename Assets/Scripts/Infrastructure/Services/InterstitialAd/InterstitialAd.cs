@@ -1,4 +1,5 @@
 using Infrastructure.Services.FocusTest;
+using Reflex.Attributes;
 using UnityEngine;
 using YG;
 
@@ -6,6 +7,14 @@ namespace Infrastructure.Services.InterstitialAd
 {
     public class InterstitialAd : MonoBehaviour
     {
+        private IFocusTestStateChanger _focusTestStateChanger;
+        
+        [Inject]
+        private void Construct(IFocusTestStateChanger focusTestStateChanger)
+        {
+            _focusTestStateChanger = focusTestStateChanger;
+        }
+        
         private void OnEnable()
         {
             YandexGame.OpenFullAdEvent += OnOpenCallback;
@@ -22,7 +31,7 @@ namespace Infrastructure.Services.InterstitialAd
 
         private void OnOpenCallback()
         {
-            DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().DisableFocusTest();
+            _focusTestStateChanger.DisableFocusTest();
 
             AudioListener.pause = true;
         }
@@ -31,7 +40,7 @@ namespace Infrastructure.Services.InterstitialAd
         {
             AudioListener.pause = false;
 
-            DIServicesContainer.Instance.GetService<IFocusTestStateChanger>().EnableFocusTest();
+            _focusTestStateChanger.EnableFocusTest();
         }
     }
 }

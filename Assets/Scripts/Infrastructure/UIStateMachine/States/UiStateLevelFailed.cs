@@ -7,17 +7,9 @@ namespace Infrastructure.UIStateMachine.States
 {
     public class UiStateLevelFailed : UiStateMachineState
     {
-        public override void Enter()
+        public UiStateLevelFailed()
         {
-            if (UiWindow == null)
-            {
-                GameObject uiWindowObject = DIServicesContainer.Instance.GetService<IUiWindowFactory>()
-                    .GetWindow(PrefabsPaths.LevelFailedWindow, GetUiRoot());
-
-                UiWindow = uiWindowObject.GetComponent<UIWindow>();
-            }
-
-            base.Enter();
+            PrefabPath = PrefabsPaths.LevelFailedWindow;
         }
 
         public override void Exit()

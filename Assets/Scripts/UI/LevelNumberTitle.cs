@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
-using Infrastructure;
 using Infrastructure.Services.GameProgress;
+using Reflex.Attributes;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +18,13 @@ namespace UI
         [SerializeField] private TMP_Text _tutorial;
 
         private Sequence _sequence;
+        private IGameProgress _gameProgress;
 
+        [Inject]
+        private void Construct(IGameProgress gameProgress)
+        {
+            _gameProgress = gameProgress;
+        }
 
         private void Start()
         {
@@ -37,7 +43,7 @@ namespace UI
                 _level.gameObject.SetActive(true);
                 _tutorial.gameObject.SetActive(false);
 
-                int levelNumber = DIServicesContainer.Instance.GetService<IGameProgress>().GetCurrentLevelNumber();
+                int levelNumber = _gameProgress.GetCurrentLevelNumber();
 
                 _levelNumber.text = $"{levelNumber}";
 
