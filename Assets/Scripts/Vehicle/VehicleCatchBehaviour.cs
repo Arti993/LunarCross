@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
 using LevelGeneration.Entities.EntityStateMachine;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vehicle.BindPoints;
 
 namespace Vehicle
@@ -21,11 +21,16 @@ namespace Vehicle
         private IAudioPlayback _audioPlayback;
         private IParticleSystemFactory _particleSystemFactory;
         
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback, IParticleSystemFactory particleSystemFactory)
+        private void Construct()
         {
-            _audioPlayback = audioPlayback;
-            _particleSystemFactory = particleSystemFactory;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void Start()

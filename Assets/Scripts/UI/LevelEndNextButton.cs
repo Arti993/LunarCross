@@ -1,5 +1,3 @@
-using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,19 +8,11 @@ namespace UI
     {
         private Button _button;
         
-        private IScreenFader _screenFader;
-        
-        [Inject]
-        private void Construct(IScreenFader screenFader)
-        {
-            _screenFader = screenFader;
-        }
-
         protected override void OnEnable()
         {
             _button = gameObject.GetComponent<Button>();
-            _screenFader.FadingComplete += OnScreenFaderDisable;
-            _screenFader.FadingStart += OnScreenFaderEnable;
+            ScreenFader.FadingComplete += OnScreenFaderDisable;
+            ScreenFader.FadingStart += OnScreenFaderEnable;
         }
 
         public void SetInterractable()

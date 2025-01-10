@@ -1,4 +1,5 @@
 using Data;
+using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace Infrastructure.UIStateMachine.States
     public class UiStatePauseMenu : UiStateMachineState
     {
         private PauseMenu _pauseMenu;
-
-        public UiStatePauseMenu()
+        
+        public UiStatePauseMenu(IUiWindowFactory uiWindowFactory) : base(uiWindowFactory)
         {
             PrefabPath = PrefabsPaths.PauseMenu;
         }

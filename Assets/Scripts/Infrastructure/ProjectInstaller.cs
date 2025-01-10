@@ -29,7 +29,5 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
         builder.AddSingleton(typeof(ParticleSystemFactory), typeof(IParticleSystemFactory));
         builder.AddSingleton(typeof(GameplayFactory), typeof(IGameplayFactory));
         builder.AddSingleton(typeof(InterstitialAdService), typeof(IInterstitionalAdService));
-        
-        Debug.Log("инсталлер отработал");
     }
 }

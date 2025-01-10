@@ -1,4 +1,5 @@
 using Data;
+using Infrastructure.Services.Factories.UiFactory;
 using UnityEngine;
 
 namespace Infrastructure.UIStateMachine.States
@@ -6,8 +7,8 @@ namespace Infrastructure.UIStateMachine.States
     public class UiStatePauseButton : UiStateMachineState
     {
         private GameObject _pauseButton;
-
-        public UiStatePauseButton()
+        
+        public UiStatePauseButton(IUiWindowFactory uiWindowFactory) : base(uiWindowFactory)
         {
             PrefabPath = PrefabsPaths.PauseButton;
         }

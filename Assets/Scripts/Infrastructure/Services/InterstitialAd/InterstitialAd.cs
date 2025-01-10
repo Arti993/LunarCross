@@ -1,6 +1,7 @@
 using Infrastructure.Services.FocusTest;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace Infrastructure.Services.InterstitialAd
@@ -9,12 +10,16 @@ namespace Infrastructure.Services.InterstitialAd
     {
         private IFocusTestStateChanger _focusTestStateChanger;
         
-        [Inject]
-        private void Construct(IFocusTestStateChanger focusTestStateChanger)
+        private void Construct()
         {
-            _focusTestStateChanger = focusTestStateChanger;
+            _focusTestStateChanger = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IFocusTestStateChanger>();
         }
-        
+
+        private void Awake()
+        {
+            Construct();
+        }
+
         private void OnEnable()
         {
             YandexGame.OpenFullAdEvent += OnOpenCallback;

@@ -1,12 +1,12 @@
 using Data;
-using Infrastructure;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
 using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using ScriptableObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI
@@ -25,18 +25,20 @@ namespace UI
         private IGameProgress _gameProgress;
         private IScreenFader _screenFader;
         private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
-
-        [Inject]
-        private void Construct(IGameProgress gameProgress, IScreenFader screenFader,
-            ILevelsSettingsNomenclature levelsSettingsNomenclature)
+        
+        private void Construct()
         {
-            _gameProgress = gameProgress;
-            _screenFader = screenFader;
-            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+            _gameProgress = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameProgress>();
+
+            _screenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
+
+            _levelsSettingsNomenclature = SceneManager.GetActiveScene().GetSceneContainer().Resolve<ILevelsSettingsNomenclature>();
         }
 
         private void Awake()
         {
+            Construct();
+            
             _button = GetComponent<Button>();
 
             if (PlayerPrefs.GetInt("ReachedLevelNumber", 1) < _levelNumber)

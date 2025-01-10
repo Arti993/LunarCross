@@ -6,14 +6,13 @@ using DG.Tweening;
 using System.Linq;
 using Ami.BroAudio;
 using Data;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
 using Infrastructure.Services.FocusTest;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
 using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using ScriptableObjects;
 
 namespace UI
@@ -37,28 +36,25 @@ namespace UI
         private int _points;
         private int _starsCount;
         private int _currentSceneIndex;
-        private IFocusTestStateChanger _focusTestStateChanger;
-        private IGameProgress _gameProgress;
         private IParticleSystemFactory _particleSystemFactory;
         private IAudioPlayback _audioPlayback;
-        private IScreenFader _screenFader;
         private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
-
-        [Inject]
-        private void Construct(IFocusTestStateChanger focusTestStateChanger, IGameProgress gameProgress,
-            IParticleSystemFactory particleSystemFactory, IAudioPlayback audioPlayback, IScreenFader screenFader,
-            ILevelsSettingsNomenclature levelsSettingsNomenclature)
+        
+        protected override void Construct()
         {
-            _focusTestStateChanger = focusTestStateChanger;
-            _gameProgress = gameProgress;
-            _particleSystemFactory = particleSystemFactory;
-            _audioPlayback = audioPlayback;
-            _screenFader = screenFader;
-            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+            base.Construct();
+
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+
+            _levelsSettingsNomenclature = SceneManager.GetActiveScene().GetSceneContainer().Resolve<ILevelsSettingsNomenclature>();
         }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
             Level currentLevel = GetLevelSettings();
@@ -76,7 +72,7 @@ namespace UI
             _points = 0;
             _pointsLabel.text = _points.ToString();
 
-            _focusTestStateChanger.DisablePauseMenuOpening();
+            FocusTestStateChanger.DisablePauseMenuOpening();
         }
 
         private void Start()
@@ -120,9 +116,9 @@ namespace UI
                 return;
             }
 
-            if (PlayerPrefs.HasKey("GameIsComplete") && _gameProgress.IsCurrentLevelLast())
+            if (PlayerPrefs.HasKey("GameIsComplete") && GameProgress.IsCurrentLevelLast())
             {
-                _screenFader.FadeOutAndLoadScene((int) SceneIndex.Final);
+                ScreenFader.FadeOutAndLoadScene((int) SceneIndex.Final);
 
                 return;
             }
@@ -133,12 +129,12 @@ namespace UI
     DIServicesContainer.Instance.GetService<IInterstitionalAdService>().ShowAd();
 #endif
 
-            _screenFader.FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
+            ScreenFader.FadeOutAndLoadScene((int) SceneIndex.LevelChoose);
         }
 
         public void RestartLevel()
         {
-            _screenFader.FadeOutAndLoadScene(_currentSceneIndex);
+            ScreenFader.FadeOutAndLoadScene(_currentSceneIndex);
         }
 
         public void EvaluatePassage()
@@ -151,7 +147,7 @@ namespace UI
 
             if (_points >= _pointsForFirstStar)
             {
-                _gameProgress.SaveLevelProgress(_points);
+                GameProgress.SaveLevelProgress(_points);
 
                 _levelEndNextButton.SetInterractable();
             }
@@ -167,7 +163,7 @@ namespace UI
             }
             else
             {
-                int levelNumber = _gameProgress.GetCurrentLevelNumber();
+                int levelNumber = GameProgress.GetCurrentLevelNumber();
 
                 currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
             }

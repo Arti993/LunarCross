@@ -12,8 +12,10 @@ namespace UI
         private Vector3 _startScale;
         private Vector3 _increasedScale;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             _transform = transform;
             _startScale = _transform.localScale;
             _increasedScale = _startScale * IncreaseFactor;

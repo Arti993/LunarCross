@@ -16,27 +16,17 @@ namespace Infrastructure.Services.ScreenFader
     {
         private const float FadeDuration = 0.5f;
         private const float Delay = 0.1f;
-        private readonly GameObject _screenFaderObject;
-        private readonly Image _blackScreen;
-        private readonly LoadScreen _loadScreen;
+        private GameObject _screenFaderObject;
+        private Image _blackScreen;
         private IFocusTestStateChanger _focusTestStateChanger;
         private IUiStateMachine _uiStateMachine;
+        private IAssetsProvider _provider;
 
         public ScreenFader(IAssetsProvider provider, IFocusTestStateChanger focusTestStateChanger, IUiStateMachine uiStateMachine)
         {
             _focusTestStateChanger = focusTestStateChanger;
             _uiStateMachine = uiStateMachine;
-            
-            _screenFaderObject = provider.Instantiate(PrefabsPaths.ScreenFader);
-
-            _blackScreen = _screenFaderObject.GetComponentInChildren<Image>();
-
-            if (_screenFaderObject.TryGetComponent(out LoadScreen loadScreen) == false)
-                throw new InvalidOperationException();
-
-            _loadScreen = loadScreen;
-
-            FadeIn();
+            _provider = provider;
         }
 
         public event Action FadingComplete;
@@ -49,6 +39,13 @@ namespace Infrastructure.Services.ScreenFader
 
         public void FadeIn()
         {
+            if (_screenFaderObject == null)
+            {
+                _screenFaderObject = _provider.Instantiate(PrefabsPaths.ScreenFader);
+
+                _blackScreen = _screenFaderObject.GetComponentInChildren<Image>();
+            }
+            
             FadingStart?.Invoke();
 
             _screenFaderObject.SetActive(true);

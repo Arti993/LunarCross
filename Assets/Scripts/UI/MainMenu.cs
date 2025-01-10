@@ -1,10 +1,10 @@
 using Data;
-using Infrastructure;
 using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace UI
@@ -14,12 +14,16 @@ namespace UI
         private const string NotFirstGameLaunch = "NotFirstGameLaunch";
         private IScreenFader _screenFader;
         private IUiStateMachine _uiStateMachine;
-        
-        [Inject]
-        private void Construct(IScreenFader screenFader, IUiStateMachine uiStateMachine)
+
+        private void Construct()
         {
-            _screenFader = screenFader;
-            _uiStateMachine = uiStateMachine;
+            _screenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         public void OnPlayButtonClick()

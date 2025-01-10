@@ -8,9 +8,10 @@ using Infrastructure.Services.Factories.UiFactory;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
 using LevelGeneration.Entities.EntityStateMachine.Astronaut;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vehicle;
 using Vehicle.BindPoints;
 
@@ -30,14 +31,17 @@ namespace LevelGeneration
         private IParticleSystemFactory _particleSystemFactory;
         private IUiWindowFactory _uiWindowFactory;
 
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback, IUiStateMachine uiStateMachine,
-            IParticleSystemFactory particleSystemFactory, IUiWindowFactory uiWindowFactory)
+        private void Construct()
         {
-            _audioPlayback = audioPlayback;
-            _uiStateMachine = uiStateMachine;
-            _particleSystemFactory = particleSystemFactory;
-            _uiWindowFactory = uiWindowFactory;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+            _uiWindowFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiWindowFactory>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void OnTriggerEnter(Collider other)

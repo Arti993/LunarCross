@@ -1,7 +1,4 @@
 using System.Collections;
-using Infrastructure;
-using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,16 +10,11 @@ namespace UI
         [SerializeField] private float _stopTimeDelay = 0.15f;
 
         private bool _isFirstFailReacted;
-        private IScreenFader _screenFader;
-        
-        [Inject]
-        private void Construct(IScreenFader screenFader)
-        {
-            _screenFader = screenFader;
-        }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             PauseGame();
         }
 
@@ -30,7 +22,7 @@ namespace UI
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            _screenFader.FadeOutAndLoadScene(currentSceneIndex);
+            ScreenFader.FadeOutAndLoadScene(currentSceneIndex);
         }
 
         private void PauseGame()

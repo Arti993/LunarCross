@@ -3,7 +3,7 @@ using Infrastructure.Services.Factories.ParticleSystemFactory;
 using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,13 +30,18 @@ namespace Vehicle
         private IParticleSystemFactory _particleSystemFactory;
         private IScreenFader _screenFader;
         
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine, IParticleSystemFactory particleSystemFactory,
-            IScreenFader screenFader)
+        private void Construct()
         {
-            _uiStateMachine = uiStateMachine;
-            _particleSystemFactory = particleSystemFactory;
-            _screenFader = screenFader;
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
+
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+
+            _screenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void Start()

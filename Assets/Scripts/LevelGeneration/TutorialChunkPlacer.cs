@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States.TutorialStates;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
-
 
 namespace LevelGeneration
 {
@@ -14,10 +14,11 @@ namespace LevelGeneration
         private const float DelayBeforeShowWindow = 2.3f;
         private IUiStateMachine _uiStateMachine;
 
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine)
+        protected override void Construct()
         {
-            _uiStateMachine = uiStateMachine;
+            base.Construct();
+            
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
         }
 
         protected override void SpawnNextChunkInSequence()

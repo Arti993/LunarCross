@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ScriptableObjects
 {
@@ -39,13 +39,7 @@ namespace ScriptableObjects
         public SoundID StarCollect => _starCollect;
         public SoundID Tornado => _tornado;
         public SoundID ButtonClick => _buttonClick;
-        
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback)
-        {
-            _audioPlayback = audioPlayback;
-        }
-        
+
         public IReadOnlyList<SoundID> GetIdList()
         {
             List<SoundID> sounds = new List<SoundID>
@@ -73,7 +67,11 @@ namespace ScriptableObjects
             if (PlayerPrefs.HasKey(SoundsMutedTag))
                 volume = 0f;
             else
-                volume = _audioPlayback.GetLastSavedVolume(SoundsVolumeTag);
+            {
+                IAudioPlayback audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+                
+                volume = audioPlayback.GetLastSavedVolume(SoundsVolumeTag);
+            }
 
             BroAudio.Play(soundID);
 

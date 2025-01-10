@@ -1,4 +1,5 @@
 using Data;
+using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Infrastructure.UIStateMachine.States
     {
         private LeaderboardWindow _leaderboardWindow;
 
-        public UiStateLeaderboard()
+        public UiStateLeaderboard(IUiWindowFactory uiWindowFactory) : base(uiWindowFactory)
         {
             PrefabPath = PrefabsPaths.LeaderboardWindow;
         }

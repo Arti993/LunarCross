@@ -1,3 +1,4 @@
+using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ namespace Infrastructure.UIStateMachine.States.TutorialStates
     public abstract class UiStateMachineTutorialState : UiStateMachineState
     {
         private TutorialWindow _tutorialWindow;
+        
+        protected UiStateMachineTutorialState(IUiWindowFactory uiWindowFactory) : base(uiWindowFactory)
+        {
+        }
         
         public override void Enter()
         {
@@ -23,5 +28,6 @@ namespace Infrastructure.UIStateMachine.States.TutorialStates
         {
             _tutorialWindow.Close();
         }
+
     }
 }

@@ -1,45 +1,48 @@
 using System;
 using Ami.BroAudio;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class CustomButton : MonoBehaviour, IPointerClickHandler
     {
         protected bool IsClickable;
+        protected IScreenFader ScreenFader;
         private IAudioPlayback _audioPlayback;
-        private IScreenFader _screenFader;
 
         public event Action Clicked;
-
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback,
-            IScreenFader screenFader)
+        
+        protected virtual void Construct()
         {
-            _audioPlayback = audioPlayback;
-            _screenFader = screenFader;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+            ScreenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
+        }
+
+        protected virtual void Awake()
+        {
+            Construct();
         }
 
         protected virtual void OnEnable()
         {
-            if (_screenFader.IsActive())
+            if (ScreenFader.IsActive())
                 IsClickable = false;
             else
                 IsClickable = true;
 
-            _screenFader.FadingComplete += OnScreenFaderDisable;
-            _screenFader.FadingStart += OnScreenFaderEnable;
+            ScreenFader.FadingComplete += OnScreenFaderDisable;
+            ScreenFader.FadingStart += OnScreenFaderEnable;
         }
 
         protected virtual void OnDisable()
         {
-            _screenFader.FadingComplete -= OnScreenFaderDisable;
-            _screenFader.FadingStart -= OnScreenFaderEnable;
+            ScreenFader.FadingComplete -= OnScreenFaderDisable;
+            ScreenFader.FadingStart -= OnScreenFaderEnable;
         }
 
         public virtual void OnPointerClick(PointerEventData eventData)

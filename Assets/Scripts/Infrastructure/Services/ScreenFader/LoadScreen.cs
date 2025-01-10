@@ -1,4 +1,4 @@
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +8,15 @@ namespace Infrastructure.Services.ScreenFader
     {
         private IScreenFader _screenFader;
         
-        [Inject]
-        private void Construct(IScreenFader screenFader)
+        private void Construct()
         {
-            _screenFader = screenFader;
+            _screenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
         }
         
         private void Awake()
         {
+            Construct();
+            
             DontDestroyOnLoad(gameObject);
 
             SceneManager.sceneLoaded += OnSceneLoaded;

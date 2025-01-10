@@ -1,6 +1,7 @@
 using Infrastructure.Services.Factories.UiFactory;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -11,18 +12,19 @@ namespace UI
 
         private Canvas _canvas;
         private IUiWindowFactory _uiWindowFactory;
-
-        [Inject]
-        private void Construct(IUiWindowFactory uiWindowFactory)
+        
+        private void Construct()
         {
-            _uiWindowFactory = uiWindowFactory;
+            _uiWindowFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiWindowFactory>();
         }
-
+        
         private void Awake()
         {
+            Construct();
+            
             _canvas = GetComponent<Canvas>();
         }
-
+        
         private void OnDisable()
         {
             _uiWindowFactory.DeleteUIRoot();

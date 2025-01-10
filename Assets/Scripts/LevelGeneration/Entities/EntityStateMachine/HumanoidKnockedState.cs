@@ -1,9 +1,8 @@
 using Ami.BroAudio;
-using Ami.Extension;
-using Infrastructure;
 using Infrastructure.Services.AudioPlayback;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelGeneration.Entities.EntityStateMachine
 {
@@ -19,12 +18,7 @@ namespace LevelGeneration.Entities.EntityStateMachine
         {
             _ragdollBody = ragdollBody;
             _collider = collider;
-        }
-        
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback)
-        {
-            _audioPlayback = audioPlayback;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
         }
 
         public override void Start()

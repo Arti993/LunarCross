@@ -1,7 +1,8 @@
 using Infrastructure.Services.GameProgress;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -10,10 +11,14 @@ namespace UI
         [SerializeField] private TMP_Text _scoreText;
         private IGameProgress _gameProgress;
 
-        [Inject]
-        private void Construct(IGameProgress gameProgress)
+        private void Construct()
         {
-            _gameProgress = gameProgress;
+            _gameProgress = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameProgress>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void Start()

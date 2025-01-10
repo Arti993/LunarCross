@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Infrastructure.Services.Factories.GameplayFactory;
 using PlayersInput;
-using Reflex.Attributes;
+using Reflex.Extensions;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace Vehicle
@@ -24,11 +25,15 @@ namespace Vehicle
         private float _steeringFactor;
         private float _sensitiveInput;
         private IGameplayFactory _gameplayFactory;
-
-        [Inject]
-        private void Construct(IGameplayFactory gameplayFactory)
+        
+        private void Construct()
         {
-            _gameplayFactory = gameplayFactory;
+            _gameplayFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameplayFactory>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void OnEnable()

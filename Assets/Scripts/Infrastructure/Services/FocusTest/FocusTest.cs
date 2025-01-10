@@ -4,7 +4,7 @@ using Data;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.FocusTest
@@ -17,20 +17,23 @@ namespace Infrastructure.Services.FocusTest
         private IFocusTestStateChanger _focusTestStateChanger;
         private IUiStateMachine _uiStateMachine;
 
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback, IFocusTestStateChanger focusTestStateChanger, IUiStateMachine uiStateMachine)
+        private void Construct()
         {
-            _audioPlayback = audioPlayback;
-            _focusTestStateChanger = focusTestStateChanger;
-            _uiStateMachine = uiStateMachine;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+            _focusTestStateChanger = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IFocusTestStateChanger>();
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
         }
         
         private void Awake()
         {
+            Construct();
+            
             DontDestroyOnLoad(gameObject);
+            
             _isFocused = true;
         }
 
+        
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;

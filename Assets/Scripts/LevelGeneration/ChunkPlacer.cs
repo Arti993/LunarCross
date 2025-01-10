@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Infrastructure;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelGeneration
 {
@@ -34,16 +34,17 @@ namespace LevelGeneration
         
         private IGameProgress _gameProgress;
         private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
-        
-        [Inject]
-        private void Construct(IGameProgress gameProgress, ILevelsSettingsNomenclature levelsSettingsNomenclature)
+
+        protected virtual void Construct()
         {
-            _gameProgress = gameProgress;
-            _levelsSettingsNomenclature = levelsSettingsNomenclature;
+            _gameProgress = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameProgress>();
+            _levelsSettingsNomenclature = SceneManager.GetActiveScene().GetSceneContainer().Resolve<ILevelsSettingsNomenclature>();
         }
 
         private void Awake()
         {
+            Construct();
+
             _entitySpawner = GetComponent<EntitySpawner>();
 
             SpawnedChunks.Add(_firstChunk);

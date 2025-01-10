@@ -1,8 +1,8 @@
 using System;
-using Infrastructure;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -12,13 +12,14 @@ namespace UI
         
         public event Action Enabled;
         public event Action Disabled;
-        
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine)
+
+        protected override void Construct()
         {
-            _uiStateMachine = uiStateMachine;
+            base.Construct();
+            
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
         }
-        
+
         protected override void OnEnable()
         {
             base.OnEnable();

@@ -7,16 +7,15 @@ namespace Infrastructure.UIStateMachine
 {
     public abstract class UiStateMachineState
     {
+        protected readonly IUiWindowFactory UiWindowFactory;
         protected string PrefabPath;
         protected UiWindow UiWindow;
-        protected IUiWindowFactory UiWindowFactory;
-        
-        [Inject]
-        private void Construct(IUiWindowFactory uiWindowFactory)
+
+        public UiStateMachineState(IUiWindowFactory uiWindowFactory)
         {
             UiWindowFactory = uiWindowFactory;
         }
-        
+
         public virtual void Enter()
         {
             if (UiWindow == null)

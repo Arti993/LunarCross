@@ -1,26 +1,24 @@
 using Data;
-using Infrastructure;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.ScreenFader;
-using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class RestartGameQuestionWindow : UiWindow
     {
-        private IUiStateMachine _uiStateMachine;
         private IGameProgress _gameProgress;
         private IScreenFader _screenFader;
-
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine, IGameProgress gameProgress,
-            IScreenFader screenFader)
+        
+        protected override void Construct()
         {
-            _uiStateMachine = uiStateMachine;
-            _gameProgress = gameProgress;
-            _screenFader = screenFader;
+            base.Construct();
+            
+            _gameProgress = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameProgress>();
+
+            _screenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
         }
         
         public void OnYesButtonClick()
@@ -32,7 +30,7 @@ namespace UI
 
         public void OnNoButtonClick()
         {
-            _uiStateMachine.SetState<UiStateMainMenu>();
+            UiStateMachine.SetState<UiStateMainMenu>();
         }
     }
 }

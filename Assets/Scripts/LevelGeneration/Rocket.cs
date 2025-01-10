@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Ami.BroAudio;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelGeneration
 {
@@ -28,17 +29,18 @@ namespace LevelGeneration
 
         public Transform BottomLadderPoint => _bottomLadderPoint;
         public Transform TopLadderPoint => _topLadderPoint;
-        
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback,
-            IParticleSystemFactory particleSystemFactory)
-        {
-            _audioPlayback = audioPlayback;
-            _particleSystemFactory = particleSystemFactory;
-        }
 
+        private void Construct()
+        {
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+        }
+        
         private void Awake()
         {
+            Construct();
+
             _rigidbody = GetComponent<Rigidbody>();
 
             SoundID rocketEngine = _audioPlayback.SoundsContainer.RocketEngine;

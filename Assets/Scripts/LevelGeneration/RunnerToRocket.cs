@@ -1,6 +1,7 @@
 using Infrastructure.Services.Factories.ParticleSystemFactory;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelGeneration
 {
@@ -19,10 +20,14 @@ namespace LevelGeneration
 
         private IParticleSystemFactory _particleSystemFactory;
 
-        [Inject]
-        private void Construct(IParticleSystemFactory particleSystemFactory)
+        private void Construct()
         {
-            _particleSystemFactory = particleSystemFactory;
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void Start()

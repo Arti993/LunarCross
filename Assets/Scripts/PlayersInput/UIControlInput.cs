@@ -1,7 +1,8 @@
 using Infrastructure.Services.Factories.UiFactory;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayersInput
 {
@@ -12,12 +13,16 @@ namespace PlayersInput
         private PauseButton _pauseButton;
         private IUiWindowFactory _uiWindowFactory;
 
-        [Inject]
-        private void Construct(IUiWindowFactory uiwindowFactory)
+        private void Construct()
         {
-            _uiWindowFactory = uiwindowFactory;
+            _uiWindowFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiWindowFactory>();
         }
-        
+
+        private void Awake()
+        {
+            Construct();
+        }
+
         private void Start()
         {
             GameObject uiRoot = _uiWindowFactory.GetUIRoot();

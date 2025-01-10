@@ -2,6 +2,8 @@ using Data;
 using Infrastructure;
 using Infrastructure.Services.ScreenFader;
 using Reflex.Attributes;
+using Reflex.Extensions;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -9,10 +11,11 @@ namespace UI
     {
         private IScreenFader _screenFader;
         
-        [Inject]
-        private void Construct(IScreenFader screenFader)
+        protected override void Construct()
         {
-            _screenFader = screenFader;
+            base.Construct();
+            
+            _screenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
         }
         
         public void GoToMainMenu()

@@ -1,34 +1,36 @@
 using Data;
-using Infrastructure;
 using Infrastructure.Services.FocusTest;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
+using Reflex.Extensions;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class MenuEscapeWindow : UiWindow
     {
-        private IFocusTestStateChanger _focusTestStateChanger;
-        private IGameProgress _gameProgress;
-        private IScreenFader _screenFader;
-
-        [Inject]
-        private void Construct(IFocusTestStateChanger focusTestStateChanger, IGameProgress gameProgress,
-             IScreenFader screenFader)
+        protected IFocusTestStateChanger FocusTestStateChanger;
+        protected IGameProgress GameProgress;
+        protected IScreenFader ScreenFader;
+        
+        protected override void Construct()
         {
-            _focusTestStateChanger = focusTestStateChanger;
-            _gameProgress = gameProgress;
-            _screenFader = screenFader;
+            base.Construct();
+            
+            FocusTestStateChanger = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IFocusTestStateChanger>();
+
+            GameProgress = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameProgress>();
+
+            ScreenFader = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IScreenFader>();
         }
         
         public void FromGamePlayToMainMenu()
         {
-            _gameProgress.ClearSelectedLevel();
+            GameProgress.ClearSelectedLevel();
 
-            _focusTestStateChanger.DisablePauseMenuOpening();
+            FocusTestStateChanger.DisablePauseMenuOpening();
 
-            _screenFader.FadeOutAndLoadScene((int) SceneIndex.MainMenu);
+            ScreenFader.FadeOutAndLoadScene((int) SceneIndex.MainMenu);
         }
     }
 }

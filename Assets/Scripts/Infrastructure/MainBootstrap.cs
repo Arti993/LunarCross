@@ -3,6 +3,8 @@ using Ami.BroAudio;
 using Data;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.UiFactory;
+using Infrastructure.Services.FocusTest;
+using Infrastructure.Services.ScreenFader;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
 using Infrastructure.UIStateMachine.States.TutorialStates;
@@ -19,15 +21,19 @@ namespace Infrastructure
         private IUiStateMachine _uiStateMachine;
         private IUiWindowFactory _uiWindowFactory;
         private IAudioPlayback _audioPlayback;
+        private IScreenFader _screenFader;
+        private IFocusTestStateChanger _focusTestStateChanger;
         private static bool _isFirstAwake = true;
         
         [Inject]
         private void Construct(IUiStateMachine uiStateMachine, 
-            IUiWindowFactory uiWindowFactory, IAudioPlayback audioPlayback)
+            IUiWindowFactory uiWindowFactory, IAudioPlayback audioPlayback, IScreenFader screenFader, IFocusTestStateChanger focusTestStateChanger)
         {
             _uiStateMachine = uiStateMachine;
             _uiWindowFactory = uiWindowFactory;
             _audioPlayback = audioPlayback;
+            _screenFader = screenFader;
+            _focusTestStateChanger = focusTestStateChanger;
         }
 
         private void Awake()
@@ -38,8 +44,11 @@ namespace Infrastructure
     YandexGame.GameReadyAPI();
     YandexGame.SetFullscreen(true);
 #endif
-                
                 PrepareUiStateMachine();
+                
+                _screenFader.FadeIn();
+                
+                _focusTestStateChanger.EnableFocusTest();
 
                 _isFirstAwake = false;
             }
@@ -49,24 +58,24 @@ namespace Infrastructure
 
         private void PrepareUiStateMachine()
         {
-            AddState(new UiStateMainMenu());
-            AddState(new UiStateLeaderboard());
-            AddState(new UiStateSettings());
-            AddState(new UiStateGameComplete());
-            AddState(new UiStatePauseMenu());
-            AddState(new UiStatePauseButton());
-            AddState(new UIStateLevelComplete());
-            AddState(new UiStateLevelFailed());
-            AddState(new UiStateRestartGameQuestion());
-            AddState(new UiStateAuthorizationQuestion());
-            AddState(new UiStateTutorialAliens());
-            AddState(new UiStateTutorialAstronauts());
-            AddState(new UiStateTutorialTornado());
-            AddState(new UiStateTutorialObstacles());
-            AddState(new UiStateTutorialFinish());
-            AddState(new UiStateTutorialTouchscreenControl());
-            AddState(new UiStateTutorialKeyboardControl());
-            AddState(new UiStateNoWindow());
+            AddState(new UiStateMainMenu(_uiWindowFactory));
+            AddState(new UiStateLeaderboard(_uiWindowFactory));
+            AddState(new UiStateSettings(_uiWindowFactory));
+            AddState(new UiStateGameComplete(_uiWindowFactory));
+            AddState(new UiStatePauseMenu(_uiWindowFactory));
+            AddState(new UiStatePauseButton(_uiWindowFactory));
+            AddState(new UIStateLevelComplete(_uiWindowFactory));
+            AddState(new UiStateLevelFailed(_uiWindowFactory));
+            AddState(new UiStateRestartGameQuestion(_uiWindowFactory));
+            AddState(new UiStateAuthorizationQuestion(_uiWindowFactory));
+            AddState(new UiStateTutorialAliens(_uiWindowFactory));
+            AddState(new UiStateTutorialAstronauts(_uiWindowFactory));
+            AddState(new UiStateTutorialTornado(_uiWindowFactory));
+            AddState(new UiStateTutorialObstacles(_uiWindowFactory));
+            AddState(new UiStateTutorialFinish(_uiWindowFactory));
+            AddState(new UiStateTutorialTouchscreenControl(_uiWindowFactory));
+            AddState(new UiStateTutorialKeyboardControl(_uiWindowFactory));
+            AddState(new UiStateNoWindow(_uiWindowFactory));
         }
 
         private void AddState(UiStateMachineState state)

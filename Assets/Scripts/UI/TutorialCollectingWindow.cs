@@ -8,9 +8,9 @@ namespace UI
 
         protected override void Awake()
         {
-            _catchZoneViewer = GetCatchZoneViewer();
-
             base.Awake();
+            
+            _catchZoneViewer = GetCatchZoneViewer();
         }
 
         public override void PanelIntro()

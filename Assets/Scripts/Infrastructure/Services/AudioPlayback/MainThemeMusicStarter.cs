@@ -1,6 +1,7 @@
 using Ami.BroAudio;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.AudioPlayback
 {
@@ -8,14 +9,15 @@ namespace Infrastructure.Services.AudioPlayback
     {
         private IAudioPlayback _audioPlayback;
         
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback)
+        private void Construct()
         {
-            _audioPlayback = audioPlayback;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
         }
-        
+
         private void Awake()
         {
+            Construct();
+            
             SoundID menuMusicTheme = _audioPlayback.MusicContainer.MenuTheme;
 
             _audioPlayback.PlayMusic(menuMusicTheme);

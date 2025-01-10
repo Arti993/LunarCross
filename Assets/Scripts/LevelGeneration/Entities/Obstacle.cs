@@ -1,10 +1,10 @@
 using System.Collections;
 using Ami.BroAudio;
 using Infrastructure.Services.AudioPlayback;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vehicle.ReactZones;
-
 
 namespace LevelGeneration.Entities
 {
@@ -24,14 +24,15 @@ namespace LevelGeneration.Entities
         private bool _isCanCollise;
         private IAudioPlayback _audioPlayback;
 
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback)
+        private void Construct()
         {
-            _audioPlayback = audioPlayback;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
         }
 
         private void Awake()
         {
+            Construct();
+
             _rigidbody = GetComponent<Rigidbody>();
             _collider = GetComponent<Collider>();
             _movement = GetComponent<Movement>();

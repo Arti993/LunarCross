@@ -2,8 +2,9 @@ using Ami.BroAudio;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelGeneration
 {
@@ -21,11 +22,15 @@ namespace LevelGeneration
         private IAudioPlayback _audioPlayback;
         private IUiStateMachine _uiStateMachine;
 
-        [Inject]
-        private void Construct(IAudioPlayback audioPlayback, IUiStateMachine uiStateMachine)
+        private void Construct()
         {
-            _audioPlayback = audioPlayback;
-            _uiStateMachine = uiStateMachine;
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void Start()

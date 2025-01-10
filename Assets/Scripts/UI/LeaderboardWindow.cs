@@ -13,14 +13,6 @@ namespace UI
     {
         [SerializeField] private LeaderboardYG _leaderboardYG;
 
-        private IUiStateMachine _uiStateMachine;
-
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine)
-        {
-            _uiStateMachine = uiStateMachine;
-        }
-        
         public void OpenWindow()
         {
             PanelIntro();
@@ -31,10 +23,10 @@ namespace UI
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
             if (currentSceneIndex == (int) SceneIndex.MainMenu)
-                _uiStateMachine.SetState<UiStateMainMenu>();
+                UiStateMachine.SetState<UiStateMainMenu>();
 
             if (currentSceneIndex == (int) SceneIndex.Final)
-                _uiStateMachine.SetState<UiStateGameComplete>();
+                UiStateMachine.SetState<UiStateGameComplete>();
         }
     }
 }

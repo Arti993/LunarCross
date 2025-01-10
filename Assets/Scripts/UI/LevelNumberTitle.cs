@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 using Infrastructure.Services.GameProgress;
 using Reflex.Attributes;
+using Reflex.Extensions;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -19,11 +21,15 @@ namespace UI
 
         private Sequence _sequence;
         private IGameProgress _gameProgress;
-
-        [Inject]
-        private void Construct(IGameProgress gameProgress)
+        
+        private void Construct()
         {
-            _gameProgress = gameProgress;
+            _gameProgress = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameProgress>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void Start()

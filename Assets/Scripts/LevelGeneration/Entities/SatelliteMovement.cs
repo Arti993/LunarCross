@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LevelGeneration.Entities
 {
@@ -22,11 +24,9 @@ namespace LevelGeneration.Entities
         private bool _isFirstAwake = true;
         private Transform _transform;
 
-        private void Start()
+        private void Awake()
         {
             _transform = transform;
-
-            Move();
         }
 
         private void OnEnable()
@@ -46,6 +46,12 @@ namespace LevelGeneration.Entities
             
             _startTime = Time.time;
             IsMoving = true;
+            
+            _startPoint = new Vector3(_transform.position.x, _transform.position.y + OffsetY, _transform.position.z);
+            _transform.position = _startPoint;
+            _endPoint = new Vector3(_startPoint.x, _startPoint.y + _levitationHeight, _startPoint.z);
+            _journeyLength = Vector3.Distance(_startPoint, _endPoint);
+            _delayBeforeMove = Random.Range(_minDelayBeforeMove, _maxDelayBeforeMove);
 
             while (IsMoving)
             {
@@ -64,12 +70,6 @@ namespace LevelGeneration.Entities
 
                 yield return null;
             }
-
-            _startPoint = new Vector3(_transform.position.x, _transform.position.y + OffsetY, _transform.position.z);
-            _transform.position = _startPoint;
-            _endPoint = new Vector3(_startPoint.x, _startPoint.y + _levitationHeight, _startPoint.z);
-            _journeyLength = Vector3.Distance(_startPoint, _endPoint);
-            _delayBeforeMove = Random.Range(_minDelayBeforeMove, _maxDelayBeforeMove);
         }
     }
 }

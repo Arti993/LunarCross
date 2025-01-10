@@ -1,27 +1,28 @@
 using System;
 using Infrastructure.Services.Factories.GameplayFactory;
-using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vehicle;
 
 namespace UI
 {
     public class TutorialWindow : UiWindow
     {
-        private IUiStateMachine _uiStateMachine;
         private IGameplayFactory _gameplayFactory;
         
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine, IGameplayFactory gameplayFactory)
+        protected override void Construct()
         {
-            _uiStateMachine = uiStateMachine;
-            _gameplayFactory = gameplayFactory;
+            base.Construct();
+            
+            _gameplayFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IGameplayFactory>();
         }
         
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             Vector3 startPosition = PanelRect.localPosition;
 
             startPosition.y = PanelBottomPosY;
@@ -45,7 +46,7 @@ namespace UI
 
         public void Exit()
         {
-            _uiStateMachine.SetState<UiStatePauseButton>();
+            UiStateMachine.SetState<UiStatePauseButton>();
         }
 
         protected CatchZoneViewer GetCatchZoneViewer()

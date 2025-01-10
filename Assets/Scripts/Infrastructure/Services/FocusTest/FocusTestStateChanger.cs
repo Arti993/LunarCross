@@ -7,14 +7,14 @@ namespace Infrastructure.Services.FocusTest
 {
     public class FocusTestStateChanger : IFocusTestStateChanger
     {
+        private IAssetsProvider _provider;
         private GameObject _focusTestObject;
         private FocusTest _focusTest;
         private bool _isNeedToOpenPauseMenu;
 
         public FocusTestStateChanger(IAssetsProvider provider)
         {
-            _focusTestObject = provider.Instantiate(PrefabsPaths.FocusTest);
-            _focusTest = _focusTestObject.GetComponent<FocusTest>();
+            _provider = provider;
         }
 
         public bool IsNeedToOpenPauseMenu => _isNeedToOpenPauseMenu;
@@ -23,6 +23,12 @@ namespace Infrastructure.Services.FocusTest
 
         public void EnableFocusTest()
         {
+            if (_focusTestObject == null)
+            {
+                _focusTestObject = _provider.Instantiate(PrefabsPaths.FocusTest);
+                _focusTest = _focusTestObject.GetComponent<FocusTest>();
+            }
+            
             _focusTestObject.SetActive(true);
         }
 

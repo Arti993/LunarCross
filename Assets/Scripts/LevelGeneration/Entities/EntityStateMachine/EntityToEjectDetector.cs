@@ -1,7 +1,8 @@
 using Infrastructure.Services.Factories.ParticleSystemFactory;
 using LevelGeneration.Entities.EntityStateMachine.Alien;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vehicle.BindPoints;
 
 namespace LevelGeneration.Entities.EntityStateMachine
@@ -12,10 +13,15 @@ namespace LevelGeneration.Entities.EntityStateMachine
         
         private IParticleSystemFactory _particleSystemFactory;
         
-        [Inject]
-        private void Construct(IParticleSystemFactory screenFader)
+  
+        private void Construct()
         {
-            _particleSystemFactory = screenFader;
+            _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void OnEnable()

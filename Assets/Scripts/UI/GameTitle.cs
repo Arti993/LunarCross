@@ -1,6 +1,7 @@
 using Infrastructure.Services.Localization;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI
@@ -19,13 +20,16 @@ namespace UI
         private string _currentLanguage;
         private ILocalization _localization;
 
-        [Inject]
-        private void Construct(ILocalization localization)
+        private void Construct()
         {
-            _localization = localization;
-            Debug.Log("отработал");
+            _localization = SceneManager.GetActiveScene().GetSceneContainer().Resolve<ILocalization>();
         }
-
+        
+        private void Awake()
+        {
+            Construct();
+        }
+        
         private void OnEnable()
         {
             _currentLanguage = _localization.GetCurrentLanguage();

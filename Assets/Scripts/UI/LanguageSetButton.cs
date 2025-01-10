@@ -1,6 +1,7 @@
 using Infrastructure.Services.Localization;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -9,11 +10,12 @@ namespace UI
         [SerializeField] private string _language;
 
         private ILocalization _localization;
-
-        [Inject]
-        private void Construct(ILocalization localization)
+        
+        protected override void Construct()
         {
-            _localization = localization;
+            base.Construct();
+            
+            _localization = SceneManager.GetActiveScene().GetSceneContainer().Resolve<ILocalization>();
         }
         
         public void ChooseLanguage()

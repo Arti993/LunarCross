@@ -1,4 +1,5 @@
 using Data;
+using Infrastructure.Services.Factories.UiFactory;
 using UI;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace Infrastructure.UIStateMachine.States
     public class UiStateMainMenu : UiStateMachineState
     {
         private MainMenu _menu;
-
-        public UiStateMainMenu()
+        
+        public UiStateMainMenu(IUiWindowFactory uiWindowFactory) : base(uiWindowFactory)
         {
             PrefabPath = PrefabsPaths.MainMenuButtons;
         }

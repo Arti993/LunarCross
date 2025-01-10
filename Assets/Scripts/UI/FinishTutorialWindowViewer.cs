@@ -1,7 +1,8 @@
 using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States.TutorialStates;
-using Reflex.Attributes;
+using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vehicle;
 
 namespace UI
@@ -11,10 +12,14 @@ namespace UI
         private bool _isShowed;
         private IUiStateMachine _uiStateMachine;
 
-        [Inject]
-        private void Construct(IUiStateMachine uiStateMachine)
+        private void Construct()
         {
-            _uiStateMachine = uiStateMachine;
+            _uiStateMachine = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IUiStateMachine>();
+        }
+
+        private void Awake()
+        {
+            Construct();
         }
 
         private void OnTriggerEnter(Collider other)
