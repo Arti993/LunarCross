@@ -4,9 +4,9 @@ namespace Infrastructure.Services.ScreenFader
 {
     public interface IScreenFader : IService
     {
-        public event Action FadingComplete;
+        public event Action FadingCompleted;
 
-        public event Action FadingStart;
+        public event Action FadingStarted;
 
         public bool IsActive();
 

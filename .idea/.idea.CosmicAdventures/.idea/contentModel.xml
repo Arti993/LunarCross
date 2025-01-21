@@ -1206,7 +1206,6 @@
                 <e p="UIStateLevelComplete.cs" t="Include" />
                 <e p="UiStateLevelFailed.cs" t="Include" />
                 <e p="UiStateMainMenu.cs" t="Include" />
-                <e p="UiStateNoWindow.cs" t="Include" />
                 <e p="UiStatePauseButton.cs" t="Include" />
                 <e p="UiStatePauseMenu.cs" t="Include" />
                 <e p="UiStateRestartGameQuestion.cs" t="Include" />
@@ -1249,7 +1248,6 @@
                 <e p="IReactableOnToss.cs" t="Include" />
                 <e p="KnockedState.cs" t="Include" />
                 <e p="NpcBehaviour.cs" t="Include" />
-                <e p="ReactableOnCatchState.cs" t="Include" />
               </e>
               <e p="IPlaceableToVehicle.cs" t="Include" />
               <e p="Movement.cs" t="Include" />

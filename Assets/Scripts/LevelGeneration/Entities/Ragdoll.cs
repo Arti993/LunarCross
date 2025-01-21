@@ -18,11 +18,7 @@ namespace LevelGeneration.Entities
             _ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
             _ragdollColliders = GetComponentsInChildren<Collider>();
 
-            foreach (Rigidbody rigidbody in _ragdollRigidbodies)
-                rigidbody.isKinematic = true;
-
-            foreach (Collider collider in _ragdollColliders)
-                collider.enabled = false;
+            DisableFunctioning();
         }
 
         public void TurnOn()
@@ -31,11 +27,7 @@ namespace LevelGeneration.Entities
 
             _spineRigidbody.isKinematic = false;
 
-            foreach (Rigidbody rigidbody in _ragdollRigidbodies)
-                rigidbody.isKinematic = false;
-
-            foreach (Collider collider in _ragdollColliders)
-                collider.enabled = true;
+            EnableFunctioning();
         }
 
         public void TurnOff()
@@ -45,11 +37,7 @@ namespace LevelGeneration.Entities
 
             _spineRigidbody.isKinematic = true;
 
-            foreach (Rigidbody rigidbody in _ragdollRigidbodies)
-                rigidbody.isKinematic = true;
-
-            foreach (Collider collider in _ragdollColliders)
-                collider.enabled = false;
+            DisableFunctioning();
 
             _animator.enabled = true;
         }
@@ -57,6 +45,24 @@ namespace LevelGeneration.Entities
         public Rigidbody GetSpineRigidbody()
         {
             return _spineRigidbody;
+        }
+
+        private void EnableFunctioning()
+        {
+            foreach (Rigidbody rigidbody in _ragdollRigidbodies)
+                rigidbody.isKinematic = false;
+
+            foreach (Collider collider in _ragdollColliders)
+                collider.enabled = true;
+        }
+
+        private void DisableFunctioning()
+        {
+            foreach (Rigidbody rigidbody in _ragdollRigidbodies)
+                rigidbody.isKinematic = true;
+
+            foreach (Collider collider in _ragdollColliders)
+                collider.enabled = false;
         }
     }
 }

@@ -1,26 +1,51 @@
 using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 namespace LevelGeneration.Entities
 {
     public abstract class Movement : MonoBehaviour
     {
-        protected bool IsMoving;
-        private Coroutine _movingCoroutine;
+        [SerializeField] protected float MinDelayBeforeMove = 0f;
+        [SerializeField] protected float MaxDelayBeforeMove = 0.7f;
+        
+        protected Transform Transform;
+        protected bool IsLoopMoving;
+        protected float StartTime;
+        protected float DelayBeforeMove;
+        private Coroutine MovingCoroutine;
+
+        private void Awake()
+        {
+            Transform = transform;
+        }
+
+        private void OnEnable()
+        {
+            Move();
+        }
 
         private void OnDisable()
         {
-            IsMoving = false;
+            IsLoopMoving = false;
 
-            if (_movingCoroutine != null)
-                StopCoroutine(_movingCoroutine);
+            if (MovingCoroutine != null)
+                StopCoroutine(MovingCoroutine);
         }
 
-        protected void Move()
+        private void Move()
         {
-            _movingCoroutine = StartCoroutine(StartMovementAfterDelay());
+            DelayBeforeMove = Random.Range(MinDelayBeforeMove, MaxDelayBeforeMove);
+            
+            MovingCoroutine = StartCoroutine(StartLoopMovementAfterDelay());
         }
 
-        protected abstract IEnumerator StartMovementAfterDelay();
+        protected void DetectMovementStart()
+        {
+            StartTime = Time.time;
+            IsLoopMoving = true;
+        }
+
+        protected abstract IEnumerator StartLoopMovementAfterDelay();
     }
 }

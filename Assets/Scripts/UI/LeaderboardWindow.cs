@@ -1,8 +1,5 @@
 using Data;
-using Infrastructure;
-using Infrastructure.UIStateMachine;
 using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
 using UnityEngine;
 using YG;
 using UnityEngine.SceneManagement;

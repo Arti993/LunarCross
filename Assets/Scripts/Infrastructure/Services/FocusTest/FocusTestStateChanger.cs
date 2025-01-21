@@ -1,6 +1,5 @@
 using Data;
 using Infrastructure.Services.AssetsProvider;
-using Reflex.Attributes;
 using UnityEngine;
 
 namespace Infrastructure.Services.FocusTest

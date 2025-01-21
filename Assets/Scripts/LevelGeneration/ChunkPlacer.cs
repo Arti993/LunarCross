@@ -17,21 +17,19 @@ namespace LevelGeneration
 
         [SerializeField] private Chunk _firstChunk;
 
+        protected readonly List<Chunk> SpawnedChunks = new List<Chunk>();
+        private List<Chunk> _currentVisibleChunks = new List<Chunk>();
         private EntitySpawner _entitySpawner;
         private Chunk _emptyChunk;
         private Chunk _landscapeChunk;
         private Chunk _tornadoChunk;
         private Chunk _finishChunk;
+        private Chunk _newChunk;
         private int _collectableEntitiesCount;
         private int _enemyEntitiesCount;
         private bool _isAllChunksSpawned;
         private Transform _playerTransform;
-
-        private List<Chunk> _currentVisibleChunks = new List<Chunk>();
-        private Chunk _newChunk;
-
-        protected readonly List<Chunk> SpawnedChunks = new List<Chunk>();
-        
+        private Level _currentLevel;
         private IGameProgress _gameProgress;
         private ILevelsSettingsNomenclature _levelsSettingsNomenclature;
 
@@ -155,36 +153,35 @@ namespace LevelGeneration
 
         private void ApplyLevelSettings()
         {
-            Level currentLevel;
-
             if (this is TutorialChunkPlacer)
             {
-                currentLevel = _levelsSettingsNomenclature.GetTutorialLevelSettings();
+                _currentLevel = _levelsSettingsNomenclature.GetTutorialLevelSettings();
             }
             else
             {
                 int levelNumber = _gameProgress.GetCurrentLevelNumber();
 
-                currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
+                _currentLevel = _levelsSettingsNomenclature.GetLevelSettings(levelNumber);
             }
 
-            _landscapeChunk = currentLevel.ChunkWithObstacles;
-            _tornadoChunk = currentLevel.TornadoChunk;
-            _emptyChunk = currentLevel.EmptyChunk;
-            _finishChunk = currentLevel.FinishChunk;
-            _collectableEntitiesCount = currentLevel.CollectableEntitiesCount;
-            _enemyEntitiesCount = currentLevel.EnemiesCount;
+            _landscapeChunk = _currentLevel.ChunkWithObstacles;
+            _tornadoChunk = _currentLevel.TornadoChunk;
+            _emptyChunk = _currentLevel.EmptyChunk;
+            _finishChunk = _currentLevel.FinishChunk;
+            _collectableEntitiesCount = _currentLevel.CollectableEntitiesCount;
+            _enemyEntitiesCount = _currentLevel.EnemiesCount;
 
-            _firstChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial,
-                currentLevel.MountainsMaterial);
-            _landscapeChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial,
-                currentLevel.MountainsMaterial);
-            _tornadoChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial,
-                currentLevel.MountainsMaterial);
-            _emptyChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial,
-                currentLevel.MountainsMaterial);
-            _finishChunk.SetMaterials(currentLevel.SurfaceMaterial, currentLevel.StonesMaterial,
-                currentLevel.MountainsMaterial);
+            SetChunkMaterials(_firstChunk);
+            SetChunkMaterials(_landscapeChunk);
+            SetChunkMaterials(_tornadoChunk);
+            SetChunkMaterials(_emptyChunk);
+            SetChunkMaterials(_finishChunk);
+        }
+
+        private void SetChunkMaterials(Chunk chunk)
+        {
+            chunk.SetMaterials(_currentLevel.SurfaceMaterial, _currentLevel.StonesMaterial,
+                _currentLevel.MountainsMaterial);
         }
 
         private Chunk SpawnChunk(Chunk chunkPrefab)

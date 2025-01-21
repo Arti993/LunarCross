@@ -75,7 +75,6 @@ namespace Infrastructure
             AddState(new UiStateTutorialFinish(_uiWindowFactory));
             AddState(new UiStateTutorialTouchscreenControl(_uiWindowFactory));
             AddState(new UiStateTutorialKeyboardControl(_uiWindowFactory));
-            AddState(new UiStateNoWindow(_uiWindowFactory));
         }
 
         private void AddState(UiStateMachineState state)

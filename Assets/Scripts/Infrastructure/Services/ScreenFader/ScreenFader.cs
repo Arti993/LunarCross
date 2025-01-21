@@ -4,8 +4,6 @@ using DG.Tweening;
 using Infrastructure.Services.AssetsProvider;
 using Infrastructure.Services.FocusTest;
 using Infrastructure.UIStateMachine;
-using Infrastructure.UIStateMachine.States;
-using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -29,8 +27,8 @@ namespace Infrastructure.Services.ScreenFader
             _provider = provider;
         }
 
-        public event Action FadingComplete;
-        public event Action FadingStart;
+        public event Action FadingCompleted;
+        public event Action FadingStarted;
 
         public bool IsActive()
         {
@@ -46,7 +44,7 @@ namespace Infrastructure.Services.ScreenFader
                 _blackScreen = _screenFaderObject.GetComponentInChildren<Image>();
             }
             
-            FadingStart?.Invoke();
+            FadingStarted?.Invoke();
 
             _screenFaderObject.SetActive(true);
 
@@ -65,7 +63,7 @@ namespace Infrastructure.Services.ScreenFader
                 if (currentSceneIndex == (int) SceneIndex.Gameplay || currentSceneIndex == (int) SceneIndex.Tutorial)
                     _focusTestStateChanger.EnablePauseMenuOpening();
 
-                FadingComplete?.Invoke();
+                FadingCompleted?.Invoke();
 
                 sequence.Kill();
             });
@@ -79,9 +77,9 @@ namespace Infrastructure.Services.ScreenFader
 
             sequence.AppendCallback(() =>
             {
-                FadingStart?.Invoke();
+                FadingStarted?.Invoke();
 
-                _uiStateMachine.SetState<UiStateNoWindow>();
+                _uiStateMachine.ExitCurrentState();
 
                 _screenFaderObject.SetActive(true);
             });
@@ -92,7 +90,7 @@ namespace Infrastructure.Services.ScreenFader
 
                 Resources.UnloadUnusedAssets();
 
-                FadingComplete?.Invoke();
+                FadingCompleted?.Invoke();
 
                 SceneManager.LoadScene(sceneIndex);
 

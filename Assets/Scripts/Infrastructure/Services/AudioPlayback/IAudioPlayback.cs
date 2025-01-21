@@ -17,7 +17,6 @@ namespace Infrastructure.Services.AudioPlayback
         public void ChangeMusicVolume(float volume);
         public void PlayMusic(SoundID soundID);
         public void PlaySound(SoundID soundID);
-        public void StopSound(SoundID soundID);
         public void PlayLevelTheme();
         public void PlayExplosionSound();
         public void SaveVolume(float volume, string volumeTag);

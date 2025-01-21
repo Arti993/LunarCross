@@ -11,8 +11,8 @@ namespace UI
         protected override void OnEnable()
         {
             _button = gameObject.GetComponent<Button>();
-            ScreenFader.FadingComplete += OnScreenFaderDisable;
-            ScreenFader.FadingStart += OnScreenFaderEnable;
+            ScreenFader.FadingCompleted += OnScreenFaderDisable;
+            ScreenFader.FadingStarted += OnScreenFaderEnable;
         }
 
         public void SetInterractable()

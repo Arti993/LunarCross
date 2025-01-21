@@ -18,14 +18,14 @@ namespace Vehicle
         [SerializeField] private List<InsideBindPoint> _insideBindPoints;
 
         private List<BindPoint> _allBindPoints = new List<BindPoint>();
-        private IAudioPlayback _audioPlayback;
         private IParticleSystemFactory _particleSystemFactory;
+        private IAudioPlayback _audioPlayback;
+        
         
         private void Construct()
         {
-            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
-
             _particleSystemFactory = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IParticleSystemFactory>();
+            _audioPlayback = SceneManager.GetActiveScene().GetSceneContainer().Resolve<IAudioPlayback>();
         }
 
         private void Awake()
@@ -40,8 +40,6 @@ namespace Vehicle
 
         public bool TryFillInsideBindPoint(EntityBehaviour entity)
         {
-            bool isFillingSuccess = false;
-
             BindPoint previousBindPoint = entity.GetComponentInParent<BindPoint>();
 
             if (previousBindPoint is null)
@@ -49,42 +47,22 @@ namespace Vehicle
 
             if (TryFillBindPoint(entity, _insideBindPoints))
             {
-                isFillingSuccess = true;
-
-                PlayAstronautPickUpSound();
-
                 previousBindPoint.Exempt();
-            }
 
-            return isFillingSuccess;
+                return true;
+            }
+            
+            return false;
         }
 
         public bool TryFillLeftSideBindPoint(EntityBehaviour entity)
         {
-            if (TryFillBindPoint(entity, _leftSideBindPoints))
-            {
-                PlayAstronautPickUpSound();
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return TryFillBindPoint(entity, _leftSideBindPoints);
         }
 
         public bool TryFillRightSideBindPoint(EntityBehaviour entity)
         {
-            if (TryFillBindPoint(entity, _rightSideBindPoints))
-            {
-                PlayAstronautPickUpSound();
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return TryFillBindPoint(entity, _rightSideBindPoints);
         }
 
         public IReadOnlyList<BindPoint> GetEntitiesBindPoints()
@@ -94,21 +72,21 @@ namespace Vehicle
 
         private bool TryFillBindPoint(EntityBehaviour entity, IReadOnlyList<BindPoint> bindPoints)
         {
-            bool isFillingSuccess = false;
-
-            for (int i = 0; i < bindPoints.Count; i++)
+            foreach (var bindPoint in bindPoints)
             {
-                if (bindPoints[i].IsFree)
+                if (bindPoint.IsFree)
                 {
                     _particleSystemFactory.ShowCollectEffect(entity.transform.position);
 
-                    bindPoints[i].Fill(entity);
-                    isFillingSuccess = true;
-                    break;
+                    bindPoint.Fill(entity);
+                    
+                    PlayAstronautPickUpSound();
+
+                    return true;
                 }
             }
 
-            return isFillingSuccess;
+            return false;
         }
 
         private void PutAllPointsInOneList()
@@ -128,7 +106,7 @@ namespace Vehicle
                 _allBindPoints.Add(bindPoint);
             }
         }
-
+        
         private void PlayAstronautPickUpSound()
         {
             SoundID astronautPickUp = _audioPlayback.SoundsContainer.AstronautPickUp;

@@ -35,14 +35,14 @@ namespace UI
             else
                 IsClickable = true;
 
-            ScreenFader.FadingComplete += OnScreenFaderDisable;
-            ScreenFader.FadingStart += OnScreenFaderEnable;
+            ScreenFader.FadingCompleted += OnScreenFaderDisable;
+            ScreenFader.FadingStarted += OnScreenFaderEnable;
         }
 
         protected virtual void OnDisable()
         {
-            ScreenFader.FadingComplete -= OnScreenFaderDisable;
-            ScreenFader.FadingStart -= OnScreenFaderEnable;
+            ScreenFader.FadingCompleted -= OnScreenFaderDisable;
+            ScreenFader.FadingStarted -= OnScreenFaderEnable;
         }
 
         public virtual void OnPointerClick(PointerEventData eventData)

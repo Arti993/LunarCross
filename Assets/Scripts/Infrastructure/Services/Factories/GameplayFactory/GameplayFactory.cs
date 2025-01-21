@@ -3,7 +3,6 @@ using Data;
 using Infrastructure.Services.AssetsProvider;
 using Infrastructure.Services.Factories.UiFactory;
 using PlayersInput;
-using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

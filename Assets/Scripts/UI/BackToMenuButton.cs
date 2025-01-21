@@ -1,7 +1,5 @@
 using Data;
-using Infrastructure;
 using Infrastructure.Services.ScreenFader;
-using Reflex.Attributes;
 using Reflex.Extensions;
 using UnityEngine.SceneManagement;
 

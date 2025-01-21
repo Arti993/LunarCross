@@ -22,5 +22,11 @@ namespace Infrastructure.UIStateMachine
             _currentState = newState;
             _currentState.Enter();
         }
+
+        public void ExitCurrentState()
+        {
+            _currentState?.Exit();
+            _currentState = null;
+        }
     }
 }

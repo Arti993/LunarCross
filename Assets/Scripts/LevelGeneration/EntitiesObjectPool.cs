@@ -48,7 +48,7 @@ namespace LevelGeneration
             return obj;
         }
 
-        public void Release(Entity obj)
+        private void Release(Entity obj)
         {
             obj.gameObject.SetActive(false);
         }
@@ -64,7 +64,7 @@ namespace LevelGeneration
 
             _objects.Add(obj);
 
-            obj.Disabled += OnObjectDisable;
+            obj.Disabled += OnObjectDisabled;
 
             return obj;
         }
@@ -80,7 +80,7 @@ namespace LevelGeneration
             }
         }
 
-        private void OnObjectDisable(Entity obj)
+        private void OnObjectDisabled(Entity obj)
         {
             Release(obj);
         }

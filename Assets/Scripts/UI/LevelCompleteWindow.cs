@@ -8,10 +8,7 @@ using Ami.BroAudio;
 using Data;
 using Infrastructure.Services.AudioPlayback;
 using Infrastructure.Services.Factories.ParticleSystemFactory;
-using Infrastructure.Services.FocusTest;
-using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
-using Infrastructure.Services.ScreenFader;
 using Reflex.Extensions;
 using ScriptableObjects;
 

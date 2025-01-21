@@ -1,10 +1,7 @@
-using System;
-using System.Linq;
 using Ami.BroAudio;
 using Data;
 using Infrastructure.Services.GameProgress;
 using Infrastructure.Services.LevelSettings;
-using Reflex.Attributes;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -93,31 +90,13 @@ namespace Infrastructure.Services.AudioPlayback
 
                 _isMenuThemePlaying = true;
             }
-
-            if (MusicContainer.GetIdList().Contains(soundID))
-            {
-                MusicContainer.Play(soundID);
-            }
-            else
-            {
-                throw new InvalidOperationException();
-            }
+            
+            MusicContainer.Play(soundID);
         }
 
         public void PlaySound(SoundID soundID)
         {
-            if (SoundsContainer.GetIdList().Contains(soundID))
-                SoundsContainer.Play(soundID);
-            else
-                throw new InvalidOperationException();
-        }
-
-        public void StopSound(SoundID soundID)
-        {
-            if (SoundsContainer.GetIdList().Contains(soundID))
-                SoundsContainer.Play(soundID);
-            else
-                throw new InvalidOperationException();
+            SoundsContainer.Play(soundID);
         }
 
         public void PlayLevelTheme()

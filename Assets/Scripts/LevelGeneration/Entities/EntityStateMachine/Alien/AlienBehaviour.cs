@@ -34,14 +34,9 @@ namespace LevelGeneration.Entities.EntityStateMachine.Alien
         private void OnTriggerEnter(Collider other)
         {
             _ = other.gameObject.TryGetComponent(out BindPoint bindpoint);
+            _ = other.gameObject.TryGetComponent(out VehicleCatchBehaviour vehicle);
 
-            if (bindpoint != null && bindpoint.IsFree == false)
-            {
-                if (GetCurrentState() is HumanoidKnockedState == false)
-                    SwitchState<AlienAfterEjectingState>();
-            }
-
-            if (other.gameObject.TryGetComponent(out VehicleCatchBehaviour vehicle))
+            if (vehicle != null || bindpoint != null && bindpoint.IsFree == false)
             {
                 if (GetCurrentState() is HumanoidKnockedState == false)
                     SwitchState<AlienAfterEjectingState>();

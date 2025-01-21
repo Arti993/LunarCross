@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
 using DG.Tweening;
 using Infrastructure.Services.GameProgress;
-using Reflex.Attributes;
 using Reflex.Extensions;
 using TMPro;
 using UnityEngine.SceneManagement;

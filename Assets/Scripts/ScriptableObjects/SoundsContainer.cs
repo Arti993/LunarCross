@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ami.BroAudio;
 using Infrastructure.Services.AudioPlayback;
 using Reflex.Extensions;
@@ -40,28 +42,12 @@ namespace ScriptableObjects
         public SoundID Tornado => _tornado;
         public SoundID ButtonClick => _buttonClick;
 
-        public IReadOnlyList<SoundID> GetIdList()
-        {
-            List<SoundID> sounds = new List<SoundID>
-            {
-                _alienGrab,
-                _astronautPickUp,
-                _explosion,
-                _knock,
-                _ray,
-                _rocketEngine,
-                _rocketTurbine,
-                _savingAstronaut,
-                _starCollect,
-                _tornado,
-                _buttonClick
-            };
-
-            return sounds;
-        }
 
         public void Play(SoundID soundID)
         {
+            if (GetIdList().Contains(soundID) == false)
+                throw new InvalidOperationException();
+
             float volume;
 
             if (PlayerPrefs.HasKey(SoundsMutedTag))
@@ -81,6 +67,26 @@ namespace ScriptableObjects
         public void Stop(SoundID soundID)
         {
             BroAudio.Stop(soundID);
+        }
+        
+        private IReadOnlyList<SoundID> GetIdList()
+        {
+            List<SoundID> sounds = new List<SoundID>
+            {
+                _alienGrab,
+                _astronautPickUp,
+                _explosion,
+                _knock,
+                _ray,
+                _rocketEngine,
+                _rocketTurbine,
+                _savingAstronaut,
+                _starCollect,
+                _tornado,
+                _buttonClick
+            };
+
+            return sounds;
         }
     }
 }

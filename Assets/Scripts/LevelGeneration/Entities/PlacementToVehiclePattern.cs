@@ -15,6 +15,7 @@ namespace LevelGeneration.Entities
         private EntityBehaviour _entity;
         private VehicleCatchBehaviour _vehicleCatchBehaviour;
         private CatchZoneChecker _catchZoneChecker;
+   
 
         public PlacementToVehiclePattern(EntityBehaviour entity)
         {
@@ -36,7 +37,6 @@ namespace LevelGeneration.Entities
                 else
                 {
                     _entity.SwitchState<KnockedState>();
-                    return false;
                 }
             }
             else if (bindPoint is OutsideBindPoint)
@@ -46,15 +46,9 @@ namespace LevelGeneration.Entities
                     _entity.SwitchState<InsideVehicleAttachState>();
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public void UnplaceFromVehicle()
@@ -83,8 +77,6 @@ namespace LevelGeneration.Entities
 
         private bool TryPlaceOutsideVehicle()
         {
-            bool isPlacedOutsideVehicle = false;
-
             if (_catchZoneChecker.CheckEnteringCatchZone(out VehicleCatchZone catchZone) == false)
                 return false;
 
@@ -96,22 +88,20 @@ namespace LevelGeneration.Entities
             if (catchZone is VehicleLeftCatchZone)
             {
                 if (_vehicleCatchBehaviour.TryFillLeftSideBindPoint(_entity))
-                    isPlacedOutsideVehicle = true;
-
-                if (isPlacedOutsideVehicle == false && _vehicleCatchBehaviour.TryFillRightSideBindPoint(_entity))
-                    isPlacedOutsideVehicle = true;
+                    return true;
+                else if (_vehicleCatchBehaviour.TryFillRightSideBindPoint(_entity))
+                    return true;
             }
 
             if (catchZone is VehicleRightCatchZone)
             {
                 if (_vehicleCatchBehaviour.TryFillRightSideBindPoint(_entity))
-                    isPlacedOutsideVehicle = true;
-
-                if (isPlacedOutsideVehicle == false && _vehicleCatchBehaviour.TryFillLeftSideBindPoint(_entity))
-                    isPlacedOutsideVehicle = true;
+                    return true;
+                else if (_vehicleCatchBehaviour.TryFillLeftSideBindPoint(_entity))
+                    return true;
             }
 
-            return isPlacedOutsideVehicle;
+            return false;
         }
 
         private bool TryPlaceInsideVehicle()

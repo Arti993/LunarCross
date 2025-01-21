@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ami.BroAudio;
 using Infrastructure.Services.AudioPlayback;
 using Reflex.Extensions;
@@ -27,25 +29,12 @@ namespace ScriptableObjects
 
         public SoundID MenuTheme => _menuTheme;
         public SoundID FinalTheme => _finalTheme;
-
-        public IReadOnlyList<SoundID> GetIdList()
-        {
-            List<SoundID> music = new List<SoundID>
-            {
-                _menuTheme,
-                _finalTheme,
-                _marsLevel,
-                _sandLevel,
-                _jungleLevel,
-                _snowLevel,
-                _blackLevel
-            };
-
-            return music;
-        }
-
+        
         public void Play(SoundID soundID)
         {
+            if(GetIdList().Contains(soundID) == false)
+                throw new InvalidOperationException();
+
             BroAudio.Stop(_currentPlayingMusicID);
 
             _currentPlayingMusicID = soundID;
@@ -66,11 +55,6 @@ namespace ScriptableObjects
             BroAudio.SetVolume(soundID, volume);
         }
 
-        public void Stop(SoundID soundID)
-        {
-            BroAudio.Stop(soundID);
-        }
-
         public void Mute()
         {
             BroAudio.SetVolume(_currentPlayingMusicID, 0f);
@@ -79,6 +63,22 @@ namespace ScriptableObjects
         public void SetVolume(float volume)
         {
             BroAudio.SetVolume(_currentPlayingMusicID, volume);
+        }
+        
+        private IReadOnlyList<SoundID> GetIdList()
+        {
+            List<SoundID> music = new List<SoundID>
+            {
+                _menuTheme,
+                _finalTheme,
+                _marsLevel,
+                _sandLevel,
+                _jungleLevel,
+                _snowLevel,
+                _blackLevel
+            };
+
+            return music;
         }
     }
 }
